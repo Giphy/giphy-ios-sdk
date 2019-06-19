@@ -10,77 +10,48 @@
 import UIKit
 import GiphyUISDK
 
-enum ButtonItems: Int {
-    case branded
-    case generic
-    case genericRounded
-    static let count = 3
-    
-    var itemCount: Int {
-        switch self {
-        case .branded: return 3
-        case .generic, .genericRounded: return 9
-        }
-    }
-}
-
 extension SettingsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return ButtonItems.count + 2
+        return settings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 { return settings.count }
-        if section == 1 { return 1 }
-        guard let item = ButtonItems(rawValue: section - 1) else { return 0 }
-        return item.itemCount
+        return settings[section].type.itemCount
     }
     
-    
-    func settingCellForIndexPath( _ indexPath: IndexPath) -> UICollectionViewCell {
-        let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.id, for: indexPath)
-        guard let cell = genericCell as? SettingCell else { return genericCell }
-        let settable = settings[indexPath.item]
-        cell.setting = settable
-        cell.delegate = self
-        return cell
-    }
-    
-    func layoutDidUpdate() {
-        let indexPath = IndexPath(row: 0, section: 1)
-        collectionView.reloadItems(at: [indexPath])
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let genericCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.id, for: indexPath)
+            guard let cell = genericCell as? HeaderCell else { return genericCell }
+            cell.title = settings[indexPath.section].type.title
+            return cell
+        }
+        return collectionView.dequeueReusableCell(withReuseIdentifier: kind, for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 { return settingCellForIndexPath(indexPath) }
-        if indexPath.section == 1 {
-            let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentTypeSettingCell.id, for: indexPath)
-            guard let cell = genericCell as? ContentTypeSettingCell else { return genericCell }
-            cell.layout = self.layout
+        let section = settings[indexPath.section]
+        let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: section.type.cellId, for: indexPath)
+        let item = settings[indexPath.section]
+        switch genericCell {
+        case let cell as SettingCell:
+            cell.setting = item
+            cell.delegate = self
+            return cell
+        case let cell as ContentTypeSettingCell:
+            cell.setting = item as? ContentTypeSetting
             cell.isDark = self.theme == .dark
             cell.delegate = self
             return cell
-        }
-        let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCell.id, for: indexPath)
-        guard let cell = genericCell as? ButtonCell, let buttonItem = ButtonItems(rawValue: indexPath.section - 1) else { return genericCell }
-        cell.backgroundColor = theme == .dark ? ButtonCell.backgroundColorDark : ButtonCell.backgroundColorLight
-        cell.delegate = self.delegate
-        
-        switch buttonItem {
-        case .branded:
-            let button = GPHBrandButton()
-            button.fill = brandButtonFills[indexPath.item % brandButtonFills.count]
-            button.rounded = indexPath.item == 1
-            cell.button = button
+        case let cell as ButtonCell:
+            guard let buttonSetting = item as? ButtonSetting else { return genericCell }
+            let buttons = buttonSetting.buttons(theme: self.theme)
+            cell.button = buttons[indexPath.item]
+            cell.delegate = self
             return cell
-        case .generic, .genericRounded:
-            let button = GPHGenericButton()
-            button.style = genericButtonStyles[indexPath.item % genericButtonStyles.count]
-            button.gradient = genericButtonGradients[Int(floor(Double(indexPath.item / genericButtonGradients.count)))]
-            button.rounded = buttonItem == .genericRounded
-            cell.button = button
-            return cell
+        default:
+            return genericCell
         }
     }
 }
@@ -97,12 +68,19 @@ extension SettingsViewController: SettingCellDelegate {
         case is GPHGridLayout:
             guard let layout = setting as? GPHGridLayout else { return }
             self.layout = layout
-            self.layoutDidUpdate()
+            self.contentTypeSetting = layout == .carousel ? .single : .multiple
+            collectionView.reloadData()
         case is ConfirmationScreenSetting:
             guard let confirmationScreen = setting as? ConfirmationScreenSetting else { return }
             self.confirmationScreen = confirmationScreen
         default: break
         }
+    }
+}
+
+extension SettingsViewController: ButtonCellDelegate {
+    func buttonDidChange(button: UIButton) {
+        delegate?.buttonDidChange(button)
     }
 }
 
@@ -112,15 +90,17 @@ extension SettingsViewController: ContentTypeSettingCellDelegate {
     }
 }
 
-// button styles
 extension SettingsViewController {
-    var brandButtonFills: [GPHBrandButtonFill] {
-        return [.color, .color, self.theme == .dark ? .white : .black]
+    var iconButtonStyles: [GPHGiphyButtonStyle] {
+        return [.logo, .logoRounded, .iconColor, self.theme == .dark ? .iconWhite : .iconBlack]
     }
-    
-    var genericButtonStyles: [GPHGenericButtonStyle] { return [.color, .white, .outline] }
-    
-    var genericButtonGradients: [GPHGenericButtonGradient] {
-        return [.blue, .pink, theme == .dark ? .white : .black]
+    var logoButtonStyles: [GPHGiphyButtonStyle] {
+        return [.logo, .logoRounded]
+    }
+    var gifButtonStyles: [GPHGifButtonStyle] {
+        return [.rectangle, .rectangleOutline, .square, .squareOutline]
+    }
+    var gifButtonColors: [GPHGifButtonColor] {
+        return [self.theme == .dark ? .white : .black, .pink, .blue]
     }
 }

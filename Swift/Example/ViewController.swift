@@ -80,9 +80,9 @@ class ViewController: UIViewController {
     }()
     
     var gifButton: UIButton = {
-        let button = GPHBrandButton()
-        button.fill = .color
-        button.rounded = true
+        let button = GPHGifButton()
+        button.style = .squareRounded
+        button.color = .black
         return button
     }()
     
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GiphyUISDK.configure(apiKey: "your-api-key")
+        GiphyUISDK.configure(apiKey: "oUThALwXNzrOG4b1jRyoPDtmZJmmW5HU")
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white
@@ -219,7 +219,7 @@ class ViewController: UIViewController {
         textFieldContainer.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.leftAnchor.constraint(equalTo: textFieldContainer.leftAnchor, constant: 6).isActive = true
-        button.topAnchor.constraint(equalTo: textFieldContainer.topAnchor, constant: 6).isActive = true
+        button.centerYAnchor.constraint(equalTo: textFieldContainer.centerYAnchor).isActive = true
         button.addTarget(self, action: #selector(gifButtonTapped), for: .touchUpInside)
         textFieldLeftConstraint?.constant = button.intrinsicContentSize.width + 15
         gifButton = button
@@ -258,9 +258,7 @@ class ViewController: UIViewController {
         let giphy = GiphyViewController()
         giphy.theme = settingsViewController.theme
         giphy.mediaTypeConfig = [.emoji]
-        giphy.layout = settingsViewController.layout
-        giphy.showConfirmationScreen = settingsViewController.confirmationScreen == .on
-        giphy.shouldLocalizeSearch = true
+        giphy.layout = .waterfall
         giphy.delegate = self 
         giphy.modalPresentationStyle = .overCurrentContext
         present(giphy, animated: true, completion: nil)

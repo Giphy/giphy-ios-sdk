@@ -26,8 +26,15 @@ class SettingsViewController: UIViewController {
     var theme: GPHTheme = GPHTheme.defaultSetting
     var confirmationScreen: ConfirmationScreenSetting = ConfirmationScreenSetting.defaultSetting
     var mediaTypeConfig: [GPHContentType] = GPHContentType.defaultSetting
+    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple
+    var iconButtons: IconButtonSetting = .square
+    var logoButtons: LogoButtonSetting = .square
+    var gifButtons: GifButtonSetting = .monochrome
+    var gifRoundButtons: GifRoundButtonSetting = .monochrome
+    var gifTextButtons: GifTextButtonSetting = .monochrome
+    var contentButtons: ContentTypeButtonSetting = .monochrome
 
-    var settings: [Setting] { return [theme, layout, confirmationScreen] }
+    var settings: [Setting] { return [theme, layout, confirmationScreen, contentTypeSetting, iconButtons, logoButtons, gifButtons, gifRoundButtons, gifTextButtons, contentButtons] }
     
     weak var delegate: SettingsDelegate?
     
@@ -42,6 +49,7 @@ class SettingsViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.headerReferenceSize = CGSize(width: CGFloat.infinity, height: 50.0)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -60,14 +68,24 @@ class SettingsViewController: UIViewController {
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         
         view.addSubview(collectionView)
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 60).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        let fullWidth = collectionView.widthAnchor.constraint(equalTo: view.safeWidthAnchor, constant: -SettingsViewController.sectionPadding * 2)
+        fullWidth.priority = .defaultHigh
+        fullWidth.isActive = true
+        
+        let maxWidth = collectionView.widthAnchor.constraint(lessThanOrEqualToConstant: 600.0)
+        maxWidth.priority = .required
+        maxWidth.isActive = true
+        
+        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.id)
         collectionView.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.id)
         collectionView.register(ContentTypeSettingCell.self, forCellWithReuseIdentifier: ContentTypeSettingCell.id)
         collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: ButtonCell.id)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -86,9 +104,11 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.section {
-        case 0, 1: return CGSize(width: collectionView.bounds.size.width, height: 100)
-        default: return CGSize(width: collectionView.bounds.size.width / 3, height: 100)
-        }
+        let section = settings[indexPath.section]
+        return CGSize(width: collectionView.bounds.size.width / CGFloat(section.type.columns), height: section.type.itemHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 20.0, right: 0)
     }
 }

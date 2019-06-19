@@ -20,22 +20,18 @@ class SettingCell: UICollectionViewCell {
     
     var setting: Setting? {
         didSet {
-            textLabel.text = setting?.type.title ?? ""
             segmentedControl.removeAllSegments()
-            guard let items = setting?.type.cases else { return }
-            for (index, setting) in items.enumerated() {
-                segmentedControl.insertSegment(withTitle: setting.string, at: index, animated: false)
+            segmentedControl.selectedSegmentIndex = 0
+            guard let items = setting?.cases else { return }
+            for (index, item) in items.enumerated() {
+                guard let item = item as? Setting else { return }
+                segmentedControl.insertSegment(withTitle: item.string, at: index, animated: false)
+                if item.string == self.setting?.string {
+                    segmentedControl.selectedSegmentIndex = index
+                }
             }
-            segmentedControl.selectedSegmentIndex = setting?.selectedIndex ?? 0
         }
     }
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        return label
-    }()
     
     let segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl()
@@ -46,25 +42,11 @@ class SettingCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(textLabel)
-        textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        textLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textLabel.textColor = SettingsViewController.sectionLabelColor
-        
-        let fullWidth = textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -SettingsViewController.sectionPadding * 2.0)
-        fullWidth.priority = .defaultHigh
-        fullWidth.isActive = true
-        
-        let maxWidth = textLabel.widthAnchor.constraint(lessThanOrEqualToConstant: SettingsViewController.sectionMaxWidth)
-        maxWidth.priority = .required
-        maxWidth.isActive = true
-        
         contentView.addSubview(segmentedControl)
-        segmentedControl.topAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
-        segmentedControl.leftAnchor.constraint(equalTo: textLabel.leftAnchor).isActive = true
-        segmentedControl.rightAnchor.constraint(equalTo: textLabel.rightAnchor).isActive = true
-        segmentedControl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SettingsViewController.sectionPadding).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        segmentedControl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        segmentedControl.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        segmentedControl.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         segmentedControl.addTarget(self, action: #selector(settingChanged), for: .valueChanged)
         segmentedControl.tintColor = SettingsViewController.sectionLabelColor
         segmentedControl.layer.cornerRadius = SettingsViewController.controlCornerRadius
@@ -80,11 +62,11 @@ class SettingCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        textLabel.text = ""
+        setting = nil
     }
     
     @objc func settingChanged() { 
-        guard let selected = setting?.type.cases[segmentedControl.selectedSegmentIndex] else { return }
+        guard let selected = setting?.cases[segmentedControl.selectedSegmentIndex] as? Setting else { return }
         delegate?.settingDidChange(setting: selected)
     }
 }

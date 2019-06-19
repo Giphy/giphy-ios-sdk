@@ -21,28 +21,20 @@ class ContentTypeSettingCell: UICollectionViewCell {
     static let id: String = "ContentTypeSettingCell"
     
     weak var delegate: ContentTypeSettingCellDelegate?
+    var setting: ContentTypeSetting? {
+        didSet {
+            updateButtons()
+        }
+    }
     var isDark: Bool = false {
         didSet {
             updateSelected()
-        }
-    }
-    var layout: GPHGridLayout = GPHGridLayout.defaultSetting {
-        didSet {
-            textLabel.text = "Content Type" + (layout == .waterfall ? "s" : "")
-            updateButtons()
         }
     }
     
     var buttons: [ContentTypeButton] = []
     var availableContentTypes: [GPHContentType] = []
     var selectedContentTypes: [GPHContentType] = GPHContentType.defaultSetting
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        return label
-    }()
     
     let wrapperView: UIView = {
         let view = UIView()
@@ -61,25 +53,11 @@ class ContentTypeSettingCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(textLabel)
-        textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        textLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textLabel.textColor = SettingsViewController.sectionLabelColor
-        
-        let fullWidth = textLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -SettingsViewController.sectionPadding * 2.0)
-        fullWidth.priority = .defaultHigh
-        fullWidth.isActive = true
-        
-        let maxWidth = textLabel.widthAnchor.constraint(lessThanOrEqualToConstant: SettingsViewController.sectionMaxWidth)
-        maxWidth.priority = .required
-        maxWidth.isActive = true
-        
         contentView.addSubview(wrapperView)
-        wrapperView.topAnchor.constraint(equalTo: textLabel.bottomAnchor).isActive = true
-        wrapperView.leftAnchor.constraint(equalTo: textLabel.leftAnchor).isActive = true
-        wrapperView.rightAnchor.constraint(equalTo: textLabel.rightAnchor).isActive = true
-        wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SettingsViewController.sectionPadding).isActive = true
+        wrapperView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        wrapperView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        wrapperView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        wrapperView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         wrapperView.layer.cornerRadius = SettingsViewController.controlCornerRadius
         wrapperView.layer.borderColor = SettingsViewController.sectionLabelColor.cgColor
         wrapperView.layer.borderWidth = SettingsViewController.controlBorderWidth
@@ -106,15 +84,11 @@ class ContentTypeSettingCell: UICollectionViewCell {
             button.removeFromSuperview()
         }
         
-        switch layout {
-        case .waterfall:
-            availableContentTypes = [.gifs, .stickers, .text, .emoji]
-            selectedContentTypes = GPHContentType.defaultSetting
-        case .carousel:
-            availableContentTypes = [.gifs, .stickers, .text]
-            selectedContentTypes = [.gifs]
-        }
+        guard let types = setting?.cases as? [GPHContentType] else { return }
+        let defaultTypes: [GPHContentType] = GPHContentType.defaultSetting
         
+        selectedContentTypes = setting == .single ? [defaultTypes.first ?? .gifs] : defaultTypes
+        availableContentTypes = types
         buttons = []
         for type in availableContentTypes {
             let button = ContentTypeButton()
@@ -151,7 +125,7 @@ class ContentTypeSettingCell: UICollectionViewCell {
     }
     
     @objc func buttonSelected(button: ContentTypeButton) {
-        if layout == .carousel {
+        if setting == .single {
             selectedContentTypes = [button.contentType]
         } else {
             if selectedContentTypes.contains(button.contentType) {

@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [GiphyUISDK configureWithApiKey:@"your-api-key"];
+    [GiphyUISDK configureWithApiKey:@"n94ojrymc9HLW"];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -35,10 +35,6 @@
 
 - (void)didSelectMedia:(GPHMedia * _Nonnull) media {
     NSLog(@"selected media");
-}
-
-- (void)didDismissWithController:(GiphyViewController * _Nullable)controller {
-    NSLog(@"dismissed");
 }
 
 
