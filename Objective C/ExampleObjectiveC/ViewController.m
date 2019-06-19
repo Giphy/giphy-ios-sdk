@@ -37,5 +37,7 @@
     NSLog(@"selected media");
 }
 
-
+- (void)didDismissWithController:(GiphyViewController *)controller {
+    NSLog(@"dismissed");
+}
 @end
