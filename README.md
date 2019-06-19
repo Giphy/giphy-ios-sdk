@@ -3,6 +3,7 @@
 </p>
 
 <img align="right" width="300" height="483" src="example.gif">
+
 # The Giphy SDK for iOS
 
 The GIPHY SDK is the fastest and smartest way to bring GIFs, Stickers and intuitive design into your app. In a matter of just a few hours, you can employ the GIPHY SDK to give your users a first-class GIPHY experience and increase engagement by up to 5%.
