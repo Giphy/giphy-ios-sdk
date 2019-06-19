@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController {
     
     let closeButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "CloseButton"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "SettingsCloseButton"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
