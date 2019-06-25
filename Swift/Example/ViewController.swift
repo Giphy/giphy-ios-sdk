@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     var textFieldBottomConstraint: NSLayoutConstraint?
     var textFieldLeftConstraint: NSLayoutConstraint?
     var conversation: [ChatMessage] = [
-        ChatMessage(text: "Hi Sue Render! How's it be?", user: .abraHam),
-        ChatMessage(text: "Doing dank, how ya feel about stopping by for hands later on?", user: .sueRender),
+        ChatMessage(text: "Hi there! The SDK is perfect for many contexts, including messaging, reactions, stories and other camera features. This is one example of how the GIPHY SDK can be used in a messaging app.", user: .abraHam),  ChatMessage(text: "Tap the GIPHY button in the bottom left to see the SDK in action. Tap the settings icon in the top right to try out all of the customization options.", user: .abraHam)
     ]
     let conversationResponses: [String] = [
         "please stop texting me",
@@ -83,16 +82,6 @@ class ViewController: UIViewController {
         let button = GPHGifButton()
         button.style = .squareRounded
         button.color = .black
-        return button
-    }()
-    
-    
-    var emojiButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(named: "EmojiButton")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.tintColor = .black
-        button.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         return button
     }()
     
@@ -193,13 +182,7 @@ class ViewController: UIViewController {
         
         updateButton(gifButton)
         settingsViewController.delegate = self
-        
-        
-        view.addSubview(emojiButton)
-        emojiButton.translatesAutoresizingMaskIntoConstraints = false
-        emojiButton.rightAnchor.constraint(equalTo: sendButton.leftAnchor, constant: -6).isActive = true
-        emojiButton.topAnchor.constraint(equalTo: textFieldContainer.topAnchor, constant: 6).isActive = true
-        emojiButton.addTarget(self, action: #selector(emojiButtonTapped), for: .touchUpInside)
+         
     }
     
     func updateChatColors(_ theme: GPHTheme) {
@@ -211,7 +194,29 @@ class ViewController: UIViewController {
         header.backgroundColor = isDark ? ViewController.darkHeaderColor : .white
         collectionView.reloadData()
         view.backgroundColor = isDark ? .black : .white
-        emojiButton.tintColor =  isDark ? .white : .black
+    }
+    
+    func updateButtonColor(_ theme: GPHTheme) {
+        let isDark = theme == .dark
+        
+        switch gifButton {
+        case is GPHGiphyButton:
+            guard let button = gifButton as? GPHGiphyButton else { return }
+            if button.style == .iconBlack || button.style == .iconWhite {
+                button.style = isDark ? .iconWhite : .iconBlack
+            }
+        case is GPHGifButton:
+            guard let button = gifButton as? GPHGifButton else { return }
+            if button.color == .white || button.color == .black {
+                button.color = isDark ? .white : .black
+            }
+        case is GPHContentTypeButton:
+            guard let button = gifButton as? GPHContentTypeButton else { return }
+            if button.color == .white || button.color == .black {
+                button.color = isDark ? .white : .black
+            }
+        default: return
+        }
     }
     
     func updateButton(_ button: UIButton) {
@@ -254,15 +259,7 @@ class ViewController: UIViewController {
         present(giphy, animated: true, completion: nil)
     }
     
-    @objc func emojiButtonTapped() {
-        let giphy = GiphyViewController()
-        giphy.theme = settingsViewController.theme
-        giphy.mediaTypeConfig = [.emoji]
-        giphy.layout = .waterfall
-        giphy.delegate = self 
-        giphy.modalPresentationStyle = .overCurrentContext
-        present(giphy, animated: true, completion: nil)
-    }
+ 
     
     @objc func textEditingExit() {
         textField.resignFirstResponder()
@@ -296,8 +293,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: SettingsDelegate {
     func themeDidChange(_ theme: GPHTheme) {
         updateChatColors(theme)
-        
-
+        updateButtonColor(theme)
     }
     func buttonDidChange(_ button: UIButton) {
         updateButton(button)

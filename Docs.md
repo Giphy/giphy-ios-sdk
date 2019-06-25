@@ -5,6 +5,8 @@
 #### Requirements 
 - iOS 10 or later  
 - Cocoapods v1.7.1  
+- A Giphy API key from [Giphy Developer Portal](https://devportal.giphy.com/dashboard/?create=true).
+
 
 #### CocoaPods
 
@@ -12,14 +14,14 @@ Add the GiphyUISDK to your Podfile like so:
 ```swift
 use_frameworks!
 target "YourAppTarget" do 
-pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.0/Giphy.podspec' 
+pod 'Giphy' 
 end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This will allows to static libraries to be linked.
 
 ### Getting started
-
-Here's a basic `ViewController` setup to make sure everything's working: 
+Here's a basic `ViewController` setup to make sure everything's working. 
+Make sure to configure the GIPHY SDK with your API key.
 ```swift
 import UIKit
 import GiphyUISDK 
