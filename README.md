@@ -4,16 +4,11 @@
 
 <img align="right" width="300" height="483" src="example.gif">
 
-# The Giphy SDK for iOS
+# GIPHY SDK for iOS
 
-The GIPHY SDK is the fastest and smartest way to bring GIFs, Stickers and intuitive design into your app. In a matter of just a few hours, you can employ the GIPHY SDK to give your users a first-class GIPHY experience and increase engagement by up to 5%.
+The fastest and easiest way to bring the full GIPHY experience directly to your app is with GIPHY SDK. Built with developers and product designers in mind, GIPHY SDK is a top-to-bottom solution for all things GIF in your app. This includes interfacing with GIPHY API, fetching and caching assets, and displaying GIFs and Stickers on screen in customizable UI templates.
 
-
-## Overview
-
-This includes interfacing with the GIPHY API, fetching and caching assets, and displaying GIFs and Stickers on screen in customizable UI templates.
-
-With billions of requests a day, it’s safe to say GIPHY knows GIFs. We’re excited to share our best in class tools with you so your users can have the best GIF experience there is. With the GIPHY SDK you can add the same features your users already enjoy on Facebook, Slack, Instagram and more in a matter of hours instead of weeks.
+With billions of requests a day, it’s safe to say GIPHY knows GIFs. We're excited to share our best-in-class tools with you so your users can have the best GIF experience possible, with all the same features they're already enjoying on Facebook, Slack, Instagram, and more – with just a few lines of code.
 
 ### [Get Started](Docs.md) 
 
