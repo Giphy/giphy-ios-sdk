@@ -6,6 +6,7 @@
 - iOS 10 or later  
 - Cocoapods v1.7.1 or later 
 - A Giphy API key from [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
+- Xcode 10.2 or later 
 
 
 #### CocoaPods
