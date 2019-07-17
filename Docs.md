@@ -5,9 +5,18 @@
 #### Requirements 
 - iOS 10 or later  
 - Cocoapods v1.7.1 or later 
-- A Giphy API key from [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
+- A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
 - Xcode 10.2 or later 
 
+#### Github Example Repo 
+
+The SDK is currently exclusively available through Cocoapods, but we still use Github for releases, issue / feature tracking, and more. 
+
+Here you can: 
+- View the most up-to-date documentation. The documentation on the developer portal may not always reflect the latest release. 
+- Run the example app to see the GIPHY SDK in action with all of its configurations. It is necessary to run `pod install` before building the example app. 
+- Open [issues or feature requests](https://github.com/Giphy/giphy-ios-sdk-ui-example/issues)  
+- View [releases](https://github.com/Giphy/giphy-ios-sdk-ui-example/releases)
 
 #### CocoaPods
 
@@ -65,7 +74,7 @@ let giphy = GiphyViewController()
 
 Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
 
-### Settings
+#### Settings
 - **Theme**: set the theme to be `.dark` or `.light`.
 ```swift
 giphy.theme = .dark
@@ -108,14 +117,14 @@ giphy.shouldLocalizeSearch = false
 giphy.showViewOnGiphy = true
 ```
 
-### Presentation 
+#### Presentation 
 
 Present the `GiphyViewController` and watch as the GIFs start flowin'.
 ```swift
 present(giphy, animated: true, completion: nil)
 ```
 
-### Events
+#### Events
 Set the delegate and conform to the `GiphyDelegate` protocol to handle GIF selection.
 ```swift
 giphy.delegate = self
@@ -137,23 +146,21 @@ extension YourController: GiphyDelegate {
 
 From there, it's up to you to decide what to do with the GIF. 
 
+#### GPHMediaView
+
 Create a `GPHMediaView` to display the media: 
 
 ```swift
-let imageView = GPHMediaView() 
-imageView.media = media  
-```
-You can also populate a `GPHMediaView` with a media `id` like so: 
-```swift
-imageView.setMediaWithID(id)  
+let mediaView = GPHMediaView() 
+mediaView.media = media  
 ```
 
 Use the media's `aspectRatio` property to size the view: 
 ```swift
-let aspectRatio = medaiView.media?.aspectRatio 
+let aspectRatio = media.aspectRatio 
 ```
 
-Or grab a URL to the asset like so:  
+If you want to build your own view to display a GIF, grab a URL to the asset like so:  
 ```swift
 let webpURL = media.url(rendition: .original, fileType: .webp) 
 let gifURL = media.url(rendition: .fixedWidth, fileType: .gif) 
@@ -161,6 +168,27 @@ let vidURL = media.url(rendition: .fixedWidth, fileType: .mp4)
 
 let url = URL(string: gifURL) 
 ```
+
+
+#### Media IDs
+
+In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets. 
+
+Obtain a `GPHMedia`'s `id` property via `media.id` 
+
+On the receiving end, obtain a `GPHMedia` from the `id` like so: 
+ 
+```swift
+GiphyCore.shared.gifByID(id) { (response, error) in
+    if let media = response?.data {
+        DispatchQueue.main.sync { [weak self] in 
+            self?.mediaView.media = media
+        }
+    }
+}
+```
+
+
 
 
 ## Buttons
