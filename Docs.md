@@ -8,6 +8,15 @@
 - A Giphy API key from [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
 - Xcode 10.2 or later 
 
+#### Github Example Repo 
+
+The SDK is currently exclusively available through Cocoapods, but we still use Github for releases, issue / feature tracking, and more. 
+
+Head over to our [example repo](https://github.com/Giphy/giphy-ios-sdk-ui-example) to: 
+- Run the example app to see the UI SDK in action with all of its configurations. 
+- View the most [up-to-date documentation](https://github.com/Giphy/giphy-ios-sdk-ui-example/blob/master/Docs.md). The documentation on the developer portal may not always reflect the latest release. 
+- Open [issues or feature requests](https://github.com/Giphy/giphy-ios-sdk-ui-example/issues)  
+- View [releases](https://github.com/Giphy/giphy-ios-sdk-ui-example/releases)
 
 #### CocoaPods
 
