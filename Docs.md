@@ -74,7 +74,7 @@ let giphy = GiphyViewController()
 
 Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
 
-### Settings
+#### Settings
 - **Theme**: set the theme to be `.dark` or `.light`.
 ```swift
 giphy.theme = .dark
@@ -117,14 +117,14 @@ giphy.shouldLocalizeSearch = false
 giphy.showViewOnGiphy = true
 ```
 
-### Presentation 
+#### Presentation 
 
 Present the `GiphyViewController` and watch as the GIFs start flowin'.
 ```swift
 present(giphy, animated: true, completion: nil)
 ```
 
-### Events
+#### Events
 Set the delegate and conform to the `GiphyDelegate` protocol to handle GIF selection.
 ```swift
 giphy.delegate = self
@@ -146,12 +146,32 @@ extension YourController: GiphyDelegate {
 
 From there, it's up to you to decide what to do with the GIF. 
 
+#### GPHMediaView
+
 Create a `GPHMediaView` to display the media: 
 
 ```swift
 let mediaView = GPHMediaView() 
 mediaView.media = media  
 ```
+
+Use the media's `aspectRatio` property to size the view: 
+```swift
+let aspectRatio = media.aspectRatio 
+```
+
+If you want to build your own view to display a GIF, grab a URL to the asset like so:  
+```swift
+let webpURL = media.url(rendition: .original, fileType: .webp) 
+let gifURL = media.url(rendition: .fixedWidth, fileType: .gif) 
+let vidURL = media.url(rendition: .fixedWidth, fileType: .mp4) 
+
+let url = URL(string: gifURL) 
+```
+
+
+#### Media IDs
+
 In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets. 
 
 Obtain a `GPHMedia`'s `id` property via `media.id` 
@@ -168,19 +188,7 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 }
 ```
 
-Use the media's `aspectRatio` property to size the view: 
-```swift
-let aspectRatio = media.aspectRatio 
-```
 
-Or grab a URL to the asset like so:  
-```swift
-let webpURL = media.url(rendition: .original, fileType: .webp) 
-let gifURL = media.url(rendition: .fixedWidth, fileType: .gif) 
-let vidURL = media.url(rendition: .fixedWidth, fileType: .mp4) 
-
-let url = URL(string: gifURL) 
-```
 
 
 ## Buttons
