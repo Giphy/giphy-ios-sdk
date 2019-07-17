@@ -12,9 +12,9 @@
 
 The SDK is currently exclusively available through Cocoapods, but we still use Github for releases, issue / feature tracking, and more. 
 
-Head over to our [example repo](https://github.com/Giphy/giphy-ios-sdk-ui-example) to: 
-- Run the example app to see the GIPHY SDK in action with all of its configurations. It is necessary to run `pod install` before building the example app. 
+Here you can: 
 - View the most up-to-date documentation. The documentation on the developer portal may not always reflect the latest release. 
+- Run the example app to see the GIPHY SDK in action with all of its configurations. It is necessary to run `pod install` before building the example app. 
 - Open [issues or feature requests](https://github.com/Giphy/giphy-ios-sdk-ui-example/issues)  
 - View [releases](https://github.com/Giphy/giphy-ios-sdk-ui-example/releases)
 
