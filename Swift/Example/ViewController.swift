@@ -302,8 +302,8 @@ extension ViewController: SettingsDelegate {
 } 
 
 extension ViewController: GiphyDelegate {
-    func didSelectMedia(_ media: GPHMedia) {
-        dismiss(animated: true, completion: { [weak self] in
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        giphyViewController.dismiss(animated: true, completion: { [weak self] in
             self?.addMessageToConversation(text: nil, media: media)
             guard self?.conversation.count ?? 0 > 7 else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in

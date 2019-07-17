@@ -4,8 +4,9 @@
 
 #### Requirements 
 - iOS 10 or later  
-- Cocoapods v1.7.1  
+- Cocoapods v1.7.1 or later 
 - A Giphy API key from [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
+- Xcode 10.2 or later 
 
 
 #### CocoaPods
@@ -61,6 +62,8 @@ Create a new `GiphyViewController`, which takes care of most of the magic.
 ```swift
 let giphy = GiphyViewController()
 ```
+
+Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
 
 ### Settings
 - **Theme**: set the theme to be `.dark` or `.light`.
@@ -119,9 +122,11 @@ giphy.delegate = self
 ```
 
 ```swift
-extension YourController: GiphyDelegate {
-   func didSelectMedia(_ media: GPHMedia) {
-        // your user tapped a GIF! 
+extension YourController: GiphyDelegate { 
+   func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia)   {
+   
+        // your user tapped a GIF!   
+        giphyViewController.dismiss(animated: true, completion: nil) 
    }
    
    func didDismiss(controller: GiphyViewController?) {

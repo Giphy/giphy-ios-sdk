@@ -38,6 +38,9 @@
 }
 
 - (void)didDismissWithController:(GiphyViewController *)controller {
-    NSLog(@"dismissed");
+}
+
+- (void)didSelectMediaWithGiphyViewController:(GiphyViewController * _Nonnull)giphyViewController media:(GPHMedia * _Nonnull)media {
+    
 }
 @end

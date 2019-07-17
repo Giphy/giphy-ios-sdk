@@ -1,6 +1,6 @@
 PODS:
   - DeepDiff (2.2.0)
-  - Giphy (1.0):
+  - Giphy (1.0.1):
     - DeepDiff (~> 2.2.0)
     - libwebp
     - PINCache
@@ -31,21 +31,24 @@ PODS:
   - PINCache (2.3)
 
 DEPENDENCIES:
-  - Giphy
+  - Giphy (from `https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.0.1/Giphy.podspec`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DeepDiff
-    - Giphy
     - libwebp
     - PINCache
 
+EXTERNAL SOURCES:
+  Giphy:
+    :podspec: https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.0.1/Giphy.podspec
+
 SPEC CHECKSUMS:
   DeepDiff: e329bc46dd14ca788d8ec08d34420799ba1d77f2
-  Giphy: 976029d54b1fa1926ffeda884519f9129e490044
+  Giphy: 95cdf4e9028e192d2ed65b4f0cdd599f656b69da
   libwebp: b068a3bd7c45f7460f6715be7bed1a18fd5d6b48
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
 
-PODFILE CHECKSUM: 2ac72808236d2735ecd2d58d3452880bac498b7c
+PODFILE CHECKSUM: fdc75eebffb9b72c70c76f604b2799c93ba06d05
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2
