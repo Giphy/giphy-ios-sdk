@@ -149,17 +149,28 @@ From there, it's up to you to decide what to do with the GIF.
 Create a `GPHMediaView` to display the media: 
 
 ```swift
-let imageView = GPHMediaView() 
-imageView.media = media  
+let mediaView = GPHMediaView() 
+mediaView.media = media  
 ```
-You can also populate a `GPHMediaView` with a media `id` like so: 
+In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets. 
+
+Obtain a `GPHMedia`'s `id` property via `media.id` 
+
+On the receiving end, obtain a `GPHMedia` from the `id` like so: 
+ 
 ```swift
-imageView.setMediaWithID(id)  
+GiphyCore.shared.gifByID(id) { (response, error) in
+    if let media = response?.data {
+        DispatchQueue.main.sync { [weak self] in 
+            self?.mediaView.media = media
+        }
+    }
+}
 ```
 
 Use the media's `aspectRatio` property to size the view: 
 ```swift
-let aspectRatio = medaiView.media?.aspectRatio 
+let aspectRatio = media.aspectRatio 
 ```
 
 Or grab a URL to the asset like so:  
