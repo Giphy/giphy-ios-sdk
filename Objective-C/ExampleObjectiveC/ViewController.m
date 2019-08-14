@@ -29,18 +29,16 @@
     giphy.theme = GPHThemeLight;
     giphy.rating = GPHRatingTypeRatedPG13;
     giphy.delegate = self;
-    giphy.showConfirmationScreen = true ; 
+    giphy.showConfirmationScreen = true ;
+    [giphy setMediaConfigWithTypes: [ [NSMutableArray alloc] initWithObjects:
+                                     @(GPHContentTypeGifs),@(GPHContentTypeStickers), @(GPHContentTypeText),@(GPHContentTypeEmoji), nil] ]; 
     [self presentViewController:giphy animated:true completion:nil] ;
 }
 
-- (void)didSelectMedia:(GPHMedia * _Nonnull) media {
-    NSLog(@"selected media");
-}
-
-- (void)didDismissWithController:(GiphyViewController *)controller {
-}
-
-- (void)didSelectMediaWithGiphyViewController:(GiphyViewController * _Nonnull)giphyViewController media:(GPHMedia * _Nonnull)media {
+- (void) didSelectMediaWithGiphyViewController:(GiphyViewController *)giphyViewController media:(GPHMedia *)media {
     
 }
+- (void) didDismissWithController:(GiphyViewController *)controller {
+    
+} 
 @end
