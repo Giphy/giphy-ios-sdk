@@ -1,6 +1,6 @@
 
 use_frameworks!
 target "Example" do 
-pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.0.2/Giphy.podspec'
+pod 'Giphy'
 
 end
