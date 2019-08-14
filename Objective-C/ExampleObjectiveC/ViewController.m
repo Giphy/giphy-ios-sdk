@@ -29,7 +29,9 @@
     giphy.theme = GPHThemeLight;
     giphy.rating = GPHRatingTypeRatedPG13;
     giphy.delegate = self;
-    giphy.showConfirmationScreen = true ; 
+    giphy.showConfirmationScreen = true ;
+    [giphy setMediaConfigWithTypes: [ [NSMutableArray alloc] initWithObjects:
+                                     @(GPHContentTypeGifs),@(GPHContentTypeStickers), @(GPHContentTypeText),@(GPHContentTypeEmoji), nil] ]; 
     [self presentViewController:giphy animated:true completion:nil] ;
 }
 
