@@ -35,14 +35,10 @@
     [self presentViewController:giphy animated:true completion:nil] ;
 }
 
-- (void)didSelectMedia:(GPHMedia * _Nonnull) media {
-    NSLog(@"selected media");
-}
-
-- (void)didDismissWithController:(GiphyViewController *)controller {
-}
-
-- (void)didSelectMediaWithGiphyViewController:(GiphyViewController * _Nonnull)giphyViewController media:(GPHMedia * _Nonnull)media {
+- (void) didSelectMediaWithGiphyViewController:(GiphyViewController *)giphyViewController media:(GPHMedia *)media {
     
 }
+- (void) didDismissWithController:(GiphyViewController *)controller {
+    
+} 
 @end
