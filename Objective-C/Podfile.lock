@@ -1,6 +1,6 @@
 PODS:
   - DeepDiff (2.2.0)
-  - Giphy (1.0.2):
+  - Giphy (1.1):
     - DeepDiff (~> 2.2.0)
     - libwebp
     - PINCache
@@ -27,7 +27,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DeepDiff: e329bc46dd14ca788d8ec08d34420799ba1d77f2
-  Giphy: a4116cef541bb1f44feb0709cdff43d69e8d8e21
+  Giphy: da92a589dd147efd2b34bcde5eb633cddaa17cb1
   libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
 
