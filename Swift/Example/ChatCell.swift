@@ -20,7 +20,7 @@ class ChatCell: UICollectionViewCell {
     static let font: UIFont = .systemFont(ofSize: 14)
     
     let imageView = GPHMediaView()
-    let avatarImageView = YYAnimatedImageView()
+    let avatarImageView = GiphyYYAnimatedImageView()
     
     var media: GPHMedia? {
         didSet {
@@ -34,7 +34,7 @@ class ChatCell: UICollectionViewCell {
         }
     }
     
-    var avatarImage: YYImage? {
+    var avatarImage: GiphyYYImage? {
         didSet {
             avatarImageView.image = avatarImage
         }

@@ -14,10 +14,10 @@ enum ChatUser: Int {
     case abraHam
     case sueRender
     
-    var avatar: YYImage? {
+    var avatar: GiphyYYImage? {
         switch self {
-        case .abraHam: return YYImage(contentsOfFile: Bundle.main.path(forResource: "abraham", ofType: "gif") ?? "")
-        case .sueRender: return YYImage(contentsOfFile: Bundle.main.path(forResource: "suerender", ofType: "gif") ?? "")
+        case .abraHam: return GiphyYYImage(contentsOfFile: Bundle.main.path(forResource: "abraham", ofType: "gif") ?? "")
+        case .sueRender: return GiphyYYImage(contentsOfFile: Bundle.main.path(forResource: "suerender", ofType: "gif") ?? "")
         }
     }
     
