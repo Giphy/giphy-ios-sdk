@@ -15,17 +15,17 @@
 		C1C0D331224198A900D7F301 /* ViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */; };
 		C1C0D33B2242C1A400D7F301 /* abraham.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1C0D3392242C1A400D7F301 /* abraham.gif */; };
 		C1C0D33C2242C1A400D7F301 /* suerender.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1C0D33A2242C1A400D7F301 /* suerender.gif */; };
-		C1C0D33E2242C4D900D7F301 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C0D33D2242C4D900D7F301 /* ChatCell.swift */; };
-		C1C0D3402242CEA600D7F301 /* ViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C0D33F2242CEA600D7F301 /* ViewController+DataSource.swift */; };
 		C1F1A3AD222F28FF005298F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */; };
 		C1F1A3AF222F334B005298F6 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3AE222F334B005298F6 /* SettingCell.swift */; };
 		C1F1A3B1222F3368005298F6 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3B0222F3368005298F6 /* ButtonCell.swift */; };
 		CAF0BAB7B90B66E894FA6DA8 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F23315B7EECC014F4A265E7 /* Pods_Example.framework */; };
 		FD788A4D22134449000227B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD788A4C22134449000227B3 /* AppDelegate.swift */; };
-		FD788A4F22134449000227B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD788A4E22134449000227B3 /* ViewController.swift */; };
 		FD788A5222134449000227B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD788A5022134449000227B3 /* Main.storyboard */; };
 		FD788A542213444A000227B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD788A532213444A000227B3 /* Assets.xcassets */; };
 		FD788A572213444A000227B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD788A552213444A000227B3 /* LaunchScreen.storyboard */; };
+		FD93824B2315B6CF0071ECF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9382492315B6CF0071ECF0 /* ViewController.swift */; };
+		FD93824C2315B6CF0071ECF0 /* ViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */; };
+		FD93824E2315B70E0071ECF0 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93824D2315B70E0071ECF0 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,19 +63,19 @@
 		C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		C1C0D3392242C1A400D7F301 /* abraham.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = abraham.gif; sourceTree = "<group>"; };
 		C1C0D33A2242C1A400D7F301 /* suerender.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = suerender.gif; sourceTree = "<group>"; };
-		C1C0D33D2242C4D900D7F301 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		C1C0D33F2242CEA600D7F301 /* ViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DataSource.swift"; sourceTree = "<group>"; };
 		C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C1F1A3AE222F334B005298F6 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C1F1A3B0222F3368005298F6 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		FD00A465221DD98E008F19FE /* ExampleObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ExampleObjectiveC.xcodeproj; path = ../ExampleObjectiveC/ExampleObjectiveC.xcodeproj; sourceTree = "<group>"; };
 		FD788A4922134449000227B3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD788A4C22134449000227B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD788A4E22134449000227B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD788A5122134449000227B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD788A532213444A000227B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD788A562213444A000227B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD788A582213444A000227B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD9382492315B6CF0071ECF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DataSource.swift"; sourceTree = "<group>"; };
+		FD93824D2315B70E0071ECF0 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				FD788A4C22134449000227B3 /* AppDelegate.swift */,
-				FD788A4E22134449000227B3 /* ViewController.swift */,
-				C1C0D33F2242CEA600D7F301 /* ViewController+DataSource.swift */,
 				C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */,
+				FD9382492315B6CF0071ECF0 /* ViewController.swift */,
+				FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */,
 				C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */,
 				C1759DDC22319D3000EFC8E8 /* SettingsViewController+DataSource.swift */,
 				C17BE36C22B049720001D442 /* Setting.swift */,
@@ -140,7 +140,7 @@
 				C1F1A3AE222F334B005298F6 /* SettingCell.swift */,
 				C1A0ECFF22A971190033B63A /* ContentTypeSettingCell.swift */,
 				C1F1A3B0222F3368005298F6 /* ButtonCell.swift */,
-				C1C0D33D2242C4D900D7F301 /* ChatCell.swift */,
+				FD93824D2315B70E0071ECF0 /* ChatCell.swift */,
 				FD788A5022134449000227B3 /* Main.storyboard */,
 				C1C0D3392242C1A400D7F301 /* abraham.gif */,
 				C1C0D33A2242C1A400D7F301 /* suerender.gif */,
@@ -295,16 +295,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F1A3B1222F3368005298F6 /* ButtonCell.swift in Sources */,
-				FD788A4F22134449000227B3 /* ViewController.swift in Sources */,
 				C17BE36F22B052690001D442 /* ButtonSetting.swift in Sources */,
 				C1A0ED0022A971190033B63A /* ContentTypeSettingCell.swift in Sources */,
-				C1C0D33E2242C4D900D7F301 /* ChatCell.swift in Sources */,
 				C17BE36B22B03FC80001D442 /* HeaderCell.swift in Sources */,
 				C1C0D331224198A900D7F301 /* ViewController+Keyboard.swift in Sources */,
+				FD93824B2315B6CF0071ECF0 /* ViewController.swift in Sources */,
+				FD93824C2315B6CF0071ECF0 /* ViewController+DataSource.swift in Sources */,
 				C17BE36D22B049720001D442 /* Setting.swift in Sources */,
-				C1C0D3402242CEA600D7F301 /* ViewController+DataSource.swift in Sources */,
 				C1F1A3AF222F334B005298F6 /* SettingCell.swift in Sources */,
 				C1F1A3AD222F28FF005298F6 /* SettingsViewController.swift in Sources */,
+				FD93824E2315B70E0071ECF0 /* ChatCell.swift in Sources */,
 				C1759DDD22319D3000EFC8E8 /* SettingsViewController+DataSource.swift in Sources */,
 				FD788A4D22134449000227B3 /* AppDelegate.swift in Sources */,
 			);

@@ -42,10 +42,10 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let avatar: YYAnimatedImageView = {
+    let avatar: GiphyYYAnimatedImageView = {
         let path = Bundle(for: ViewController.self).path(forResource: "abraham", ofType: "gif")
-        let image = YYImage(contentsOfFile: path ?? "")
-        let imageView = YYAnimatedImageView(image: image)
+        let image = GiphyYYImage(contentsOfFile: path ?? "")
+        let imageView = GiphyYYAnimatedImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.33).isActive = true
@@ -111,7 +111,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GiphyUISDK.configure(apiKey: "your_api_key")
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white
@@ -251,15 +250,16 @@ class ViewController: UIViewController {
         let giphy = GiphyViewController()
         giphy.theme = settingsViewController.theme
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
+        GiphyViewController.trayHeightMultiplier = 0.7 
         giphy.layout = settingsViewController.layout
         giphy.showConfirmationScreen = settingsViewController.confirmationScreen == .on
         giphy.shouldLocalizeSearch = true
         giphy.delegate = self
+        giphy.dimBackground = true
+        giphy.showCheckeredBackground = true
         giphy.modalPresentationStyle = .overCurrentContext
         present(giphy, animated: true, completion: nil)
-    }
-    
- 
+    } 
     
     @objc func textEditingExit() {
         textField.resignFirstResponder()
@@ -267,6 +267,10 @@ class ViewController: UIViewController {
     
     @objc func settingsButtonTapped() {
         present(settingsViewController, animated: true, completion: nil)
+    }
+    
+    public override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
