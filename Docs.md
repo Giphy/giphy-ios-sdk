@@ -27,7 +27,7 @@ target "YourAppTarget" do
 pod 'Giphy' 
 end
 ```
-**Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This will allows to static libraries to be linked.
+**Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
 
 ### Getting started
 Here's a basic `ViewController` setup to make sure everything's working. 
@@ -72,7 +72,7 @@ Create a new `GiphyViewController`, which takes care of most of the magic.
 let giphy = GiphyViewController()
 ```
 
-Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
+Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance, and lead to unexpected results) 
 
 #### Settings
 - **Theme**: set the theme to be `.dark` or `.light`.
@@ -89,6 +89,11 @@ giphy.layout = .waterfall
 <br> **Note**: Emoji only is not available for the carousel layout option. 
 ```swift
 giphy.mediaTypeConfig = [.gifs, .stickers, .text, .emoji]
+```
+_Objective-C_: 
+```Objective-C
+[giphy setMediaConfigWithTypes: [[ NSMutableArray alloc] initWithObjects: 
+@(GPHContentTypeGifs), @(GPHContentTypeStickers), @(GPHContentTypeText), @(GPHContentTypeEmoji), nil ] ]; 
 ```
 
 - **Confirmation screen**:  we provide the option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.
@@ -115,6 +120,11 @@ giphy.shouldLocalizeSearch = false
 - **Open in app**:  option to open or not the GIFs or artists on the GIPHY app. Default `true`.
 ```swift
 giphy.showViewOnGiphy = true
+```
+
+- **Tray Height**: height for the tray's "snap point" as a ratio of the `GiphyViewController`'s height. Default `0.7`
+```swift
+GiphyViewController.trayHeightMultiplier = 0.7 
 ```
 
 #### Presentation 
