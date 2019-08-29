@@ -29,6 +29,12 @@ end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
 
+### Swift 5.1 
+For Swift 5.1 support (corresponding to the Xcode 11 Beta 7) in advance of the official Xcode 11 release use: 
+```
+pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.1-swift-5.1/Giphy.podspec'
+```
+ 
 ### Getting started
 Here's a basic `ViewController` setup to make sure everything's working. 
 Make sure to configure the GIPHY SDK with your API key.
