@@ -79,9 +79,8 @@ class ViewController: UIViewController {
     }()
     
     var gifButton: UIButton = {
-        let button = GPHGifButton()
-        button.style = .squareRounded
-        button.color = .black
+        let button = UIButton()
+        button.setImage(GPHIcons.giphyLogo(), for: .normal)
         return button
     }()
     
@@ -111,6 +110,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GiphyUISDK.configure(apiKey: "")
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white
@@ -179,7 +179,15 @@ class ViewController: UIViewController {
         avatar.centerXAnchor.constraint(equalTo: header.centerXAnchor).isActive = true
         avatar.centerYAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
         
-        updateButton(gifButton)
+        textFieldContainer.addSubview(gifButton)
+        gifButton.translatesAutoresizingMaskIntoConstraints = false
+        gifButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        gifButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+        gifButton.leftAnchor.constraint(equalTo: textFieldContainer.leftAnchor, constant: 6).isActive = true
+        gifButton.centerYAnchor.constraint(equalTo: textFieldContainer.centerYAnchor).isActive = true
+        gifButton.addTarget(self, action: #selector(gifButtonTapped), for: .touchUpInside)
+        textFieldLeftConstraint?.constant = gifButton.intrinsicContentSize.width + 15
+        
         settingsViewController.delegate = self
          
     }
@@ -193,40 +201,6 @@ class ViewController: UIViewController {
         header.backgroundColor = isDark ? ViewController.darkHeaderColor : .white
         collectionView.reloadData()
         view.backgroundColor = isDark ? .black : .white
-    }
-    
-    func updateButtonColor(_ theme: GPHTheme) {
-        let isDark = theme == .dark
-        
-        switch gifButton {
-        case is GPHGiphyButton:
-            guard let button = gifButton as? GPHGiphyButton else { return }
-            if button.style == .iconBlack || button.style == .iconWhite {
-                button.style = isDark ? .iconWhite : .iconBlack
-            }
-        case is GPHGifButton:
-            guard let button = gifButton as? GPHGifButton else { return }
-            if button.color == .white || button.color == .black {
-                button.color = isDark ? .white : .black
-            }
-        case is GPHContentTypeButton:
-            guard let button = gifButton as? GPHContentTypeButton else { return }
-            if button.color == .white || button.color == .black {
-                button.color = isDark ? .white : .black
-            }
-        default: return
-        }
-    }
-    
-    func updateButton(_ button: UIButton) {
-        gifButton.removeFromSuperview()
-        textFieldContainer.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.leftAnchor.constraint(equalTo: textFieldContainer.leftAnchor, constant: 6).isActive = true
-        button.centerYAnchor.constraint(equalTo: textFieldContainer.centerYAnchor).isActive = true
-        button.addTarget(self, action: #selector(gifButtonTapped), for: .touchUpInside)
-        textFieldLeftConstraint?.constant = button.intrinsicContentSize.width + 15
-        gifButton = button
     }
     
     func addMessageToConversation(text: String? = nil, media: GPHMedia? = nil, user: ChatUser = .sueRender) {
@@ -297,11 +271,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: SettingsDelegate {
     func themeDidChange(_ theme: GPHTheme) {
         updateChatColors(theme)
-        updateButtonColor(theme)
-    }
-    func buttonDidChange(_ button: UIButton) {
-        updateButton(button)
-        settingsViewController.dismiss(animated: true, completion: nil)
     }
 } 
 

@@ -10,7 +10,6 @@ import UIKit
 import GiphyUISDK
 
 protocol SettingsDelegate: class {
-    func buttonDidChange(_ button: UIButton)
     func themeDidChange(_ theme: GPHTheme)
 }
 
@@ -26,15 +25,8 @@ class SettingsViewController: UIViewController {
     var theme: GPHTheme = GPHTheme.defaultSetting
     var confirmationScreen: ConfirmationScreenSetting = ConfirmationScreenSetting.defaultSetting
     var mediaTypeConfig: [GPHContentType] = GPHContentType.defaultSetting
-    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple
-    var iconButtons: IconButtonSetting = .square
-    var logoButtons: LogoButtonSetting = .square
-    var gifButtons: GifButtonSetting = .monochrome
-    var gifRoundButtons: GifRoundButtonSetting = .monochrome
-    var gifTextButtons: GifTextButtonSetting = .monochrome
-    var contentButtons: ContentTypeButtonSetting = .monochrome
-
-    var settings: [Setting] { return [theme, layout, confirmationScreen, contentTypeSetting, iconButtons, logoButtons, gifButtons, gifRoundButtons, gifTextButtons, contentButtons] }
+    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple 
+    var settings: [Setting] { return [theme, layout, confirmationScreen, contentTypeSetting] }
     
     weak var delegate: SettingsDelegate?
     
@@ -83,7 +75,6 @@ class SettingsViewController: UIViewController {
         collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.id)
         collectionView.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.id)
         collectionView.register(ContentTypeSettingCell.self, forCellWithReuseIdentifier: ContentTypeSettingCell.id)
-        collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: ButtonCell.id)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self

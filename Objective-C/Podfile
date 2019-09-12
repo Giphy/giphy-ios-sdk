@@ -1,5 +1,5 @@
 
 use_frameworks!
 target "ExampleObjectiveC" do 
-pod 'Giphy'
+pod 'Giphy' 
 end

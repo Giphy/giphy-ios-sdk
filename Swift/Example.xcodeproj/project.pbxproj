@@ -7,25 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C1759DDD22319D3000EFC8E8 /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1759DDC22319D3000EFC8E8 /* SettingsViewController+DataSource.swift */; };
-		C17BE36B22B03FC80001D442 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17BE36A22B03FC80001D442 /* HeaderCell.swift */; };
-		C17BE36D22B049720001D442 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17BE36C22B049720001D442 /* Setting.swift */; };
-		C17BE36F22B052690001D442 /* ButtonSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17BE36E22B052690001D442 /* ButtonSetting.swift */; };
-		C1A0ED0022A971190033B63A /* ContentTypeSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A0ECFF22A971190033B63A /* ContentTypeSettingCell.swift */; };
-		C1C0D331224198A900D7F301 /* ViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */; };
 		C1C0D33B2242C1A400D7F301 /* abraham.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1C0D3392242C1A400D7F301 /* abraham.gif */; };
 		C1C0D33C2242C1A400D7F301 /* suerender.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1C0D33A2242C1A400D7F301 /* suerender.gif */; };
-		C1F1A3AD222F28FF005298F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */; };
-		C1F1A3AF222F334B005298F6 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3AE222F334B005298F6 /* SettingCell.swift */; };
-		C1F1A3B1222F3368005298F6 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1A3B0222F3368005298F6 /* ButtonCell.swift */; };
 		CAF0BAB7B90B66E894FA6DA8 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F23315B7EECC014F4A265E7 /* Pods_Example.framework */; };
-		FD788A4D22134449000227B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD788A4C22134449000227B3 /* AppDelegate.swift */; };
+		FD1914BF232ACFC200E4221D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B4232ACFC100E4221D /* SettingsViewController.swift */; };
+		FD1914C0232ACFC200E4221D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B5232ACFC100E4221D /* SettingCell.swift */; };
+		FD1914C1232ACFC200E4221D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B6232ACFC200E4221D /* ViewController.swift */; };
+		FD1914C2232ACFC200E4221D /* ViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B7232ACFC200E4221D /* ViewController+DataSource.swift */; };
+		FD1914C3232ACFC200E4221D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B8232ACFC200E4221D /* AppDelegate.swift */; };
+		FD1914C4232ACFC200E4221D /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914B9232ACFC200E4221D /* Setting.swift */; };
+		FD1914C5232ACFC200E4221D /* ViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914BA232ACFC200E4221D /* ViewController+Keyboard.swift */; };
+		FD1914C6232ACFC200E4221D /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914BB232ACFC200E4221D /* SettingsViewController+DataSource.swift */; };
+		FD1914C7232ACFC200E4221D /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914BC232ACFC200E4221D /* ChatCell.swift */; };
+		FD1914C8232ACFC200E4221D /* ContentTypeSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914BD232ACFC200E4221D /* ContentTypeSettingCell.swift */; };
+		FD1914C9232ACFC200E4221D /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1914BE232ACFC200E4221D /* HeaderCell.swift */; };
 		FD788A5222134449000227B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD788A5022134449000227B3 /* Main.storyboard */; };
 		FD788A542213444A000227B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD788A532213444A000227B3 /* Assets.xcassets */; };
 		FD788A572213444A000227B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD788A552213444A000227B3 /* LaunchScreen.storyboard */; };
-		FD93824B2315B6CF0071ECF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9382492315B6CF0071ECF0 /* ViewController.swift */; };
-		FD93824C2315B6CF0071ECF0 /* ViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */; };
-		FD93824E2315B70E0071ECF0 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93824D2315B70E0071ECF0 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,27 +53,26 @@
 		0F23315B7EECC014F4A265E7 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F63BC3F1B8D1A6DBAFF5353 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		9FAFD26074B24D2DAD5C23A9 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C1759DDC22319D3000EFC8E8 /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
-		C17BE36A22B03FC80001D442 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
-		C17BE36C22B049720001D442 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
-		C17BE36E22B052690001D442 /* ButtonSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSetting.swift; sourceTree = "<group>"; };
-		C1A0ECFF22A971190033B63A /* ContentTypeSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTypeSettingCell.swift; sourceTree = "<group>"; };
-		C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		C1C0D3392242C1A400D7F301 /* abraham.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = abraham.gif; sourceTree = "<group>"; };
 		C1C0D33A2242C1A400D7F301 /* suerender.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = suerender.gif; sourceTree = "<group>"; };
-		C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		C1F1A3AE222F334B005298F6 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		C1F1A3B0222F3368005298F6 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		FD00A465221DD98E008F19FE /* ExampleObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ExampleObjectiveC.xcodeproj; path = ../ExampleObjectiveC/ExampleObjectiveC.xcodeproj; sourceTree = "<group>"; };
+		FD1914B3232ACFC100E4221D /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		FD1914B4232ACFC100E4221D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FD1914B5232ACFC100E4221D /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		FD1914B6232ACFC200E4221D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD1914B7232ACFC200E4221D /* ViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+DataSource.swift"; sourceTree = "<group>"; };
+		FD1914B8232ACFC200E4221D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD1914B9232ACFC200E4221D /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		FD1914BA232ACFC200E4221D /* ViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		FD1914BB232ACFC200E4221D /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		FD1914BC232ACFC200E4221D /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		FD1914BD232ACFC200E4221D /* ContentTypeSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTypeSettingCell.swift; sourceTree = "<group>"; };
+		FD1914BE232ACFC200E4221D /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		FD788A4922134449000227B3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD788A4C22134449000227B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD788A5122134449000227B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD788A532213444A000227B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD788A562213444A000227B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD788A582213444A000227B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD9382492315B6CF0071ECF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DataSource.swift"; sourceTree = "<group>"; };
-		FD93824D2315B70E0071ECF0 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,25 +125,24 @@
 		FD788A4B22134449000227B3 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				FD788A4C22134449000227B3 /* AppDelegate.swift */,
-				C1C0D330224198A900D7F301 /* ViewController+Keyboard.swift */,
-				FD9382492315B6CF0071ECF0 /* ViewController.swift */,
-				FD93824A2315B6CF0071ECF0 /* ViewController+DataSource.swift */,
-				C1F1A3AC222F28FF005298F6 /* SettingsViewController.swift */,
-				C1759DDC22319D3000EFC8E8 /* SettingsViewController+DataSource.swift */,
-				C17BE36C22B049720001D442 /* Setting.swift */,
-				C17BE36E22B052690001D442 /* ButtonSetting.swift */,
-				C17BE36A22B03FC80001D442 /* HeaderCell.swift */,
-				C1F1A3AE222F334B005298F6 /* SettingCell.swift */,
-				C1A0ECFF22A971190033B63A /* ContentTypeSettingCell.swift */,
-				C1F1A3B0222F3368005298F6 /* ButtonCell.swift */,
-				FD93824D2315B70E0071ECF0 /* ChatCell.swift */,
+				FD1914B8232ACFC200E4221D /* AppDelegate.swift */,
+				FD1914BC232ACFC200E4221D /* ChatCell.swift */,
+				FD1914BD232ACFC200E4221D /* ContentTypeSettingCell.swift */,
+				FD1914BE232ACFC200E4221D /* HeaderCell.swift */,
+				FD1914B9232ACFC200E4221D /* Setting.swift */,
+				FD1914B5232ACFC100E4221D /* SettingCell.swift */,
+				FD1914B4232ACFC100E4221D /* SettingsViewController.swift */,
+				FD1914BB232ACFC200E4221D /* SettingsViewController+DataSource.swift */,
+				FD1914B6232ACFC200E4221D /* ViewController.swift */,
+				FD1914B7232ACFC200E4221D /* ViewController+DataSource.swift */,
+				FD1914BA232ACFC200E4221D /* ViewController+Keyboard.swift */,
 				FD788A5022134449000227B3 /* Main.storyboard */,
 				C1C0D3392242C1A400D7F301 /* abraham.gif */,
 				C1C0D33A2242C1A400D7F301 /* suerender.gif */,
 				FD788A532213444A000227B3 /* Assets.xcassets */,
 				FD788A552213444A000227B3 /* LaunchScreen.storyboard */,
 				FD788A582213444A000227B3 /* Info.plist */,
+				FD1914B3232ACFC100E4221D /* Example-Bridging-Header.h */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -195,6 +191,7 @@
 				TargetAttributes = {
 					FD788A4822134449000227B3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -294,19 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1F1A3B1222F3368005298F6 /* ButtonCell.swift in Sources */,
-				C17BE36F22B052690001D442 /* ButtonSetting.swift in Sources */,
-				C1A0ED0022A971190033B63A /* ContentTypeSettingCell.swift in Sources */,
-				C17BE36B22B03FC80001D442 /* HeaderCell.swift in Sources */,
-				C1C0D331224198A900D7F301 /* ViewController+Keyboard.swift in Sources */,
-				FD93824B2315B6CF0071ECF0 /* ViewController.swift in Sources */,
-				FD93824C2315B6CF0071ECF0 /* ViewController+DataSource.swift in Sources */,
-				C17BE36D22B049720001D442 /* Setting.swift in Sources */,
-				C1F1A3AF222F334B005298F6 /* SettingCell.swift in Sources */,
-				C1F1A3AD222F28FF005298F6 /* SettingsViewController.swift in Sources */,
-				FD93824E2315B70E0071ECF0 /* ChatCell.swift in Sources */,
-				C1759DDD22319D3000EFC8E8 /* SettingsViewController+DataSource.swift in Sources */,
-				FD788A4D22134449000227B3 /* AppDelegate.swift in Sources */,
+				FD1914C6232ACFC200E4221D /* SettingsViewController+DataSource.swift in Sources */,
+				FD1914C1232ACFC200E4221D /* ViewController.swift in Sources */,
+				FD1914C7232ACFC200E4221D /* ChatCell.swift in Sources */,
+				FD1914C0232ACFC200E4221D /* SettingCell.swift in Sources */,
+				FD1914C8232ACFC200E4221D /* ContentTypeSettingCell.swift in Sources */,
+				FD1914C4232ACFC200E4221D /* Setting.swift in Sources */,
+				FD1914C5232ACFC200E4221D /* ViewController+Keyboard.swift in Sources */,
+				FD1914BF232ACFC200E4221D /* SettingsViewController.swift in Sources */,
+				FD1914C3232ACFC200E4221D /* AppDelegate.swift in Sources */,
+				FD1914C9232ACFC200E4221D /* HeaderCell.swift in Sources */,
+				FD1914C2232ACFC200E4221D /* ViewController+DataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +448,7 @@
 			baseConfigurationReference = 9FAFD26074B24D2DAD5C23A9 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DVWZFFJD5T;
@@ -466,6 +462,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giphy.UISDK.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,6 +474,7 @@
 			baseConfigurationReference = 6F63BC3F1B8D1A6DBAFF5353 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DVWZFFJD5T;
@@ -489,6 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giphy.UISDK.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
