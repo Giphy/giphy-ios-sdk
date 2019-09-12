@@ -43,13 +43,7 @@ extension SettingsViewController: UICollectionViewDataSource {
             cell.setting = item as? ContentTypeSetting
             cell.isDark = self.theme == .dark
             cell.delegate = self
-            return cell
-        case let cell as ButtonCell:
-            guard let buttonSetting = item as? ButtonSetting else { return genericCell }
-            let buttons = buttonSetting.buttons(theme: self.theme)
-            cell.button = buttons[indexPath.item]
-            cell.delegate = self
-            return cell
+            return cell  
         default:
             return genericCell
         }
@@ -77,30 +71,11 @@ extension SettingsViewController: SettingCellDelegate {
         }
     }
 }
-
-extension SettingsViewController: ButtonCellDelegate {
-    func buttonDidChange(button: UIButton) {
-        delegate?.buttonDidChange(button)
-    }
-}
+ 
 
 extension SettingsViewController: ContentTypeSettingCellDelegate {
     func contentTypesDidChange(contentTypes: [GPHContentType]) {
         self.mediaTypeConfig = contentTypes
     }
 }
-
-extension SettingsViewController {
-    var iconButtonStyles: [GPHGiphyButtonStyle] {
-        return [.logo, .logoRounded, .iconColor, self.theme == .dark ? .iconWhite : .iconBlack]
-    }
-    var logoButtonStyles: [GPHGiphyButtonStyle] {
-        return [.logo, .logoRounded]
-    }
-    var gifButtonStyles: [GPHGifButtonStyle] {
-        return [.rectangle, .rectangleOutline, .square, .squareOutline]
-    }
-    var gifButtonColors: [GPHGifButtonColor] {
-        return [self.theme == .dark ? .white : .black, .pink, .blue]
-    }
-}
+ 

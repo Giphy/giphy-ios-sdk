@@ -33,42 +33,6 @@ enum ContentTypeSetting: Int {
     case single
 }
 
-enum IconButtonSetting: Int {
-    case square
-    case rounded
-    case color
-    case monochrome
-}
-
-enum LogoButtonSetting: Int {
-    case square
-    case rounded
-}
-
-enum GifButtonSetting {
-    case pink
-    case blue
-    case monochrome
-}
-
-enum GifRoundButtonSetting {
-    case pink
-    case blue
-    case monochrome
-}
-
-enum GifTextButtonSetting {
-    case pink
-    case blue
-    case monochrome
-}
-
-enum ContentTypeButtonSetting {
-    case pink
-    case blue
-    case monochrome
-}
-
 extension GPHTheme: Setting {
     static var title: String { return "Theme" }
     static var cellId: String { return SettingCell.id }
@@ -132,69 +96,4 @@ extension ContentTypeSetting: Setting {
     }
     var string: String { return "" }
 }
-
-extension IconButtonSetting: Setting {
-    static var title: String { return "Icon" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 4 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 4 }
-    var type: Setting.Type { return IconButtonSetting.self }
-    var cases: [Any] { return [IconButtonSetting.square, IconButtonSetting.rounded, IconButtonSetting.color, IconButtonSetting.monochrome] }
-    var string: String { return "" }
-}
-
-extension LogoButtonSetting: Setting {
-    static var title: String { return "Logo" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 2 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 2 }
-    var type: Setting.Type { return LogoButtonSetting.self }
-    var cases: [Any] { return [LogoButtonSetting.square, LogoButtonSetting.rounded] }
-    var string: String { return "" }
-}
-
-extension GifButtonSetting: Setting {
-    static var title: String { return "GIF - Hard Corners" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 12 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 4 }
-    var type: Setting.Type { return GifButtonSetting.self }
-    var cases: [Any] { return [GifButtonSetting.monochrome, GifButtonSetting.blue, GifButtonSetting.pink] }
-    var string: String { return "" }
-}
-
-extension GifRoundButtonSetting: Setting {
-    static var title: String { return "GIF - Rounded Corners" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 12 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 4 }
-    var type: Setting.Type { return GifRoundButtonSetting.self }
-    var cases: [Any] { return [GifRoundButtonSetting.monochrome, GifRoundButtonSetting.blue, GifRoundButtonSetting.pink] }
-    var string: String { return "" }
-}
-
-extension GifTextButtonSetting: Setting {
-    static var title: String { return "GIF Text" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 3 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 4 }
-    var type: Setting.Type { return GifTextButtonSetting.self }
-    var cases: [Any] { return [GifTextButtonSetting.monochrome, GifTextButtonSetting.blue, GifTextButtonSetting.pink] }
-    var string: String { return "" }
-}
-
-extension ContentTypeButtonSetting: Setting {
-    static var title: String { return "Multi-Content" }
-    static var cellId: String { return ButtonCell.id }
-    static var itemCount: Int { return 18 }
-    static var itemHeight: CGFloat { return 70.0 }
-    static var columns: Int { return 3 }
-    var type: Setting.Type { return ContentTypeButtonSetting.self }
-    var cases: [Any] { return [ContentTypeButtonSetting.monochrome, ContentTypeButtonSetting.blue, ContentTypeButtonSetting.pink] }
-    var string: String { return "" }
-}
+ 
