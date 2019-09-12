@@ -1,4 +1,4 @@
-# GIPHY SDK for iOS
+# GIPHY SDK for iOS (v1.1.1)
 
 ### Setup 
 
@@ -6,7 +6,7 @@
 - iOS 10 or later  
 - Cocoapods v1.7.1 or later 
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
-- Xcode 10.2 or later 
+- Xcode 11.0 GM (Xcode 10.2 is supported in v1.1 and ealier) 
 
 #### Github Example Repo 
 
@@ -28,12 +28,6 @@ pod 'Giphy'
 end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
-
-### Swift 5.1 
-For Swift 5.1 support (corresponding to the Xcode 11 Beta 7) in advance of the official Xcode 11 release use: 
-```
-pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/1.1-swift-5.1/Giphy.podspec'
-```
  
 ### Getting started
 Here's a basic `ViewController` setup to make sure everything's working. 
@@ -209,76 +203,10 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 
 ## Buttons
 
-There are three button classes provided for you to use if you choose to.
+We no longer provide button classes `GPHGiphyButton`, `GPHGifButton`, and `GPHContentTypeButton`, however you may still use `GPHIcons.giphyLogo()` to obtain a small `UIImage` of the GIPHY logo, as we do in the `ViewController` of the Swift sample app. 
 
-#### GPHGiphyButton
+Please download the Sketch file [here](https://s3.amazonaws.com/sdk.mobile.giphy.com/design/GIPHY-SDK-UI-Kit.sketch) if you're looking for a great button icon to prompt the GIPHY SDK experience.  
 
-GIPHY branded button available in the following styles:
-
-- `logo` - full giphy logo
-- `logoRounded` - same styles as `logo` with rounded corners
-- `iconSquare` - square giphy icon logo with black background
-- `iconSquareRounded` - same styles as `iconSquare` with rounded corners
-- `iconColor` - color version of giphy icon logo with transparent background
-- `iconBlack` - solid black version of the giphy icon logo with transparent background
-- `iconWhite` - solid white version of the giphy icon logo with transparent background
-
-```
-let button = GPHGiphyButton()
-button.style = .logoSquareRounded
-```
-
-
-#### GPHGifButton
-
-Generic gif button with the text "GIF", available in the following styles:
-
-- `rectangle` - rectuangular "pill" style button with solid background and transparent text
-- `rectangleRounded` - same styles as `rectangle` with rounded corners
-- `rectangleOutline` - rectuangluar "pill" style button with solid text and an outline
-- `rectangleOutlineRounded` - same styles as `rectangleOutline` with rounded corners
-- `square` - same styles as `rectangle` but square with smaller text
-- `squareRounded` - same styles as `square` with rounded corners
-- `squareOutline` - same styles as `rectangleOutline` but square with smaller text
-- `squareOutlineRounded` - same styles as `squareOutline` with rounded corners
-- `text` - transparent background button with "gif" text only
-
-The `GPHGifButton` is also available in the following colors:
-
-- `pink` - pink and purple gradient
-- `blue` - blue and purple gradient
-- `black` - solid black
-- ` white` - solid white
-
-```
-let button = GPHGifButton()
-button.style = .squareRounded
-button.color = .blue
-```
-
-
-#### GPHContentTypeButton
-
-Icon buttons for the different supported icon types. These come in the following styles:
-
-- `stickers` - solid sticker icon
-- `stickersOutline` - outline version of the `stickers` button
-- `emoji` - solid emoji smiley icon
-- `emojiOutline` - outline version of the `emoji` button
-- `text` - solid text speech bubble icon
-- `textOutline` - outline version of the `text` button
-
-The `GPHContentTypeButton` is also available in the following colors:
-
-- `pink` - pink and purple gradient
-- `blue` - blue and purple gradient
-- `black` - solid black
-- ` white` - solid white
-
-```
-let button = GPHContentTypeButton()
-button.style = .emoji
-button.color = .black
 ```
 
 
