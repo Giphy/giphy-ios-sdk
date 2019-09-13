@@ -207,9 +207,6 @@ We no longer provide button classes `GPHGiphyButton`, `GPHGifButton`, and `GPHCo
 
 Please download the Sketch file [here](https://s3.amazonaws.com/sdk.mobile.giphy.com/design/GIPHY-SDK-UI-Kit.sketch) if you're looking for a great button icon to prompt the GIPHY SDK experience.  
 
-```
-
-
 ## Caching 
 We use [PINCache](https://github.com/pinterest/PINCache) to cache media assets, which reduces unnecessary image requests and loading times. We create our own instance of PINCache which you can access via `GPHCache.shared.pinCache`. 
 
