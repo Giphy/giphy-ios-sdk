@@ -1,4 +1,4 @@
-# GIPHY SDK for iOS (v1.1.1)
+# GIPHY SDK for iOS (v1.1.2)
 
 ### Setup 
 
