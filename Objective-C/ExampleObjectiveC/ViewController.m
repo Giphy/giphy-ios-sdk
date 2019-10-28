@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [GiphyUISDK configureWithApiKey:@"your_api_key"];
+    [GiphyUISDK configureWithApiKey:@"your_api_key" verificationMode:false] ; 
 }
 
 - (void) viewDidAppear:(BOOL)animated {
