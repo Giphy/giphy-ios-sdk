@@ -274,7 +274,11 @@ extension ViewController: SettingsDelegate {
     }
 } 
 
-extension ViewController: GiphyDelegate {
+extension ViewController: GiphyDelegate { 
+    func didSearch(for term: String) {
+        print("your user made a search! ", term)
+    }
+    
     func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
         giphyViewController.dismiss(animated: true, completion: { [weak self] in
             self?.addMessageToConversation(text: nil, media: media)

@@ -1,18 +1,18 @@
 PODS:
   - DeepDiff (2.3.1)
-  - Giphy (1.1.7):
+  - Giphy (1.1.9):
     - DeepDiff
     - libwebp
     - PINCache
-  - libwebp (1.0.3):
-    - libwebp/demux (= 1.0.3)
-    - libwebp/mux (= 1.0.3)
-    - libwebp/webp (= 1.0.3)
-  - libwebp/demux (1.0.3):
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
     - libwebp/webp
-  - libwebp/mux (1.0.3):
+  - libwebp/mux (1.1.0):
     - libwebp/demux
-  - libwebp/webp (1.0.3)
+  - libwebp/webp (1.1.0)
   - PINCache (2.3)
 
 DEPENDENCIES:
@@ -27,8 +27,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
-  Giphy: 6737d21c03ae507b7a2c2d4e986aa8d29c230446
-  libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
+  Giphy: c6267ae38e140d4bee3899269f323426e4609f0b
+  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
 
 PODFILE CHECKSUM: 1f6c8dc7b516e93843dc4421cd9aea8f50ab8389
