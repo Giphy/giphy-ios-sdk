@@ -110,7 +110,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GiphyUISDK.configure(apiKey: "", verificationMode: false)
+        Giphy.configure(apiKey: "", verificationMode: false)
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white

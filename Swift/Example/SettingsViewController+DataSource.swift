@@ -8,6 +8,7 @@
 
 
 import UIKit
+import GiphyCoreSDK
 import GiphyUISDK
 
 extension SettingsViewController: UICollectionViewDataSource {
