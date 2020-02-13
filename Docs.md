@@ -6,7 +6,7 @@
 - iOS 10 or later  
 - Cocoapods v1.7.1 or later 
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true).
-- Xcode 11.0 GM (Xcode 10.2 is supported in v1.1 and ealier) 
+- Xcode 11.0   
 
 #### Github Example Repo 
 
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad() 
-        GiphyUISDK.configure(apiKey: "your api key here")
+        Giphy.configure(apiKey: "your api key here")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +64,7 @@ import GiphyCoreSDK
 
 Configure your API key. Apply for an API key [here](https://developers.giphy.com/dashboard/).
 ```swift
-GiphyUISDK.configure(apiKey: "yOuR_kEy_HeRe")
+Giphy.configure(apiKey: "yOuR_kEy_HeRe")
 ```
 
 Create a new `GiphyViewController`, which takes care of most of the magic.  
@@ -214,7 +214,7 @@ By default, we use both PINCache’s memory cache and disk cache. The disk cache
 
 ```swift
 // set to 300 mb
-GPHCache.shared.pinCache.diskCache.byteLimit = 300 * 1000 * 1000
+GPHCache.shared.pinCache.diskCacheByteLimit = 300 * 1000 * 1000
 ```
 If you only want to cache GIFs in memory, set 
 `GPHCache.shared.setting` to `memoryOnly` like so 
