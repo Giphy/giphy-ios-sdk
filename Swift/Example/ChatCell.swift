@@ -64,6 +64,9 @@ class ChatCell: UICollectionViewCell {
                 }
                 label.textColor = .white
                 break
+            case .automatic: break
+            @unknown default: break 
+                 
             }
         }
     }
