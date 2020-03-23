@@ -18,6 +18,8 @@
 Add the GiphyUISDK to your Podfile like so: 
 
 ```swift 
+use_frameworks!
+
 target "YourAppTarget" do 
 pod 'Giphy' 
 end
