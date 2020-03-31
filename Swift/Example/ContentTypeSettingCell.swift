@@ -101,6 +101,8 @@ class ContentTypeSettingCell: UICollectionViewCell {
             case .stickers: button.setTitle("Stickers", for: .normal)
             case .text: button.setTitle("Text", for: .normal)
             case .emoji: button.setTitle("Emoji", for: .normal)
+            case .recents: button.setTitle("Recents", for: .normal)
+            @unknown default: break
             }
             buttons.append(button)
             button.addTarget(self, action: #selector(buttonSelected(button:)), for: .touchUpInside)

@@ -115,6 +115,17 @@ _Objective-C_:
 [giphy setMediaConfigWithTypes: [[ NSMutableArray alloc] initWithObjects: 
 @(GPHContentTypeGifs), @(GPHContentTypeStickers), @(GPHContentTypeText), @(GPHContentTypeEmoji), nil ] ]; 
 ```
+- **Recently Picked**:
+
+As of `v1.2.5`, you can add an additional `GPHContentType` to the `mediaTypeConfig` array: `.recents`
+
+```swift
+giphy.mediaTypeConfig = [.gifs, .stickers, .recents]
+``` 
+
+GIFs that are selected by the user are automatically added to the recents tab, which is only displayed if the user has previously picked a gif. 
+
+Users can remove gifs from recents with a long-press on the GIF in the recents grid. 
 
 - **Confirmation screen**:  we provide the option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.
 This confirmation screen is only available for `.waterfall` mode - this property will be ignored if the `layout` is `.carousel`. 
@@ -340,14 +351,36 @@ let emoji = GPHContent.emoji
 ```
 
 ##### Search 
-```
+``` 
 let search = GPHContent.search(withQuery: "Hello", mediaType: .gif, language: .english)
 ```
- 
+
+##### Recents
+
+Show GIFs that the user has previously picked. 
+``` 
+let recentlyPicked = GPHContent.recents 
+```
+
+Only show a "recents" tab if there are any recents. Get the number of recents via: 
+``` 
+let numberOfRecents = GPHRecents.count 
+```
+
+Optionally, we also provide the option to clear the set of recents: 
+
+```
+GPHRecents.clear() 
+```
+
+##### Updating the content
+
 Set the grid controller's `content` property and call update: 
 ```
 gridController.content = GPHContent.search(withQuery: "Sup", mediaType: .text, language: .english)
 gridController.update()
+
+
 ```
 #### GiphyGridController: GPHGridDelegate
 
