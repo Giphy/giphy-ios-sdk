@@ -51,7 +51,6 @@ extension ViewController: UICollectionViewDataSource {
         guard let cell = genericCell as? ChatCell else { return genericCell }
         let message = conversation[indexPath.item]
         cell.media = message.media
-        //cell.imageView.logoView.isHighlighted = true 
         cell.text = message.text
         cell.avatarImage = message.user.avatar
         cell.isReply = message.user == .abraHam

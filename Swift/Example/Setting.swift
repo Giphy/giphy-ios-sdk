@@ -40,17 +40,18 @@ extension GPHTheme: Setting {
     static var itemHeight: CGFloat { return 30.0 }
     static var columns: Int { return 1 }
     var type: Setting.Type { return GPHTheme.self }
-    var cases:[Any] { return [GPHTheme.light, GPHTheme.dark] }
+    var cases:[Any] { return [GPHTheme.light, GPHTheme.dark, GPHTheme.lightBlur, GPHTheme.darkBlur] }
     var string: String {
         switch self {
         case .light: return "Light"
         case .dark: return "Dark"
-        case .automatic:
-            return "Dark"
-        @unknown default:
-            return "Dark"
+        case .automatic: return "Automatic"
+        case .lightBlur: return "Light Blur"
+        case .darkBlur: return "Dark Blur"
+        @unknown default: return "Light"
         }
     }
+
 }
 
 extension GPHGridLayout: Setting {
