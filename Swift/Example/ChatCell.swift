@@ -146,6 +146,7 @@ class ChatCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = bubbleView.layer.cornerRadius
         imageView.layer.masksToBounds = true
+        //imageView.logoView.isHidden = true 
     }
     
     override func prepareForReuse() {
