@@ -49,24 +49,22 @@ class ChatCell: UICollectionViewCell {
         }
     }
     
-    var theme: GPHTheme = .light {
+    var theme = GPHThemeType.light {
         didSet {
             switch theme {
-            case .light:
+            case GPHThemeType.automatic, GPHThemeType.light:
                 if media == nil {
                     bubbleView.backgroundColor = isReply ? .white : UIColor(red: 1.00, green :0.40, blue: 0.40, alpha: 1.0)
                 }
                 label.textColor = isReply ? UIColor(red: 0.27, green: 0.27, blue: 0.30, alpha: 1.0) : .white
                 break
-            case .dark:
+            case GPHThemeType.dark:
                 if media == nil {
                     bubbleView.backgroundColor = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.0)
                 }
                 label.textColor = .white
                 break
-            case .automatic: break
-            @unknown default: break 
-                 
+            default: break
             }
         }
     }
@@ -136,7 +134,7 @@ class ChatCell: UICollectionViewCell {
         label.isHidden = true
         bubbleView.backgroundColor = .clear
         bubbleView.addSubview(imageView)
-        imageView.setMedia(media)
+        imageView.media = media
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio).isActive = true
