@@ -8,11 +8,9 @@
 
 
 import UIKit
-import GiphyCoreSDK
 import GiphyUISDK
 
 extension SettingsViewController: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return settings.count
     }
@@ -42,9 +40,9 @@ extension SettingsViewController: UICollectionViewDataSource {
             return cell
         case let cell as ContentTypeSettingCell:
             cell.setting = item as? ContentTypeSetting
-            cell.isDark = self.theme == .dark
+            cell.isDark = self.theme == GPHThemeType.dark
             cell.delegate = self
-            return cell  
+            return cell
         default:
             return genericCell
         }
@@ -54,11 +52,11 @@ extension SettingsViewController: UICollectionViewDataSource {
 extension SettingsViewController: SettingCellDelegate {
     func settingDidChange(setting: Setting) {
         switch setting {
-        case is GPHTheme:
-            guard let theme = setting as? GPHTheme else { return }
+        case is GPHThemeType:
+            guard let theme = setting as? GPHThemeType else { return }
             self.theme = theme
-            delegate?.themeDidChange(theme) 
-            view.backgroundColor = theme == .dark ? .black : .white
+            delegate?.themeDidChange(theme)
+            view.backgroundColor = theme == GPHThemeType.dark ? .black : .white
             collectionView.reloadData()
         case is GPHGridLayout:
             guard let layout = setting as? GPHGridLayout else { return }

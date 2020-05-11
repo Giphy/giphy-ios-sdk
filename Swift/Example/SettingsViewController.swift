@@ -10,7 +10,7 @@ import UIKit
 import GiphyUISDK
 
 protocol SettingsDelegate: class {
-    func themeDidChange(_ theme: GPHTheme)
+    func themeDidChange(_ theme: GPHThemeType)
 }
 
 class SettingsViewController: UIViewController {
@@ -22,17 +22,18 @@ class SettingsViewController: UIViewController {
     static let controlFont: UIFont = .systemFont(ofSize: 13, weight: .regular)
     
     var layout: GPHGridLayout = GPHGridLayout.defaultSetting
-    var theme: GPHTheme = GPHTheme.defaultSetting
+    var theme: GPHThemeType = GPHThemeType.light
     var confirmationScreen: ConfirmationScreenSetting = ConfirmationScreenSetting.defaultSetting
     var mediaTypeConfig: [GPHContentType] = GPHContentType.defaultSetting
-    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple 
+    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple
+
     var settings: [Setting] { return [theme, layout, confirmationScreen, contentTypeSetting] }
     
     weak var delegate: SettingsDelegate?
     
     let closeButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: "SettingsCloseButton"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "CloseButton"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

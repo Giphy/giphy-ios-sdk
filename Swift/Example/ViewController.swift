@@ -192,7 +192,7 @@ class ViewController: UIViewController {
          
     }
     
-    func updateChatColors(_ theme: GPHTheme) {
+    func updateChatColors(_ theme: GPHThemeType) {
         let isDark = theme == .dark
         textFieldContainer.backgroundColor = isDark ? .black : .white
         textFieldContainer.layer.borderColor = isDark ? ViewController.darkTextFieldBorderColor.cgColor : UIColor.white.cgColor
@@ -220,11 +220,12 @@ class ViewController: UIViewController {
         textField.resignFirstResponder()
     }
     
-    @objc func gifButtonTapped() { 
+    @objc func gifButtonTapped() {
         let giphy = GiphyViewController()
-        giphy.theme = settingsViewController.theme
+        giphy.theme = GPHTheme(type: settingsViewController.theme)
+        //giphy.theme = ExampleTheme()
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
-        GiphyViewController.trayHeightMultiplier = 0.7 
+        GiphyViewController.trayHeightMultiplier = 0.7
         giphy.layout = settingsViewController.layout
         giphy.showConfirmationScreen = settingsViewController.confirmationScreen == .on
         giphy.shouldLocalizeSearch = true
@@ -233,7 +234,7 @@ class ViewController: UIViewController {
         giphy.showCheckeredBackground = true
         giphy.modalPresentationStyle = .overCurrentContext
         present(giphy, animated: true, completion: nil)
-    } 
+    }
     
     @objc func textEditingExit() {
         textField.resignFirstResponder()
@@ -246,6 +247,31 @@ class ViewController: UIViewController {
     public override var prefersStatusBarHidden: Bool {
         return true
     }
+}
+
+public class ExampleTheme: GPHTheme {
+    public override init() {
+        super.init()
+        self.type = .light
+    }
+    
+    public override var textFieldFont: UIFont? {
+        return UIFont.italicSystemFont(ofSize: 15.0)
+    }
+    
+    public override var mediaButtonFont: UIFont? {
+        return UIFont.italicSystemFont(ofSize: 15.0)
+    }
+    public override var searchBarType: GPHSearchBarType { return GPHSearchBarType.square }
+
+    public override var textColor: UIColor {
+        return .black
+    }
+
+    public override var stickerBackgroundColor: UIColor { return .clear }
+
+    public override var toolBarSwitchSelectedColor: UIColor { return .black }
+
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
@@ -269,12 +295,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ViewController: SettingsDelegate {
-    func themeDidChange(_ theme: GPHTheme) {
+    func themeDidChange(_ theme: GPHThemeType) {
         updateChatColors(theme)
     }
-} 
+}
 
-extension ViewController: GiphyDelegate { 
+extension ViewController: GiphyDelegate {
     func didSearch(for term: String) {
         print("your user made a search! ", term)
     }

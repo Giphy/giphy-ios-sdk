@@ -33,25 +33,24 @@ enum ContentTypeSetting: Int {
     case single
 }
 
-extension GPHTheme: Setting {
+extension GPHThemeType: Setting {
     static var title: String { return "Theme" }
     static var cellId: String { return SettingCell.id }
     static var itemCount: Int { return 1 }
     static var itemHeight: CGFloat { return 30.0 }
     static var columns: Int { return 1 }
-    var type: Setting.Type { return GPHTheme.self }
-    var cases:[Any] { return [GPHTheme.light, GPHTheme.dark, GPHTheme.lightBlur, GPHTheme.darkBlur] }
+    var type: Setting.Type { return GPHThemeType.self }
+    var cases:[Any] { return [GPHThemeType.light, GPHThemeType.dark, GPHThemeType.lightBlur, GPHThemeType.darkBlur] }
     var string: String {
         switch self {
-        case .light: return "Light"
-        case .dark: return "Dark"
-        case .automatic: return "Automatic"
-        case .lightBlur: return "Light Blur"
-        case .darkBlur: return "Dark Blur"
+        case GPHThemeType.light: return "Light"
+        case GPHThemeType.dark: return "Dark"
+        case GPHThemeType.automatic: return "Automatic"
+        case GPHThemeType.lightBlur: return "Light Blur"
+        case GPHThemeType.darkBlur: return "Dark Blur"
         @unknown default: return "Light"
         }
     }
-
 }
 
 extension GPHGridLayout: Setting {
@@ -66,6 +65,7 @@ extension GPHGridLayout: Setting {
         switch self {
         case .waterfall: return "Waterfall"
         case .carousel: return "Carousel"
+        @unknown default: return ""
         }
     }
 }
@@ -97,7 +97,7 @@ extension ContentTypeSetting: Setting {
         if self == .single {
             return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text]
         }
-        return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji]
+        return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji, GPHContentType.recents]
     }
     var string: String { return "" }
 }

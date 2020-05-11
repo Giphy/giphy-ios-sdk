@@ -1,19 +1,48 @@
 # GIPHY SDK for iOS
+ 
 
-### Setup 
+## _Table of contents_
+**Setup**
+- [Requirements](#requirements) 
+- [CocoaPods](#cocoapods) 
+- [Carthage](#carthage) 
+- [API Key](#configure-your-api-key) <br>
+- [Customization](#custom-ui)  
 
-#### Requirements 
+**Templates**
+- [GiphyViewController](#giphyviewcontroller)
+- [Settings](#template-settings)
+    - [Layout](#layout)
+    - [Media Types](#media-types)  
+    - [Theme](#theme) 
+- [GiphyDelegate](#events)
+
+**GPHMedia**
+- [GPHMediaView](#gphmediaview)
+- [Media IDs](#media-ids) 
+
+**Caching & Dependencies** 
+- [Caching](#caching)
+- [Dependencies](#dependencies)
+
+**The Grid**
+- [GiphyGridController](#grid-only-and-the-giphygridcontroller-setup)
+- [Presentation](#giphygridcontroller-presentation) 
+- [GPHContent](#giphygridcontroller-gphcontent)
+- [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
+
+### Requirements 
 - iOS 10 or later  
 - Cocoapods or Carthage 
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
 - Xcode 11.3 and later  
 
-#### Github Example Repo 
+### Github Example Repo 
 - Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` before building the example app. 
 - Open [issues or feature requests](https://github.com/Giphy/giphy-ios-sdk-ui-example/issues)  
 - View [releases](https://github.com/Giphy/giphy-ios-sdk-ui-example/releases)
 
-#### CocoaPods Setup
+### CocoaPods
 
 Add the GiphyUISDK to your Podfile like so: 
 
@@ -26,7 +55,7 @@ end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
 
-#### Carthage Setup
+### Carthage
 
 1. Add GiphySDK to your Cartfile like so:
 ```
@@ -40,29 +69,7 @@ binary "https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/GiphySDK.json"
 - `PINCache.framework`  
 - `DeepDiff.framework` 
 
-#### Getting started
-Here's a basic `ViewController` setup to make sure everything's working. 
-Make sure to configure the GIPHY SDK with your API key.
-```swift
-import UIKit
-import GiphyUISDK 
-import GiphyCoreSDK
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad() 
-        Giphy.configure(apiKey: "your api key here")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true )
-        present(GiphyViewController(), animated: true, completion: nil)
-    }
-}
-``` 
-
-#### Configure your API key 
+### Configure your API key 
 
 First things first, be sure to import: 
 ```swift
@@ -75,7 +82,7 @@ Configure your API key. Apply for an API key [here](https://developers.giphy.com
 Giphy.configure(apiKey: "yOuR_kEy_HeRe")
 ```
 
-#### Custom UI
+## Custom UI
 
 We offer two solutions for the SDK user interface - pre-built templates which handle the entirety of the GIPHY experience, and a [Grid-Only implementation](https://developers.giphy.com/docs/sdk#grid) which allows for endless customization.  
 
@@ -83,7 +90,7 @@ See [customization](https://developers.giphy.com/docs/sdk#grid) to determine wha
  
 _Skip ahead to [Grid-Only section](#grid-only-and-the-giphygridcontroller-setup)_
 
-#### Templates via GiphyViewController 
+### GiphyViewController 
 
 Create a new `GiphyViewController`, which takes care of most of the magic.  
 ```swift
@@ -92,32 +99,33 @@ let giphy = GiphyViewController()
 
 Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
 
-#### Settings
-- **Theme**: set the theme to be `.dark`, `.light`, or `.automatic`. The `automatic` option follows the current Dark Mode setting of the device. 
+## Template Settings
 
-```swift
-giphy.theme = .dark
-```
+### _Layout_ 
 
-- **Layout**: set the layout to be `.waterfall` (vertical) or `.carousel` (horizontal).
+Set the layout to be `.waterfall` (vertical) or `.carousel` (horizontal).
+
 ```swift
 giphy.layout = .waterfall
 ```
 
-- **Media types**: Set the content type(s) you'd like to show by setting the `mediaTypeConfig` property, which is an array of `GPHContentType`s.
+### _Media Types_
+
+Set the content type(s) you'd like to show by setting the `mediaTypeConfig` property, which is an array of `GPHContentType`s.
 
 **Note**: Emoji-only is not available for the carousel layout option. 
 ```swift
 giphy.mediaTypeConfig = [.gifs, .stickers, .text, .emoji]
 ```
-_Objective-C_: 
+Objective-C: 
 ```Objective-C
 [giphy setMediaConfigWithTypes: [[ NSMutableArray alloc] initWithObjects: 
 @(GPHContentTypeGifs), @(GPHContentTypeStickers), @(GPHContentTypeText), @(GPHContentTypeEmoji), nil ] ]; 
 ```
-- **Recently Picked**:
+### _Recently Picked_
 
 As of `v1.2.5`, you can add an additional `GPHContentType` to the `mediaTypeConfig` array: `.recents`
+<img src="images/recents.PNG" width="281.109445275" height="500">
 
 ```swift
 giphy.mediaTypeConfig = [.gifs, .stickers, .recents]
@@ -126,6 +134,55 @@ giphy.mediaTypeConfig = [.gifs, .stickers, .recents]
 GIFs that are selected by the user are automatically added to the recents tab, which is only displayed if the user has previously picked a gif. 
 
 Users can remove gifs from recents with a long-press on the GIF in the recents grid. 
+
+### _Theme_
+
+Set the theme type (`GPHThemeType`) to be `.dark`, `.light`, `.lightBlur`, `.darkBlur` or `.automatic`. The `automatic` option follows the current Dark Mode setting of the device. 
+ 
+```swift
+giphy.theme = GPHTheme(type: .lightBlur) 
+```
+For video editing apps, we recommend trying out `.lightBlur` or `.darkBlur` themes. <br>
+<img src="images/light-blur.PNG" width="281.109445275" height="500">
+<img src="images/dark-blur.PNG" width="281.109445275" height="500">
+
+### _Extending GPHTheme_
+
+As of version 1.2.8, you can also subclass `GPHTheme` to override visual properties like font and colors, so as to apply the visual language of your app. 
+
+```swift 
+public class CustomTheme: GPHTheme {
+    public override init() {
+        super.init()
+        self.type = .light
+    }
+    
+    public override var textFieldFont: UIFont? {
+        return UIFont.italicSystemFont(ofSize: 15.0)
+    }
+    
+    public override var mediaButtonFont: UIFont? {
+        return UIFont.italicSystemFont(ofSize: 15.0)
+    } 
+
+    public override var textColor: UIColor {
+        return .black
+    }
+
+    public override var stickerBackgroundColor: UIColor { return .clear }
+
+    public override var toolBarSwitchSelectedColor: UIColor { return .green }
+
+}
+
+```
+### _Additional Settings_ 
+- **Sticker Column Count**: For carousel layouts, we provide the option to set the number of columns for stickers and text. Possible `GPHStickerColumnCount`values are `.two`, `.three`. and `.four`. We recommend going for 3 or 4 columns when leveraging the blur `GPHThemeType`. 
+
+```
+giphy.stickerColumnCount = GPHStickerColumnCount.three 
+```
+
 
 - **Confirmation screen**:  we provide the option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.
 This confirmation screen is only available for `.waterfall` mode - this property will be ignored if the `layout` is `.carousel`. 
@@ -153,14 +210,14 @@ giphy.shouldLocalizeSearch = false
 GiphyViewController.trayHeightMultiplier = 0.7 
 ```
 
-#### Presentation 
+### _Presentation_ 
 
 Present the `GiphyViewController` and watch as the GIFs start flowin'.
 ```swift
 present(giphy, animated: true, completion: nil)
 ```
 
-#### Events
+### _Events_
 Set the delegate and conform to the `GiphyDelegate` protocol to handle GIF selection.
 ```swift
 giphy.delegate = self
@@ -183,7 +240,7 @@ extension YourController: GiphyDelegate {
 From there, it's up to you to decide what to do with the GIF!  
 
 
-#### GPHMediaView
+### _GPHMediaView_
 
 Create a `GPHMediaView` to display the media: 
 
@@ -206,7 +263,7 @@ let vidURL = media.url(rendition: .fixedWidth, fileType: .mp4)
 let url = URL(string: gifURL) 
 ```
 
-#### Media IDs
+### _Media IDs_
 
 In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets. 
 
@@ -224,7 +281,7 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 }
 ``` 
 
-#### Caching 
+### _Caching_ 
 We use [PINCache](https://github.com/pinterest/PINCache) to cache media assets, which reduces unnecessary image requests and loading times.
 
 By default, we use both PINCache’s memory cache and disk cache. The disk cache is limited to 300 mb by default, but you can set it to any value you’d like: 
@@ -253,18 +310,18 @@ guard let url = media.url(rendition: .fixedWidth, fileType: .webp) else { return
 GPHCache.shared.downloadAssetData(url) { (data, error) in
 }
 ```
-#### Dependencies  
+#### *Dependencies*  
 [PINCache](https://github.com/pinterest/PINCache): image caching <br> 
 [YYImage](https://github.com/ibireme/YYImage): GIF playback <br>
 [libwebp](https://github.com/webmproject/libwebp): webp playback <br>
 [DeepDiff](https://github.com/onmyway133/DeepDiff): Collection view diffing algorithm <br> 
 
 
-#### Buttons
+#### *Buttons*
 
 Download the Sketch file [here](https://s3.amazonaws.com/sdk.mobile.giphy.com/design/GIPHY-SDK-UI-Kit.sketch) if you're looking for a great button icon to prompt the GIPHY SDK experience. 
 
-#### Sponsored Content
+#### *Sponsored Content*
 
 We serve sponsored content every now and then so we can continue building great products and sharing the joy of GIFs across the Internet, and in apps like yours.  
 
@@ -275,7 +332,7 @@ As a result, you’ll have to check a few boxes when you submit your app for rev
     - [x]  Attribute an action taken within this app to a previously served advertisement
 
 
-### Grid-Only and the GiphyGridController Setup
+## Grid-Only and the GiphyGridController Setup
 
 The following section refers to the Grid-Only solution of the SDK. Learn more [here](https://developers.giphy.com/docs/sdk#grid)
 
@@ -313,12 +370,12 @@ gridController.fixedSizeCells = true
 
 ``` 
 
-#### GiphyGridController: Presentation
+### GiphyGridController: Presentation
 
 Unlike the `GiphyViewController`, the `GiphyGridController` is not by itself a fully functional component, and must exist alongside other UI in order to offer a meaningful user experience. We recommend embedding the `GiphyGridController` inside of another `UIViewController` by adding it as a child view controller, adding its subview, and constraining it according to your design. 
 
 *Important*
-For performance reasons, a new `GiphyGridController` should be created _every time_ the Giphy search experience is presented, and the instance should be always set to nil when it is dismissed. 
+For performance reasons, a new `GiphyGridController` should be created _every time_ the Giphy search experience is presented, and the instance should be always set to nil when it is dismissed. Ensure that there is only ever one instance of a `GiphyGridController` allocated at a given screen - multiple instances of `GiphyGridController`s may not be added to the same screen. 
 
 ```swift
 addChild(gridController)
@@ -332,30 +389,30 @@ gridController.view.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive =
 gridController.view.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
 ```
 
-#### GiphyGridController: GPHContent 
+### GiphyGridController: GPHContent 
 
 The `GiphyGridController` comes with a new class `GPHContent`. A `GPHContent` describes a content request to the Giphy API. 
 
 Create content objects with `GPHContent` class methods, like so: 
 
-##### Trending 
+#### Trending 
 ```
 let trendingGIFs = GPHContent.trending(mediaType: .gif) 
 let trendingStickers = GPHContent.trending(mediaType: .sticker) 
 let trendingText = GPHContent.trending(mediaType: .text)
 ```
 
-##### Emoji 
+#### Emoji 
 ```
 let emoji = GPHContent.emoji
 ```
 
-##### Search 
+#### Search 
 ``` 
 let search = GPHContent.search(withQuery: "Hello", mediaType: .gif, language: .english)
 ```
 
-##### Recents
+#### Recents
 
 Show GIFs that the user has previously picked. 
 ``` 
@@ -373,7 +430,7 @@ Optionally, we also provide the option to clear the set of recents:
 GPHRecents.clear() 
 ```
 
-##### Updating the content
+### Updating the content
 
 Set the grid controller's `content` property and call update: 
 ```
@@ -382,7 +439,7 @@ gridController.update()
 
 
 ```
-#### GiphyGridController: GPHGridDelegate
+### GiphyGridController: GPHGridDelegate
 
 Similar to the `GiphyDelegate`, the `GPHGridDelegate` is the mechanism for responding to gif selection events in the grid. 
 
@@ -398,7 +455,7 @@ extension ViewController: GPHGridDelegate {
         print("content did update")
     }
     
-    func didSelectMedia(media: GPHMedia) {
+    func didSelectMedia(media: GPHMedia, cell: UICollectionViewCell) {
         print("did select media")
     } 
 }
