@@ -38,7 +38,7 @@
 - Xcode 11.3 and later  
 
 ### Github Example Repo 
-- Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` before building the example app. 
+- Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` and set your API key [here](https://github.com/Giphy/giphy-ios-sdk-ui-example/blob/master/Swift/Example/ViewController.swift#L113) before building the example app. 
 - Open [issues or feature requests](https://github.com/Giphy/giphy-ios-sdk-ui-example/issues)  
 - View [releases](https://github.com/Giphy/giphy-ios-sdk-ui-example/releases)
 
