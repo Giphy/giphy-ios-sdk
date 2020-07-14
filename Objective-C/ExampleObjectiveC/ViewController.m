@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [GiphyUISDK configureWithApiKey:@"your_api_key" verificationMode:false] ; 
+    [Giphy configureWithApiKey:@"your_api_key" verificationMode:false] ;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -26,7 +26,7 @@
     
     GiphyViewController *giphy = [[GiphyViewController alloc]init ] ;
     giphy.layout = GPHGridLayoutWaterfall;
-    giphy.theme = GPHThemeLight;
+    giphy.theme = [[GPHTheme alloc] init]; 
     giphy.rating = GPHRatingTypeRatedPG13;
     giphy.delegate = self;
     giphy.showConfirmationScreen = true ;
