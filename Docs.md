@@ -319,18 +319,7 @@ GPHCache.shared.downloadAssetData(url) { (data, error) in
 
 #### *Buttons*
 
-Download the Sketch file [here](https://s3.amazonaws.com/sdk.mobile.giphy.com/design/GIPHY-SDK-UI-Kit.sketch) if you're looking for a great button icon to prompt the GIPHY SDK experience. 
-
-#### *Sponsored Content*
-
-We serve sponsored content every now and then so we can continue building great products and sharing the joy of GIFs across the Internet, and in apps like yours.  
-
-As a result, you’ll have to check a few boxes when you submit your app for review on the App Store if you’ve integrated this SDK. 
-
-* Answer `yes` when asked if the app uses an advertising identifier and be sure to check:
-    - [x]  Serve advertisements within the app
-    - [x]  Attribute an action taken within this app to a previously served advertisement
-
+Download the Sketch file [here](https://s3.amazonaws.com/sdk.mobile.giphy.com/design/GIPHY-SDK-UI-Kit.sketch) if you're looking for a great button icon to prompt the GIPHY SDK experience.  
 
 ## Grid-Only and the GiphyGridController Setup
 
