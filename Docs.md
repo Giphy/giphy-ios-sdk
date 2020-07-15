@@ -63,7 +63,7 @@ binary "https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/GiphySDK.json"
 ```
 2. Add `-ObjC` to the `Other Linker Flags` Build Setting
 
-3. Add `PINCache.framework`, `DeepDiff.framework`, `GiphyCoreSDK.framework`, `GiphyUISDK.framework`, `WebP.framework`, and `OMSDK_Giphy.framework` from `Carthage/Build/iOS` into your project. (`OMSDK_Giphy.framework` can be found inside of the `GiphyCoreSDK.framework`)
+3. Add `PINCache.framework`, `DeepDiff.framework`, `GiphyCoreSDK.framework`, `GiphyUISDK.framework`, and `WebP.framework` from `Carthage/Build/iOS` into your project. 
 
 4. Create a new Run Script under Build Phases (See step 8 of the directions [here](https://github.com/Carthage/Carthage#quick-start)). Only 2 of the frameworks need to be added to the run script (The rest can be excluded from this step as they are static frameworks):   
 - `PINCache.framework`  
