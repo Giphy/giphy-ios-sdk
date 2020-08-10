@@ -37,12 +37,13 @@ extension SettingsViewController: UICollectionViewDataSource {
         case let cell as SettingCell:
             cell.setting = item
             cell.delegate = self
+            cell.segmentedControl.backgroundColor = .gray 
             return cell
         case let cell as ContentTypeSettingCell:
             cell.setting = item as? ContentTypeSetting
             cell.isDark = self.theme == GPHThemeType.dark
             cell.delegate = self
-            return cell
+            return cell  
         default:
             return genericCell
         }
@@ -55,14 +56,9 @@ extension SettingsViewController: SettingCellDelegate {
         case is GPHThemeType:
             guard let theme = setting as? GPHThemeType else { return }
             self.theme = theme
-            delegate?.themeDidChange(theme)
+            delegate?.themeDidChange(theme) 
             view.backgroundColor = theme == GPHThemeType.dark ? .black : .white
-            collectionView.reloadData()
-        case is GPHGridLayout:
-            guard let layout = setting as? GPHGridLayout else { return }
-            self.layout = layout
-            self.contentTypeSetting = layout == .carousel ? .single : .multiple
-            collectionView.reloadData()
+            collectionView.reloadData() 
         case is ConfirmationScreenSetting:
             guard let confirmationScreen = setting as? ConfirmationScreenSetting else { return }
             self.confirmationScreen = confirmationScreen

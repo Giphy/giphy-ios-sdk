@@ -20,14 +20,13 @@ class SettingsViewController: UIViewController {
     static let controlCornerRadius: CGFloat = 5.0
     static let controlBorderWidth: CGFloat = 1.0
     static let controlFont: UIFont = .systemFont(ofSize: 13, weight: .regular)
-    
-    var layout: GPHGridLayout = GPHGridLayout.defaultSetting
+     
     var theme: GPHThemeType = GPHThemeType.light
     var confirmationScreen: ConfirmationScreenSetting = ConfirmationScreenSetting.defaultSetting
     var mediaTypeConfig: [GPHContentType] = GPHContentType.defaultSetting
-    var contentTypeSetting: ContentTypeSetting = GPHGridLayout.defaultSetting == .carousel ? .single : .multiple
+    var contentTypeSetting: ContentTypeSetting = .multiple
 
-    var settings: [Setting] { return [theme, layout, confirmationScreen, contentTypeSetting] }
+    var settings: [Setting] { return [theme, confirmationScreen, contentTypeSetting] }
     
     weak var delegate: SettingsDelegate?
     

@@ -55,6 +55,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.avatarImage = message.user.avatar
         cell.isReply = message.user == .abraHam
         cell.theme = settingsViewController.theme
+        cell.imageView.delegate = self 
         return cell
     }
     

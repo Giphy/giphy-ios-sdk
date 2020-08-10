@@ -52,23 +52,7 @@ extension GPHThemeType: Setting {
         }
     }
 }
-
-extension GPHGridLayout: Setting {
-    static var title: String { return "Layout" }
-    static var cellId: String { return SettingCell.id }
-    static var itemCount: Int { return 1 }
-    static var itemHeight: CGFloat { return 30.0 }
-    static var columns: Int { return 1 }
-    var type: Setting.Type { return GPHGridLayout.self }
-    var cases: [Any] { return [GPHGridLayout.waterfall, GPHGridLayout.carousel] }
-    var string: String {
-        switch self {
-        case .waterfall: return "Waterfall"
-        case .carousel: return "Carousel"
-        @unknown default: return ""
-        }
-    }
-}
+ 
 
 extension ConfirmationScreenSetting: Setting {
     static var title: String { return "Confirmation Screen" }
