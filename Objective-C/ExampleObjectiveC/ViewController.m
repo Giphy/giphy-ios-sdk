@@ -25,8 +25,8 @@
     [super viewDidAppear:animated] ;
     
     GiphyViewController *giphy = [[GiphyViewController alloc]init ] ;
-    giphy.layout = GPHGridLayoutWaterfall;
-    giphy.theme = [[GPHTheme alloc] init]; 
+    giphy.theme = [[GPHTheme alloc] init];
+    giphy.theme.type = GPHThemeTypeDark;
     giphy.rating = GPHRatingTypeRatedPG13;
     giphy.delegate = self;
     giphy.showConfirmationScreen = true ;
@@ -36,6 +36,11 @@
 }
 
 - (void) didSelectMediaWithGiphyViewController:(GiphyViewController *)giphyViewController media:(GPHMedia *)media {
+     
+    /* grab url:
+    NSString *url = media.images.fixedWidth.gifUrl ;
+    NSString *url = media.images.fixedWidth.webPUrl ;
+    */
     
 }
 - (void) didDismissWithController:(GiphyViewController *)controller {
