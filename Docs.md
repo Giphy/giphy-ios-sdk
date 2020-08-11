@@ -100,15 +100,7 @@ let giphy = GiphyViewController()
 Create a new `GiphyViewController` every time you want to show GIPHY (maintaining a reference to the same `GiphyViewController` object isn't necesssary and can impact performance and lead to unexpected results) 
 
 ## Template Settings
-
-### _Layout_ 
-
-Set the layout to be `.waterfall` (vertical) or `.carousel` (horizontal).
-
-```swift
-giphy.layout = .waterfall
-```
-
+ 
 ### _Media Types_
 
 Set the content type(s) you'd like to show by setting the `mediaTypeConfig` property, which is an array of `GPHContentType`s.
@@ -160,19 +152,10 @@ public class CustomTheme: GPHTheme {
     public override var textFieldFont: UIFont? {
         return UIFont.italicSystemFont(ofSize: 15.0)
     }
-    
-    public override var mediaButtonFont: UIFont? {
-        return UIFont.italicSystemFont(ofSize: 15.0)
-    } 
 
     public override var textColor: UIColor {
         return .black
-    }
-
-    public override var stickerBackgroundColor: UIColor { return .clear }
-
-    public override var toolBarSwitchSelectedColor: UIColor { return .green }
-
+    }  
 }
 
 ```

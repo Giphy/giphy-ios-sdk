@@ -19,7 +19,7 @@ class ChatCell: UICollectionViewCell {
     static let emojiBubbleWidth: CGFloat = 60
     static let font: UIFont = .systemFont(ofSize: 14)
     
-    let imageView = GPHMediaView()
+    var imageView = GPHMediaView()
     let avatarImageView = GiphyYYAnimatedImageView()
     
     var media: GPHMedia? {
@@ -64,7 +64,7 @@ class ChatCell: UICollectionViewCell {
                 }
                 label.textColor = .white
                 break
-            default: break
+            default: break 
             }
         }
     }
@@ -133,7 +133,7 @@ class ChatCell: UICollectionViewCell {
         guard let media = media else { return }
         label.isHidden = true
         bubbleView.backgroundColor = .clear
-        bubbleView.addSubview(imageView)
+        bubbleView.addSubview(imageView) 
         imageView.media = media
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true

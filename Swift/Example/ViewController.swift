@@ -81,6 +81,7 @@ class ViewController: UIViewController {
     var gifButton: UIButton = {
         let button = UIButton()
         button.setImage(GPHIcons.giphyLogo(), for: .normal)
+        button.accessibilityLabel = "GIF_BUTTON"
         return button
     }()
     
@@ -109,8 +110,7 @@ class ViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        Giphy.configure(apiKey: "", verificationMode: false)
+        super.viewDidLoad() 
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white
@@ -220,21 +220,29 @@ class ViewController: UIViewController {
         textField.resignFirstResponder()
     }
     
-    @objc func gifButtonTapped() {
+    @objc func gifButtonTapped() { 
         let giphy = GiphyViewController()
+        
+         
         giphy.theme = GPHTheme(type: settingsViewController.theme)
-        //giphy.theme = ExampleTheme()
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
-        GiphyViewController.trayHeightMultiplier = 0.7
-        giphy.layout = settingsViewController.layout
+        GiphyViewController.trayHeightMultiplier = 0.7  
         giphy.showConfirmationScreen = settingsViewController.confirmationScreen == .on
         giphy.shouldLocalizeSearch = true
         giphy.delegate = self
         giphy.dimBackground = true
-        giphy.showCheckeredBackground = true
+        
         giphy.modalPresentationStyle = .overCurrentContext
+        
+        if let contentType = self.selectedContentType {
+            giphy.selectedContentType = contentType
+        }
+        if let user = self.showMoreByUser {
+            giphy.showMoreByUser = user
+        }
+        
         present(giphy, animated: true, completion: nil)
-    }
+    } 
     
     @objc func textEditingExit() {
         textField.resignFirstResponder()
@@ -247,6 +255,9 @@ class ViewController: UIViewController {
     public override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    var selectedContentType: GPHContentType?
+    var showMoreByUser: String?
 }
 
 public class ExampleTheme: GPHTheme {
@@ -258,19 +269,14 @@ public class ExampleTheme: GPHTheme {
     public override var textFieldFont: UIFont? {
         return UIFont.italicSystemFont(ofSize: 15.0)
     }
-    
-    public override var mediaButtonFont: UIFont? {
-        return UIFont.italicSystemFont(ofSize: 15.0)
-    }
-    public override var searchBarType: GPHSearchBarType { return GPHSearchBarType.square }
-
+      
     public override var textColor: UIColor {
         return .black
     }
 
     public override var stickerBackgroundColor: UIColor { return .clear }
 
-    public override var toolBarSwitchSelectedColor: UIColor { return .black }
+    public override var tabBarSwitchSelectedColor: UIColor { return .black }
 
 }
 
@@ -298,7 +304,7 @@ extension ViewController: SettingsDelegate {
     func themeDidChange(_ theme: GPHThemeType) {
         updateChatColors(theme)
     }
-}
+} 
 
 extension ViewController: GiphyDelegate {
     func didSearch(for term: String) {
@@ -306,6 +312,8 @@ extension ViewController: GiphyDelegate {
     }
     
     func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        showMoreByUser = nil 
+        self.selectedContentType = giphyViewController.selectedContentType
         giphyViewController.dismiss(animated: true, completion: { [weak self] in
             self?.addMessageToConversation(text: nil, media: media)
             guard self?.conversation.count ?? 0 > 7 else { return }
@@ -321,5 +329,12 @@ extension ViewController: GiphyDelegate {
     
     func didDismiss(controller: GiphyViewController?) {
         GPHCache.shared.clear(.memoryOnly)
+    }
+}
+
+extension ViewController: GPHMediaViewDelegate {
+    func didPressMoreByUser(_ user: String) {
+        showMoreByUser = user
+        gifButtonTapped()
     }
 }
