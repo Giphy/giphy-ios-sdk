@@ -272,23 +272,14 @@ By default, we use both PINCache’s memory cache and disk cache. The disk cache
 ```swift
 // set to 300 mb 
 GPHCache.shared.diskCacheByteLimit = 300 * 1000 * 1000  
-```
-If you only want to cache GIFs in memory, set 
-`GPHCache.shared.setting` to `memoryOnly` like so 
-```swift
-GPHCache.shared.setting = .memoryOnly 
 ``` 
-Similarly, you can cache only to disk with: 
-```swift
-GPHCache.shared.setting = .diskOnly 
 ```
 Note: We *don't* automatically clear the cache when the `GiphyViewController` is dismissed. 
-Manually clear the cache on your convenience by calling `GPHCache.shared.clear()` to clear the cache based on your setting, or `GPHCache.shared.clear(.memoryOnly)` to choose a specific cache you want to clear.
+Manually clear the cache on your convenience by calling `GPHCache.shared.clear()` to clear the cache  
 
 The cache stores NSData objects for the images (the SDK displays .webp files by default). You can get the raw image data yourself via: 
 
-```swift
-
+```swift 
 guard let url = media.url(rendition: .fixedWidth, fileType: .webp) else { return } 
 GPHCache.shared.downloadAssetData(url) { (data, error) in
 }
