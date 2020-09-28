@@ -324,11 +324,11 @@ extension ViewController: GiphyDelegate {
                 self.addMessageToConversation(text: response, user: .abraHam)
             }
         })
-        GPHCache.shared.clear(.memoryOnly)
+        GPHCache.shared.clear()
     }
     
     func didDismiss(controller: GiphyViewController?) {
-        GPHCache.shared.clear(.memoryOnly)
+        GPHCache.shared.clear()
     }
 }
 
