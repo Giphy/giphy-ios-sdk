@@ -77,9 +77,9 @@ import GiphyUISDK
 import GiphyCoreSDK
 ```
 
-Configure your API key. Apply for an API key [here](https://developers.giphy.com/dashboard/).
+Configure your API key. Apply for a new __iOS SDK__ key [here](https://developers.giphy.com/dashboard/). Please remember, you should use a separate key for every platform (Android, iOS, Web) you add our SDKs to.
 ```swift
-Giphy.configure(apiKey: "yOuR_kEy_HeRe")
+Giphy.configure(apiKey: "yOuR_iOs_SdK_kEy_HeRe")
 ```
 
 ## Custom UI
