@@ -32,10 +32,10 @@
 - [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
 
 ### Requirements 
-- iOS 10 or later  
+- iOS 10.2 or later  
 - Cocoapods or Carthage 
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
-- Xcode 11.3 and later  
+- Xcode 12 and later  
 
 ### Github Example Repo 
 - Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` and set your API key [here](https://github.com/Giphy/giphy-ios-sdk-ui-example/blob/master/Swift/Example/ViewController.swift#L113) before building the example app. 
