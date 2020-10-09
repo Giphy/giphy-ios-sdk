@@ -4,8 +4,7 @@
 ## _Table of contents_
 **Setup**
 - [Requirements](#requirements) 
-- [CocoaPods](#cocoapods) 
-- [Carthage](#carthage) 
+- [CocoaPods](#cocoapods)  
 - [API Key](#configure-your-api-key) <br>
 - [Customization](#custom-ui)  
 
@@ -54,21 +53,7 @@ pod 'Giphy'
 end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
-
-### Carthage
-
-1. Add GiphySDK to your Cartfile like so:
-```
-binary "https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/GiphySDK.json"
-```
-2. Add `-ObjC` to the `Other Linker Flags` Build Setting
-
-3. Add `PINCache.framework`, `DeepDiff.framework`, `GiphyCoreSDK.framework`, `GiphyUISDK.framework`, and `WebP.framework` from `Carthage/Build/iOS` into your project. 
-
-4. Create a new Run Script under Build Phases (See step 8 of the directions [here](https://github.com/Carthage/Carthage#quick-start)). Only 2 of the frameworks need to be added to the run script (The rest can be excluded from this step as they are static frameworks):   
-- `PINCache.framework`  
-- `DeepDiff.framework` 
-
+ 
 ### Configure your API key 
 
 First things first, be sure to import: 
@@ -79,7 +64,7 @@ import GiphyCoreSDK
 
 Configure your API key. Apply for a new __iOS SDK__ key [here](https://developers.giphy.com/dashboard/). Please remember, you should use a separate key for every platform (Android, iOS, Web) you add our SDKs to.
 ```swift
-Giphy.configure(apiKey: "yOuR_iOs_SdK_kEy_HeRe")
+Giphy.configure(apiKey: "your ios sdk key here")
 ```
 
 ## Custom UI
