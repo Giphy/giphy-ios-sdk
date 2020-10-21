@@ -221,9 +221,7 @@ class ViewController: UIViewController {
     }
     
     @objc func gifButtonTapped() { 
-        let giphy = GiphyViewController()
-        
-         
+        let giphy = GiphyViewController() 
         giphy.theme = GPHTheme(type: settingsViewController.theme)
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
         GiphyViewController.trayHeightMultiplier = 0.7  
@@ -231,7 +229,6 @@ class ViewController: UIViewController {
         giphy.shouldLocalizeSearch = true
         giphy.delegate = self
         giphy.dimBackground = true
-        
         giphy.modalPresentationStyle = .overCurrentContext
         
         if let contentType = self.selectedContentType {
