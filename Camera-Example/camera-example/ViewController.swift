@@ -54,7 +54,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        Giphy.configure(apiKey: "")
+        Giphy.configure(apiKey: "seS4IYKG394vOOwIx9ZreC55Tit5cMbe")
         
         
         view.addSubview(button)
@@ -78,7 +78,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @objc func presentGiphy() {
         let giphy = GiphyViewController()
         giphy.theme = GPHTheme(type: themeSwitch.isOn ? .darkBlur : .lightBlur)
-        giphy.mediaTypeConfig = [.stickers, .text, .recents, .gifs]
+        giphy.mediaTypeConfig = [.stickers, .text]
+        giphy.enableDynamicText = true 
         let threeColumns = segmentedControl.selectedSegmentIndex == 0
         giphy.stickerColumnCount = threeColumns ? .three : .four
         present(giphy, animated: true, completion: nil)
@@ -156,7 +157,6 @@ extension ViewController: GiphyDelegate {
     }
     
     func didDismiss(controller: GiphyViewController?) {
-        GPHCache.shared.clear(.memoryOnly)
     }
 }
 
