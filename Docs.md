@@ -30,8 +30,8 @@
 - [GPHContent](#giphygridcontroller-gphcontent)
 - [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
 
-**Apple Nutrition Label Details**
-- [Data collected through our SDK](#data-collected-through-our-SDK)
+**Data Collected by our SDK**
+- [Details](#data)
 
 ### Requirements 
 - iOS 10.2 or later  
@@ -412,7 +412,7 @@ extension ViewController: GPHGridDelegate {
 }
 ``` 
 
-#### Data collected through our SDK
+### Data Collected by our SDK
 We want to be transparent and disclose to you what data is collected or tracked when using the Giphy SDK:
 
 - **Search History**
