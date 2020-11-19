@@ -30,6 +30,9 @@
 - [GPHContent](#giphygridcontroller-gphcontent)
 - [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
 
+**Apple Nutrition Label Details**
+- [Data collected through our SDK](#data-collected-through-our-SDK)
+
 ### Requirements 
 - iOS 10.2 or later  
 - Cocoapods or Carthage 
@@ -408,3 +411,15 @@ extension ViewController: GPHGridDelegate {
     } 
 }
 ``` 
+
+#### Data collected through our SDK
+We want to be transparent and disclose to you what data is collected or tracked when using the Giphy SDK:
+
+- **Search History**
+Information about searches performed in the app
+
+- **User ID**
+Such as screen name, handle, account ID, assigned user ID, customer number, or other user- or account-level ID that can be used to identify a particular user or account
+
+- **Product Interaction**
+Such as app launches, taps, clicks, scrolling information, music listening data, video views, saved place in a game, video, or song, or other information about how the user interacts with the app
