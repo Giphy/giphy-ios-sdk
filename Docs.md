@@ -414,7 +414,7 @@ extension ViewController: GPHGridDelegate {
 
 ### Data Collected by our SDK
 #### Details
-Apple will require to provide information about  app’s privacy practices, including the practices of third-party partners whose code integrate into our app, in App Store Connect. 
+Apple will require developers to provide information about their app’s privacy practices, including the practices of third-party partners whose code is integrated into their app, in App Store Connect. 
 As such, we want to be transparent and disclose to you what data is collected or tracked when using the Giphy SDK:
 
 | Title | Description | Data use | Linked to user | Tracking |
