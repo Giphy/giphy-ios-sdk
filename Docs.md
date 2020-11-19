@@ -413,6 +413,7 @@ extension ViewController: GPHGridDelegate {
 ``` 
 
 ### Data Collected by our SDK
+#### Details
 We want to be transparent and disclose to you what data is collected or tracked when using the Giphy SDK:
 
 - **Search History**
