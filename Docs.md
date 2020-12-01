@@ -30,6 +30,9 @@
 - [GPHContent](#giphygridcontroller-gphcontent)
 - [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
 
+**Data Collection**
+- [Details](#data)
+
 ### Requirements 
 - iOS 10.2 or later  
 - Cocoapods or Carthage 
@@ -408,3 +411,14 @@ extension ViewController: GPHGridDelegate {
     } 
 }
 ``` 
+
+### Data Collected by our SDK
+#### Details
+Apple will require developers to provide information about their app’s privacy practices in App Store Connect, including the practices of third-party partners whose code is integrated into their app. To make this process easier for you, we’ve provided the following list of boxes you will be required check when submitting your app to the App Store if your app integrates the GIPHY SDK. 
+
+_We deeply respect the privacy of your users and only collect anonymized information about GIPHY use in order to improve the service. If you have any questions or concerns about GIPHY’s data collection practices, please reach out to developers@giphy.com_
+
+| Title | Description | Data use | Linked to user | Tracking |
+| --- | --- | --- | --- | --- | 
+| Search History | Information about searches performed in the app | Analytics, Product Personalization, App Functionality | Yes | No |
+| Product Interaction | Such as app launches, taps, clicks, scrolling information, music listening data, video views, saved place in a game, video, or song, or other information about how the user interacts with the app | Analytics, Product Personalization, App Functionality| Yes | No |
