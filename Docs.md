@@ -420,5 +420,5 @@ _We deeply respect the privacy of your users and only collect anonymized informa
 
 | Title | Description | Data use | Linked to user | Tracking |
 | --- | --- | --- | --- | --- | 
-| Search History | Information about searches performed in the app | Analytics, Product Personalization, App Functionality | Yes | No |
-| Product Interaction | Such as app launches, taps, clicks, scrolling information, music listening data, video views, saved place in a game, video, or song, or other information about how the user interacts with the app | Analytics, Product Personalization, App Functionality| Yes | No |
+| Search History | Information about searches performed in the app | Analytics, Product Personalization, App Functionality | No | No |
+| Product Interaction | Such as app launches, taps, clicks, scrolling information, music listening data, video views, saved place in a game, video, or song, or other information about how the user interacts with the app | Analytics, Product Personalization, App Functionality| No | No |
