@@ -8,7 +8,6 @@
 
 import UIKit
 import GiphyUISDK
-import GiphyCoreSDK
 
 enum ChatUser: Int {
     case abraHam
