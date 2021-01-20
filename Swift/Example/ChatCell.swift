@@ -10,7 +10,6 @@
 
 import UIKit
 import GiphyUISDK
-import GiphyCoreSDK
 
 class ChatCell: UICollectionViewCell {
     static let id: String = "ChatCell"

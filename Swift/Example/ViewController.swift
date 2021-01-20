@@ -8,7 +8,6 @@
 
 import UIKit
 import GiphyUISDK
-import GiphyCoreSDK
 
 class ViewController: UIViewController {
     static let shadowOpacity: Float = 0.12

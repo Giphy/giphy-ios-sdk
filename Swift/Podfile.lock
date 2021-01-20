@@ -1,5 +1,5 @@
 PODS:
-  - Giphy (2.1.0):
+  - Giphy (2.1.1):
     - libwebp
     - PINCache
   - libwebp (1.1.0):
@@ -21,24 +21,21 @@ PODS:
   - PINOperation (1.2.1)
 
 DEPENDENCIES:
-  - Giphy (from `https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.0/Giphy.podspec`)
+  - Giphy
 
 SPEC REPOS:
   trunk:
+    - Giphy
     - libwebp
     - PINCache
     - PINOperation
 
-EXTERNAL SOURCES:
-  Giphy:
-    :podspec: https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.0/Giphy.podspec
-
 SPEC CHECKSUMS:
-  Giphy: fbdf9c494869a0f6f28ed2da1d044bbbafaa042e
+  Giphy: 4a3ca076645091bba1a2e5579066b4c851e53d45
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
 
-PODFILE CHECKSUM: 63b3b11734ecd4d93c4ca354f24c8c0fd2acdeb2
+PODFILE CHECKSUM: f09bb89bd5e0537d02b364855b2f1ddcf661ecec
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
