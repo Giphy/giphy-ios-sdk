@@ -52,7 +52,7 @@ class ChatCell: UICollectionViewCell {
     var theme = GPHThemeType.light {
         didSet {
             switch theme {
-            case GPHThemeType.automatic, GPHThemeType.light:
+            case GPHThemeType.automatic, GPHThemeType.light, GPHThemeType.lightBlur, GPHThemeType.darkBlur:
                 if media == nil {
                     bubbleView.backgroundColor = isReply ? .white : UIColor(red: 1.00, green :0.40, blue: 0.40, alpha: 1.0)
                 }
@@ -74,6 +74,8 @@ class ChatCell: UICollectionViewCell {
     var bubbleRightConstraint: NSLayoutConstraint?
     var avatarLeftConstraint: NSLayoutConstraint?
     var avatarRightConstraint: NSLayoutConstraint?
+    var imageViewWidthConstraint: NSLayoutConstraint?
+    var imageViewRightConstraint: NSLayoutConstraint?
     
     let bubbleView: UIView = {
         let view = UIView()
@@ -137,8 +139,10 @@ class ChatCell: UICollectionViewCell {
         imageView.media = media
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
-        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio).isActive = true
-        imageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
+        imageViewWidthConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio)
+        imageViewWidthConstraint?.isActive = true
+        imageViewRightConstraint = imageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor)
+        imageViewRightConstraint?.isActive = true
         imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
         imageView.isUserInteractionEnabled = false
         imageView.contentMode = .scaleAspectFit
@@ -152,6 +156,8 @@ class ChatCell: UICollectionViewCell {
         bubbleRightConstraint?.isActive = false
         avatarLeftConstraint?.isActive = false
         avatarRightConstraint?.isActive = false
+        imageViewWidthConstraint?.isActive = false
+        imageViewRightConstraint?.isActive = false
         assetRequest?.cancel()
         assetRequest = nil
         imageView.image = nil
