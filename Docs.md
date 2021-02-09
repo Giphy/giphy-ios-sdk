@@ -48,9 +48,7 @@
 
 Add the GiphyUISDK to your Podfile like so: 
 
-```swift 
-use_frameworks!
-
+```swift  
 target "YourAppTarget" do 
 pod 'Giphy' 
 end
@@ -61,8 +59,7 @@ end
 
 First things first, be sure to import: 
 ```swift
-import GiphyUISDK
-import GiphyCoreSDK
+import GiphyUISDK 
 ```
 
 Configure your API key. Apply for a new __iOS SDK__ key [here](https://developers.giphy.com/dashboard/). Please remember, you should use a separate key for every platform (Android, iOS, Web) you add our SDKs to.
@@ -253,30 +250,29 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 ``` 
 
 ### _Caching_ 
-We use [PINCache](https://github.com/pinterest/PINCache) to cache media assets, which reduces unnecessary image requests and loading times.
+We use [URLCache](https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
 
-By default, we use both PINCache’s memory cache and disk cache. The disk cache is limited to 300 mb by default, but you can set it to any value you’d like: 
+The `URLCache` disk and memory components are both limited to 300 mb by default, but you can set them to any values you’d like: 
 
 ```swift
 // set to 300 mb 
-GPHCache.shared.diskCacheByteLimit = 300 * 1000 * 1000  
-``` 
+GPHCache.shared.cache.diskCapacity = 300 * 1000 * 1000  
+GPHCache.shared.cache.memoryCapacity = 300 * 1000 * 1000   
 ```
-Note: We *don't* automatically clear the cache when the `GiphyViewController` is dismissed. 
-Manually clear the cache on your convenience by calling `GPHCache.shared.clear()` to clear the cache  
 
-The cache stores NSData objects for the images (the SDK displays .webp files by default). You can get the raw image data yourself via: 
+Note: We *don't* automatically clear the cache when the `GiphyViewController` is dismissed. 
+Manually clear the cache by calling `GPHCache.shared.clear()` to clear the cache  
+
+The cache stores`Data` objects for the images (the SDK displays .webp files by default). You can get the raw image data yourself via: 
 
 ```swift 
 guard let url = media.url(rendition: .fixedWidth, fileType: .webp) else { return } 
 GPHCache.shared.downloadAssetData(url) { (data, error) in
 }
 ```
-#### *Dependencies*  
-[PINCache](https://github.com/pinterest/PINCache): image caching <br> 
+#### *Dependencies*   
 [YYImage](https://github.com/ibireme/YYImage): GIF playback <br>
-[libwebp](https://github.com/webmproject/libwebp): webp playback <br>
-[DeepDiff](https://github.com/onmyway133/DeepDiff): Collection view diffing algorithm <br> 
+[libwebp](https://github.com/webmproject/libwebp): webp playback <br> 
 
 
 #### *Buttons*
