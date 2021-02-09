@@ -255,19 +255,18 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 ### _Caching_ 
 We use [URLCache]https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
 
-The URLCache disk and memory components are both limited to 300 mb by default, but you can set it to any value you’d like: 
+The URLCache disk and memory components are both limited to 300 mb by default, but you can set them to any values you’d like: 
 
 ```swift
 // set to 300 mb 
 GPHCache.shared.cache.diskCapacity = 300 * 1000 * 1000  
-GPHCache.shared.cache.memoryCapacity = 300 * 1000 * 1000  
-
-``` 
+GPHCache.shared.cache.memoryCapacity = 300 * 1000 * 1000   
 ```
-Note: We *don't* automatically clear the cache when the `GiphyViewController` is dismissed. 
-Manually clear the cache on your convenience by calling `GPHCache.shared.clear()` to clear the cache  
 
-The cache stores NSData objects for the images (the SDK displays .webp files by default). You can get the raw image data yourself via: 
+Note: We *don't* automatically clear the cache when the `GiphyViewController` is dismissed. 
+Manually clear the cache by calling `GPHCache.shared.clear()` to clear the cache  
+
+The cache stores`Data` objects for the images (the SDK displays .webp files by default). You can get the raw image data yourself via: 
 
 ```swift 
 guard let url = media.url(rendition: .fixedWidth, fileType: .webp) else { return } 
