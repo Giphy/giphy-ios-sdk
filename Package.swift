@@ -20,6 +20,7 @@ let package = Package(
         .target(
             name: "GiphyUISDKWrapper",
             dependencies: [
+                .target(name: "GiphyUISDK"), "libwebp"
             ],
             path: "./Sources"
         ),
