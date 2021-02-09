@@ -1,0 +1,11 @@
+framework module GiphyUISDK {
+  umbrella header "GiphyUISDK.h"
+
+  export *
+  module * { export * }
+}
+
+module GiphyUISDK.Swift {
+    header "GiphyUISDK-Swift.h"
+    requires objc
+}
