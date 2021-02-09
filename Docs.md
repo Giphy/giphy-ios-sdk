@@ -48,9 +48,7 @@
 
 Add the GiphyUISDK to your Podfile like so: 
 
-```swift 
-use_frameworks!
-
+```swift  
 target "YourAppTarget" do 
 pod 'Giphy' 
 end
@@ -61,8 +59,7 @@ end
 
 First things first, be sure to import: 
 ```swift
-import GiphyUISDK
-import GiphyCoreSDK
+import GiphyUISDK 
 ```
 
 Configure your API key. Apply for a new __iOS SDK__ key [here](https://developers.giphy.com/dashboard/). Please remember, you should use a separate key for every platform (Android, iOS, Web) you add our SDKs to.
@@ -255,7 +252,7 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 ### _Caching_ 
 We use [URLCache](https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
 
-The URLCache disk and memory components are both limited to 300 mb by default, but you can set them to any values you’d like: 
+The `URLCache` disk and memory components are both limited to 300 mb by default, but you can set them to any values you’d like: 
 
 ```swift
 // set to 300 mb 
