@@ -253,7 +253,7 @@ GiphyCore.shared.gifByID(id) { (response, error) in
 ``` 
 
 ### _Caching_ 
-We use [URLCache]https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
+We use [URLCache](https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
 
 The URLCache disk and memory components are both limited to 300 mb by default, but you can set them to any values you’d like: 
 
