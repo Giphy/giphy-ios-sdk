@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-@import GiphyUISDK;
-@import GiphyCoreSDK;
+@import GiphyUISDK; 
 
 @interface ViewController () <GiphyDelegate>
 

@@ -9,8 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
-import GiphyUISDK
-import GiphyCoreSDK
+import GiphyUISDK 
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
