@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23BF4BD422BAC6CB0032315B /* Workaround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF4BD322BAC6CA0032315B /* Workaround.swift */; };
-		ED1E3A4E51BFBBD9A0D4F9FD /* libPods-ExampleObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D9F51844B572693512453C /* libPods-ExampleObjectiveC.a */; };
+		475A79F74F8CBB73A502D665 /* Pods_ExampleObjectiveC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F364C980279B4480C737EE1 /* Pods_ExampleObjectiveC.framework */; };
 		FD00A451221DD915008F19FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00A450221DD915008F19FE /* AppDelegate.m */; };
 		FD00A454221DD915008F19FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD00A453221DD915008F19FE /* ViewController.m */; };
 		FD00A457221DD915008F19FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD00A455221DD915008F19FE /* Main.storyboard */; };
@@ -19,9 +19,9 @@
 
 /* Begin PBXFileReference section */
 		00453C6BBF55F5F3829EF9F1 /* Pods-ExampleObjectiveC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleObjectiveC.debug.xcconfig"; path = "Target Support Files/Pods-ExampleObjectiveC/Pods-ExampleObjectiveC.debug.xcconfig"; sourceTree = "<group>"; };
+		0F364C980279B4480C737EE1 /* Pods_ExampleObjectiveC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleObjectiveC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BF4BD222BAC6CA0032315B /* ExampleObjectiveC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ExampleObjectiveC-Bridging-Header.h"; sourceTree = "<group>"; };
 		23BF4BD322BAC6CA0032315B /* Workaround.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workaround.swift; sourceTree = "<group>"; };
-		47D9F51844B572693512453C /* libPods-ExampleObjectiveC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleObjectiveC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D0ADF9A5894D58462220E7 /* Pods-ExampleObjectiveC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleObjectiveC.release.xcconfig"; path = "Target Support Files/Pods-ExampleObjectiveC/Pods-ExampleObjectiveC.release.xcconfig"; sourceTree = "<group>"; };
 		FD00A44C221DD915008F19FE /* ExampleObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleObjectiveC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00A44F221DD915008F19FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1E3A4E51BFBBD9A0D4F9FD /* libPods-ExampleObjectiveC.a in Frameworks */,
+				475A79F74F8CBB73A502D665 /* Pods_ExampleObjectiveC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 		F0B2B08EE23E686D320A2D14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				47D9F51844B572693512453C /* libPods-ExampleObjectiveC.a */,
+				0F364C980279B4480C737EE1 /* Pods_ExampleObjectiveC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -1,4 +1,5 @@
-
+use_frameworks!
 target "ExampleObjectiveC" do 
-pod 'Giphy' 
+pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.5/Giphy.podspec'
+
 end
