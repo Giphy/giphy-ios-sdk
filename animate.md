@@ -1,8 +1,17 @@
 ## GIPHY Animated Text Creation 
+<img src="images/new-feature.gif">
+
+### Dynamic Text Feature 
+
+This new service _creates_ animated text results for search queries where there are no matching results in GIPHY's library. These results are returned in a number of different animation styles giving your users a variety of options to best express themselves.  
+ 
+Here are some examples below: 
+ 
 
 ### Requirements
 
 - GIPHY SDK v2.0.5 (or above)  
+- This feature isn't as 'plug-and-play' as the other features of the SDK. It requires some additional setup and logic to properly offer in your app. 
 
 ### Enabling Dynamic Text in the GiphyViewController
 
@@ -14,8 +23,7 @@ giphyViewController.mediaTypeConfig = [.gifs, .stickers, .text]
 Enable the GIPHY Text creation experience in the `GiphyViewController` by setting the `enableDynamicText` flag to true:
 ```
 giphyViewController.enableDynamicText = true 
-```
-We recommend controlling this setting via a server side, remote config. This lets you toggle the feature with ease. 
+``` 
 
 ### New GPHMedia property: isDynamic
 
@@ -39,9 +47,9 @@ let search = GPHContent.search(withQuery: "hello", mediaType: .gif, language: .e
 let animatedText = GPHContent.animate("hey what up! hope this all makes sense.") 
 ``` 
 
-When populating the `GiphyGridController` with dynamic text, provide a visual indicator to clarify to the user that they are in a creation context as opposed to a search context.
+When populating the `GiphyGridController` with dynamic text, provide a visual indicator to clarify to the user that they are in a _creation_ context as opposed to a _search_ context.
 
 ### Renditions
 
-We will only return GIF & WebP files for dynamic text. These are renditions available at launch: `original`, `fixed_width`, `fixed_width_downsampled`, `fixed_width_small`, `preview_gif`, `preview_webp`. For performance reasons, we load .gifs in the grid for dynamic text rather than .webp.
+We will only return GIF & WebP files for dynamic text. These are renditions available: `original`, `fixed_width`, `fixed_width_downsampled`, `fixed_width_small`, `preview_gif`, `preview_webp`.  
   
