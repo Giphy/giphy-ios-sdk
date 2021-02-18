@@ -7,13 +7,14 @@ This new service _creates_ animated text results for search queries where there 
  
 Here are some examples below: 
  
-
 ### Requirements
 
 - GIPHY SDK v2.0.5 (or above)  
-- This feature isn't as 'plug-and-play' as the other features of the SDK. It requires some additional setup and logic to properly offer in your app. 
+- To access this feature, you'll need to [create a new API Key](https://developers.giphy.com/dashboard/?create=true) 
+- This feature isn't as 'plug-and-play' as the other features of the SDK. Some additional setup and logic is required to properly offer it in your app. 
 
 ### Enabling Dynamic Text in the GiphyViewController
+<img src="images/sdk_text.png">
 
 Ensure that the  `.text` `GPHContentType` is included in your `mediaTypeConfig` array. 
 ```
