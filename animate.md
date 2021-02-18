@@ -5,12 +5,10 @@
 
 This new service _creates_ animated text results for search queries where there are no matching results in GIPHY's library. These results are returned in a number of different animation styles giving your users a variety of options to best express themselves.  
  
-Here are some examples below: 
- 
 ### Requirements
 
 - GIPHY SDK v2.0.5 (or above)  
-- To access this feature, you'll need to [create a new API Key](https://developers.giphy.com/dashboard/?create=true) 
+- To access this feature, you'll need to [create a new SDK Key](https://developers.giphy.com/dashboard/?create=true) 
 - This feature isn't as 'plug-and-play' as the other features of the SDK. Some additional setup and logic is required to properly offer it in your app. 
 
 ### Enabling Dynamic Text in the GiphyViewController
