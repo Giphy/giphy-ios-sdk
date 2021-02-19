@@ -5,6 +5,9 @@
 **Setup**
 - [Requirements](#requirements) 
 - [CocoaPods](#cocoapods)  
+- [Swift Package Manager](#swift-package-manager)
+- [Carthage](#carthage)  
+
 - [API Key](#configure-your-api-key) <br>
 - [Customization](#custom-ui)  
 
@@ -34,8 +37,7 @@
 - [Details](#data)
 
 ### Requirements 
-- iOS 10.2 or later  
-- Cocoapods or Carthage 
+- iOS 10.2 or later   
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
 - Xcode 12 and later  
 
@@ -54,6 +56,17 @@ pod 'Giphy'
 end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
+
+### Swift Package Manager  
+
+Add a new Swift Package to your app linking this repo (`https://github.com/Giphy/giphy-ios-sdk`).
+Swift Package Manager is supported for versions 2.1.3 and later.
+
+### Carthage 
+
+We are currently unable to distribute the GIPHY SDK through Carthage. If you are using Carthage, simply drag `GiphyUISDK.xcframework` into your project. 
+
+You will also have to add [webp support](https://github.com/SDWebImage/libwebp-Xcode) to your project.
  
 ### Configure your API key 
 
