@@ -1,5 +1,7 @@
 use_frameworks!
 
-target "camera-example" do 
-pod 'Giphy'
+target "camera-example" do
+ 
+pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.8/Giphy.podspec'
+
 end

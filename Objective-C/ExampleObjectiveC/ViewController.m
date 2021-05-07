@@ -30,7 +30,8 @@
     giphy.delegate = self;
     giphy.showConfirmationScreen = true ;
     [giphy setMediaConfigWithTypes: [ [NSMutableArray alloc] initWithObjects:
-                                     @(GPHContentTypeGifs),@(GPHContentTypeStickers), @(GPHContentTypeText),@(GPHContentTypeEmoji), nil] ]; 
+                                     @(GPHContentTypeGifs),@(GPHContentTypeStickers), @(GPHContentTypeText),@(GPHContentTypeEmoji), nil] ];
+    [[GPHCache shared] clear] ; 
     [self presentViewController:giphy animated:true completion:nil] ;
 }
 
