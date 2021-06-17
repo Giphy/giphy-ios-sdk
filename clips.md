@@ -11,7 +11,7 @@ Integrating the GIPHY Clips SDK will allow your users to seamlessly express them
  
 ### Requirements
 
-- GIPHY SDK vX.X.X (or above)  
+- GIPHY SDK v2.1.9 (or above)  
 - GIPHY Clips is available for integration into our community of messaging and social apps for users to search and share.  Clips is not approved to be integrated into creation experience where derivative works can be created. 
 
 
