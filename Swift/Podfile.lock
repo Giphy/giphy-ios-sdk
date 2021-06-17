@@ -1,5 +1,5 @@
 PODS:
-  - Giphy (2.1.8):
+  - Giphy (2.1.9):
     - libwebp
   - libwebp (1.2.0):
     - libwebp/demux (= 1.2.0)
@@ -20,7 +20,7 @@ SPEC REPOS:
     - libwebp
 
 SPEC CHECKSUMS:
-  Giphy: ef5125f9b47c259b59244803a6ffe763f4f4a7bf
+  Giphy: 4d4d928dd781108efa2d9d03fc7eccde37e82ead
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
 
 PODFILE CHECKSUM: b136b464d2f94b0257bde98b0b141c1b408cc984
