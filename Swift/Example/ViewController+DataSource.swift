@@ -49,12 +49,13 @@ extension ViewController: UICollectionViewDataSource {
         let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatCell.id, for: indexPath)
         guard let cell = genericCell as? ChatCell else { return genericCell }
         let message = conversation[indexPath.item]
+        cell.clipsPlaybackSetting = settingsViewController.clipsPlaybackSetting
         cell.media = message.media
         cell.text = message.text
         cell.avatarImage = message.user.avatar
         cell.isReply = message.user == .abraHam
         cell.theme = settingsViewController.theme
-        cell.imageView.delegate = self 
+        cell.imageView.delegate = self
         return cell
     }
     

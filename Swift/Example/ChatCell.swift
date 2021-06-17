@@ -19,6 +19,8 @@ class ChatCell: UICollectionViewCell {
     static let font: UIFont = .systemFont(ofSize: 14)
     
     var imageView = GPHMediaView()
+    var videoView = GPHVideoView()
+    
     let avatarImageView = GiphyYYAnimatedImageView()
     
     var media: GPHMedia? {
@@ -51,7 +53,7 @@ class ChatCell: UICollectionViewCell {
     var theme = GPHThemeType.light {
         didSet {
             switch theme {
-            case GPHThemeType.automatic, GPHThemeType.light, GPHThemeType.lightBlur, GPHThemeType.darkBlur:
+            case GPHThemeType.automatic, GPHThemeType.light:
                 if media == nil {
                     bubbleView.backgroundColor = isReply ? .white : UIColor(red: 1.00, green :0.40, blue: 0.40, alpha: 1.0)
                 }
@@ -68,13 +70,13 @@ class ChatCell: UICollectionViewCell {
         }
     }
     
+    var clipsPlaybackSetting: ClipsPlaybackSetting = .inline
+    
     var assetRequest: URLSessionDataTask?
     var bubbleLeftConstraint: NSLayoutConstraint?
     var bubbleRightConstraint: NSLayoutConstraint?
     var avatarLeftConstraint: NSLayoutConstraint?
     var avatarRightConstraint: NSLayoutConstraint?
-    var imageViewWidthConstraint: NSLayoutConstraint?
-    var imageViewRightConstraint: NSLayoutConstraint?
     
     let bubbleView: UIView = {
         let view = UIView()
@@ -132,21 +134,39 @@ class ChatCell: UICollectionViewCell {
     
     func addMedia() {
         guard let media = media else { return }
+        
         label.isHidden = true
         bubbleView.backgroundColor = .clear
-        bubbleView.addSubview(imageView) 
-        imageView.media = media
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
-        imageViewWidthConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio)
-        imageViewWidthConstraint?.isActive = true
-        imageViewRightConstraint = imageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor)
-        imageViewRightConstraint?.isActive = true
-        imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
-        imageView.isUserInteractionEnabled = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = bubbleView.layer.cornerRadius
-        imageView.layer.masksToBounds = true
+         
+        if media.type == .video && clipsPlaybackSetting == .inline {
+            bubbleView.addSubview(videoView)
+            videoView.media = media
+            videoView.translatesAutoresizingMaskIntoConstraints = false
+            videoView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
+            videoView.widthAnchor.constraint(equalTo: videoView.heightAnchor, multiplier: media.aspectRatio).isActive = true
+            videoView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
+            videoView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
+            videoView.contentMode = .scaleAspectFit
+            videoView.layer.cornerRadius = bubbleView.layer.cornerRadius
+            videoView.layer.masksToBounds = true
+            videoView.backgroundColor = .clear
+            videoView.play() 
+            
+        } else {
+            
+            bubbleView.addSubview(imageView)
+            imageView.media = media
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio).isActive = true
+            imageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
+            //imageView.isUserInteractionEnabled = false
+            imageView.contentMode = .scaleAspectFit
+            imageView.layer.cornerRadius = bubbleView.layer.cornerRadius
+            imageView.layer.masksToBounds = true
+            imageView.theme = GPHTheme(type: theme)
+        }
     }
     
     override func prepareForReuse() {
@@ -155,8 +175,6 @@ class ChatCell: UICollectionViewCell {
         bubbleRightConstraint?.isActive = false
         avatarLeftConstraint?.isActive = false
         avatarRightConstraint?.isActive = false
-        imageViewWidthConstraint?.isActive = false
-        imageViewRightConstraint?.isActive = false
         assetRequest?.cancel()
         assetRequest = nil
         imageView.image = nil

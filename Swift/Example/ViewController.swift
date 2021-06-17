@@ -116,6 +116,7 @@ class ViewController: UIViewController {
     }
     
     func addChatView() {
+    
         view.addSubview(textFieldContainer)
         textFieldContainer.leftAnchor.constraint(equalTo: view.safeLeftAnchor, constant: 10).isActive = true
         textFieldContainer.rightAnchor.constraint(equalTo: view.safeRightAnchor, constant: -10).isActive = true
@@ -219,8 +220,8 @@ class ViewController: UIViewController {
         textField.resignFirstResponder()
     }
     
-    @objc func gifButtonTapped() { 
-        let giphy = GiphyViewController() 
+    @objc func gifButtonTapped() {
+        let giphy = GiphyViewController()
         giphy.theme = GPHTheme(type: settingsViewController.theme)
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
         GiphyViewController.trayHeightMultiplier = 0.7  
@@ -228,6 +229,8 @@ class ViewController: UIViewController {
         giphy.shouldLocalizeSearch = true
         giphy.delegate = self
         giphy.dimBackground = true
+        giphy.enableDynamicText = settingsViewController.dynamicResultsInTextSearch == .on
+         
         giphy.modalPresentationStyle = .overCurrentContext
         
         if let contentType = self.selectedContentType {
@@ -235,6 +238,7 @@ class ViewController: UIViewController {
         }
         if let user = self.showMoreByUser {
             giphy.showMoreByUser = user
+            self.showMoreByUser = nil 
         }
         
         present(giphy, animated: true, completion: nil)
@@ -272,7 +276,7 @@ public class ExampleTheme: GPHTheme {
 
     public override var stickerBackgroundColor: UIColor { return .clear }
 
-    public override var tabBarSwitchSelectedColor: UIColor { return .black }
+    public override var tabBarSwitchSelectedColor: UIColor { return .yellow }
 
 }
 
@@ -303,6 +307,10 @@ extension ViewController: SettingsDelegate {
 } 
 
 extension ViewController: GiphyDelegate {
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia, contentType: GPHContentType) {
+        print(contentType.rawValue)
+    }
+    
     func didSearch(for term: String) {
         print("your user made a search! ", term)
     }

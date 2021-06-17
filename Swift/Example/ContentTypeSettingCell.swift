@@ -9,7 +9,7 @@
 import UIKit
 import GiphyUISDK
 
-protocol ContentTypeSettingCellDelegate: class {
+protocol ContentTypeSettingCellDelegate: AnyObject {
     func contentTypesDidChange(contentTypes: [GPHContentType])
 }
 
@@ -102,6 +102,7 @@ class ContentTypeSettingCell: UICollectionViewCell {
             case .text: button.setTitle("Text", for: .normal)
             case .emoji: button.setTitle("Emoji", for: .normal)
             case .recents: button.setTitle("Recents", for: .normal)
+            case .clips: button.setTitle("Clips", for: .normal)
             @unknown default: break
             }
             buttons.append(button)

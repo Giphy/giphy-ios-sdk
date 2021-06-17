@@ -9,7 +9,7 @@
 import UIKit
 import GiphyUISDK
 
-protocol SettingsDelegate: class {
+protocol SettingsDelegate: AnyObject {
     func themeDidChange(_ theme: GPHThemeType)
 }
 
@@ -25,8 +25,11 @@ class SettingsViewController: UIViewController {
     var confirmationScreen: ConfirmationScreenSetting = ConfirmationScreenSetting.defaultSetting
     var mediaTypeConfig: [GPHContentType] = GPHContentType.defaultSetting
     var contentTypeSetting: ContentTypeSetting = .multiple
+    var gridRenditionSetting: GPHRenditionType = .fixedWidth
+    var dynamicResultsInTextSearch: DynamicTextSetting = .on
+    var clipsPlaybackSetting: ClipsPlaybackSetting = .inline
 
-    var settings: [Setting] { return [theme, confirmationScreen, contentTypeSetting] }
+    var settings: [Setting] { return [theme, confirmationScreen, contentTypeSetting,  dynamicResultsInTextSearch, clipsPlaybackSetting] }
     
     weak var delegate: SettingsDelegate?
     
