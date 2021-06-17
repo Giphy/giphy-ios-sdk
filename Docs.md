@@ -347,6 +347,8 @@ gridController.view.leftAnchor.constraint(equalTo: view.safeLeftAnchor).isActive
 gridController.view.rightAnchor.constraint(equalTo: view.safeRightAnchor).isActive = true
 gridController.view.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
 gridController.view.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
+
+gridController.didMove(toParent: self)
 ```
 
 ### GiphyGridController: GPHContent 
