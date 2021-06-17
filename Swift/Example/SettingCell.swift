@@ -9,7 +9,7 @@
 import UIKit
 import GiphyUISDK
 
-protocol SettingCellDelegate: class {
+protocol SettingCellDelegate: AnyObject {
     func settingDidChange(setting: Setting)
 }
 

@@ -62,7 +62,16 @@ extension SettingsViewController: SettingCellDelegate {
         case is ConfirmationScreenSetting:
             guard let confirmationScreen = setting as? ConfirmationScreenSetting else { return }
             self.confirmationScreen = confirmationScreen
-        default: break
+            
+        case is DynamicTextSetting:
+            guard let dynamicResultsInTextSearch = setting as? DynamicTextSetting else { return }
+            self.dynamicResultsInTextSearch = dynamicResultsInTextSearch
+              
+        case is ClipsPlaybackSetting:
+            guard let clipsPlaybackSetting = setting as? ClipsPlaybackSetting else { return }  
+            self.clipsPlaybackSetting = clipsPlaybackSetting
+        default:
+            break
         }
     }
 }

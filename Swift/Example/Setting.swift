@@ -27,6 +27,116 @@ enum ConfirmationScreenSetting: Int {
         return .off
     }
 }
+extension ConfirmationScreenSetting: Setting {
+    static var title: String { return "Confirmation Screen" }
+    static var cellId: String { return SettingCell.id }
+    static var itemCount: Int { return 1 }
+    static var itemHeight: CGFloat { return 30.0 }
+    static var columns: Int { return 1 }
+    var type: Setting.Type { return ConfirmationScreenSetting.self }
+    var cases: [Any] { return [ConfirmationScreenSetting.off, ConfirmationScreenSetting.on] }
+    var string: String {
+        switch self {
+        case .on: return "On"
+        case .off: return "Off"
+        }
+    }
+}
+
+ 
+enum DynamicTextSetting: Int {
+    case off
+    case on
+
+    static var defaultSetting: DynamicTextSetting {
+        return .off
+    }
+}
+ 
+
+extension DynamicTextSetting: Setting {
+    static var title: String { return "Dynamic Text" }
+    static var cellId: String { return SettingCell.id }
+    static var itemCount: Int { return 1 }
+    static var itemHeight: CGFloat { return 30.0 }
+    static var columns: Int { return 1 }
+    var type: Setting.Type { return DynamicTextSetting.self }
+    var cases: [Any] { return [DynamicTextSetting.off, DynamicTextSetting.on] }
+    var string: String {
+        switch self {
+        case .on: return "On"
+        case .off: return "Off"
+        }
+    }
+}
+  
+//
+enum ClipsPlaybackSetting: Int {
+    case inline
+    case popup
+
+    static var defaultSetting: ClipsPlaybackSetting {
+        return inline
+    }
+}
+
+extension ClipsPlaybackSetting: Setting {
+    static var title: String { return "Clips Playback Setting" }
+    static var cellId: String { return SettingCell.id }
+    static var itemCount: Int { return 1 }
+    static var itemHeight: CGFloat { return 30.0 }
+    static var columns: Int { return 1 }
+    var type: Setting.Type { return ClipsPlaybackSetting.self }
+    var cases: [Any] { return [ClipsPlaybackSetting.inline, ClipsPlaybackSetting.popup] }
+    var string: String {
+        switch self {
+        case .inline: return "Inline"
+        case .popup: return "Popup"
+        }
+    }
+}
+  
+
+extension GPHRenditionType: Setting {
+    static var title: String {
+        return "Grid Rendition"
+    }
+    
+    static var cellId: String {
+        return SettingCell.id
+    }
+    
+    static var itemCount: Int {
+        return 1
+    }
+    
+    static var itemHeight: CGFloat {
+        return 30.0
+    }
+    
+    static var columns: Int {
+        return 1
+    }
+    
+    var type: Setting.Type {
+        return GPHRenditionType.self
+    }
+    
+    var cases: [Any] {
+        return [GPHRenditionType.fixedWidth, GPHRenditionType.downsized, GPHRenditionType.downsizedMedium, GPHRenditionType.preview]
+    }
+    
+    var string: String {
+        switch self {
+        case GPHRenditionType.fixedWidth: return "Fixed-Width"
+        case GPHRenditionType.downsized: return "Downsized"
+        case GPHRenditionType.downsizedMedium: return "Downsized-Medium"
+        case GPHRenditionType.preview: return "Preview"
+        default: return ""
+        }
+    }
+}
+
 
 enum ContentTypeSetting: Int {
     case multiple
@@ -54,21 +164,6 @@ extension GPHThemeType: Setting {
 }
  
 
-extension ConfirmationScreenSetting: Setting {
-    static var title: String { return "Confirmation Screen" }
-    static var cellId: String { return SettingCell.id }
-    static var itemCount: Int { return 1 }
-    static var itemHeight: CGFloat { return 30.0 }
-    static var columns: Int { return 1 }
-    var type: Setting.Type { return ConfirmationScreenSetting.self }
-    var cases: [Any] { return [ConfirmationScreenSetting.off, ConfirmationScreenSetting.on] }
-    var string: String {
-        switch self {
-        case .on: return "On"
-        case .off: return "Off"
-        }
-    }
-}
 
 extension ContentTypeSetting: Setting {
     static var title: String { return "Content Types" }
@@ -81,7 +176,7 @@ extension ContentTypeSetting: Setting {
         if self == .single {
             return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text]
         }
-        return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji, GPHContentType.recents]
+        return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji, GPHContentType.recents, GPHContentType.clips]
     }
     var string: String { return "" }
 }

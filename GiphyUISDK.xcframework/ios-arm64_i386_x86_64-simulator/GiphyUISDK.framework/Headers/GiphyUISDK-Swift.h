@@ -548,6 +548,25 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+@class NSBundle;
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GPHWrapperViewController")
+@interface GPHWrapperViewController : UIViewController
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK29GPHClipsWrapperViewController")
+@interface GPHClipsWrapperViewController : GPHWrapperViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)init;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+@end
+
 enum GPHLanguageType : NSInteger;
 
 SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
@@ -555,6 +574,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
 @property (nonatomic, readonly, strong) GPHContent * _Nonnull contentCopy;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingGifs;)
 + (GPHContent * _Nonnull)trendingGifs SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingVideo;)
++ (GPHContent * _Nonnull)trendingVideo SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingStickers;)
 + (GPHContent * _Nonnull)trendingStickers SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingText;)
@@ -573,9 +594,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent *
 typedef SWIFT_ENUM(NSInteger, GPHContentType, open) {
   GPHContentTypeRecents = 0,
   GPHContentTypeGifs = 1,
-  GPHContentTypeStickers = 2,
-  GPHContentTypeText = 3,
-  GPHContentTypeEmoji = 4,
+  GPHContentTypeClips = 2,
+  GPHContentTypeStickers = 3,
+  GPHContentTypeText = 4,
+  GPHContentTypeEmoji = 5,
 };
 
 
@@ -1001,6 +1023,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHMedia")
 @end
 
 
+@interface GPHMedia (SWIFT_EXTENSION(GiphyUISDK))
+@property (nonatomic, readonly) BOOL isVideo;
+@property (nonatomic, readonly, copy) NSString * _Nonnull videoDetailURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable smallVideoAssetURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable clipsDetailVideoAssetURL;
+- (NSString * _Nonnull)availableMp4Url SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @interface GPHMediaCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -1008,6 +1039,13 @@ SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForReuse;
+@end
+
+@class UIContextMenuInteraction;
+@class UIContextMenuConfiguration;
+
+@interface GPHMediaCell (SWIFT_EXTENSION(GiphyUISDK)) <UIContextMenuInteractionDelegate>
+- (UIContextMenuConfiguration * _Nullable)contextMenuInteraction:(UIContextMenuInteraction * _Nonnull)interaction configurationForMenuAtLocation:(CGPoint)location SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 
@@ -1045,17 +1083,17 @@ typedef SWIFT_ENUM(NSInteger, GPHMediaType, open) {
 };
 
 @protocol GPHMediaViewDelegate;
+@class GPHTheme;
 @class UIImage;
 
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaView")
 @interface GPHMediaView : GiphyYYAnimatedImageView
 @property (nonatomic, weak) id <GPHMediaViewDelegate> _Nullable delegate;
+@property (nonatomic, strong) GPHTheme * _Nullable theme;
 @property (nonatomic, strong) GPHMedia * _Nullable media;
 - (nonnull instancetype)init;
 - (void)loadAssetAt:(NSString * _Nonnull)url queueOriginalRendition:(BOOL)queueOriginalRendition;
 - (void)cancelLoading;
-@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
-- (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -1540,6 +1578,22 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 
 
 
+SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
+@interface GPHVideoView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
 @interface GPHWaterfallLayoutAttributes : UICollectionViewLayoutAttributes
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
@@ -1557,10 +1611,43 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK26GPHWaterfallLayoutDelegate_")
 @end
 
 
+@protocol UIViewControllerAnimatedTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@protocol UIViewControllerContextTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
+- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK5Giphy")
 @interface Giphy : NSObject
 + (void)configureWithApiKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK30GiphyAttributionViewController")
+@interface GiphyAttributionViewController : UIViewController
+- (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
+@interface GiphyClipsViewController : GiphyAttributionViewController
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1597,7 +1684,6 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK13GiphyDelegate_")
 
 @class UIScrollView;
 @protocol UIViewControllerTransitionCoordinator;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 @interface GiphyGridController : UIViewController
@@ -1615,6 +1701,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLoad;
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 @property (nonatomic) BOOL enableDynamicResultsInTextSearch;
 - (void)update;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
@@ -1687,6 +1774,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
+- (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
+@end
+
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
@@ -1718,13 +1809,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
-@interface GiphyViewController : UIViewController
+@interface GiphyViewController : GPHWrapperViewController
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
+@property (nonatomic) BOOL disableClipsWarning;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable confirmationScreenChooseButtonText;)
 + (NSString * _Nullable)confirmationScreenChooseButtonText SWIFT_WARN_UNUSED_RESULT;
 + (void)setConfirmationScreenChooseButtonText:(NSString * _Nullable)value;
@@ -1748,26 +1837,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable noR
 @property (nonatomic) BOOL dimBackground;
 /// Set the rendition type. See <a href="https://developers.giphy.com/docs/#rendition-guide">Rendition Guide</a>
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 /// Set the file extension
 @property (nonatomic) enum GPHFileExtension fileExtension;
 - (void)viewDidLoad;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@protocol UIViewControllerContextTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
-@end
 
 
 @interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK))
@@ -1775,6 +1853,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) CGFloat trayHeightMultiplier;)
 + (CGFloat)trayHeightMultiplier SWIFT_WARN_UNUSED_RESULT;
 + (void)setTrayHeightMultiplier:(CGFloat)value;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK12GradientView")
+@interface GradientView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -2344,6 +2431,25 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+@class NSBundle;
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GPHWrapperViewController")
+@interface GPHWrapperViewController : UIViewController
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK29GPHClipsWrapperViewController")
+@interface GPHClipsWrapperViewController : GPHWrapperViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)init;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+@end
+
 enum GPHLanguageType : NSInteger;
 
 SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
@@ -2351,6 +2457,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
 @property (nonatomic, readonly, strong) GPHContent * _Nonnull contentCopy;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingGifs;)
 + (GPHContent * _Nonnull)trendingGifs SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingVideo;)
++ (GPHContent * _Nonnull)trendingVideo SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingStickers;)
 + (GPHContent * _Nonnull)trendingStickers SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingText;)
@@ -2369,9 +2477,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent *
 typedef SWIFT_ENUM(NSInteger, GPHContentType, open) {
   GPHContentTypeRecents = 0,
   GPHContentTypeGifs = 1,
-  GPHContentTypeStickers = 2,
-  GPHContentTypeText = 3,
-  GPHContentTypeEmoji = 4,
+  GPHContentTypeClips = 2,
+  GPHContentTypeStickers = 3,
+  GPHContentTypeText = 4,
+  GPHContentTypeEmoji = 5,
 };
 
 
@@ -2797,6 +2906,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHMedia")
 @end
 
 
+@interface GPHMedia (SWIFT_EXTENSION(GiphyUISDK))
+@property (nonatomic, readonly) BOOL isVideo;
+@property (nonatomic, readonly, copy) NSString * _Nonnull videoDetailURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable smallVideoAssetURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable clipsDetailVideoAssetURL;
+- (NSString * _Nonnull)availableMp4Url SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @interface GPHMediaCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -2804,6 +2922,13 @@ SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForReuse;
+@end
+
+@class UIContextMenuInteraction;
+@class UIContextMenuConfiguration;
+
+@interface GPHMediaCell (SWIFT_EXTENSION(GiphyUISDK)) <UIContextMenuInteractionDelegate>
+- (UIContextMenuConfiguration * _Nullable)contextMenuInteraction:(UIContextMenuInteraction * _Nonnull)interaction configurationForMenuAtLocation:(CGPoint)location SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 
@@ -2841,17 +2966,17 @@ typedef SWIFT_ENUM(NSInteger, GPHMediaType, open) {
 };
 
 @protocol GPHMediaViewDelegate;
+@class GPHTheme;
 @class UIImage;
 
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaView")
 @interface GPHMediaView : GiphyYYAnimatedImageView
 @property (nonatomic, weak) id <GPHMediaViewDelegate> _Nullable delegate;
+@property (nonatomic, strong) GPHTheme * _Nullable theme;
 @property (nonatomic, strong) GPHMedia * _Nullable media;
 - (nonnull instancetype)init;
 - (void)loadAssetAt:(NSString * _Nonnull)url queueOriginalRendition:(BOOL)queueOriginalRendition;
 - (void)cancelLoading;
-@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
-- (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -3336,6 +3461,22 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 
 
 
+SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
+@interface GPHVideoView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
 @interface GPHWaterfallLayoutAttributes : UICollectionViewLayoutAttributes
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
@@ -3353,10 +3494,43 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK26GPHWaterfallLayoutDelegate_")
 @end
 
 
+@protocol UIViewControllerAnimatedTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@protocol UIViewControllerContextTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
+- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK5Giphy")
 @interface Giphy : NSObject
 + (void)configureWithApiKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK30GiphyAttributionViewController")
+@interface GiphyAttributionViewController : UIViewController
+- (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
+@interface GiphyClipsViewController : GiphyAttributionViewController
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -3393,7 +3567,6 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK13GiphyDelegate_")
 
 @class UIScrollView;
 @protocol UIViewControllerTransitionCoordinator;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 @interface GiphyGridController : UIViewController
@@ -3411,6 +3584,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLoad;
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 @property (nonatomic) BOOL enableDynamicResultsInTextSearch;
 - (void)update;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
@@ -3483,6 +3657,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
+- (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
+@end
+
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
@@ -3514,13 +3692,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
-@interface GiphyViewController : UIViewController
+@interface GiphyViewController : GPHWrapperViewController
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
+@property (nonatomic) BOOL disableClipsWarning;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable confirmationScreenChooseButtonText;)
 + (NSString * _Nullable)confirmationScreenChooseButtonText SWIFT_WARN_UNUSED_RESULT;
 + (void)setConfirmationScreenChooseButtonText:(NSString * _Nullable)value;
@@ -3544,26 +3720,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable noR
 @property (nonatomic) BOOL dimBackground;
 /// Set the rendition type. See <a href="https://developers.giphy.com/docs/#rendition-guide">Rendition Guide</a>
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 /// Set the file extension
 @property (nonatomic) enum GPHFileExtension fileExtension;
 - (void)viewDidLoad;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@protocol UIViewControllerContextTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
-@end
 
 
 @interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK))
@@ -3571,6 +3736,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) CGFloat trayHeightMultiplier;)
 + (CGFloat)trayHeightMultiplier SWIFT_WARN_UNUSED_RESULT;
 + (void)setTrayHeightMultiplier:(CGFloat)value;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK12GradientView")
+@interface GradientView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -4140,6 +4314,25 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+@class NSBundle;
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GPHWrapperViewController")
+@interface GPHWrapperViewController : UIViewController
+- (nonnull instancetype)init;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK29GPHClipsWrapperViewController")
+@interface GPHClipsWrapperViewController : GPHWrapperViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)init;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+@end
+
 enum GPHLanguageType : NSInteger;
 
 SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
@@ -4147,6 +4340,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK10GPHContent")
 @property (nonatomic, readonly, strong) GPHContent * _Nonnull contentCopy;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingGifs;)
 + (GPHContent * _Nonnull)trendingGifs SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingVideo;)
++ (GPHContent * _Nonnull)trendingVideo SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingStickers;)
 + (GPHContent * _Nonnull)trendingStickers SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull trendingText;)
@@ -4165,9 +4360,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent *
 typedef SWIFT_ENUM(NSInteger, GPHContentType, open) {
   GPHContentTypeRecents = 0,
   GPHContentTypeGifs = 1,
-  GPHContentTypeStickers = 2,
-  GPHContentTypeText = 3,
-  GPHContentTypeEmoji = 4,
+  GPHContentTypeClips = 2,
+  GPHContentTypeStickers = 3,
+  GPHContentTypeText = 4,
+  GPHContentTypeEmoji = 5,
 };
 
 
@@ -4593,6 +4789,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHMedia")
 @end
 
 
+@interface GPHMedia (SWIFT_EXTENSION(GiphyUISDK))
+@property (nonatomic, readonly) BOOL isVideo;
+@property (nonatomic, readonly, copy) NSString * _Nonnull videoDetailURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable smallVideoAssetURL;
+@property (nonatomic, readonly, copy) NSString * _Nullable clipsDetailVideoAssetURL;
+- (NSString * _Nonnull)availableMp4Url SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @interface GPHMediaCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -4600,6 +4805,13 @@ SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @property (nonatomic, readonly) BOOL canBecomeFirstResponder;
 - (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForReuse;
+@end
+
+@class UIContextMenuInteraction;
+@class UIContextMenuConfiguration;
+
+@interface GPHMediaCell (SWIFT_EXTENSION(GiphyUISDK)) <UIContextMenuInteractionDelegate>
+- (UIContextMenuConfiguration * _Nullable)contextMenuInteraction:(UIContextMenuInteraction * _Nonnull)interaction configurationForMenuAtLocation:(CGPoint)location SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
 
 
@@ -4637,17 +4849,17 @@ typedef SWIFT_ENUM(NSInteger, GPHMediaType, open) {
 };
 
 @protocol GPHMediaViewDelegate;
+@class GPHTheme;
 @class UIImage;
 
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaView")
 @interface GPHMediaView : GiphyYYAnimatedImageView
 @property (nonatomic, weak) id <GPHMediaViewDelegate> _Nullable delegate;
+@property (nonatomic, strong) GPHTheme * _Nullable theme;
 @property (nonatomic, strong) GPHMedia * _Nullable media;
 - (nonnull instancetype)init;
 - (void)loadAssetAt:(NSString * _Nonnull)url queueOriginalRendition:(BOOL)queueOriginalRendition;
 - (void)cancelLoading;
-@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
-- (BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -5132,6 +5344,22 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 
 
 
+SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
+@interface GPHVideoView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
 @interface GPHWaterfallLayoutAttributes : UICollectionViewLayoutAttributes
 - (id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone SWIFT_WARN_UNUSED_RESULT;
@@ -5149,10 +5377,43 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK26GPHWaterfallLayoutDelegate_")
 @end
 
 
+@protocol UIViewControllerAnimatedTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
+- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@protocol UIViewControllerContextTransitioning;
+
+@interface GPHWrapperViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
+- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
+@end
+
+
 SWIFT_CLASS("_TtC10GiphyUISDK5Giphy")
 @interface Giphy : NSObject
 + (void)configureWithApiKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK30GiphyAttributionViewController")
+@interface GiphyAttributionViewController : UIViewController
+- (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
+@interface GiphyClipsViewController : GiphyAttributionViewController
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -5189,7 +5450,6 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK13GiphyDelegate_")
 
 @class UIScrollView;
 @protocol UIViewControllerTransitionCoordinator;
-@class NSBundle;
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 @interface GiphyGridController : UIViewController
@@ -5207,6 +5467,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLoad;
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 @property (nonatomic) BOOL enableDynamicResultsInTextSearch;
 - (void)update;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
@@ -5279,6 +5540,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
+- (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
+@end
+
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
@@ -5310,13 +5575,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
-@interface GiphyViewController : UIViewController
+@interface GiphyViewController : GPHWrapperViewController
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode;
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
+@property (nonatomic) BOOL disableClipsWarning;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable confirmationScreenChooseButtonText;)
 + (NSString * _Nullable)confirmationScreenChooseButtonText SWIFT_WARN_UNUSED_RESULT;
 + (void)setConfirmationScreenChooseButtonText:(NSString * _Nullable)value;
@@ -5340,26 +5603,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable noR
 @property (nonatomic) BOOL dimBackground;
 /// Set the rendition type. See <a href="https://developers.giphy.com/docs/#rendition-guide">Rendition Guide</a>
 @property (nonatomic) enum GPHRenditionType renditionType;
+@property (nonatomic) enum GPHRenditionType clipsPreviewRenditionType;
 /// Set the file extension
 @property (nonatomic) enum GPHFileExtension fileExtension;
 - (void)viewDidLoad;
 @property (nonatomic, readonly) BOOL prefersStatusBarHidden;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerTransitioningDelegate>
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@protocol UIViewControllerContextTransitioning;
-
-@interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK)) <UIViewControllerAnimatedTransitioning>
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning> _Nullable)transitionContext SWIFT_WARN_UNUSED_RESULT;
-- (void)animateTransition:(id <UIViewControllerContextTransitioning> _Nonnull)transitionContext;
-@end
 
 
 @interface GiphyViewController (SWIFT_EXTENSION(GiphyUISDK))
@@ -5367,6 +5619,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) CGFloat trayHeightMultiplier;)
 + (CGFloat)trayHeightMultiplier SWIFT_WARN_UNUSED_RESULT;
 + (void)setTrayHeightMultiplier:(CGFloat)value;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+@end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK12GradientView")
+@interface GradientView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
