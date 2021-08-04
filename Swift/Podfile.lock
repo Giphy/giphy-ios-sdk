@@ -1,5 +1,5 @@
 PODS:
-  - Giphy (2.1.9):
+  - Giphy (2.1.10):
     - libwebp
   - libwebp (1.2.0):
     - libwebp/demux (= 1.2.0)
@@ -12,17 +12,20 @@ PODS:
   - libwebp/webp (1.2.0)
 
 DEPENDENCIES:
-  - Giphy
+  - Giphy (from `https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.10/Giphy.podspec`)
 
 SPEC REPOS:
   trunk:
-    - Giphy
     - libwebp
 
+EXTERNAL SOURCES:
+  Giphy:
+    :podspec: https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.1.10/Giphy.podspec
+
 SPEC CHECKSUMS:
-  Giphy: 4d4d928dd781108efa2d9d03fc7eccde37e82ead
+  Giphy: 2a43fc639f7fe3df3aaad4c8b3ffbfbbc8c6f0a9
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
 
-PODFILE CHECKSUM: b136b464d2f94b0257bde98b0b141c1b408cc984
+PODFILE CHECKSUM: c01a67fbb58c9d580526bcbf4d254e35a124ecf5
 
 COCOAPODS: 1.10.1

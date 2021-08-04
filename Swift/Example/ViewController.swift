@@ -286,7 +286,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         guard index < conversation.count else { return .zero }
         let message = conversation[index]
         if let media = message.media {
-            let isEmoji = media.pingbacksEventType == .emoji
+            let isEmoji = media.isEmoji
             let size = CGSize(width: media.images?.original?.width ?? 1, height: media.images?.original?.height ?? 1)
             let ratio = size.width / size.height
             return CGSize(width: collectionView.bounds.size.width, height: (isEmoji ? ChatCell.emojiBubbleWidth : ChatCell.bubbleWidth) / ratio)
