@@ -7,7 +7,7 @@ Select clips from the GIPHY tray UI and add them a scrollable collection view vi
 
 We're providing source code for the player view as it may be useful for developers that want to customize the design as well as the innerworkings. 
 
-It may also be a resource for GIPHY integration partners who are interested in adopting the Clips content type, as this video player code is intended to be independent of SDK components. 
+It may also be a resource for GIPHY API integration partners who are interested in adopting the Clips content type, as this video player code is intended to be independent of SDK components. 
  
 
 
