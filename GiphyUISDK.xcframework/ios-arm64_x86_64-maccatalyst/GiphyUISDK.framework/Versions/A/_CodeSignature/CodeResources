@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		8QTCmpKntW1VJ0vQKcv8mSAnNDk=
+		trXHun9r8Yx6O1pLmjWnwhnAs6w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,7 +15,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IDwf2NOe4Q1sOZRNOSAaDaDrbD2gDT3Pb1kiFMHGFBs=
+			gZgdqb8T9Jp/e4J6wv+B8WrZ96useyoKRppTE9Fpx7o=
 			</data>
 		</dict>
 		<key>Headers/GiphyUISDK.h</key>
@@ -71,14 +71,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zZzAGNoBhEVAQWIiwwGCO85i8CdExjRwilLAXqztShw=
+			JKCytQC5RqR+zTynA7zsTDKrY6qnjwDnPCVspFpwLUo=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ae+SOuGku+X7gxdGnzlIEYoofuxn6UalBoBg4doTpKk=
+			VaErVXjkcyaw3E6cF90MjISlo9B2PFBK0WcEe5gmLDo=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftdoc</key>
@@ -92,14 +92,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zZzAGNoBhEVAQWIiwwGCO85i8CdExjRwilLAXqztShw=
+			JKCytQC5RqR+zTynA7zsTDKrY6qnjwDnPCVspFpwLUo=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ae+SOuGku+X7gxdGnzlIEYoofuxn6UalBoBg4doTpKk=
+			VaErVXjkcyaw3E6cF90MjISlo9B2PFBK0WcEe5gmLDo=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -113,14 +113,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uTbYjFUSAEn4n3Bjp1NW9vdz4P6FDtywUvYSewpNndo=
+			tSAubXFvIXmgUuh+O1tYIqm8WUUHVJlpr5IcU7eSLIA=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			czYSyByc7YBcsiFRH7RWmy8pqQP6qqIZfLH7dlabwxU=
+			8GsPVWHi8himXfFDeqO1X0DBFG7mq5Ku5Yzgb5Br75c=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftdoc</key>
@@ -134,14 +134,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uTbYjFUSAEn4n3Bjp1NW9vdz4P6FDtywUvYSewpNndo=
+			tSAubXFvIXmgUuh+O1tYIqm8WUUHVJlpr5IcU7eSLIA=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			czYSyByc7YBcsiFRH7RWmy8pqQP6qqIZfLH7dlabwxU=
+			8GsPVWHi8himXfFDeqO1X0DBFG7mq5Ku5Yzgb5Br75c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -155,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PUGqZA3BEc0I9RstuM7/kRO9/tDVj3Zq8DMBxK9cji0=
+			kKc55GACGxU7fUZfbSU6N+fBTaYDRCoLbXwno5H1ddI=
 			</data>
 		</dict>
 	</dict>

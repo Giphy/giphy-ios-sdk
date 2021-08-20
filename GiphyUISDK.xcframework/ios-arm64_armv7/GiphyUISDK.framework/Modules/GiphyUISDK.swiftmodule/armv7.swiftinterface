@@ -710,6 +710,10 @@ extension GiphyViewController {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GiphyViewController : GiphyUISDK.GPHWrapperViewController {
+  @objc public var swiftUIEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc public func setAPIKey(_ apiKey: Swift.String, verificationMode: Swift.Bool = false, metadata: [Swift.String : Swift.String] = [:])
   @objc weak public var delegate: GiphyUISDK.GiphyDelegate? {
     @objc get
