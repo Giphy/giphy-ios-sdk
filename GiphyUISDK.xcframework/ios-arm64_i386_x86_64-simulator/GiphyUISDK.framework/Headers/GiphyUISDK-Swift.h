@@ -1837,6 +1837,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
 @interface GiphyViewController : GPHWrapperViewController
+@property (nonatomic) BOOL swiftUIEnabled;
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode metadata:(NSDictionary<NSString *, NSString *> * _Nonnull)metadata;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
@@ -3747,6 +3748,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
 @interface GiphyViewController : GPHWrapperViewController
+@property (nonatomic) BOOL swiftUIEnabled;
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode metadata:(NSDictionary<NSString *, NSString *> * _Nonnull)metadata;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
@@ -5657,6 +5659,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
 @interface GiphyViewController : GPHWrapperViewController
+@property (nonatomic) BOOL swiftUIEnabled;
 - (void)setAPIKey:(NSString * _Nonnull)apiKey verificationMode:(BOOL)verificationMode metadata:(NSDictionary<NSString *, NSString *> * _Nonnull)metadata;
 @property (nonatomic, weak) id <GiphyDelegate> _Nullable delegate;
 @property (nonatomic, copy) NSString * _Nonnull placeholderText;
