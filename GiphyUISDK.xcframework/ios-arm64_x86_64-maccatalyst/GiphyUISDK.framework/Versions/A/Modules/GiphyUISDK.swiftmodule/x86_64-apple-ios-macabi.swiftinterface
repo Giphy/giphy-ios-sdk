@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
 import AVFoundation
 import AVKit
@@ -108,16 +108,11 @@ import UIKit
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers public class GPHKeychain {
-  public static func plaintextRandomID() -> Swift.String?
-  public class func requestRandom(completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)? = nil)
-  @objc deinit
-}
-extension GPHWrapperViewController : UIKit.UIViewControllerAnimatedTransitioning {
+extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerAnimatedTransitioning {
   @objc dynamic public func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
   @objc dynamic public func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
 }
-extension GPHWrapperViewController : UIKit.UIViewControllerTransitioningDelegate {
+extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerTransitioningDelegate {
   @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
   @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
 }
@@ -136,7 +131,7 @@ extension GPHWrapperViewController : UIKit.UIViewControllerTransitioningDelegate
     get
   }
 }
-extension GPHMedia {
+extension GiphyUISDK.GPHMedia {
   @objc dynamic public func url(rendition: GiphyUISDK.GPHRenditionType, fileType: GiphyUISDK.GPHFileExtension) -> Swift.String?
   @objc dynamic public var aspectRatio: CoreGraphics.CGFloat {
     @objc get
@@ -272,12 +267,12 @@ extension GPHMedia {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHMedia {
+extension GiphyUISDK.GPHMedia {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHMedia : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHMedia : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMedia
   public typealias GPHMappableObject = GiphyUISDK.GPHMedia
 }
@@ -285,7 +280,6 @@ extension GPHMedia : GiphyUISDK.GPHMappable {
   required public init(apiKey: Swift.String, debugLogger: GiphyUISDK.DebugLogger)
   public func add(_ session: GiphyUISDK.GPHSession)
   public func flush()
-  @objc override dynamic public init()
   @objc deinit
 }
 public protocol GPHAttributionDelegate : AnyObject {
@@ -324,7 +318,7 @@ public protocol GPHMappable {
   associatedtype GPHMappableObject
   static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> Self.GPHMappableObject
 }
-extension GPHMappable {
+extension GiphyUISDK.GPHMappable {
   public static func parseDate(_ date: Swift.String?) -> Foundation.Date?
   public static func parseDate(_ date: Swift.String?, format: Swift.String) -> Foundation.Date?
   public static func parseURL(_ url: Swift.String?) -> Foundation.URL?
@@ -332,7 +326,7 @@ extension GPHMappable {
   public static func parseInt(_ number: Swift.String?) -> Swift.Int?
   public static func parseString(_ number: Swift.Int?) -> Swift.String?
 }
-extension UIColor {
+extension UIKit.UIColor {
   convenience public init(hex: Swift.UInt)
   public var rgba: (r: CoreGraphics.CGFloat, g: CoreGraphics.CGFloat, b: CoreGraphics.CGFloat, a: CoreGraphics.CGFloat) {
     get
@@ -434,13 +428,13 @@ extension UIColor {
   @objc deinit
   @objc public var maxLoopsBeforeMute: Swift.Int
 }
-extension GPHVideoView {
+extension GiphyUISDK.GPHVideoView {
   @objc dynamic public func play()
   @objc dynamic public func pause()
   @objc dynamic public func mute()
   @objc dynamic public func unmute()
 }
-extension GPHVideoView {
+extension GiphyUISDK.GPHVideoView {
   @objc dynamic public class func pauseAll()
   @objc dynamic public class func muteAll()
 }
@@ -529,12 +523,12 @@ extension GPHVideoView {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHUser {
+extension GiphyUISDK.GPHUser {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHUser : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHUser : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHUser
   public typealias GPHMappableObject = GiphyUISDK.GPHUser
 }
@@ -568,15 +562,15 @@ extension GPHUser : GiphyUISDK.GPHMappable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHCategory {
+extension GiphyUISDK.GPHCategory {
   @objc dynamic public func addSubCategory(_ subCategory: GiphyUISDK.GPHCategory)
 }
-extension GPHCategory {
+extension GiphyUISDK.GPHCategory {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHCategory : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHCategory : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHCategory
   public typealias GPHMappableObject = GiphyUISDK.GPHCategory
 }
@@ -591,7 +585,7 @@ extension GPHCategory : GiphyUISDK.GPHMappable {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GPHMedia {
+extension GiphyUISDK.GPHMedia {
   @objc dynamic public var isVideo: Swift.Bool {
     @objc get
   }
@@ -629,7 +623,7 @@ extension GPHMedia {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHVideoAsset {
+extension GiphyUISDK.GPHVideoAsset {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
@@ -640,7 +634,7 @@ extension GPHVideoAsset {
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta)
   @objc deinit
 }
-extension GPHResponse {
+extension GiphyUISDK.GPHResponse {
   @objc override dynamic open var description: Swift.String {
     @objc get
   }
@@ -668,10 +662,10 @@ public enum GPHSearchSuggestionType {
     get
   }
 }
-extension GPHSearchSuggestionType : Swift.Equatable {
+extension GiphyUISDK.GPHSearchSuggestionType : Swift.Equatable {
   public static func == (lhs: GiphyUISDK.GPHSearchSuggestionType, rhs: GiphyUISDK.GPHSearchSuggestionType) -> Swift.Bool
 }
-extension GPHMedia {
+extension GiphyUISDK.GPHMedia {
   @objc dynamic public var isEmoji: Swift.Bool {
     @objc get
     @objc set(newValue)
@@ -689,14 +683,14 @@ extension GPHMedia {
     @objc set(newValue)
   }
 }
-public typealias GPHFilterBlock = (GiphyUISDK.GPHFilterable) -> Swift.Bool
+public typealias GPHFilterBlock = (_ obj: GiphyUISDK.GPHFilterable) -> Swift.Bool
 @_inheritsConvenienceInitializers @objc open class GPHFilterable : ObjectiveC.NSObject {
   @objc public static var filter: GiphyUISDK.GPHFilterBlock?
   @objc public func isValidObject() -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }
-extension GiphyViewController {
+extension GiphyUISDK.GiphyViewController {
   @objc public static var trayHeightMultiplier: CoreGraphics.CGFloat
   @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
 }
@@ -816,7 +810,7 @@ extension GiphyViewController {
   @objc override dynamic public init()
   @objc deinit
 }
-public typealias GPHCompletionHandler = (Foundation.URLResponse?, Swift.Error?) -> Swift.Void
+public typealias GPHCompletionHandler = (_ response: Foundation.URLResponse?, _ error: Swift.Error?) -> Swift.Void
 @_hasMissingDesignatedInitializers @objc public class GPHPingbacksClient : GiphyUISDK.GPHPingbacksAbstractClient {
   @objc public var apiKey: Swift.String {
     @objc get
@@ -832,7 +826,7 @@ public typealias GPHCompletionHandler = (Foundation.URLResponse?, Swift.Error?) 
   @objc deinit
 }
 public class GPHPingbackUser : Swift.Codable {
-  required public init(userId: Swift.String, loggedInUserId: Swift.String?, randomId: Swift.String?)
+  required public init(userId: Swift.String, loggedInUserId: Swift.String?)
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -850,7 +844,7 @@ public protocol GPHSearchBarDelegate : AnyObject {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GPHSearchBar : UIKit.UITextFieldDelegate {
+extension GiphyUISDK.GPHSearchBar : UIKit.UITextFieldDelegate {
   @objc dynamic public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHImage : GiphyUISDK.GPHFilterable, Swift.Codable {
@@ -905,7 +899,7 @@ extension GPHSearchBar : UIKit.UITextFieldDelegate {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHImage {
+extension GiphyUISDK.GPHImage {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
@@ -923,7 +917,7 @@ extension GPHImage {
   @objc func didSelectMoreByYou(query: Swift.String)
   @objc func didScroll(offset: CoreGraphics.CGFloat)
 }
-extension GPHGridDelegate {
+extension GiphyUISDK.GPHGridDelegate {
   public func didScroll(offset: CoreGraphics.CGFloat)
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GiphyGridController : UIKit.UIViewController {
@@ -970,24 +964,24 @@ extension GPHGridDelegate {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GiphyGridController : UIKit.UICollectionViewDataSource {
+extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDataSource {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
   @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
-extension GiphyGridController : GiphyUISDK.GPHWaterfallLayoutDelegate {
+extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHWaterfallLayoutDelegate {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, sizeForSectionItem indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
   @objc dynamic public func numberOfColumns(forItemAt index: Swift.Int) -> Swift.Int
   @objc dynamic public func scrollDirection() -> UIKit.UICollectionView.ScrollDirection
 }
-extension GiphyGridController : UIKit.UICollectionViewDelegate {
+extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDelegate {
   @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
 }
-extension GiphyGridController : GiphyUISDK.GPHTrackingDelegate {
+extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHTrackingDelegate {
   @objc dynamic public func mediaForIndexPath(_ item: Foundation.IndexPath) -> GiphyUISDK.GPHMedia?
   @objc dynamic public func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
 }
-extension GiphySearchController : GiphyUISDK.GPHSearchBarDelegate {
+extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHSearchBarDelegate {
   @objc dynamic public func searchBarBackButtonTapped()
   @objc dynamic public func searchBarFocusDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, focused: Swift.Bool, text: Swift.String)
   @objc dynamic public func searchBarTextDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, query: Swift.String)
@@ -1042,17 +1036,17 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GiphySearchController : GiphyUISDK.GPHTabBarDelegate {
+extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHTabBarDelegate {
   @objc dynamic public func selectedContentTypeDidChange(_ contentType: GiphyUISDK.GPHContentType)
 }
-extension GiphySearchController : GiphyUISDK.GPHAttributionDelegate {
+extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHAttributionDelegate {
   @objc dynamic public func didChooseMedia(media: GiphyUISDK.GPHMedia)
 }
-extension GiphySearchController {
+extension GiphyUISDK.GiphySearchController {
   @objc dynamic public func didTapUsername(_ username: Swift.String)
   @objc dynamic public func didLongPressCell(_ cell: GiphyUISDK.GPHMediaCell?)
 }
-extension GiphySearchController : GiphyUISDK.GPHGridDelegate {
+extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @objc dynamic public func didSelectMoreByYou(query: Swift.String)
   @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: Swift.Error?)
   @objc dynamic public func didScroll(offset: CoreGraphics.CGFloat)
@@ -1069,7 +1063,7 @@ extension GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
 }
-extension GPHMediaCell : UIKit.UIContextMenuInteractionDelegate {
+extension GiphyUISDK.GPHMediaCell : UIKit.UIContextMenuInteractionDelegate {
   @available(iOS 13.0, *)
   @objc dynamic public func contextMenuInteraction(_ interaction: UIKit.UIContextMenuInteraction, configurationForMenuAtLocation location: CoreGraphics.CGPoint) -> UIKit.UIContextMenuConfiguration?
 }
@@ -1086,7 +1080,7 @@ extension GPHMediaCell : UIKit.UIContextMenuInteractionDelegate {
   public init()
   public var wrappedValue: Swift.Bool
 }
-extension CodableBool : Swift.Codable {
+extension GiphyUISDK.CodableBool : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1094,7 +1088,7 @@ extension CodableBool : Swift.Codable {
   public init()
   public var wrappedValue: Foundation.Date?
 }
-extension CodableDate : Swift.Codable {
+extension GiphyUISDK.CodableDate : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1102,7 +1096,7 @@ extension CodableDate : Swift.Codable {
   public init()
   public var wrappedValue: Swift.Int
 }
-extension CodableStrToInt : Swift.Codable {
+extension GiphyUISDK.CodableStrToInt : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1110,7 +1104,7 @@ extension CodableStrToInt : Swift.Codable {
   public init()
   public var wrappedValue: Swift.String?
 }
-extension CodableIntToStr : Swift.Codable {
+extension GiphyUISDK.CodableIntToStr : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1118,7 +1112,7 @@ extension CodableIntToStr : Swift.Codable {
   public init()
   public var wrappedValue: GiphyUISDK.GPHRatingType
 }
-extension CodableGPHRatingType : Swift.Codable {
+extension GiphyUISDK.CodableGPHRatingType : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1126,7 +1120,7 @@ extension CodableGPHRatingType : Swift.Codable {
   public init()
   public var wrappedValue: GiphyUISDK.GPHMediaType
 }
-extension CodableGPHMediaType : Swift.Codable {
+extension GiphyUISDK.CodableGPHMediaType : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -1135,7 +1129,7 @@ public struct AnyCodable : Swift.Decodable {
   public init(value: Any)
   public init(from decoder: Swift.Decoder) throws
 }
-extension AnyCodable : Swift.Encodable {
+extension GiphyUISDK.AnyCodable : Swift.Encodable {
   public func encode(to encoder: Swift.Encoder) throws
 }
 public typealias Attributes = [Swift.String : Swift.String]
@@ -1157,12 +1151,12 @@ public class GPHAnalyticsEvent : Swift.Codable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHListCategoryResponse {
+extension GiphyUISDK.GPHListCategoryResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHListCategoryResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListCategoryResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHListCategoryResponse
 }
@@ -1194,23 +1188,22 @@ extension GPHListCategoryResponse : GiphyUISDK.GPHMappable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHListChannelResponse {
+extension GiphyUISDK.GPHListChannelResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHListChannelResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHListChannelResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListChannelResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHListChannelResponse
 }
 @_hasMissingDesignatedInitializers @objc public class GPHPingbacksAbstractClient : ObjectiveC.NSObject {
   @objc public var timeout: Swift.Double
   @objc public var useReachability: Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
 }
 public typealias GPHJSONObject = [Swift.String : Any]
-public typealias GPHJSONCompletionHandler = (GiphyUISDK.GPHJSONObject?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void
+public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, _ response: Foundation.URLResponse?, _ error: Swift.Error?) -> Swift.Void
 @objc public class GPHClient : GiphyUISDK.GPHAbstractClient {
   @objc public var apiKey: Swift.String {
     @objc get
@@ -1219,20 +1212,17 @@ public typealias GPHJSONCompletionHandler = (GiphyUISDK.GPHJSONObject?, Foundati
   @objc public var customHeaders: [Swift.String : Swift.String]?
   @objc public init(apiKey: Swift.String)
   @discardableResult
-  @objc public func random(_ query: Swift.String, media: GiphyUISDK.GPHMediaType = .gif, rating: GiphyUISDK.GPHRatingType = .ratedR, completionHandler: @escaping (GiphyUISDK.GPHMediaResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (GiphyUISDK.GPHMediaResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (GiphyUISDK.GPHListMediaResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (GiphyUISDK.GPHListMediaResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func trendingSearches(completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func trendingSearches(completionHandler: @escaping (GiphyUISDK.GPHListTermSuggestionResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (GiphyUISDK.GPHListChannelResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
-  @discardableResult
-  @objc public func animate(_ query: Swift.String, completionHandler: @escaping (GiphyUISDK.GPHListMediaResponse?, Swift.Error?) -> Swift.Void) -> Foundation.Operation
-  override public init(_ apiKey: Swift.String?)
+  @objc public func animate(_ query: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHListTermSuggestionResponse : GiphyUISDK.GPHResponse {
@@ -1243,12 +1233,12 @@ public typealias GPHJSONCompletionHandler = (GiphyUISDK.GPHJSONObject?, Foundati
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHListTermSuggestionResponse {
+extension GiphyUISDK.GPHListTermSuggestionResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHListTermSuggestionResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHListTermSuggestionResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListTermSuggestionResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHListTermSuggestionResponse
 }
@@ -1358,7 +1348,7 @@ public enum GPHRequestRouter {
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GPHMediaView {
+extension GiphyUISDK.GPHMediaView {
   @objc dynamic public func setMedia(_ media: GiphyUISDK.GPHMedia, rendition: GiphyUISDK.GPHRenditionType = .fixedWidth, shouldQueueOriginalRendition: Swift.Bool = false)
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHChannelResponse : GiphyUISDK.GPHResponse {
@@ -1369,12 +1359,12 @@ extension GPHMediaView {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHChannelResponse {
+extension GiphyUISDK.GPHChannelResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHChannelResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHChannelResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHChannelResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHChannelResponse
 }
@@ -1414,12 +1404,12 @@ extension GPHChannelResponse : GiphyUISDK.GPHMappable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHVideoAssets {
+extension GiphyUISDK.GPHVideoAssets {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHVideoAssets : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHVideoAssets
   public typealias GPHMappableObject = GiphyUISDK.GPHVideoAssets
 }
@@ -1446,8 +1436,6 @@ extension GPHVideoAssets : GiphyUISDK.GPHMappable {
   @objc override dynamic public init()
   @objc deinit
 }
-public protocol GPHFriendlyObstructionView : AnyObject {
-}
 @objc public protocol GPHTrackingDelegate {
   @objc func mediaForIndexPath(_ item: Foundation.IndexPath) -> GiphyUISDK.GPHMedia?
   @objc func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
@@ -1463,7 +1451,6 @@ public protocol GPHFriendlyObstructionView : AnyObject {
   @discardableResult
   @objc public class func track(media: GiphyUISDK.GPHMedia, userID: Swift.String = "", actionType: GiphyUISDK.GPHActionType) -> Swift.Bool
   @objc public class func reset()
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHVideo : GiphyUISDK.GPHFilterable, Swift.Codable {
@@ -1490,7 +1477,7 @@ public protocol GPHFriendlyObstructionView : AnyObject {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHVideo {
+extension GiphyUISDK.GPHVideo {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
@@ -1518,6 +1505,12 @@ extension GPHVideo {
   @objc public var descriptionText: Swift.String? {
     get
   }
+  public var hasChildren: Swift.Bool? {
+    get
+  }
+  public var numChildren: Swift.Int? {
+    get
+  }
   @objc public var bannerImage: Swift.String? {
     get
   }
@@ -1542,17 +1535,16 @@ extension GPHVideo {
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHChannel {
+extension GiphyUISDK.GPHChannel {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHChannel : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHChannel : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHChannel
   public typealias GPHMappableObject = GiphyUISDK.GPHChannel
 }
@@ -1605,12 +1597,12 @@ extension GPHChannel : GiphyUISDK.GPHMappable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHListMediaResponse {
+extension GiphyUISDK.GPHListMediaResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHListMediaResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHListMediaResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListMediaResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHListMediaResponse
 }
@@ -1622,16 +1614,16 @@ extension GPHListMediaResponse : GiphyUISDK.GPHMappable {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHMediaResponse {
+extension GiphyUISDK.GPHMediaResponse {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHMediaResponse : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHMediaResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMediaResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHMediaResponse
 }
-extension NSNotification.Name {
+extension Foundation.NSNotification.Name {
   public static let audioMutedStateChanged: Foundation.Notification.Name
 }
 public enum GPHRequestType : Swift.Int {
@@ -1682,9 +1674,8 @@ public enum GPHRequestType : Swift.Int {
   public func updateUserAgent(agent: Swift.String)
   @discardableResult
   @objc public func httpRequest(with config: GiphyUISDK.GPHRequestConfig, completionHandler: @escaping GiphyUISDK.GPHJSONCompletionHandler) -> Foundation.Operation
-  public class func parseJSONResponse<T>(_ config: GiphyUISDK.GPHRequestConfig, completionHandler: @escaping ((T?, Swift.Error?) -> Swift.Void)) -> GiphyUISDK.GPHJSONCompletionHandler where T : GiphyUISDK.GPHResponse, T : GiphyUISDK.GPHMappable
+  public class func parseJSONResponse<T>(_ config: GiphyUISDK.GPHRequestConfig, completionHandler: @escaping ((_ response: T?, _ error: Swift.Error?) -> Swift.Void)) -> GiphyUISDK.GPHJSONCompletionHandler where T : GiphyUISDK.GPHResponse, T : GiphyUISDK.GPHMappable
   public func isNetworkReachable() -> Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc @objcMembers public class GPHImages : GiphyUISDK.GPHFilterable, Swift.Codable {
@@ -1758,15 +1749,14 @@ public enum GPHRequestType : Swift.Int {
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHImages {
+extension GiphyUISDK.GPHImages {
   @objc dynamic public func rendition(_ rendition: GiphyUISDK.GPHRenditionType = .original) -> GiphyUISDK.GPHImage?
 }
-extension GPHImages {
+extension GiphyUISDK.GPHImages {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
@@ -1797,7 +1787,7 @@ extension GPHImages {
   public func log(_ message: Swift.String)
   @objc deinit
 }
-extension UIView {
+extension UIKit.UIView {
   public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
@@ -1963,7 +1953,7 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHAsyncOperation {
+extension GiphyUISDK.GPHAsyncOperation {
   @objc override dynamic open var isReady: Swift.Bool {
     @objc get
   }
@@ -1980,7 +1970,6 @@ extension GPHAsyncOperation {
   @objc override dynamic open func cancel()
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class GPHAsyncOperationWithCompletion : GiphyUISDK.GPHAsyncOperation {
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHPagination : ObjectiveC.NSObject {
@@ -2003,16 +1992,16 @@ extension GPHAsyncOperation {
   @objc public func updateFilteredCount(_ count: Swift.Int)
   @objc deinit
 }
-extension GPHPagination {
+extension GiphyUISDK.GPHPagination {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHPagination : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHPagination : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHPagination
   public typealias GPHMappableObject = GiphyUISDK.GPHPagination
 }
-extension GPHVideoView {
+extension GiphyUISDK.GPHVideoView {
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
 public protocol GPHTabBarDelegate : AnyObject {
@@ -2063,7 +2052,7 @@ public protocol GPHTabBarDelegate : AnyObject {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHChannelTag {
+extension GiphyUISDK.GPHChannelTag {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
@@ -2094,12 +2083,12 @@ extension GPHChannelTag {
   @objc override dynamic public init()
   @objc deinit
 }
-extension GPHMeta {
+extension GiphyUISDK.GPHMeta {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHMeta : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHMeta : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMeta
   public typealias GPHMappableObject = GiphyUISDK.GPHMeta
 }
@@ -2121,12 +2110,12 @@ extension GPHMeta : GiphyUISDK.GPHMappable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-extension GPHTermSuggestion {
+extension GiphyUISDK.GPHTermSuggestion {
   @objc override dynamic public var description: Swift.String {
     @objc get
   }
 }
-extension GPHTermSuggestion : GiphyUISDK.GPHMappable {
+extension GiphyUISDK.GPHTermSuggestion : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHTermSuggestion
   public typealias GPHMappableObject = GiphyUISDK.GPHTermSuggestion
 }
