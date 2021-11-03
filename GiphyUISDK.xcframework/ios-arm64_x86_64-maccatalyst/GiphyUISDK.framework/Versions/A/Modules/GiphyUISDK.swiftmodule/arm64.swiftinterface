@@ -412,7 +412,7 @@ extension UIKit.UIColor {
   @objc optional func playerDidFail(_ description: Swift.String?)
   @objc optional func muteDidChange(muted: Swift.Bool)
   @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
-  @objc optional func didPress()
+  @objc optional func didTap()
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class GPHVideoView : UIKit.UIView {
   @objc override public static var layerClass: Swift.AnyClass {
@@ -420,7 +420,6 @@ extension UIKit.UIColor {
   }
   @objc weak public var delegate: GiphyUISDK.GPHVideoViewDelegate?
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc public func loadVideo()
   @objc public var media: GiphyUISDK.GPHMedia? {
     @objc get
     @objc set
@@ -428,13 +427,18 @@ extension UIKit.UIColor {
   @objc deinit
   @objc public var maxLoopsBeforeMute: Swift.Int
 }
+@objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
+  public static var enabled: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 extension GiphyUISDK.GPHVideoView {
   @objc dynamic public func play()
   @objc dynamic public func pause()
   @objc dynamic public func mute()
   @objc dynamic public func unmute()
-}
-extension GiphyUISDK.GPHVideoView {
   @objc dynamic public class func pauseAll()
   @objc dynamic public class func muteAll()
 }
@@ -1058,6 +1062,9 @@ extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
+}
+extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoViewDelegate {
+  @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GPHTextLoadingView : UIKit.UIView {
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
