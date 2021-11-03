@@ -14,7 +14,6 @@
 **Templates**
 - [GiphyViewController](#giphyviewcontroller)
 - [Settings](#template-settings)
-    - [Layout](#layout)
     - [Media Types](#media-types)  
     - [Theme](#theme) 
 - [GiphyDelegate](#events)
@@ -33,8 +32,10 @@
 - [GPHContent](#giphygridcontroller-gphcontent)
 - [GPHGridDelegate](#giphygridcontroller-gphgriddelegate)
 
-**Data Collection**
-- [Details](#data)
+**Clips (GIFs with Sound!) + Animated Text Creation**
+- [Clips](https://github.com/Giphy/giphy-ios-sdk/blob/main/clips.md) 
+- [Animated Text Creation](https://github.com/Giphy/giphy-ios-sdk/blob/main/animate.md) 
+ 
 
 ### Requirements 
 - iOS 10.2 or later   
@@ -102,8 +103,7 @@ Create a new `GiphyViewController` every time you want to show GIPHY (maintainin
 ### _Media Types_
 
 Set the content type(s) you'd like to show by setting the `mediaTypeConfig` property, which is an array of `GPHContentType`s.
-
-**Note**: Emoji-only is not available for the carousel layout option. 
+ 
 ```swift
 giphy.mediaTypeConfig = [.gifs, .stickers, .text, .emoji]
 ```
@@ -158,15 +158,14 @@ public class CustomTheme: GPHTheme {
 
 ```
 ### _Additional Settings_ 
-- **Sticker Column Count**: For carousel layouts, we provide the option to set the number of columns for stickers and text. Possible `GPHStickerColumnCount`values are `.two`, `.three`. and `.four`. We recommend going for 3 or 4 columns when leveraging the blur `GPHThemeType`. 
+- **Sticker Column Count**: We provide the option to set the number of columns for stickers and text. Possible `GPHStickerColumnCount`values are `.two`, `.three`. and `.four`. We recommend going for 3 or 4 columns when leveraging the blur `GPHThemeType`. 
 
 ```
 giphy.stickerColumnCount = GPHStickerColumnCount.three 
 ```
 
 
-- **Confirmation screen**:  we provide the option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.
-This confirmation screen is only available for `.waterfall` mode - this property will be ignored if the `layout` is `.carousel`. 
+- **Confirmation screen**:  we provide the option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset. 
 ```swift
 giphy.showConfirmationScreen = true 
 ```
@@ -300,7 +299,7 @@ _See the [Template section](#templates-via-giphyviewcontroller) for template set
 
 The `GiphyGridController` takes care of requesting content from the GIPHY API, loading, caching, and rendering images in a customizable grid, and leaves the rest of the experience up to you. 
 
-The `GiphyGridController` offers more customization of the grid than the `GiphyViewController`, via the `numberOfTracks`, `cellPadding`, and `direction` properties, all of which apply only to the `waterfall` layout. 
+The `GiphyGridController` offers more customization of the grid than the `GiphyViewController`, via the `numberOfTracks`, `cellPadding`, and `direction` properties.
 
 Create a new grid controller: 
 ```
