@@ -223,6 +223,12 @@ SWIFT_CLASS("_TtC10GiphyUISDK12CallToAction")
 @end
 
 
+SWIFT_CLASS("_TtC10GiphyUISDK12CaptionState")
+@interface CaptionState : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 @class NSNumber;
 @class GPHRequestConfig;
 @class NSURLResponse;
@@ -1571,15 +1577,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 @property (nonatomic, weak) id <GPHVideoViewDelegate> _Nullable delegate;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (void)loadVideo;
 @property (nonatomic, strong) GPHMedia * _Nullable media;
 @property (nonatomic) NSInteger maxLoopsBeforeMute;
-@end
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-+ (void)pauseAll;
-+ (void)muteAll;
 @end
 
 
@@ -1588,11 +1587,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 @end
 
 
+
 @interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
 - (void)play;
 - (void)pause;
 - (void)mute;
 - (void)unmute;
++ (void)pauseAll;
++ (void)muteAll;
 @end
 
 
@@ -1603,7 +1605,7 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHVideoViewDelegate_")
 - (void)playerDidFail:(NSString * _Nullable)description;
 - (void)muteDidChangeWithMuted:(BOOL)muted;
 - (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
-- (void)didPress;
+- (void)didTap;
 @end
 
 
@@ -1661,6 +1663,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoViewDelegate>
+- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 @end
 
 
@@ -2120,6 +2127,12 @@ SWIFT_CLASS("_TtC10GiphyUISDK12CallToAction")
 @end
 
 
+SWIFT_CLASS("_TtC10GiphyUISDK12CaptionState")
+@interface CaptionState : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 @class NSNumber;
 @class GPHRequestConfig;
 @class NSURLResponse;
@@ -3468,15 +3481,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 @property (nonatomic, weak) id <GPHVideoViewDelegate> _Nullable delegate;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (void)loadVideo;
 @property (nonatomic, strong) GPHMedia * _Nullable media;
 @property (nonatomic) NSInteger maxLoopsBeforeMute;
-@end
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-+ (void)pauseAll;
-+ (void)muteAll;
 @end
 
 
@@ -3485,11 +3491,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layer
 @end
 
 
+
 @interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
 - (void)play;
 - (void)pause;
 - (void)mute;
 - (void)unmute;
++ (void)pauseAll;
++ (void)muteAll;
 @end
 
 
@@ -3500,7 +3509,7 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHVideoViewDelegate_")
 - (void)playerDidFail:(NSString * _Nullable)description;
 - (void)muteDidChangeWithMuted:(BOOL)muted;
 - (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
-- (void)didPress;
+- (void)didTap;
 @end
 
 
@@ -3558,6 +3567,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoViewDelegate>
+- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 @end
 
 

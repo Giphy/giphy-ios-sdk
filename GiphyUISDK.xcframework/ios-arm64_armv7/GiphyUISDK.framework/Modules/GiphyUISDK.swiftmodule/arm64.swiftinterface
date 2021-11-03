@@ -413,7 +413,7 @@ extension UIKit.UIColor {
   @objc optional func playerDidFail(_ description: Swift.String?)
   @objc optional func muteDidChange(muted: Swift.Bool)
   @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
-  @objc optional func didPress()
+  @objc optional func didTap()
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GPHVideoView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override public static var layerClass: Swift.AnyClass {
@@ -421,7 +421,6 @@ extension UIKit.UIColor {
   }
   @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHVideoViewDelegate?
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc @_Concurrency.MainActor(unsafe) public func loadVideo()
   @objc @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia? {
     @objc get
     @objc set
@@ -429,13 +428,18 @@ extension UIKit.UIColor {
   @objc deinit
   @objc @_Concurrency.MainActor(unsafe) public var maxLoopsBeforeMute: Swift.Int
 }
+@objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
+  public static var enabled: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 extension GiphyUISDK.GPHVideoView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func play()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func pause()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func mute()
   @objc @_Concurrency.MainActor(unsafe) dynamic public func unmute()
-}
-extension GiphyUISDK.GPHVideoView {
   @objc @_Concurrency.MainActor(unsafe) dynamic public class func pauseAll()
   @objc @_Concurrency.MainActor(unsafe) dynamic public class func muteAll()
 }
@@ -1059,6 +1063,9 @@ extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
+}
+extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHTextLoadingView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
