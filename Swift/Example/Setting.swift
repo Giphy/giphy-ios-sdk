@@ -176,7 +176,7 @@ extension ContentTypeSetting: Setting {
         if self == .single {
             return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text]
         }
-        return [GPHContentType.gifs, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji, GPHContentType.recents, GPHContentType.clips]
+        return [GPHContentType.recents, GPHContentType.gifs, GPHContentType.clips, GPHContentType.stickers, GPHContentType.text, GPHContentType.emoji ]
     }
     var string: String { return "" }
 }
