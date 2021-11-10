@@ -39,6 +39,7 @@ public extension VideoView {
         player?.isMuted = true
         speakerButton.on = false
         addPlayerObservers()
+        captionButton.isHidden = !captionsAvailable()
     }
     
     func pause() {
@@ -70,34 +71,7 @@ public extension VideoView {
     @objc optional func playerDidFail(videoView: VideoView?, description: String?)
     @objc optional func muteDidChange(videoView: VideoView?, muted: Bool)
 }
-
-class SpeakerButton: UIButton {
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-        updateIcon()
-        tintColor = .white
-    }
-    
-    var on: Bool = false {
-        didSet {
-            updateIcon()
-        }
-    }
-    
-    func updateIcon() {
-        guard #available(iOS 13.0, *) else { return }
-        if on {
-            setImage(UIImage(systemName: "speaker.wave.3")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        } else {
-            setImage(UIImage(systemName: "speaker.slash")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+ 
  
 @objcMembers
 public class VideoView: UIView {
@@ -151,14 +125,23 @@ public class VideoView: UIView {
         addSubview(speakerButton)
         speakerButton.isHidden = true
         speakerButton.isUserInteractionEnabled = false
-        speakerButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        speakerButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        speakerButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        speakerButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         speakerButton.topAnchor.constraint(equalTo: topAnchor).isActive = true
         speakerButton.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
  
         // tapping anywhere on the video view toggles the audio
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleAudio))
         addGestureRecognizer(tap)
+        
+        addSubview(captionButton)
+        captionButton.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        captionButton.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        captionButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        captionButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        captionButton.addTarget(self, action: #selector(toggleCaptions), for: .touchUpInside)
+        captionButton.isHidden = true
+ 
         
     }
       
@@ -171,8 +154,16 @@ public class VideoView: UIView {
         removePlayerObservers()
     }
      
-    let speakerButton: SpeakerButton = {
-        let button = SpeakerButton()
+    let speakerButton: ToggleButton = {
+        let button = ToggleButton()
+        button.type = .sound
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let captionButton: ToggleButton = {
+        let button = ToggleButton()
+        button.type = .caption
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -282,5 +273,72 @@ extension ViewController: VideoViewDelegate {
         if muted == false {
             muteAllVideoPlayersExcept(activeView: videoView)
         }
+    }
+}
+
+
+// caption stuff
+extension VideoView {
+    
+    @objc func toggleCaptions() {
+        captionButton.on = !captionButton.on
+        let on = captionButton.on
+        if on {
+            enableCaptions()
+        } else {
+            disableCaptions()
+        }
+        CaptionState.setEnabled(on)
+    }
+    
+    func captionsAvailable() -> Bool {
+        guard let player = player else { return false }
+        guard let item = player.currentItem else { return false }
+        let locale = Locale.current
+        guard let group = item.asset.mediaSelectionGroup(forMediaCharacteristic: .legible) else { return false }
+        let options = AVMediaSelectionGroup.mediaSelectionOptions(from: group.options, with: locale)
+        return !options.isEmpty
+    }
+    
+    func setOptionsForMediaCharacteristic(_ characteristic: AVMediaCharacteristic) {
+        guard let player = player as? AVQueuePlayer else { return }
+        for item in player.items() {
+            player.appliesMediaSelectionCriteriaAutomatically = false
+            let locale = Locale.current
+            guard let group = item.asset.mediaSelectionGroup(forMediaCharacteristic: characteristic) else { return }
+            let options = AVMediaSelectionGroup.mediaSelectionOptions(from: group.options, with: locale)
+            if let option = options.first { item.select(option, in: group) }
+        }
+    }
+    
+    func enableCaptions() {
+        setOptionsForMediaCharacteristic(.legible)
+    }
+    
+    func disableCaptions() {
+        guard let player = player as? AVQueuePlayer else { return }
+        for item in player.items() {
+            guard let group = item.asset.mediaSelectionGroup(forMediaCharacteristic: .legible) else { return }
+            item.select(nil, in: group)
+        }
+    }
+        
+    
+}
+
+// maintain the caption state if you like 
+public class CaptionState: NSObject {
+    static let key = "kGPHClipsCaptionState"
+    
+    public static var enabled: Bool {
+        guard let state = UserDefaults.standard.object(forKey: CaptionState.key) as? Bool else {
+            return false
+        }
+        return state
+    }
+    
+    class func setEnabled(_ enabled: Bool) {
+        UserDefaults.standard.setValue(enabled, forKey: CaptionState.key)
+        UserDefaults.standard.synchronize()
     }
 }

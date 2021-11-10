@@ -68,9 +68,11 @@ class ViewController: UIViewController {
         view.backgroundColor = .giphyBlack
         view.addSubview(collectionView)
         
+        Giphy.configure(apiKey: "seS4IYKG394vOOwIx9ZreC55Tit5cMbe")
+        
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
 
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
@@ -84,8 +86,7 @@ class ViewController: UIViewController {
         giphyButton.bottomAnchor.constraint(equalTo: view.safeBottomAnchor, constant: -padding).isActive = true
         giphyButton.leftAnchor.constraint(equalTo: view.safeLeftAnchor, constant: padding).isActive = true
         giphyButton.addTarget(self, action: #selector(presentGIPHY), for: .touchUpInside)
-        
-        Giphy.configure(apiKey: "")
+         
 
     }
     
