@@ -67,9 +67,7 @@ class ViewController: UIViewController {
         let padding: CGFloat = 20.0
         view.backgroundColor = .giphyBlack
         view.addSubview(collectionView)
-        
-        Giphy.configure(apiKey: "seS4IYKG394vOOwIx9ZreC55Tit5cMbe")
-        
+         
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
