@@ -16,6 +16,7 @@
 		02152A4D26BC58220025E180 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 02152A4C26BC58220025E180 /* GiphyUISDK */; };
 		02152A5426BC58E50025E180 /* VideoLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02152A5226BC58E50025E180 /* VideoLoadingView.swift */; };
 		02152A5526BC58E50025E180 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02152A5326BC58E50025E180 /* VideoView.swift */; };
+		0252E9A3273C6A5800B6910A /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252E9A2273C6A5800B6910A /* ToggleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		02152A4526BC57FF0025E180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02152A5226BC58E50025E180 /* VideoLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLoadingView.swift; sourceTree = "<group>"; };
 		02152A5326BC58E50025E180 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		0252E9A2273C6A5800B6910A /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		02B0D32426BC742B00E0D026 /* video-player-sample.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "video-player-sample.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 		02152A3626BC57FE0025E180 /* Clips-Example */ = {
 			isa = PBXGroup;
 			children = (
+				0252E9A2273C6A5800B6910A /* ToggleButton.swift */,
 				02152A5226BC58E50025E180 /* VideoLoadingView.swift */,
 				02152A5326BC58E50025E180 /* VideoView.swift */,
 				02152A3726BC57FE0025E180 /* AppDelegate.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02152A3C26BC57FE0025E180 /* ViewController.swift in Sources */,
+				0252E9A3273C6A5800B6910A /* ToggleButton.swift in Sources */,
 				02152A5526BC58E50025E180 /* VideoView.swift in Sources */,
 				02152A5426BC58E50025E180 /* VideoLoadingView.swift in Sources */,
 				02152A3826BC57FE0025E180 /* AppDelegate.swift in Sources */,
