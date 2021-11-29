@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
 import AVFoundation
 import AVKit
@@ -9,6 +9,7 @@ import Foundation
 import Swift
 import SystemConfiguration
 import UIKit
+import _Concurrency
 @objc public enum GPHThemeType : Swift.Int {
   case dark
   case light
@@ -109,12 +110,12 @@ import UIKit
   @objc deinit
 }
 extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerAnimatedTransitioning {
-  @objc dynamic public func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
-  @objc dynamic public func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
 }
 extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerTransitioningDelegate {
-  @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
-  @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
 }
 @objcMembers public class GPHNetworkReachability {
   @objc public init()
@@ -285,27 +286,27 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.GPHMappable {
 public protocol GPHAttributionDelegate : AnyObject {
   func didChooseMedia(media: GiphyUISDK.GPHMedia)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GPHAttributionView : UIKit.UIButton {
-  public var theme: GiphyUISDK.GPHTheme {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHAttributionView : UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme {
     get
     set
   }
-  public var name: Swift.String {
+  @_Concurrency.MainActor(unsafe) public var name: Swift.String {
     get
     set
   }
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class GiphyAttributionViewController : UIKit.UIViewController {
-  weak public var delegate: GiphyUISDK.GPHAttributionDelegate?
-  public var media: GiphyUISDK.GPHMedia?
-  public var theme: GiphyUISDK.GPHTheme
-  public var renditionType: GiphyUISDK.GPHRenditionType
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GiphyAttributionViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHAttributionDelegate?
+  @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia?
+  @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme
+  @_Concurrency.MainActor(unsafe) public var renditionType: GiphyUISDK.GPHRenditionType
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class PingbackDeduplicator {
@@ -414,18 +415,18 @@ extension UIKit.UIColor {
   @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
   @objc optional func didTap()
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class GPHVideoView : UIKit.UIView {
-  @objc override public static var layerClass: Swift.AnyClass {
-    @objc get
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GPHVideoView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override public static var layerClass: Swift.AnyClass {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc weak public var delegate: GiphyUISDK.GPHVideoViewDelegate?
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc public var media: GiphyUISDK.GPHMedia? {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHVideoViewDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia? {
     @objc get
     @objc set
   }
   @objc deinit
-  @objc public var maxLoopsBeforeMute: Swift.Int
+  @objc @_Concurrency.MainActor(unsafe) public var maxLoopsBeforeMute: Swift.Int
 }
 @objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
   public static var enabled: Swift.Bool {
@@ -435,12 +436,12 @@ extension UIKit.UIColor {
   @objc deinit
 }
 extension GiphyUISDK.GPHVideoView {
-  @objc dynamic public func play()
-  @objc dynamic public func pause()
-  @objc dynamic public func mute()
-  @objc dynamic public func unmute()
-  @objc dynamic public class func pauseAll()
-  @objc dynamic public class func muteAll()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func play()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func pause()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func mute()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func unmute()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func pauseAll()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public class func muteAll()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHUser : GiphyUISDK.GPHFilterable, Swift.Codable {
   @objc public var username: Swift.String {
@@ -578,15 +579,15 @@ extension GiphyUISDK.GPHCategory : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHCategory
   public typealias GPHMappableObject = GiphyUISDK.GPHCategory
 }
-@objc @_inheritsConvenienceInitializers public class GPHTextField : UIKit.UITextField {
-  @objc override dynamic public var next: UIKit.UIResponder? {
-    @objc get
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHTextField : UIKit.UITextField {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var next: UIKit.UIResponder? {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
-  @objc override dynamic public func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
-  @objc override dynamic public func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GPHMedia {
@@ -695,94 +696,94 @@ public typealias GPHFilterBlock = (_ obj: GiphyUISDK.GPHFilterable) -> Swift.Boo
   @objc deinit
 }
 extension GiphyUISDK.GiphyViewController {
-  @objc public static var trayHeightMultiplier: CoreGraphics.CGFloat
-  @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc @_Concurrency.MainActor(unsafe) public static var trayHeightMultiplier: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
 }
-@objc @_inheritsConvenienceInitializers public class GPHClipsWrapperViewController : GiphyUISDK.GPHWrapperViewController {
-  convenience public init(media: GiphyUISDK.GPHMedia)
-  final public let attributionController: GiphyUISDK.GiphyClipsViewController
-  @objc override dynamic public func viewDidLoad()
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHClipsWrapperViewController : GiphyUISDK.GPHWrapperViewController {
+  @_Concurrency.MainActor(unsafe) convenience public init(media: GiphyUISDK.GPHMedia)
+  @_Concurrency.MainActor(unsafe) final public let attributionController: GiphyUISDK.GiphyClipsViewController
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc convenience dynamic public init()
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class GiphyViewController : GiphyUISDK.GPHWrapperViewController {
-  @objc public var swiftUIEnabled: Swift.Bool {
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GiphyViewController : GiphyUISDK.GPHWrapperViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var swiftUIEnabled: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public func setAPIKey(_ apiKey: Swift.String, verificationMode: Swift.Bool = false, metadata: [Swift.String : Swift.String] = [:])
-  @objc weak public var delegate: GiphyUISDK.GiphyDelegate? {
+  @objc @_Concurrency.MainActor(unsafe) public func setAPIKey(_ apiKey: Swift.String, verificationMode: Swift.Bool = false, metadata: [Swift.String : Swift.String] = [:])
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GiphyDelegate? {
     @objc get
     @objc set
   }
-  @objc public var placeholderText: Swift.String {
+  @objc @_Concurrency.MainActor(unsafe) public var placeholderText: Swift.String {
     @objc get
     @objc set
   }
-  @objc public var disableClipsWarning: Swift.Bool
-  @objc public static var confirmationScreenChooseButtonText: Swift.String?
-  @objc public static var noResultsText: Swift.String?
-  @objc public var enableDynamicText: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) public var disableClipsWarning: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public static var confirmationScreenChooseButtonText: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public static var noResultsText: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var enableDynamicText: Swift.Bool {
     @objc get
     @objc set
   }
-  public var selectedContentType: GiphyUISDK.GPHContentType? {
+  @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType? {
     get
     set
   }
-  @objc public var showMoreByUser: Swift.String? {
+  @objc @_Concurrency.MainActor(unsafe) public var showMoreByUser: Swift.String? {
     @objc get
     @objc set
   }
-  @objc public var stickerColumnCount: GiphyUISDK.GPHStickerColumnCount {
+  @objc @_Concurrency.MainActor(unsafe) public var stickerColumnCount: GiphyUISDK.GPHStickerColumnCount {
     @objc get
     @objc set
   }
-  @objc public var showConfirmationScreen: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) public var showConfirmationScreen: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var shouldLocalizeSearch: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) public var shouldLocalizeSearch: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var theme: GiphyUISDK.GPHTheme {
+  @objc @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme {
     @objc get
     @objc set
   }
-  public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
+  @_Concurrency.MainActor(unsafe) public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
     get
     set
   }
-  @objc(setMediaConfigWithTypes:) public func setMediaConfig(types: Swift.Array<Swift.Int>)
-  @objc public var rating: GiphyUISDK.GPHRatingType {
+  @objc(setMediaConfigWithTypes:) @_Concurrency.MainActor(unsafe) public func setMediaConfig(types: Swift.Array<Swift.Int>)
+  @objc @_Concurrency.MainActor(unsafe) public var rating: GiphyUISDK.GPHRatingType {
     @objc get
     @objc set
   }
-  @objc public var dimBackground: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) public var dimBackground: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var renditionType: GiphyUISDK.GPHRenditionType {
+  @objc @_Concurrency.MainActor(unsafe) public var renditionType: GiphyUISDK.GPHRenditionType {
     @objc get
     @objc set
   }
-  @objc public var clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType {
+  @objc @_Concurrency.MainActor(unsafe) public var clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType {
     @objc get
     @objc set
   }
-  @objc public var fileExtension: GiphyUISDK.GPHFileExtension {
+  @objc @_Concurrency.MainActor(unsafe) public var fileExtension: GiphyUISDK.GPHFileExtension {
     @objc get
     @objc set
   }
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public var prefersStatusBarHidden: Swift.Bool {
-    @objc get
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var prefersStatusBarHidden: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class CallToAction : ObjectiveC.NSObject, Swift.Codable {
@@ -840,16 +841,16 @@ public protocol GPHSearchBarDelegate : AnyObject {
   func searchBarFocusDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, focused: Swift.Bool, text: Swift.String)
   func searchBarBackButtonTapped()
 }
-@objc @_inheritsConvenienceInitializers public class GPHSearchBar : UIKit.UIView {
-  public func beginEditing()
-  public func endEditing()
-  public func setText(_ text: Swift.String)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHSearchBar : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func beginEditing()
+  @_Concurrency.MainActor(unsafe) public func endEditing()
+  @_Concurrency.MainActor(unsafe) public func setText(_ text: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GPHSearchBar : UIKit.UITextFieldDelegate {
-  @objc dynamic public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHImage : GiphyUISDK.GPHFilterable, Swift.Codable {
   @objc public var mediaId: Swift.String {
@@ -908,11 +909,11 @@ extension GiphyUISDK.GPHImage {
     @objc get
   }
 }
-@objc @_inheritsConvenienceInitializers public class GPHWrapperViewController : UIKit.UIViewController {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHWrapperViewController : UIKit.UIViewController {
   @objc convenience dynamic public init()
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit
 }
 @objc public protocol GPHGridDelegate {
@@ -924,71 +925,71 @@ extension GiphyUISDK.GPHImage {
 extension GiphyUISDK.GPHGridDelegate {
   public func didScroll(offset: CoreGraphics.CGFloat)
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class GiphyGridController : UIKit.UIViewController {
-  @objc weak public var delegate: GiphyUISDK.GPHGridDelegate?
-  @objc public var direction: UIKit.UICollectionView.ScrollDirection {
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GiphyGridController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHGridDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public var direction: UIKit.UICollectionView.ScrollDirection {
     @objc get
     @objc set
   }
-  @objc public var theme: GiphyUISDK.GPHTheme {
+  @objc @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme {
     @objc get
     @objc set
   }
-  @objc public var rating: GiphyUISDK.GPHRatingType {
+  @objc @_Concurrency.MainActor(unsafe) public var rating: GiphyUISDK.GPHRatingType {
     @objc get
     @objc set
   }
-  @objc public var content: GiphyUISDK.GPHContent
-  @objc public var cellPadding: CoreGraphics.CGFloat {
+  @objc @_Concurrency.MainActor(unsafe) public var content: GiphyUISDK.GPHContent
+  @objc @_Concurrency.MainActor(unsafe) public var cellPadding: CoreGraphics.CGFloat {
     @objc get
     @objc set
   }
-  public var numberOfTracks: Swift.Int? {
+  @_Concurrency.MainActor(unsafe) public var numberOfTracks: Swift.Int? {
     get
     set
   }
-  @objc public func setNumberOfTracks(_ tracks: Swift.Int)
-  @objc public var fixedSizeCells: Swift.Bool {
+  @objc @_Concurrency.MainActor(unsafe) public func setNumberOfTracks(_ tracks: Swift.Int)
+  @objc @_Concurrency.MainActor(unsafe) public var fixedSizeCells: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc public var imageFileExtensionForDynamicAssets: GiphyUISDK.GPHFileExtension
-  @objc public func setAPIKey(_ apiKey: Swift.String, verificationMode: Swift.Bool = false, metadata: [Swift.String : Swift.String] = [:])
+  @objc @_Concurrency.MainActor(unsafe) public var imageFileExtensionForDynamicAssets: GiphyUISDK.GPHFileExtension
+  @objc @_Concurrency.MainActor(unsafe) public func setAPIKey(_ apiKey: Swift.String, verificationMode: Swift.Bool = false, metadata: [Swift.String : Swift.String] = [:])
   @objc convenience dynamic public init()
-  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewDidLoad()
-  @objc public var renditionType: GiphyUISDK.GPHRenditionType
-  @objc public var clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType
-  @objc public var enableDynamicResultsInTextSearch: Swift.Bool
-  @objc public func update()
-  @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
-  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public var renditionType: GiphyUISDK.GPHRenditionType
+  @objc @_Concurrency.MainActor(unsafe) public var clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType
+  @objc @_Concurrency.MainActor(unsafe) public var enableDynamicResultsInTextSearch: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public func update()
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDataSource {
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
-  @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
 }
 extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHWaterfallLayoutDelegate {
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, sizeForSectionItem indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
-  @objc dynamic public func numberOfColumns(forItemAt index: Swift.Int) -> Swift.Int
-  @objc dynamic public func scrollDirection() -> UIKit.UICollectionView.ScrollDirection
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, sizeForSectionItem indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfColumns(forItemAt index: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func scrollDirection() -> UIKit.UICollectionView.ScrollDirection
 }
 extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDelegate {
-  @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
 }
 extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHTrackingDelegate {
-  @objc dynamic public func mediaForIndexPath(_ item: Foundation.IndexPath) -> GiphyUISDK.GPHMedia?
-  @objc dynamic public func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mediaForIndexPath(_ item: Foundation.IndexPath) -> GiphyUISDK.GPHMedia?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHSearchBarDelegate {
-  @objc dynamic public func searchBarBackButtonTapped()
-  @objc dynamic public func searchBarFocusDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, focused: Swift.Bool, text: Swift.String)
-  @objc dynamic public func searchBarTextDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, query: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func searchBarBackButtonTapped()
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func searchBarFocusDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, focused: Swift.Bool, text: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func searchBarTextDidChange(_ searchBarView: GiphyUISDK.GPHSearchBar, query: Swift.String)
 }
 public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   public let description: Swift.String?
@@ -1015,72 +1016,72 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   @objc func didDismiss(controller: GiphyUISDK.GiphyViewController?)
   @objc optional func didTapSuggestion(_ suggestion: GiphyUISDK.GPHSuggestion)
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class GiphySearchController : UIKit.UIViewController {
-  @objc public var showConfirmationScreen: Swift.Bool
-  @objc public var shouldLocalizeSearch: Swift.Bool
-  @objc public var theme: GiphyUISDK.GPHTheme {
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GiphySearchController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var showConfirmationScreen: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var shouldLocalizeSearch: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme {
     @objc get
     @objc set
   }
-  public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
+  @_Concurrency.MainActor(unsafe) public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
     get
     set
   }
-  @objc weak public var delegate: GiphyUISDK.GiphyDelegate?
-  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewDidLoad()
-  public var selectedContentType: GiphyUISDK.GPHContentType? {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GiphyDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType? {
     get
     set
   }
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHTabBarDelegate {
-  @objc dynamic public func selectedContentTypeDidChange(_ contentType: GiphyUISDK.GPHContentType)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func selectedContentTypeDidChange(_ contentType: GiphyUISDK.GPHContentType)
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHAttributionDelegate {
-  @objc dynamic public func didChooseMedia(media: GiphyUISDK.GPHMedia)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func didChooseMedia(media: GiphyUISDK.GPHMedia)
 }
 extension GiphyUISDK.GiphySearchController {
-  @objc dynamic public func didTapUsername(_ username: Swift.String)
-  @objc dynamic public func didLongPressCell(_ cell: GiphyUISDK.GPHMediaCell?)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func didTapUsername(_ username: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func didLongPressCell(_ cell: GiphyUISDK.GPHMediaCell?)
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
-  @objc dynamic public func didSelectMoreByYou(query: Swift.String)
-  @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: Swift.Error?)
-  @objc dynamic public func didScroll(offset: CoreGraphics.CGFloat)
-  @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMoreByYou(query: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: Swift.Error?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didScroll(offset: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
 }
-@objc @_inheritsConvenienceInitializers public class GiphyClipsViewController : GiphyUISDK.GiphyAttributionViewController {
-  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @objc override dynamic public func viewDidLoad()
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GiphyClipsViewController : GiphyUISDK.GiphyAttributionViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoViewDelegate {
-  @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GPHTextLoadingView : UIKit.UIView {
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHTextLoadingView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
 }
 extension GiphyUISDK.GPHMediaCell : UIKit.UIContextMenuInteractionDelegate {
   @available(iOS 13.0, *)
-  @objc dynamic public func contextMenuInteraction(_ interaction: UIKit.UIContextMenuInteraction, configurationForMenuAtLocation location: CoreGraphics.CGPoint) -> UIKit.UIContextMenuConfiguration?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func contextMenuInteraction(_ interaction: UIKit.UIContextMenuInteraction, configurationForMenuAtLocation location: CoreGraphics.CGPoint) -> UIKit.UIContextMenuConfiguration?
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GPHMediaCell : UIKit.UICollectionViewCell {
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc override dynamic public var canBecomeFirstResponder: Swift.Bool {
-    @objc get
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHMediaCell : UIKit.UICollectionViewCell {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFirstResponder: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
-  @objc override dynamic public func prepareForReuse()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepareForReuse()
   @objc deinit
 }
 @propertyWrapper public struct CodableBool {
@@ -1219,9 +1220,9 @@ public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, 
   @objc public var customHeaders: [Swift.String : Swift.String]?
   @objc public init(apiKey: Swift.String)
   @discardableResult
-  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
-  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
   @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
@@ -1259,12 +1260,12 @@ public enum GradientDirection {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers public class GradientView : UIKit.UIView {
-  @objc override dynamic public class var layerClass: Swift.AnyClass {
-    @objc get
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GradientView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public class var layerClass: Swift.AnyClass {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 @objc public enum GPHStickerColumnCount : Swift.Int {
@@ -1334,29 +1335,29 @@ public enum GPHRequestRouter {
 @objc public protocol GPHMediaViewDelegate {
   @objc func didPressMoreByUser(_ user: Swift.String)
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class GPHMediaView : GiphyUISDK.GiphyYYAnimatedImageView {
-  @objc weak public var delegate: GiphyUISDK.GPHMediaViewDelegate? {
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GPHMediaView : GiphyUISDK.GiphyYYAnimatedImageView {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHMediaViewDelegate? {
     @objc get
     @objc set
   }
-  @objc public var showAttribution: Swift.Bool
-  @objc public var theme: GiphyUISDK.GPHTheme?
-  @objc public var media: GiphyUISDK.GPHMedia? {
+  @objc @_Concurrency.MainActor(unsafe) public var showAttribution: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var theme: GiphyUISDK.GPHTheme?
+  @objc @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia? {
     @objc get
     @objc set
   }
   @objc convenience dynamic public init()
-  @objc public func loadAsset(at url: Swift.String, queueOriginalRendition: Swift.Bool = false)
-  @objc public func cancelLoading()
-  @objc override dynamic public init(image: UIKit.UIImage?)
+  @objc @_Concurrency.MainActor(unsafe) public func loadAsset(at url: Swift.String, queueOriginalRendition: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public func cancelLoading()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?)
   @available(iOS 3.0, macCatalyst 13.0, *)
-  @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension GiphyUISDK.GPHMediaView {
-  @objc dynamic public func setMedia(_ media: GiphyUISDK.GPHMedia, rendition: GiphyUISDK.GPHRenditionType = .fixedWidth, shouldQueueOriginalRendition: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func setMedia(_ media: GiphyUISDK.GPHMedia, rendition: GiphyUISDK.GPHRenditionType = .fixedWidth, shouldQueueOriginalRendition: Swift.Bool = false)
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHChannelResponse : GiphyUISDK.GPHResponse {
   @objc public var data: GiphyUISDK.GPHChannel? {
@@ -1494,7 +1495,13 @@ extension GiphyUISDK.GPHVideo {
   @objc public var id: Swift.Int {
     get
   }
+  public var parent: Swift.Int? {
+    get
+  }
   @objc public var slug: Swift.String? {
+    get
+  }
+  @objc public var url: Swift.String? {
     get
   }
   @objc public var displayName: Swift.String? {
@@ -1513,6 +1520,15 @@ extension GiphyUISDK.GPHVideo {
     get
   }
   public var hasChildren: Swift.Bool? {
+    get
+  }
+  public var isLive: Swift.Bool? {
+    get
+  }
+  public var isPrivate: Swift.Bool? {
+    get
+  }
+  public var isVisible: Swift.Bool? {
     get
   }
   public var numChildren: Swift.Int? {
@@ -1795,28 +1811,28 @@ extension GiphyUISDK.GPHImages {
   @objc deinit
 }
 extension UIKit.UIView {
-  public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
-  public var safeBottomAnchor: UIKit.NSLayoutYAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeBottomAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
-  public var safeLeftAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeLeftAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeRightAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeRightAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeWidthAnchor: UIKit.NSLayoutDimension {
+  @_Concurrency.MainActor(unsafe) public var safeWidthAnchor: UIKit.NSLayoutDimension {
     get
   }
-  public var safeBottomInset: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var safeBottomInset: CoreGraphics.CGFloat {
     get
   }
-  public var safeLeftInset: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var safeLeftInset: CoreGraphics.CGFloat {
     get
   }
-  public var safeRightInset: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var safeRightInset: CoreGraphics.CGFloat {
     get
   }
 }
@@ -2014,9 +2030,9 @@ extension GiphyUISDK.GPHVideoView {
 public protocol GPHTabBarDelegate : AnyObject {
   func selectedContentTypeDidChange(_ contentType: GiphyUISDK.GPHContentType)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GPHTabBar : UIKit.UIView {
-  weak public var delegate: GiphyUISDK.GPHTabBarDelegate?
-  public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHTabBar : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHTabBarDelegate?
+  @_Concurrency.MainActor(unsafe) public var mediaTypeConfig: [GiphyUISDK.GPHContentType] {
     get
     set
   }
@@ -2027,8 +2043,8 @@ public protocol GPHTabBarDelegate : AnyObject {
   @objc func numberOfColumns(forItemAt index: Swift.Int) -> Swift.Int
   @objc func scrollDirection() -> UIKit.UICollectionView.ScrollDirection
 }
-@objc @_inheritsConvenienceInitializers public class GPHWaterfallLayoutAttributes : UIKit.UICollectionViewLayoutAttributes {
-  @objc override dynamic public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHWaterfallLayoutAttributes : UIKit.UICollectionViewLayoutAttributes {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
 import AVFoundation
 import AVKit
@@ -1220,9 +1220,9 @@ public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, 
   @objc public var customHeaders: [Swift.String : Swift.String]?
   @objc public init(apiKey: Swift.String)
   @discardableResult
-  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
-  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
   @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
@@ -1495,7 +1495,13 @@ extension GiphyUISDK.GPHVideo {
   @objc public var id: Swift.Int {
     get
   }
+  public var parent: Swift.Int? {
+    get
+  }
   @objc public var slug: Swift.String? {
+    get
+  }
+  @objc public var url: Swift.String? {
     get
   }
   @objc public var displayName: Swift.String? {
@@ -1514,6 +1520,15 @@ extension GiphyUISDK.GPHVideo {
     get
   }
   public var hasChildren: Swift.Bool? {
+    get
+  }
+  public var isLive: Swift.Bool? {
+    get
+  }
+  public var isPrivate: Swift.Bool? {
+    get
+  }
+  public var isVisible: Swift.Bool? {
     get
   }
   public var numChildren: Swift.Int? {
