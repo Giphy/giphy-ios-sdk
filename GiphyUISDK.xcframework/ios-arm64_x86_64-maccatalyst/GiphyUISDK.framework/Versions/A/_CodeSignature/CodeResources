@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		ZKXCSvy1J7urPWFu4lM7fw/q3fg=
+		XrOgQrcFFf2eqyM5s0/OBeoirfU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -78,7 +78,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z/zZJQ3xvle25Pt+YbL/WwssVXa7YAh3QAU/WYeX/fQ=
+			iOP06Qu6cEPg8WO7rabarK9nhinlhxD8AMC/CUFJWKE=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftdoc</key>
@@ -99,7 +99,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z/zZJQ3xvle25Pt+YbL/WwssVXa7YAh3QAU/WYeX/fQ=
+			iOP06Qu6cEPg8WO7rabarK9nhinlhxD8AMC/CUFJWKE=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -120,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ofq14W76Cc+h4nhxsHB7ADy62FCJ3528RREonp0ClRo=
+			VQ1QK7RQusEO5JL4PZA/EQGovTZbH6XOfmyvW4QzH+c=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftdoc</key>
@@ -141,7 +141,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ofq14W76Cc+h4nhxsHB7ADy62FCJ3528RREonp0ClRo=
+			VQ1QK7RQusEO5JL4PZA/EQGovTZbH6XOfmyvW4QzH+c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -155,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6b1u6JSwbrZSp6s7Oows+ktviUHVTFh5n/KkeHid+gQ=
+			2475ELhtG6qJaC1hHWjtmXrJa/oKxa1851BtfE9NlOo=
 			</data>
 		</dict>
 	</dict>
