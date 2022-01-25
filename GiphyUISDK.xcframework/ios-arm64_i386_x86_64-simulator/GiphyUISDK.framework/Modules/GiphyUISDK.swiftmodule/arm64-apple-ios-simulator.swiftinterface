@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
 import AVFoundation
 import AVKit
@@ -402,6 +402,16 @@ extension UIKit.UIColor {
   case readyToPlay
   case playing
   case paused
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum GPHVideoPlayerContext : Swift.Int {
+  case detail
+  case preview
+  case chat
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -981,6 +991,8 @@ extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHWaterfallLayoutDelegate
 }
 extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
+  @available(iOS 13.0, *)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, contextMenuConfigurationForItemAt indexPath: Foundation.IndexPath, point: CoreGraphics.CGPoint) -> UIKit.UIContextMenuConfiguration?
 }
 extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHTrackingDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func mediaForIndexPath(_ item: Foundation.IndexPath) -> GiphyUISDK.GPHMedia?
@@ -1071,16 +1083,8 @@ extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoViewDelegate 
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
 }
-extension GiphyUISDK.GPHMediaCell : UIKit.UIContextMenuInteractionDelegate {
-  @available(iOS 13.0, *)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func contextMenuInteraction(_ interaction: UIKit.UIContextMenuInteraction, configurationForMenuAtLocation location: CoreGraphics.CGPoint) -> UIKit.UIContextMenuConfiguration?
-}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHMediaCell : UIKit.UICollectionViewCell {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var canBecomeFirstResponder: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepareForReuse()
   @objc deinit
 }
@@ -1319,6 +1323,7 @@ public enum GPHCoreRequestType : Swift.String {
   case post
   case get
   case put
+  case patch
   case delete
   case upload
   public init?(rawValue: Swift.String)
@@ -1601,6 +1606,7 @@ extension GiphyUISDK.GPHChannel : GiphyUISDK.GPHMappable {
   case sent
   case favorite
   case start
+  case longpress
   public init?(rawValue: GiphyUISDK.GPHActionType.RawValue)
   public var rawValue: GiphyUISDK.GPHActionType.RawValue {
     get
@@ -2151,6 +2157,9 @@ extension GiphyUISDK.GPHFileExtension : Swift.RawRepresentable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.Equatable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.Hashable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.RawRepresentable {}
+extension GiphyUISDK.GPHVideoPlayerContext : Swift.Equatable {}
+extension GiphyUISDK.GPHVideoPlayerContext : Swift.Hashable {}
+extension GiphyUISDK.GPHVideoPlayerContext : Swift.RawRepresentable {}
 extension GiphyUISDK.GPHSearchSuggestionType : Swift.Hashable {}
 extension GiphyUISDK.GradientDirection : Swift.Equatable {}
 extension GiphyUISDK.GradientDirection : Swift.Hashable {}
