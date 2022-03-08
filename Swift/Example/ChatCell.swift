@@ -19,9 +19,12 @@ class ChatCell: UICollectionViewCell {
     static let font: UIFont = .systemFont(ofSize: 14)
     
     var imageView = GPHMediaView()
-    var videoView = GPHVideoView()
+    var videoView = GPHVideoPlayerView()
+    var videoPlayer: GPHVideoPlayer?
     
     let avatarImageView = GiphyYYAnimatedImageView()
+    
+    var playClipOnLoad: Bool = false
     
     var media: GPHMedia? {
         didSet {
@@ -150,10 +153,15 @@ class ChatCell: UICollectionViewCell {
             videoView.layer.cornerRadius = bubbleView.layer.cornerRadius
             videoView.layer.masksToBounds = true
             videoView.backgroundColor = .clear
-            videoView.play() 
             
-        } else {
-            
+            videoPlayer?.pause()
+            if playClipOnLoad {
+                videoPlayer?.loadMedia(media: media, muteOnPlay: true, view: videoView)
+            } else {
+                videoPlayer?.prepareMedia(media: media,
+                                          view: videoView)
+            }
+        } else {            
             bubbleView.addSubview(imageView)
             imageView.media = media
             imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -161,7 +169,6 @@ class ChatCell: UICollectionViewCell {
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: media.aspectRatio).isActive = true
             imageView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
             imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
-            //imageView.isUserInteractionEnabled = false
             imageView.contentMode = .scaleAspectFit
             imageView.layer.cornerRadius = bubbleView.layer.cornerRadius
             imageView.layer.masksToBounds = true

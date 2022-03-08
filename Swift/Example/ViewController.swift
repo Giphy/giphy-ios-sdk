@@ -104,6 +104,8 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let videoPlayer = GPHVideoPlayer()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return view.backgroundColor == .black ? .lightContent : .default
     }
@@ -205,7 +207,10 @@ class ViewController: UIViewController {
     
     func addMessageToConversation(text: String? = nil, media: GPHMedia? = nil, user: ChatUser = .sueRender) {
         let indexPath = IndexPath(row: conversation.count, section: 0)
-        conversation.append(ChatMessage(text: text, user: user, media: media))
+        for (index, _) in conversation.enumerated() {
+            conversation[index].playClipOnLoad = false
+        }
+        conversation.append(ChatMessage(text: text, user: user, media: media, playClipOnLoad: media?.isVideo ?? false))
         UIView.animate(withDuration: 0, animations: { [weak self] in
             self?.collectionView.insertItems(at: [indexPath])
         })
@@ -221,6 +226,8 @@ class ViewController: UIViewController {
     }
     
     @objc func gifButtonTapped() {
+        videoPlayer.pause()
+        
         let giphy = GiphyViewController()
         giphy.theme = GPHTheme(type: settingsViewController.theme)
         giphy.mediaTypeConfig = settingsViewController.mediaTypeConfig
