@@ -32,11 +32,13 @@ struct ChatMessage {
     var text: String?
     var user: ChatUser
     var media: GPHMedia?
+    var playClipOnLoad: Bool = false
     
-    init(text: String? = "", user: ChatUser, media: GPHMedia? = nil) {
+    init(text: String? = "", user: ChatUser, media: GPHMedia? = nil, playClipOnLoad: Bool = false) {
         self.text = text
         self.user = user
         self.media = media
+        self.playClipOnLoad = playClipOnLoad
     }
 }
 
@@ -49,8 +51,12 @@ extension ViewController: UICollectionViewDataSource {
         let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatCell.id, for: indexPath)
         guard let cell = genericCell as? ChatCell else { return genericCell }
         let message = conversation[indexPath.item]
+        cell.videoPlayer = videoPlayer
         cell.clipsPlaybackSetting = settingsViewController.clipsPlaybackSetting
+        cell.playClipOnLoad = message.playClipOnLoad
         cell.media = message.media
+        // To ensure we don't start playing it every time the cell becomes visible.
+        conversation[indexPath.item].playClipOnLoad = false
         cell.text = message.text
         cell.avatarImage = message.user.avatar
         cell.isReply = message.user == .abraHam

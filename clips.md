@@ -40,29 +40,49 @@ switch media.type {
 } 
 ```
  
- ### GPHVideoView  
+ ### GPHVideoPlayer + GPHVideoPlayerView  
 
-Similar to the [`GPHMediaView`](https://github.com/Giphy/giphy-ios-sdk/blob/main/Docs.md#gphmediaview) which works for GIFs, Stickers, and Text, the `GPHVideoView` is a componenet that makes it easy to play back `GPHMedia` clips video assets. The `GPHVideoView` will only work for `GPHMedia` which has `type` property `.video`. 
+Similar to the [`GPHMediaView`](https://github.com/Giphy/giphy-ios-sdk/blob/main/Docs.md#gphmediaview) which works for GIFs, Stickers, and Text, the `GPHVideoPlayerView` is a component that makes it easy to play back `GPHMedia` clips video assets. The `GPHVideoPlayerView` will only work for `GPHMedia` which has `type` property `.video`. 
 
-Create and load a `GPHVideoView` with a `GPHMedia`
+Create and load a `GPHVideoPlayer + GPHVideoPlayerView` with a `GPHMedia`
 ```
-let videoView = GPHVideoView() 
-videoView.media = media 
+let playerView = GPHVideoPlayerView()
+let videoPlayer = GPHVideoPlayer()
+videoPlayer.loadMedia(media: media, autoPlay: true, muteOnPlay: true, view: videoPlayerView, repeatable: true)
 ```
-Play, Pause, Mute, Unmute: 
+
+To use `GPHVideoPlayerView` in grids: 
+```
+videoPlayer.prepareMedia(media: media, view: videoView)
+```
+Use it to reduce CPU consumption. It prepares a view with a clip preview instead of automatically loading and playing it.
+
+Use `videoPlayer.loadMedia` only to start playback:
+```
+if playClipOnLoad {
+    videoPlayer.loadMedia(media: media, muteOnPlay: true, view: videoView)
+} else {
+    videoPlayer.prepareMedia(media: media, view: videoView)
+}
+``` 
+
+Play, Stop, Pause, Mute, Unmute: 
 
 ```
-videoView.play()  
-videoView.pause()  
-videoView.mute() 
-videoView.unmute() 
+videoPlayer.play()  
+videoPlayer.stop()  
+videoPlayer.pause()  
+videoPlayer.mute(true) 
+videoPlayer.mute(false)
+``` 
 
+To subscribe to `GPHVideoPlayer` events:
 ```
-Mute or Pause _any currently allocated_ `GPHVideoVideo`s: 
+videoPlayer.addListener(GPHVideoPlayerStateListener)
 ```
-GPHVideoView.pauseAll() 
-GPHVideoView.muteAll() 
-```   
+
+It's preferable to use only one `GPHVideoPlayer` instance and share it between `GPHVideoPlayerView`(s)
+
 
 ### Sending Clips & Renditions 
 

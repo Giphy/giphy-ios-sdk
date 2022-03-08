@@ -1555,58 +1555,72 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 @end
 
 
-typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerContext, open) {
-  GPHVideoPlayerContextDetail = 0,
-  GPHVideoPlayerContextPreview = 1,
-  GPHVideoPlayerContextChat = 2,
-};
+@class GPHVideoPlayerView;
+
+SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoPlayer")
+@interface GPHVideoPlayer : NSObject
+@property (nonatomic, weak) GPHVideoPlayerView * _Nullable playerView;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+@protocol GPHVideoPlayerStateListener;
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)addWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)removeWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)prepareMediaWithMedia:(GPHMedia * _Nonnull)media view:(GPHVideoPlayerView * _Nullable)view;
+- (void)loadMediaWithMedia:(GPHMedia * _Nonnull)media autoPlay:(BOOL)autoPlay muteOnPlay:(BOOL)muteOnPlay view:(GPHVideoPlayerView * _Nonnull)view repeatable:(BOOL)repeatable;
+- (void)pause;
+- (void)resume;
+- (void)mute:(BOOL)isMuted;
+- (void)stop;
+@end
 
 typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerState, open) {
   GPHVideoPlayerStateUnknown = 0,
   GPHVideoPlayerStateReadyToPlay = 1,
   GPHVideoPlayerStatePlaying = 2,
   GPHVideoPlayerStatePaused = 3,
+  GPHVideoPlayerStateRepeated = 4,
+  GPHVideoPlayerStateIdle = 5,
 };
 
-@protocol GPHVideoViewDelegate;
 
-SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
-@interface GPHVideoView : UIView
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
-+ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, weak) id <GPHVideoViewDelegate> _Nullable delegate;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, strong) GPHMedia * _Nullable media;
-@property (nonatomic) NSInteger maxLoopsBeforeMute;
-@end
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-@end
-
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)play;
-- (void)pause;
-- (void)mute;
-- (void)unmute;
-+ (void)pauseAll;
-+ (void)muteAll;
-@end
-
-
-SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHVideoViewDelegate_")
-@protocol GPHVideoViewDelegate
+SWIFT_PROTOCOL("_TtP10GiphyUISDK27GPHVideoPlayerStateListener_")
+@protocol GPHVideoPlayerStateListener
 @optional
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 - (void)playerDidFail:(NSString * _Nullable)description;
-- (void)muteDidChangeWithMuted:(BOOL)muted;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
 - (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
-- (void)didTap;
 @end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK18GPHVideoPlayerView")
+@interface GPHVideoPlayerView : UIView
+@property (nonatomic, readonly, strong) GPHMedia * _Nullable media;
+@property (nonatomic) NSInteger maxLoopsBeforeMute;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (void)preloadFirstFrameWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+- (void)prepareWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+@end
+
+
+@interface GPHVideoPlayerView (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
+- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
+- (void)playerDidFail:(NSString * _Nullable)description;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
+- (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
+@end
+
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
@@ -1666,7 +1680,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
 @end
 
 
-@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoViewDelegate>
+@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 @end
 
@@ -1797,20 +1811,20 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
 @end
 
 
-
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)didTapUsername:(NSString * _Nonnull)username;
-- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
+- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
 @end
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
+- (void)didTapUsername:(NSString * _Nonnull)username;
+- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
 @end
 
 
@@ -3462,58 +3476,72 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 @end
 
 
-typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerContext, open) {
-  GPHVideoPlayerContextDetail = 0,
-  GPHVideoPlayerContextPreview = 1,
-  GPHVideoPlayerContextChat = 2,
-};
+@class GPHVideoPlayerView;
+
+SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoPlayer")
+@interface GPHVideoPlayer : NSObject
+@property (nonatomic, weak) GPHVideoPlayerView * _Nullable playerView;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+@protocol GPHVideoPlayerStateListener;
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)addWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)removeWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)prepareMediaWithMedia:(GPHMedia * _Nonnull)media view:(GPHVideoPlayerView * _Nullable)view;
+- (void)loadMediaWithMedia:(GPHMedia * _Nonnull)media autoPlay:(BOOL)autoPlay muteOnPlay:(BOOL)muteOnPlay view:(GPHVideoPlayerView * _Nonnull)view repeatable:(BOOL)repeatable;
+- (void)pause;
+- (void)resume;
+- (void)mute:(BOOL)isMuted;
+- (void)stop;
+@end
 
 typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerState, open) {
   GPHVideoPlayerStateUnknown = 0,
   GPHVideoPlayerStateReadyToPlay = 1,
   GPHVideoPlayerStatePlaying = 2,
   GPHVideoPlayerStatePaused = 3,
+  GPHVideoPlayerStateRepeated = 4,
+  GPHVideoPlayerStateIdle = 5,
 };
 
-@protocol GPHVideoViewDelegate;
 
-SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
-@interface GPHVideoView : UIView
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
-+ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, weak) id <GPHVideoViewDelegate> _Nullable delegate;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, strong) GPHMedia * _Nullable media;
-@property (nonatomic) NSInteger maxLoopsBeforeMute;
-@end
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-@end
-
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)play;
-- (void)pause;
-- (void)mute;
-- (void)unmute;
-+ (void)pauseAll;
-+ (void)muteAll;
-@end
-
-
-SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHVideoViewDelegate_")
-@protocol GPHVideoViewDelegate
+SWIFT_PROTOCOL("_TtP10GiphyUISDK27GPHVideoPlayerStateListener_")
+@protocol GPHVideoPlayerStateListener
 @optional
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 - (void)playerDidFail:(NSString * _Nullable)description;
-- (void)muteDidChangeWithMuted:(BOOL)muted;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
 - (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
-- (void)didTap;
 @end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK18GPHVideoPlayerView")
+@interface GPHVideoPlayerView : UIView
+@property (nonatomic, readonly, strong) GPHMedia * _Nullable media;
+@property (nonatomic) NSInteger maxLoopsBeforeMute;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (void)preloadFirstFrameWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+- (void)prepareWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+@end
+
+
+@interface GPHVideoPlayerView (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
+- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
+- (void)playerDidFail:(NSString * _Nullable)description;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
+- (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
+@end
+
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
@@ -3573,7 +3601,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
 @end
 
 
-@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoViewDelegate>
+@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 @end
 
@@ -3704,20 +3732,20 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
 @end
 
 
-
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)didTapUsername:(NSString * _Nonnull)username;
-- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
+- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
 @end
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
+- (void)didTapUsername:(NSString * _Nonnull)username;
+- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
 @end
 
 
@@ -5369,58 +5397,72 @@ SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoAssets")
 @end
 
 
-typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerContext, open) {
-  GPHVideoPlayerContextDetail = 0,
-  GPHVideoPlayerContextPreview = 1,
-  GPHVideoPlayerContextChat = 2,
-};
+@class GPHVideoPlayerView;
+
+SWIFT_CLASS("_TtC10GiphyUISDK14GPHVideoPlayer")
+@interface GPHVideoPlayer : NSObject
+@property (nonatomic, weak) GPHVideoPlayerView * _Nullable playerView;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+@protocol GPHVideoPlayerStateListener;
+
+@interface GPHVideoPlayer (SWIFT_EXTENSION(GiphyUISDK))
+- (void)addWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)removeWithListener:(id <GPHVideoPlayerStateListener> _Nonnull)listener;
+- (void)prepareMediaWithMedia:(GPHMedia * _Nonnull)media view:(GPHVideoPlayerView * _Nullable)view;
+- (void)loadMediaWithMedia:(GPHMedia * _Nonnull)media autoPlay:(BOOL)autoPlay muteOnPlay:(BOOL)muteOnPlay view:(GPHVideoPlayerView * _Nonnull)view repeatable:(BOOL)repeatable;
+- (void)pause;
+- (void)resume;
+- (void)mute:(BOOL)isMuted;
+- (void)stop;
+@end
 
 typedef SWIFT_ENUM(NSInteger, GPHVideoPlayerState, open) {
   GPHVideoPlayerStateUnknown = 0,
   GPHVideoPlayerStateReadyToPlay = 1,
   GPHVideoPlayerStatePlaying = 2,
   GPHVideoPlayerStatePaused = 3,
+  GPHVideoPlayerStateRepeated = 4,
+  GPHVideoPlayerStateIdle = 5,
 };
 
-@protocol GPHVideoViewDelegate;
 
-SWIFT_CLASS("_TtC10GiphyUISDK12GPHVideoView")
-@interface GPHVideoView : UIView
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
-+ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, weak) id <GPHVideoViewDelegate> _Nullable delegate;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, strong) GPHMedia * _Nullable media;
-@property (nonatomic) NSInteger maxLoopsBeforeMute;
-@end
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
-@end
-
-
-
-@interface GPHVideoView (SWIFT_EXTENSION(GiphyUISDK))
-- (void)play;
-- (void)pause;
-- (void)mute;
-- (void)unmute;
-+ (void)pauseAll;
-+ (void)muteAll;
-@end
-
-
-SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHVideoViewDelegate_")
-@protocol GPHVideoViewDelegate
+SWIFT_PROTOCOL("_TtP10GiphyUISDK27GPHVideoPlayerStateListener_")
+@protocol GPHVideoPlayerStateListener
 @optional
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 - (void)playerDidFail:(NSString * _Nullable)description;
-- (void)muteDidChangeWithMuted:(BOOL)muted;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
 - (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
-- (void)didTap;
 @end
+
+
+SWIFT_CLASS("_TtC10GiphyUISDK18GPHVideoPlayerView")
+@interface GPHVideoPlayerView : UIView
+@property (nonatomic, readonly, strong) GPHMedia * _Nullable media;
+@property (nonatomic) NSInteger maxLoopsBeforeMute;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (void)preloadFirstFrameWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+- (void)prepareWithMedia:(GPHMedia * _Nonnull)media videoPlayer:(GPHVideoPlayer * _Nonnull)videoPlayer;
+@end
+
+
+@interface GPHVideoPlayerView (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
+- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
+- (void)playerDidFail:(NSString * _Nullable)description;
+- (void)muteDidChangeWithIsMuted:(BOOL)isMuted;
+- (void)mediaDidChangeWithMedia:(GPHMedia * _Nullable)media;
+@end
+
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK28GPHWaterfallLayoutAttributes")
@@ -5480,7 +5522,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
 @end
 
 
-@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoViewDelegate>
+@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
 - (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
 @end
 
@@ -5611,20 +5653,20 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
 @end
 
 
-
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)didTapUsername:(NSString * _Nonnull)username;
-- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
+- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
 @end
 
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
+- (void)didTapUsername:(NSString * _Nonnull)username;
+- (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
 @end
 
 

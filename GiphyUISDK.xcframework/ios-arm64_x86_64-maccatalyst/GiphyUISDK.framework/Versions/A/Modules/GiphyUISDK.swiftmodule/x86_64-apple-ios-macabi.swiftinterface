@@ -117,6 +117,12 @@ extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerTransition
   @_Concurrency.MainActor(unsafe) @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
   @_Concurrency.MainActor(unsafe) @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
 }
+extension GiphyUISDK.GPHVideoPlayerView : GiphyUISDK.GPHVideoPlayerStateListener {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func playerDidFail(_ description: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func muteDidChange(isMuted: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mediaDidChange(media: GiphyUISDK.GPHMedia?)
+}
 @objcMembers public class GPHNetworkReachability {
   @objc public init()
   @objc public func isReachable() -> Swift.Bool
@@ -396,62 +402,6 @@ extension UIKit.UIColor {
   public class var textGradientColors: [UIKit.UIColor] {
     get
   }
-}
-@objc public enum GPHVideoPlayerState : Swift.Int {
-  case unknown
-  case readyToPlay
-  case playing
-  case paused
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public enum GPHVideoPlayerContext : Swift.Int {
-  case detail
-  case preview
-  case chat
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public protocol GPHVideoViewDelegate {
-  @objc optional func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
-  @objc optional func playerDidFail(_ description: Swift.String?)
-  @objc optional func muteDidChange(muted: Swift.Bool)
-  @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
-  @objc optional func didTap()
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GPHVideoView : UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) @objc override public static var layerClass: Swift.AnyClass {
-    @_Concurrency.MainActor(unsafe) @objc get
-  }
-  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: GiphyUISDK.GPHVideoViewDelegate?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia? {
-    @objc get
-    @objc set
-  }
-  @objc deinit
-  @objc @_Concurrency.MainActor(unsafe) public var maxLoopsBeforeMute: Swift.Int
-}
-@objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
-  public static var enabled: Swift.Bool {
-    get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension GiphyUISDK.GPHVideoView {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func play()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func pause()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func mute()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func unmute()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public class func pauseAll()
-  @objc @_Concurrency.MainActor(unsafe) dynamic public class func muteAll()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHUser : GiphyUISDK.GPHFilterable, Swift.Codable {
   @objc public var username: Swift.String {
@@ -808,6 +758,19 @@ extension GiphyUISDK.GiphyViewController {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GPHVideoPlayerView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) public var media: GiphyUISDK.GPHMedia? {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var maxLoopsBeforeMute: Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override public static var layerClass: Swift.AnyClass {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) public func preloadFirstFrame(media: GiphyUISDK.GPHMedia, videoPlayer: GiphyUISDK.GPHVideoPlayer)
+  @objc @_Concurrency.MainActor(unsafe) public func prepare(media: GiphyUISDK.GPHMedia, videoPlayer: GiphyUISDK.GPHVideoPlayer)
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHRequestConfig : ObjectiveC.NSObject {
   @objc public var base: Swift.String
   public var method: GiphyUISDK.GPHCoreRequestType
@@ -1076,7 +1039,7 @@ extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoViewDelegate {
+extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoPlayerStateListener {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHTextLoadingView : UIKit.UIView {
@@ -1171,6 +1134,47 @@ extension GiphyUISDK.GPHListCategoryResponse {
 extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListCategoryResponse
   public typealias GPHMappableObject = GiphyUISDK.GPHListCategoryResponse
+}
+@objc public enum GPHVideoPlayerState : Swift.Int {
+  case unknown
+  case readyToPlay
+  case playing
+  case paused
+  case repeated
+  case idle
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol GPHVideoPlayerStateListener {
+  @objc optional func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
+  @objc optional func playerDidFail(_ description: Swift.String?)
+  @objc optional func muteDidChange(isMuted: Swift.Bool)
+  @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
+}
+@objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
+  public static var enabled: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class GPHVideoPlayer : ObjectiveC.NSObject {
+  @objc weak public var playerView: GiphyUISDK.GPHVideoPlayerView?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension GiphyUISDK.GPHVideoPlayer {
+  @objc dynamic public func add(listener: GiphyUISDK.GPHVideoPlayerStateListener)
+  @objc dynamic public func remove(listener: GiphyUISDK.GPHVideoPlayerStateListener)
+  @objc dynamic public func prepareMedia(media: GiphyUISDK.GPHMedia, view: GiphyUISDK.GPHVideoPlayerView?)
+  @objc dynamic public func loadMedia(media: GiphyUISDK.GPHMedia, autoPlay: Swift.Bool = true, muteOnPlay: Swift.Bool = false, view: GiphyUISDK.GPHVideoPlayerView, repeatable: Swift.Bool = true)
+  @objc dynamic public func pause()
+  @objc dynamic public func resume()
+  @objc dynamic public func mute(_ isMuted: Swift.Bool)
+  @objc dynamic public func stop()
 }
 @_inheritsConvenienceInitializers @objc public class GiphyCore : ObjectiveC.NSObject {
   public static var versionName: Swift.String {
@@ -2001,6 +2005,9 @@ extension GiphyUISDK.GPHAsyncOperation {
 @objc @_hasMissingDesignatedInitializers @objcMembers public class GPHAsyncOperationWithCompletion : GiphyUISDK.GPHAsyncOperation {
   @objc deinit
 }
+extension GiphyUISDK.GPHVideoPlayer {
+  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHPagination : ObjectiveC.NSObject {
   @objc public var totalCount: Swift.Int {
     get
@@ -2029,9 +2036,6 @@ extension GiphyUISDK.GPHPagination {
 extension GiphyUISDK.GPHPagination : GiphyUISDK.GPHMappable {
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHPagination
   public typealias GPHMappableObject = GiphyUISDK.GPHPagination
-}
-extension GiphyUISDK.GPHVideoView {
-  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
 public protocol GPHTabBarDelegate : AnyObject {
   func selectedContentTypeDidChange(_ contentType: GiphyUISDK.GPHContentType)
@@ -2154,13 +2158,10 @@ extension GiphyUISDK.GPHThemeType : Swift.RawRepresentable {}
 extension GiphyUISDK.GPHFileExtension : Swift.Equatable {}
 extension GiphyUISDK.GPHFileExtension : Swift.Hashable {}
 extension GiphyUISDK.GPHFileExtension : Swift.RawRepresentable {}
+extension GiphyUISDK.GPHSearchSuggestionType : Swift.Hashable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.Equatable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.Hashable {}
 extension GiphyUISDK.GPHVideoPlayerState : Swift.RawRepresentable {}
-extension GiphyUISDK.GPHVideoPlayerContext : Swift.Equatable {}
-extension GiphyUISDK.GPHVideoPlayerContext : Swift.Hashable {}
-extension GiphyUISDK.GPHVideoPlayerContext : Swift.RawRepresentable {}
-extension GiphyUISDK.GPHSearchSuggestionType : Swift.Hashable {}
 extension GiphyUISDK.GradientDirection : Swift.Equatable {}
 extension GiphyUISDK.GradientDirection : Swift.Hashable {}
 extension GiphyUISDK.GPHRenditionType : Swift.Equatable {}
