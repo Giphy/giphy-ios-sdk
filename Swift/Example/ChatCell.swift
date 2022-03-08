@@ -143,7 +143,7 @@ class ChatCell: UICollectionViewCell {
          
         if media.type == .video && clipsPlaybackSetting == .inline {
             bubbleView.addSubview(videoView)
-            videoView.media = media
+                //videoView.media = media
             videoView.translatesAutoresizingMaskIntoConstraints = false
             videoView.heightAnchor.constraint(equalTo: bubbleView.heightAnchor).isActive = true
             videoView.widthAnchor.constraint(equalTo: videoView.heightAnchor, multiplier: media.aspectRatio).isActive = true
