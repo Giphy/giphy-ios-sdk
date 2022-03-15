@@ -10,16 +10,18 @@ import GiphyUISDK
  
 
 class Clip {
-    var media: GPHMedia?
+    var media: Media?
     // store a weak reference to the video view here
-    weak var videoView: VideoView?
+    weak var videoView: VideoPlayerView?
+    var playClipOnLoad: Bool = false
 }
 
 class ClipCell: UICollectionViewCell  {
     static let id: String = "ClipCell"
-    var videoView = VideoView()
-
-    var media: GPHMedia? {
+    var videoView = VideoPlayerView()
+    var videoPlayer: VideoPlayer?
+    
+    var media: Media? {
         didSet {
             guard let media = media else { return }
             addSubview(videoView)
@@ -37,6 +39,8 @@ class ClipCell: UICollectionViewCell  {
 
 class ViewController: UIViewController {
     
+    let videoPlayer = VideoPlayer()
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 30
@@ -53,7 +57,9 @@ class ViewController: UIViewController {
         let indexPath = IndexPath(row: clips.count, section: 0)
 
         let clip = Clip()
-        clip.media = media
+        clip.playClipOnLoad = true
+        clip.media = Media(videoUrl: media.smallVideoAssetURL ?? "",
+                           imagePreviewUrl: media.images?.originalStill?.gifUrl, aspectRatio: media.aspectRatio)
         clips.append(clip)
         UIView.animate(withDuration: 0, animations: { [weak self] in
             self?.collectionView.insertItems(at: [indexPath])
@@ -97,6 +103,7 @@ class ViewController: UIViewController {
     
     @objc
     func presentGIPHY() {
+        Giphy.configure(apiKey: "YOUR_API_KEY")
         let giphy = GiphyViewController()
         giphy.mediaTypeConfig = [.clips]
         giphy.delegate = self
@@ -115,14 +122,26 @@ extension ViewController: UICollectionViewDataSource {
         let genericCell = collectionView.dequeueReusableCell(withReuseIdentifier: ClipCell.id, for: indexPath)
         guard let cell = genericCell as? ClipCell else { return genericCell }
         let clip = clips[indexPath.item]
+        cell.videoPlayer = videoPlayer
         cell.media = clip.media
-        cell.videoView.delegate = self
         // store a weak reference to the video. this enables us to keep track of all allocated video views
         clip.videoView = cell.videoView
         cell.layer.cornerRadius = 5
         cell.clipsToBounds = true
-        cell.videoView.load(clip.media?.smallVideoAssetURL ?? "")
-        cell.videoView.play()
+        
+        videoPlayer.pause()
+        if let media = clip.media {
+            if clip.playClipOnLoad {
+                videoPlayer.loadMedia(media: media,
+                                      muteOnPlay: true,
+                                      view: cell.videoView)
+            } else {
+                videoPlayer.prepare(media: media,
+                                    view: cell.videoView)
+            }
+        }
+        // To ensure we don't start playing it every time the cell becomes visible.
+        clips[indexPath.item].playClipOnLoad = false
         return cell
     }
     
@@ -163,16 +182,4 @@ extension ViewController: GiphyDelegate {
         })
     }
     
-}
-
-
-extension ViewController {
-    func muteAllVideoPlayersExcept(activeView: VideoView?) {
-        guard let activeView = activeView else { return }
-        for clip in clips {
-            if let videoView = clip.videoView, videoView != activeView {
-                videoView.mute()
-            }
-        }
-    }
 }
