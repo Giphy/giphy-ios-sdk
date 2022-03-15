@@ -1,9 +1,9 @@
 
 This project is a simple, bare-bones demo of the new Clips (GIFS With Sound!) content type we're now offering in the GIPHY SDK. Learn more [here](https://github.com/Giphy/giphy-ios-sdk/blob/main/clips.md)
 
-Select clips from the GIPHY tray UI and add them a scrollable collection view via the `VideoView`.  
+Select clips from the GIPHY tray UI and add them a scrollable collection view via the `VideoPlayerView`.  
 
-`VideoView` is a generic alternative to the `GPHVideoView` already included in the SDK. 
+`VideoPlayer` + `VideoPlayerView` is a generic alternative to the `GPHVideoPlayer` + `GPHVideoPlayerView` already included in the SDK. 
 
 We're providing source code for the player view as it may be useful for developers that want to customize the design as well as the innerworkings. 
 
