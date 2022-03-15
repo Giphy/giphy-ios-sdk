@@ -38,7 +38,7 @@
  
 
 ### Requirements 
-- iOS 10.2 or later   
+- iOS 13.0 or later   
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
 - Xcode 12 and later  
 
