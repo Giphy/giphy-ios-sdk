@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     }
     
     func addChatView() {
-    
+
         view.addSubview(textFieldContainer)
         textFieldContainer.leftAnchor.constraint(equalTo: view.safeLeftAnchor, constant: 10).isActive = true
         textFieldContainer.rightAnchor.constraint(equalTo: view.safeRightAnchor, constant: -10).isActive = true
