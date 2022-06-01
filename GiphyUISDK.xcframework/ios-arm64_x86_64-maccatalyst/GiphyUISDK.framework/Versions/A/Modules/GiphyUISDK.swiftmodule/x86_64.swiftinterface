@@ -659,9 +659,8 @@ extension GiphyUISDK.GiphyViewController {
   @objc @_Concurrency.MainActor(unsafe) public static var trayHeightMultiplier: CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreGraphics.CGSize, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHClipsWrapperViewController : GiphyUISDK.GPHWrapperViewController {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GPHClipsViewController : GiphyUISDK.GPHWrapperViewController {
   @_Concurrency.MainActor(unsafe) convenience public init(media: GiphyUISDK.GPHMedia)
-  @_Concurrency.MainActor(unsafe) final public let attributionController: GiphyUISDK.GiphyClipsViewController
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc convenience dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -894,6 +893,8 @@ extension GiphyUISDK.GPHImage {
   @objc func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
   @objc func didSelectMoreByYou(query: Swift.String)
   @objc func didScroll(offset: CoreGraphics.CGFloat)
+  @objc optional func errorDidOccur(_ error: Swift.Error)
+  @objc optional func syntheticErrorDidOccur()
 }
 extension GiphyUISDK.GPHGridDelegate {
   public func didScroll(offset: CoreGraphics.CGFloat)
@@ -990,6 +991,8 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   @objc optional func didSelectMedia(giphyViewController: GiphyUISDK.GiphyViewController, media: GiphyUISDK.GPHMedia, contentType: GiphyUISDK.GPHContentType)
   @objc func didDismiss(controller: GiphyUISDK.GiphyViewController?)
   @objc optional func didTapSuggestion(_ suggestion: GiphyUISDK.GPHSuggestion)
+  @objc optional func errorDidOccur(_ error: Swift.Error)
+  @objc optional func syntheticErrorDidOccur()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class GiphySearchController : UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) public var showConfirmationScreen: Swift.Bool
@@ -1027,20 +1030,12 @@ extension GiphyUISDK.GiphySearchController {
   @objc @_Concurrency.MainActor(unsafe) dynamic public func didLongPressCell(_ cell: GiphyUISDK.GPHMediaCell?)
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func errorDidOccur(_ error: Swift.Error)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func syntheticErrorDidOccur()
   @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMoreByYou(query: Swift.String)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: Swift.Error?)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func didScroll(offset: CoreGraphics.CGFloat)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
-}
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class GiphyClipsViewController : GiphyUISDK.GiphyAttributionViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
-}
-extension GiphyUISDK.GiphyClipsViewController : GiphyUISDK.GPHVideoPlayerStateListener {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHTextLoadingView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
@@ -1228,15 +1223,27 @@ public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, 
   @objc public var customHeaders: [Swift.String : Swift.String]?
   @objc public init(apiKey: Swift.String)
   @discardableResult
+  @objc public func gifByID(_ id: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
+  @discardableResult
   @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
+  @discardableResult
+  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
   @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
+  @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @discardableResult
   @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @discardableResult
+  @objc public func trendingSearches(timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
   @objc public func trendingSearches(completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
+  @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @discardableResult
   @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @discardableResult
+  @objc public func animate(_ query: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
   @objc public func animate(_ query: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @objc deinit
