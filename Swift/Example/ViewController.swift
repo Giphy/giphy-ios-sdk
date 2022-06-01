@@ -115,6 +115,9 @@ class ViewController: UIViewController {
         addChatView()
         registerKeyboardNotifications()
         view.backgroundColor = .white
+        
+        // add your api key here:
+        Giphy.configure(apiKey: "")
     }
     
     func addChatView() {
