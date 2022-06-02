@@ -53,7 +53,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         sceneView.scene = scene
         
-        Giphy.configure(apiKey: "seS4IYKG394vOOwIx9ZreC55Tit5cMbe")
+        Giphy.configure(apiKey: "")
         
         
         view.addSubview(button)

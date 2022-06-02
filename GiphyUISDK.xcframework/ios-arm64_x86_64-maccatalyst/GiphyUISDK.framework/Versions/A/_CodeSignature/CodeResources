@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		o3JxRs0ee2+rh5/j2XvM4yJKWE8=
+		3GUPVdY3YphdobLsSgRECw8pmqw=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,7 +15,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QQV2BXQAQD2zSOcW7e4g22xVUNHTP3px2KcHBbZiHrs=
+			x3l+mKLcwoARPllxMMffLjE0MAj6E4HAnir4npC9Jh8=
 			</data>
 		</dict>
 		<key>Headers/GiphyUISDK.h</key>
@@ -64,84 +64,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aczli4MkLYT+Bun5n1bllMMoDA7BPVaOYbeD08gROTY=
+			TqiViPw98aOWflX//fG0LPCum59gsbaXNBE0qxdUZ/4=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fqkCdumKhhyo4OMTilWUC1CkaXbVNGBtCV/bdQIeBDU=
+			ZmlmDrbP8uU3+2UPAGrx2TWhK02OVFRcqMY9gZb5N/c=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TYT8DRGNszZ1x+/Rr0MY2k++rovsvYWf2nvD3bVT5BY=
+			3tqNBySscfqzKXVt82PR3eOen9TpurS3MToxA76QLIU=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aczli4MkLYT+Bun5n1bllMMoDA7BPVaOYbeD08gROTY=
+			TqiViPw98aOWflX//fG0LPCum59gsbaXNBE0qxdUZ/4=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fqkCdumKhhyo4OMTilWUC1CkaXbVNGBtCV/bdQIeBDU=
+			ZmlmDrbP8uU3+2UPAGrx2TWhK02OVFRcqMY9gZb5N/c=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TYT8DRGNszZ1x+/Rr0MY2k++rovsvYWf2nvD3bVT5BY=
+			3tqNBySscfqzKXVt82PR3eOen9TpurS3MToxA76QLIU=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ofr3Mfc/2Adyxb9h6kf5xLDryTt2ZjdiVyCUfD/A+tQ=
+			RG1HesQOiJ54sPciznas/mi8zp8SIZzEKOpI+9oJLWU=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pIoINWRof+8T49mDxPlTwIzw1YwDiglKpXf8E0FVM3s=
+			mNwk3B4e0wJnIryuxpN3L2+9uEF0YzrUErYaz5OFUP8=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d9RFPU1DoDXVShZetNSXvQSFIr6j1deIJrmuHXPukyM=
+			3ueZisbSojVcrXP2SrPZ13xUOVwKoxaO0lolEkDcQ/c=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ofr3Mfc/2Adyxb9h6kf5xLDryTt2ZjdiVyCUfD/A+tQ=
+			RG1HesQOiJ54sPciznas/mi8zp8SIZzEKOpI+9oJLWU=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pIoINWRof+8T49mDxPlTwIzw1YwDiglKpXf8E0FVM3s=
+			mNwk3B4e0wJnIryuxpN3L2+9uEF0YzrUErYaz5OFUP8=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d9RFPU1DoDXVShZetNSXvQSFIr6j1deIJrmuHXPukyM=
+			3ueZisbSojVcrXP2SrPZ13xUOVwKoxaO0lolEkDcQ/c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -155,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7wzv+RvYfLnHofXHYfFyHkuRjtZFpIPl2crahIgXvFE=
+			ZmEzWhb2R9XeQ9u70DIbi7CL22lwwO12BY5l8OcVfuA=
 			</data>
 		</dict>
 	</dict>

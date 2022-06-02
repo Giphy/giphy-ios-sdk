@@ -510,6 +510,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// GIFs by IDs
 /// \param ids array of GIF IDs.
@@ -519,6 +520,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Emoji
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
@@ -530,6 +532,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Trending Searches
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
@@ -537,8 +540,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nonnull)trendingSearchesWithTimeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)trendingSearchesWithCompletionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
@@ -553,8 +559,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GPHWrapperViewController")
 @end
 
 
-SWIFT_CLASS("_TtC10GiphyUISDK29GPHClipsWrapperViewController")
-@interface GPHClipsWrapperViewController : GPHWrapperViewController
+SWIFT_CLASS("_TtC10GiphyUISDK22GPHClipsViewController")
+@interface GPHClipsViewController : GPHWrapperViewController
 - (void)viewDidLoad;
 - (nonnull instancetype)init;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -630,6 +636,9 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK15GPHGridDelegate_")
 - (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
 - (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 - (void)didScrollWithOffset:(CGFloat)offset;
+@optional
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 @end
 
 
@@ -1671,20 +1680,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK30GiphyAttributionViewController")
 @end
 
 
-SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
-@interface GiphyClipsViewController : GiphyAttributionViewController
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
-- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
-@end
-
-
 SWIFT_CLASS("_TtC10GiphyUISDK9GiphyCore")
 @interface GiphyCore : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHClient * _Nonnull shared;)
@@ -1714,6 +1709,8 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK13GiphyDelegate_")
 - (void)didDismissWithController:(GiphyViewController * _Nullable)controller;
 @optional
 - (void)didTapSuggestion:(GPHSuggestion * _Nonnull)suggestion;
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 @end
 
 @class UIScrollView;
@@ -1811,20 +1808,20 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
-
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
 @end
 
 
-@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
-@end
-
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didTapUsername:(NSString * _Nonnull)username;
 - (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
+@end
+
+
+@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
+- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
 @end
 
 
@@ -1836,13 +1833,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK)) <GPHGridDelegate>
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 - (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 - (void)contentDidUpdateWithResultCount:(NSInteger)resultCount error:(NSError * _Nullable)error;
 - (void)didScrollWithOffset:(CGFloat)offset;
 - (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
 @end
-
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")
@@ -2431,6 +2430,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// GIFs by IDs
 /// \param ids array of GIF IDs.
@@ -2440,6 +2440,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Emoji
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
@@ -2451,6 +2452,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Trending Searches
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
@@ -2458,8 +2460,11 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 ///
 /// returns:
 /// A cancellable operation.
+- (NSOperation * _Nonnull)trendingSearchesWithTimeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)trendingSearchesWithCompletionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
@@ -2474,8 +2479,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK24GPHWrapperViewController")
 @end
 
 
-SWIFT_CLASS("_TtC10GiphyUISDK29GPHClipsWrapperViewController")
-@interface GPHClipsWrapperViewController : GPHWrapperViewController
+SWIFT_CLASS("_TtC10GiphyUISDK22GPHClipsViewController")
+@interface GPHClipsViewController : GPHWrapperViewController
 - (void)viewDidLoad;
 - (nonnull instancetype)init;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -2551,6 +2556,9 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK15GPHGridDelegate_")
 - (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
 - (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 - (void)didScrollWithOffset:(CGFloat)offset;
+@optional
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 @end
 
 
@@ -3592,20 +3600,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK30GiphyAttributionViewController")
 @end
 
 
-SWIFT_CLASS("_TtC10GiphyUISDK24GiphyClipsViewController")
-@interface GiphyClipsViewController : GiphyAttributionViewController
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)viewDidLoad;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface GiphyClipsViewController (SWIFT_EXTENSION(GiphyUISDK)) <GPHVideoPlayerStateListener>
-- (void)playerStateDidChange:(enum GPHVideoPlayerState)state;
-@end
-
-
 SWIFT_CLASS("_TtC10GiphyUISDK9GiphyCore")
 @interface GiphyCore : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHClient * _Nonnull shared;)
@@ -3635,6 +3629,8 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK13GiphyDelegate_")
 - (void)didDismissWithController:(GiphyViewController * _Nullable)controller;
 @optional
 - (void)didTapSuggestion:(GPHSuggestion * _Nonnull)suggestion;
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 @end
 
 @class UIScrollView;
@@ -3732,20 +3728,20 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
-
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didChooseMediaWithMedia:(GPHMedia * _Nonnull)media;
 @end
 
 
-@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
-- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
-@end
-
 
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
 - (void)didTapUsername:(NSString * _Nonnull)username;
 - (void)didLongPressCell:(GPHMediaCell * _Nullable)cell;
+@end
+
+
+@interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK))
+- (void)selectedContentTypeDidChange:(enum GPHContentType)contentType;
 @end
 
 
@@ -3757,13 +3753,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK21GiphySearchController")
 
 
 
+
 @interface GiphySearchController (SWIFT_EXTENSION(GiphyUISDK)) <GPHGridDelegate>
+- (void)errorDidOccur:(NSError * _Nonnull)error;
+- (void)syntheticErrorDidOccur;
 - (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 - (void)contentDidUpdateWithResultCount:(NSInteger)resultCount error:(NSError * _Nullable)error;
 - (void)didScrollWithOffset:(CGFloat)offset;
 - (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
 @end
-
 
 
 SWIFT_CLASS("_TtC10GiphyUISDK19GiphyViewController")

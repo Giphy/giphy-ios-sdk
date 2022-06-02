@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Giphy configureWithApiKey:@"your_api_key" verificationMode:false] ;
+    
+    [Giphy configureWithApiKey:@"" verificationMode:false metadata: @{@"": @""}];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
