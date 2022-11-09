@@ -229,6 +229,21 @@ SWIFT_CLASS("_TtC10GiphyUISDK12CaptionState")
 @end
 
 
+@class NSCoder;
+@class UITouch;
+@class UIEvent;
+
+SWIFT_CLASS("_TtC10GiphyUISDK21EmojiDrawerBackground")
+@interface EmojiDrawerBackground : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesCancelled:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)layoutSubviews;
+@end
+
 @class NSNumber;
 @class GPHRequestConfig;
 @class NSURLResponse;
@@ -296,7 +311,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK31GPHAsyncOperationWithCompletion")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSCoder;
 
 SWIFT_CLASS("_TtC10GiphyUISDK18GPHAttributionView")
 @interface GPHAttributionView : UIButton
@@ -511,7 +525,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// GIFs by IDs
 /// \param ids array of GIF IDs.
 ///
@@ -521,7 +534,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Emoji
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
 ///
@@ -533,7 +545,18 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
+/// Emoji
+/// \param completionHandler Completion handler to be notified of the request’s outcome.
+///
+/// \param offset Offset of results (default: 0)
+///
+/// \param limit Total hits you request (default: 25)
+///
+///
+/// returns:
+/// A cancellable operation.
+- (NSOperation * _Nonnull)defaultEmojisWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nullable)emojiVariationsByID:(NSString * _Nonnull)id context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Trending Searches
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
 ///
@@ -541,11 +564,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nonnull)trendingSearchesWithTimeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)trendingSearchesWithCompletionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @class NSBundle;
@@ -583,6 +603,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent *
 + (GPHContent * _Nonnull)trendingText SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull emoji;)
 + (GPHContent * _Nonnull)emoji SWIFT_WARN_UNUSED_RESULT;
++ (GPHContent * _Nonnull)emojiVariations:(NSString * _Nonnull)forID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull recents;)
 + (GPHContent * _Nonnull)recents SWIFT_WARN_UNUSED_RESULT;
 + (GPHContent * _Nonnull)searchWithQuery:(NSString * _Nonnull)queryString mediaType:(enum GPHMediaType)mediaType language:(enum GPHLanguageType)language includeDynamicResults:(BOOL)includeDynamicResults SWIFT_WARN_UNUSED_RESULT;
@@ -1028,8 +1049,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHMedia")
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @interface GPHMediaCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
 - (void)prepareForReuse;
+@end
+
+@class UIGestureRecognizer;
+
+@interface GPHMediaCell (SWIFT_EXTENSION(GiphyUISDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1101,7 +1129,7 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHMediaViewDelegate_")
 SWIFT_CLASS("_TtC10GiphyUISDK7GPHMeta")
 @interface GPHMeta : NSObject
 /// Unique response id.
-@property (nonatomic, readonly, copy) NSString * _Nonnull responseId;
+@property (nonatomic, readonly, copy) NSString * _Nullable responseId;
 /// Status (200, 404…)
 @property (nonatomic, readonly) NSInteger status;
 /// Message description.
@@ -1362,6 +1390,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHTheme")
 @interface GPHTheme : NSObject
 - (nonnull instancetype)initWithType:(enum GPHThemeType)type;
 @property (nonatomic) enum GPHThemeType type;
+@property (nonatomic, readonly) UIScrollViewIndicatorStyle emojiDrawerScrollIndicatorStyle;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerGradientTopColor;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerGradientBottomColor;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerSeparatorColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull searchBarActiveBackgroundColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull searchBarBackgroundColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull suggestionCellBackgroundColor;
@@ -1431,6 +1463,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable userId;
 /// Name of the User.
 @property (nonatomic, readonly, copy) NSString * _Nullable name;
+/// Email.
+@property (nonatomic, readonly, copy) NSString * _Nullable email;
 /// Description of the User.
 @property (nonatomic, readonly, copy) NSString * _Nullable userDescription;
 /// Attribution Display Name.
@@ -1443,8 +1477,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable twitterUrl;
 /// URL of the Facebook Handler.
 @property (nonatomic, readonly, copy) NSString * _Nullable facebookUrl;
-/// URL of the Instagram Handler.
+/// URL of the InstagramUrl Handler.
 @property (nonatomic, readonly, copy) NSString * _Nullable instagramUrl;
+/// URL of the Instagram Handler.
+@property (nonatomic, readonly, copy) NSString * _Nullable instagram;
 /// URL of the Website
 @property (nonatomic, readonly, copy) NSString * _Nullable websiteUrl;
 /// Displayable URL of the Website.
@@ -1457,6 +1493,12 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable bannerUrl;
 /// URL of the Profile.
 @property (nonatomic, readonly, copy) NSString * _Nullable profileUrl;
+/// URL of youtube.
+@property (nonatomic, readonly, copy) NSString * _Nullable youtubeUrl;
+/// URL of tiktokUrl.
+@property (nonatomic, readonly, copy) NSString * _Nullable tiktokUrl;
+/// URL of tiktok.
+@property (nonatomic, readonly, copy) NSString * _Nullable tiktok;
 /// User Type.
 @property (nonatomic, readonly, copy) NSString * _Nullable userType;
 /// User Public/Private.
@@ -1744,6 +1786,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 
 
 
+
 @interface GiphyGridController (SWIFT_EXTENSION(GiphyUISDK)) <GPHTrackingDelegate>
 - (GPHMedia * _Nullable)mediaForIndexPath:(NSIndexPath * _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)mediaIsLoadedAtIndexPath:(NSIndexPath * _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
@@ -1769,6 +1812,14 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface GiphyGridController (SWIFT_EXTENSION(GiphyUISDK)) <GPHGridDelegate>
+- (void)didScrollWithOffset:(CGFloat)offset;
+- (void)contentDidUpdateWithResultCount:(NSInteger)resultCount error:(NSError * _Nullable)error;
+- (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
+- (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 @end
 
 
@@ -2149,6 +2200,21 @@ SWIFT_CLASS("_TtC10GiphyUISDK12CaptionState")
 @end
 
 
+@class NSCoder;
+@class UITouch;
+@class UIEvent;
+
+SWIFT_CLASS("_TtC10GiphyUISDK21EmojiDrawerBackground")
+@interface EmojiDrawerBackground : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesCancelled:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)layoutSubviews;
+@end
+
 @class NSNumber;
 @class GPHRequestConfig;
 @class NSURLResponse;
@@ -2216,7 +2282,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK31GPHAsyncOperationWithCompletion")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSCoder;
 
 SWIFT_CLASS("_TtC10GiphyUISDK18GPHAttributionView")
 @interface GPHAttributionView : UIButton
@@ -2431,7 +2496,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nullable)gifByID:(NSString * _Nonnull)id completionHandler:(void (^ _Nonnull)(GPHMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// GIFs by IDs
 /// \param ids array of GIF IDs.
 ///
@@ -2441,7 +2505,6 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nullable)gifsByIDs:(NSArray<NSString *> * _Nonnull)ids context:(NSString * _Nullable)context completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Emoji
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
 ///
@@ -2453,7 +2516,18 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)emojiWithOffset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
+/// Emoji
+/// \param completionHandler Completion handler to be notified of the request’s outcome.
+///
+/// \param offset Offset of results (default: 0)
+///
+/// \param limit Total hits you request (default: 25)
+///
+///
+/// returns:
+/// A cancellable operation.
+- (NSOperation * _Nonnull)defaultEmojisWithOffset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (NSOperation * _Nullable)emojiVariationsByID:(NSString * _Nonnull)id context:(NSString * _Nullable)context timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 /// Trending Searches
 /// \param completionHandler Completion handler to be notified of the request’s outcome.
 ///
@@ -2461,11 +2535,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK9GPHClient")
 /// returns:
 /// A cancellable operation.
 - (NSOperation * _Nonnull)trendingSearchesWithTimeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)trendingSearchesWithCompletionHandler:(void (^ _Nonnull)(GPHListTermSuggestionResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)channelsSearch:(NSString * _Nonnull)query offset:(NSInteger)offset limit:(NSInteger)limit completionHandler:(void (^ _Nonnull)(GPHListChannelResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query timeoutInterval:(NSTimeInterval)timeoutInterval completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
-- (NSOperation * _Nonnull)animate:(NSString * _Nonnull)query completionHandler:(void (^ _Nonnull)(GPHListMediaResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 @class NSBundle;
@@ -2503,6 +2574,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent *
 + (GPHContent * _Nonnull)trendingText SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull emoji;)
 + (GPHContent * _Nonnull)emoji SWIFT_WARN_UNUSED_RESULT;
++ (GPHContent * _Nonnull)emojiVariations:(NSString * _Nonnull)forID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) GPHContent * _Nonnull recents;)
 + (GPHContent * _Nonnull)recents SWIFT_WARN_UNUSED_RESULT;
 + (GPHContent * _Nonnull)searchWithQuery:(NSString * _Nonnull)queryString mediaType:(enum GPHMediaType)mediaType language:(enum GPHLanguageType)language includeDynamicResults:(BOOL)includeDynamicResults SWIFT_WARN_UNUSED_RESULT;
@@ -2948,8 +3020,15 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHMedia")
 SWIFT_CLASS("_TtC10GiphyUISDK12GPHMediaCell")
 @interface GPHMediaCell : UICollectionViewCell
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
 - (void)prepareForReuse;
+@end
+
+@class UIGestureRecognizer;
+
+@interface GPHMediaCell (SWIFT_EXTENSION(GiphyUISDK)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -3021,7 +3100,7 @@ SWIFT_PROTOCOL("_TtP10GiphyUISDK20GPHMediaViewDelegate_")
 SWIFT_CLASS("_TtC10GiphyUISDK7GPHMeta")
 @interface GPHMeta : NSObject
 /// Unique response id.
-@property (nonatomic, readonly, copy) NSString * _Nonnull responseId;
+@property (nonatomic, readonly, copy) NSString * _Nullable responseId;
 /// Status (200, 404…)
 @property (nonatomic, readonly) NSInteger status;
 /// Message description.
@@ -3282,6 +3361,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK8GPHTheme")
 @interface GPHTheme : NSObject
 - (nonnull instancetype)initWithType:(enum GPHThemeType)type;
 @property (nonatomic) enum GPHThemeType type;
+@property (nonatomic, readonly) UIScrollViewIndicatorStyle emojiDrawerScrollIndicatorStyle;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerGradientTopColor;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerGradientBottomColor;
+@property (nonatomic, readonly, strong) UIColor * _Nonnull emojiDrawerSeparatorColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull searchBarActiveBackgroundColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull searchBarBackgroundColor;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull suggestionCellBackgroundColor;
@@ -3351,6 +3434,8 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable userId;
 /// Name of the User.
 @property (nonatomic, readonly, copy) NSString * _Nullable name;
+/// Email.
+@property (nonatomic, readonly, copy) NSString * _Nullable email;
 /// Description of the User.
 @property (nonatomic, readonly, copy) NSString * _Nullable userDescription;
 /// Attribution Display Name.
@@ -3363,8 +3448,10 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable twitterUrl;
 /// URL of the Facebook Handler.
 @property (nonatomic, readonly, copy) NSString * _Nullable facebookUrl;
-/// URL of the Instagram Handler.
+/// URL of the InstagramUrl Handler.
 @property (nonatomic, readonly, copy) NSString * _Nullable instagramUrl;
+/// URL of the Instagram Handler.
+@property (nonatomic, readonly, copy) NSString * _Nullable instagram;
 /// URL of the Website
 @property (nonatomic, readonly, copy) NSString * _Nullable websiteUrl;
 /// Displayable URL of the Website.
@@ -3377,6 +3464,12 @@ SWIFT_CLASS("_TtC10GiphyUISDK7GPHUser")
 @property (nonatomic, readonly, copy) NSString * _Nullable bannerUrl;
 /// URL of the Profile.
 @property (nonatomic, readonly, copy) NSString * _Nullable profileUrl;
+/// URL of youtube.
+@property (nonatomic, readonly, copy) NSString * _Nullable youtubeUrl;
+/// URL of tiktokUrl.
+@property (nonatomic, readonly, copy) NSString * _Nullable tiktokUrl;
+/// URL of tiktok.
+@property (nonatomic, readonly, copy) NSString * _Nullable tiktok;
 /// User Type.
 @property (nonatomic, readonly, copy) NSString * _Nullable userType;
 /// User Public/Private.
@@ -3664,6 +3757,7 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 
 
 
+
 @interface GiphyGridController (SWIFT_EXTENSION(GiphyUISDK)) <GPHTrackingDelegate>
 - (GPHMedia * _Nullable)mediaForIndexPath:(NSIndexPath * _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)mediaIsLoadedAtIndexPath:(NSIndexPath * _Nonnull)item SWIFT_WARN_UNUSED_RESULT;
@@ -3689,6 +3783,14 @@ SWIFT_CLASS("_TtC10GiphyUISDK19GiphyGridController")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface GiphyGridController (SWIFT_EXTENSION(GiphyUISDK)) <GPHGridDelegate>
+- (void)didScrollWithOffset:(CGFloat)offset;
+- (void)contentDidUpdateWithResultCount:(NSInteger)resultCount error:(NSError * _Nullable)error;
+- (void)didSelectMediaWithMedia:(GPHMedia * _Nonnull)media cell:(UICollectionViewCell * _Nonnull)cell;
+- (void)didSelectMoreByYouWithQuery:(NSString * _Nonnull)query;
 @end
 
 

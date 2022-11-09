@@ -25,6 +25,18 @@ import _Concurrency
 @objc @_inheritsConvenienceInitializers @objcMembers open class GPHTheme : ObjectiveC.NSObject {
   @objc convenience public init(type: GiphyUISDK.GPHThemeType)
   @objc public var type: GiphyUISDK.GPHThemeType
+  @objc open var emojiDrawerScrollIndicatorStyle: UIKit.UIScrollView.IndicatorStyle {
+    @objc get
+  }
+  @objc open var emojiDrawerGradientTopColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc open var emojiDrawerGradientBottomColor: UIKit.UIColor {
+    @objc get
+  }
+  @objc open var emojiDrawerSeparatorColor: UIKit.UIColor {
+    @objc get
+  }
   @objc open var searchBarActiveBackgroundColor: UIKit.UIColor {
     @objc get
   }
@@ -216,6 +228,9 @@ extension GiphyUISDK.GPHMedia {
   }
   @objc @GiphyUISDK.CodableBool public var isDynamic: Swift.Bool {
     @objc get
+  }
+  public var variationCount: Swift.Int? {
+    get
   }
   public var analytics: GiphyUISDK.AnyCodable? {
     get
@@ -413,6 +428,9 @@ extension UIKit.UIColor {
   @objc public var name: Swift.String? {
     get
   }
+  @objc public var email: Swift.String? {
+    get
+  }
   @objc public var userDescription: Swift.String? {
     get
   }
@@ -434,6 +452,9 @@ extension UIKit.UIColor {
   @objc public var instagramUrl: Swift.String? {
     get
   }
+  @objc public var instagram: Swift.String? {
+    get
+  }
   @objc public var websiteUrl: Swift.String? {
     get
   }
@@ -450,6 +471,15 @@ extension UIKit.UIColor {
     get
   }
   @objc public var profileUrl: Swift.String? {
+    get
+  }
+  @objc public var youtubeUrl: Swift.String? {
+    get
+  }
+  @objc public var tiktokUrl: Swift.String? {
+    get
+  }
+  @objc public var tiktok: Swift.String? {
     get
   }
   @objc public var userType: Swift.String? {
@@ -1043,8 +1073,15 @@ extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GPHMediaCell : UIKit.UICollectionViewCell {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var isHighlighted: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepareForReuse()
   @objc deinit
+}
+extension GiphyUISDK.GPHMediaCell : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
 }
 @propertyWrapper public struct CodableBool {
   public init()
@@ -1225,27 +1262,19 @@ public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, 
   @discardableResult
   @objc public func gifByID(_ id: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
-  @objc public func gifByID(_ id: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
-  @discardableResult
   @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
-  @discardableResult
-  @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
   @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @objc public func defaultEmojis(offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
+  @discardableResult
+  @objc public func emojiVariationsByID(_ id: Swift.String, context: Swift.String? = nil, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation?
   @discardableResult
   @objc public func trendingSearches(timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func trendingSearches(completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
-  @discardableResult
   @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @discardableResult
-  @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
-  @discardableResult
   @objc public func animate(_ query: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
-  @discardableResult
-  @objc public func animate(_ query: Swift.String, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: Swift.Error?) -> Swift.Void) -> Foundation.Operation
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHListTermSuggestionResponse : GiphyUISDK.GPHResponse {
@@ -1290,22 +1319,6 @@ public enum GradientDirection {
   case two
   case three
   case four
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public enum GPHContentType : Swift.Int, Swift.RawRepresentable {
-  case recents
-  case gifs
-  case clips
-  case stickers
-  case text
-  case emoji
-  public static var defaultSetting: [GiphyUISDK.GPHContentType] {
-    get
-  }
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -1672,6 +1685,7 @@ public enum GPHRequestType : Swift.Int {
   case emoji
   case recents
   case animate
+  case variations
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -1697,6 +1711,7 @@ public enum GPHRequestType : Swift.Int {
   @objc public class var emoji: GiphyUISDK.GPHContent {
     @objc get
   }
+  @objc public class func emojiVariations(_ forID: Swift.String) -> GiphyUISDK.GPHContent
   @objc public class var recents: GiphyUISDK.GPHContent {
     @objc get
   }
@@ -1706,6 +1721,22 @@ public enum GPHRequestType : Swift.Int {
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public enum GPHContentType : Swift.Int, Swift.RawRepresentable {
+  case recents
+  case gifs
+  case clips
+  case stickers
+  case text
+  case emoji
+  public static var defaultSetting: [GiphyUISDK.GPHContentType] {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc open class GPHAbstractClient : ObjectiveC.NSObject {
   @objc open var _apiKey: Swift.String?
@@ -1807,6 +1838,12 @@ extension GiphyUISDK.GPHImages {
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+}
+extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHGridDelegate {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func didScroll(offset: CoreGraphics.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: Swift.Error?)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func didSelectMoreByYou(query: Swift.String)
 }
 @objc @_inheritsConvenienceInitializers public class GPHIcons : ObjectiveC.NSObject {
   public class func giphyLogo() -> UIKit.UIImage
@@ -2012,6 +2049,16 @@ extension GiphyUISDK.GPHAsyncOperation {
 @objc @_hasMissingDesignatedInitializers @objcMembers public class GPHAsyncOperationWithCompletion : GiphyUISDK.GPHAsyncOperation {
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class EmojiDrawerBackground : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func setup(emojisWidth: Swift.Double? = nil, emojisHeight: Swift.Double, anchorTranslationX: Swift.Double, anchorWidth: Swift.Double, anchorHeight: Swift.Double, cornerRadius: Swift.Double, marginTop: Swift.Double = 0, marginHorizontal: Swift.Double = 0, gradientColorTop: UIKit.UIColor = UIColor(hex: 0xFFFFFF), gradientColorBottom: UIKit.UIColor = UIColor(hex: 0xD8D8D8))
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open class var layerClass: Swift.AnyClass {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
 extension GiphyUISDK.GPHVideoPlayer {
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
@@ -2108,7 +2155,7 @@ extension GiphyUISDK.GPHChannelTag {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHMeta : ObjectiveC.NSObject {
-  @objc public var responseId: Swift.String {
+  @objc public var responseId: Swift.String? {
     get
   }
   @objc public var status: Swift.Int {
@@ -2176,8 +2223,6 @@ extension GiphyUISDK.GPHRenditionType : Swift.Hashable {}
 extension GiphyUISDK.GPHStickerColumnCount : Swift.Equatable {}
 extension GiphyUISDK.GPHStickerColumnCount : Swift.Hashable {}
 extension GiphyUISDK.GPHStickerColumnCount : Swift.RawRepresentable {}
-extension GiphyUISDK.GPHContentType : Swift.Equatable {}
-extension GiphyUISDK.GPHContentType : Swift.Hashable {}
 extension GiphyUISDK.GPHGifButtonColor : Swift.Equatable {}
 extension GiphyUISDK.GPHGifButtonColor : Swift.Hashable {}
 extension GiphyUISDK.GPHGifButtonColor : Swift.RawRepresentable {}
@@ -2191,6 +2236,8 @@ extension GiphyUISDK.GPHActionType : Swift.Hashable {}
 extension GiphyUISDK.GPHRequestType : Swift.Equatable {}
 extension GiphyUISDK.GPHRequestType : Swift.Hashable {}
 extension GiphyUISDK.GPHRequestType : Swift.RawRepresentable {}
+extension GiphyUISDK.GPHContentType : Swift.Equatable {}
+extension GiphyUISDK.GPHContentType : Swift.Hashable {}
 extension GiphyUISDK.DebugLogger.LogLevel : Swift.Equatable {}
 extension GiphyUISDK.DebugLogger.LogLevel : Swift.Hashable {}
 extension GiphyUISDK.DebugLogger.LogLevel : Swift.RawRepresentable {}
