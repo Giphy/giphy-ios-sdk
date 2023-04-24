@@ -720,9 +720,9 @@ extension GiphyUISDK.GiphyViewController {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType? {
-    get
-    set
+  @objc @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType {
+    @objc get
+    @objc set
   }
   @objc @_Concurrency.MainActor(unsafe) public var showMoreByUser: Swift.String? {
     @objc get
