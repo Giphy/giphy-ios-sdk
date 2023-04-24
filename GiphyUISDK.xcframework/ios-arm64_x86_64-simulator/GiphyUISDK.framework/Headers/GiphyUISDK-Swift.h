@@ -1969,6 +1969,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable noR
 + (NSString * _Nullable)noResultsText SWIFT_WARN_UNUSED_RESULT;
 + (void)setNoResultsText:(NSString * _Nullable)value;
 @property (nonatomic) BOOL enableDynamicText;
+@property (nonatomic) enum GPHContentType selectedContentType;
 @property (nonatomic, copy) NSString * _Nullable showMoreByUser;
 @property (nonatomic) enum GPHStickerColumnCount stickerColumnCount;
 /// Option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.
@@ -4003,6 +4004,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nullable noR
 + (NSString * _Nullable)noResultsText SWIFT_WARN_UNUSED_RESULT;
 + (void)setNoResultsText:(NSString * _Nullable)value;
 @property (nonatomic) BOOL enableDynamicText;
+@property (nonatomic) enum GPHContentType selectedContentType;
 @property (nonatomic, copy) NSString * _Nullable showMoreByUser;
 @property (nonatomic) enum GPHStickerColumnCount stickerColumnCount;
 /// Option to show a secondary confirmation screen when the user taps a GIF, which shows a larger rendition of the asset.

@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
-// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GiphyUISDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import AVKit
@@ -720,9 +720,9 @@ extension GiphyUISDK.GiphyViewController {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType? {
-    get
-    set
+  @objc @_Concurrency.MainActor(unsafe) public var selectedContentType: GiphyUISDK.GPHContentType {
+    @objc get
+    @objc set
   }
   @objc @_Concurrency.MainActor(unsafe) public var showMoreByUser: Swift.String? {
     @objc get
