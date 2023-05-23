@@ -275,14 +275,6 @@ public class ExampleTheme: GPHTheme {
         super.init()
         self.type = .light
     }
-    
-    public override var textFieldFont: UIFont? {
-        return UIFont.italicSystemFont(ofSize: 15.0)
-    }
-      
-    public override var textColor: UIColor {
-        return .black
-    }
 
     public override var stickerBackgroundColor: UIColor { return .clear }
 
