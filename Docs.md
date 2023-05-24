@@ -157,6 +157,40 @@ public class CustomTheme: GPHTheme {
 }
 
 ```
+
+Version 2.2.5 offers a wider range of colors for customization. We have made modifications to the color names, but we have prepared a [visual scheme](https://github.com/Giphy/giphy-ios-sdk/blob/main/assets/iOS_theme_scheme.pdf) to assist you with this update.
+
+```swift
+public class ExampleTheme: GPHTheme {
+  public override init() {
+    super.init()
+    self.type = .automatic
+  }      
+
+  public override var searchPlaceholderTextColor: UIColor {
+    switch mode {       
+    case .dark, .darkBlur:
+      return .blue
+    case .light, .lightBlur:
+      return .green
+    default:
+      return .clear
+    }
+  }
+   
+  var mode: GPHThemeType {
+    if case .automatic = type {
+      if isDarkMode {
+        return .dark
+      }
+      return .light
+    }
+    return type
+  }
+
+}
+```
+
 ### _Additional Settings_ 
 - **Sticker Column Count**: We provide the option to set the number of columns for stickers and text. Possible `GPHStickerColumnCount`values are `.two`, `.three`. and `.four`. We recommend going for 3 or 4 columns when leveraging the blur `GPHThemeType`. 
 
