@@ -1,7 +1,7 @@
 framework module GiphyUISDK {
   umbrella header "GiphyUISDK.h"
-
   export *
+
   module * { export * }
 }
 
