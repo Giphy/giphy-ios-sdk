@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         // add your api key here:
-        Giphy.configure(apiKey: "")
+        Giphy.configure(apiKey: "seS4IYKG394vOOwIx9ZreC55Tit5cMbe")
     }
     
     func addChatView() {
