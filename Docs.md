@@ -256,7 +256,7 @@ From there, it's up to you to decide what to do with the GIF!
 
 ### _Accessing Media Assets_
 
-Every `GPHMedia` object provides a collection of renditions, which are distinct versions of the media asset in a variety of resolutions and file types. We recommend sticking with the `webp` file format, which load fast and look great. 
+Every `GPHMedia` object provides a collection of renditions, which are distinct versions of the media asset in a variety of resolutions and file types. We recommend sticking with the `webp` file format, which loads fast and looks great. 
 
 Once a gif is selected from the grid, use the `fixed_width` webp rendition for display in social contexts like message threads or comments. 
 
@@ -290,7 +290,7 @@ This is in contrast to the approach of storing/sharing the gif's id and calling 
 ~~On the receiving end, obtain a `GPHMedia` from the `id` like so:~~ 
 ~~`GiphyCore.shared.gifByID(`id) { (response, error) in }`~~
 
-Rendition URLs are stable and designed to provide long-term access to the associated GIFs, as long as they remain publicly available on GIPHY's library.  
+Rendition URLs are stable and designed to provide long-term access to the associated GIFs, as long as they remain publicly available on GIPHY's library.
   
 ### _Caching_ 
 We use [URLCache](https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
