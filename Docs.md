@@ -19,8 +19,9 @@
 - [GiphyDelegate](#events)
 
 **GPHMedia**
+- [Accessing Media Assets](#accessing-media-assets)
 - [GPHMediaView](#gphmediaview)
-- [Media IDs](#media-ids) 
+- [Sharing and Storing](#sharing-and-storing) 
 
 **Caching & Dependencies** 
 - [Caching](#caching)
@@ -253,48 +254,44 @@ extension YourController: GiphyDelegate {
 
 From there, it's up to you to decide what to do with the GIF!  
 
+### _Accessing Media Assets_
+
+Every `GPHMedia` object provides a collection of renditions, which are distinct versions of the media asset in a variety of resolutions and file types. We recommend sticking with the `webp` file format, which load fast and look great. 
+
+Once a gif is selected from the grid, use the `fixed_width` webp rendition for display in social contexts like message threads or comments. 
+
+```
+let url: String? = media.url(rendition: .fixedWidth, fileType: .webp)
+```
+For larger display areas and creation contexts, consider the `original` webp rendition. 
+
+```
+let url: String? = media.url(rendition: .original, fileType: .webp)
+```
 
 ### _GPHMediaView_
 
-Create a `GPHMediaView` to display the media: 
+Create a `GPHMediaView` to display the asset: 
 
 ```swift
 let mediaView = GPHMediaView() 
-mediaView.media = media  
+mediaView.loadAsset(at: url)
 ```
 
-Use the media's `aspectRatio` property to size the view: 
-```swift
-let aspectRatio = media.aspectRatio 
-```
+### _Sharing and Storing_
 
-If you want to build your own view to display a GIF, grab a URL to the asset like so:  
-```swift
-let webpURL = media.url(rendition: .original, fileType: .webp) 
-let gifURL = media.url(rendition: .fixedWidth, fileType: .gif) 
-let vidURL = media.url(rendition: .fixedWidth, fileType: .mp4) 
+Store the unmodified media url on your app's backend in order to make a gif selected by one user available to others.
+  
+This is in contrast to the approach of storing/sharing the gif's id and calling the `get gif by id` endpoint on the receiver(s) end to fetch the gif object, which we no longer suggest: 
 
-let url = URL(string: gifURL) 
-```
+~~### _Media IDs_~~
+~~In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets.~~
+~~Obtain a `GPHMedia`'s `id` property via `media.id`~~ 
+~~On the receiving end, obtain a `GPHMedia` from the `id` like so:~~ 
+~~`GiphyCore.shared.gifByID(`id) { (response, error) in }`~~
 
-### _Media IDs_
-
-In a messaging app context, you may want to send media `id`s rather than `GPHMedia` objects or image assets. 
-
-Obtain a `GPHMedia`'s `id` property via `media.id` 
-
-On the receiving end, obtain a `GPHMedia` from the `id` like so: 
- 
-```swift
-GiphyCore.shared.gifByID(id) { (response, error) in
-    if let media = response?.data {
-        DispatchQueue.main.sync { [weak self] in 
-            self?.mediaView.media = media
-        }
-    }
-}
-``` 
-
+Rendition URLs are stable and designed to provide long-term access to the associated GIFs, as long as they remain publicly available on GIPHY's library.  
+  
 ### _Caching_ 
 We use [URLCache](https://developer.apple.com/documentation/foundation/urlcache) to cache media assets, which reduces unnecessary image requests and loading times.
 
