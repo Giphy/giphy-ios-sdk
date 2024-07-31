@@ -6,7 +6,11 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		QTD6hY2OUhwuxU1KsjYvUNSPs5U=
+		czh2UR9u5XCOHVcgYddkQP7WrqQ=
+		</data>
+		<key>Resources/Localizable.strings</key>
+		<data>
+		Y4Tl4eX+aF9rtQdSx4W5wKLx9L8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -64,14 +68,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lbHhblE3TTfVKnKafrE32yufF1Hb2IiStGwjBVbPCtY=
+			b3X6rZxgNYAMNvSG2gwYr8oDdRfeuc8Lh63BxGNJG4Q=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gv20VZNU+Em8AYDqu7OY9AGsXaPMaVCQWZl9i/4OxXM=
+			OBbPGktszNk+LDP/Am4Qii9IuvXc9/yXgPsspW00soY=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
@@ -85,28 +89,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gv20VZNU+Em8AYDqu7OY9AGsXaPMaVCQWZl9i/4OxXM=
+			OBbPGktszNk+LDP/Am4Qii9IuvXc9/yXgPsspW00soY=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2O4JZpnsvS2J7yqAk4+y1GhtKuvYLZ0mjcK2HkDMnpo=
+			GvQAf/P8iFB5K+5aR12+wgdI17DkrlvF1w0/dauXWiQ=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lbHhblE3TTfVKnKafrE32yufF1Hb2IiStGwjBVbPCtY=
+			b3X6rZxgNYAMNvSG2gwYr8oDdRfeuc8Lh63BxGNJG4Q=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xX3XBBW0ITJqBGrUtKSaUSEU9ePrT4MEtYUBQoqAxz0=
+			Ja+jkNlqQ+/pb/xx/EBqkj933a64NWhyd5FiqabitR0=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
@@ -120,14 +124,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xX3XBBW0ITJqBGrUtKSaUSEU9ePrT4MEtYUBQoqAxz0=
+			Ja+jkNlqQ+/pb/xx/EBqkj933a64NWhyd5FiqabitR0=
 			</data>
 		</dict>
 		<key>Modules/GiphyUISDK.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			guGf7Ltx6LR3EdhlBu6+h5puxcjN76azBsdEzymyVZE=
+			WG6Pf1Y37x9dueCfLpgZc0iJb7BZTINwBLvDhJA9Hus=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -141,7 +145,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+U9pxnPu/kXhkaueYUV2VAR/cbF8+w8P5YXFA6mHvR8=
+			Of3RaRKNmOdRX3bHTR3nfuuIznZxJILM9l43DlNpHpI=
+			</data>
+		</dict>
+		<key>Resources/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			g9AhCXu+O2oDuf/KH8jlOOMW/gFLH22p4szwD3WbReo=
 			</data>
 		</dict>
 	</dict>

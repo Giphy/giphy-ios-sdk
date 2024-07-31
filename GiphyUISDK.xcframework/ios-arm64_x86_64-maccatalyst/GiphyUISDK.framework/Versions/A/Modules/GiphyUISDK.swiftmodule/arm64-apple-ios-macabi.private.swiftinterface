@@ -1374,6 +1374,13 @@ public enum GradientDirection {
     get
   }
 }
+@_hasMissingDesignatedInitializers public class GPHLocalizationManager {
+  public static let shared: GiphyUISDK.GPHLocalizationManager
+  public func setCustomBundle(_ bundle: Foundation.Bundle)
+  public func setTableName(_ tableName: Swift.String)
+  public func localizedString(forKey key: Swift.String, comment: Swift.String = "") -> Swift.String
+  @objc deinit
+}
 @objc @_hasMissingDesignatedInitializers @objcMembers public class GPHCoreRequest : GiphyUISDK.GPHAsyncOperationWithCompletion {
   @objc override dynamic public func main()
   @objc deinit
