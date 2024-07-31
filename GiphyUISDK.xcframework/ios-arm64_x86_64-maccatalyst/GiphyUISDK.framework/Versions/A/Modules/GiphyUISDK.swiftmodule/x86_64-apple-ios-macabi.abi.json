@@ -34631,6 +34631,168 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "GPHLocalizationManager",
+        "printedName": "GPHLocalizationManager",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "shared",
+            "printedName": "shared",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GPHLocalizationManager",
+                "printedName": "GiphyUISDK.GPHLocalizationManager",
+                "usr": "s:10GiphyUISDK22GPHLocalizationManagerC"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK22GPHLocalizationManagerC6sharedACvpZ",
+            "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC6sharedACvpZ",
+            "moduleName": "GiphyUISDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHLocalizationManager",
+                    "printedName": "GiphyUISDK.GPHLocalizationManager",
+                    "usr": "s:10GiphyUISDK22GPHLocalizationManagerC"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK22GPHLocalizationManagerC6sharedACvgZ",
+                "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC6sharedACvgZ",
+                "moduleName": "GiphyUISDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "setCustomBundle",
+            "printedName": "setCustomBundle(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bundle",
+                "printedName": "Foundation.Bundle",
+                "usr": "c:objc(cs)NSBundle"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GiphyUISDK22GPHLocalizationManagerC15setCustomBundleyySo8NSBundleCF",
+            "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC15setCustomBundleyySo8NSBundleCF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setTableName",
+            "printedName": "setTableName(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GiphyUISDK22GPHLocalizationManagerC12setTableNameyySSF",
+            "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC12setTableNameyySSF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "localizedString",
+            "printedName": "localizedString(forKey:comment:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GiphyUISDK22GPHLocalizationManagerC15localizedString6forKey7commentS2S_SStF",
+            "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC15localizedString6forKey7commentS2S_SStF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10GiphyUISDK22GPHLocalizationManagerC",
+        "mangledName": "$s10GiphyUISDK22GPHLocalizationManagerC",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -59984,49 +60146,42 @@
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6800,
+      "offset": 6836,
       "length": 6,
-      "value": "\"Back\""
-    },
-    {
-      "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 6817,
-      "length": 2,
-      "value": "\"\""
+      "value": "\"back\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6936,
+      "offset": 6959,
       "length": 2,
       "value": "-5"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6951,
+      "offset": 6974,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7037,
+      "offset": 7060,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7128,
+      "offset": 7151,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyAttributionViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7245,
+      "offset": 7268,
       "length": 4,
       "value": "true"
     },
@@ -60754,84 +60909,84 @@
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1502,
+      "offset": 1556,
       "length": 14,
-      "value": "\"Search GIPHY\""
+      "value": "\"search_giphy\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1677,
+      "offset": 1732,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1852,
+      "offset": 1907,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2129,
+      "offset": 2184,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3132,
+      "offset": 3187,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3413,
+      "offset": 3468,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4294,
+      "offset": 4349,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4331,
+      "offset": 4386,
       "length": 53,
       "value": "\"mediaTypeConfig must have at least one content type\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4437,
+      "offset": 4492,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4510,
+      "offset": 4565,
       "length": 45,
       "value": "\"mediaTypeConfig cannot only contain recents\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4745,
+      "offset": 4800,
       "length": 403,
       "value": "\"||| GIPHY SDK WARNING: You've included the Clips content type in your GIPHY integration. Clips (GIFs with Sound!) is a brand new content type we're offering in the GIPHY SDK. This feature may not be ready for production releases. See the clips.md file in the giphy-ios-sdk repo to learn more. Disable this warning by setting the `disableClipsWarning` property of the `GiphyViewController` to false |||\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 5715,
+      "offset": 5770,
       "length": 4,
       "value": "true"
     },
@@ -61153,49 +61308,49 @@
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "StringLiteral",
-      "offset": 1208,
+      "offset": 1262,
       "length": 14,
-      "value": "\"Search GIPHY\""
+      "value": "\"search_giphy\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 1342,
+      "offset": 1397,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 1507,
+      "offset": 1562,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 1593,
+      "offset": 1648,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 1758,
+      "offset": 1813,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "StringLiteral",
-      "offset": 1840,
+      "offset": 1895,
       "length": 6,
       "value": "\"BACK\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 2128,
+      "offset": 2183,
       "length": 5,
       "value": "false"
     },
@@ -61461,14 +61616,14 @@
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHHeaderCell.swift",
       "kind": "StringLiteral",
-      "offset": 1100,
+      "offset": 1154,
       "length": 13,
-      "value": "\"Information\""
+      "value": "\"information\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHHeaderCell.swift",
       "kind": "BooleanLiteral",
-      "offset": 1285,
+      "offset": 1340,
       "length": 5,
       "value": "false"
     },
@@ -62504,49 +62659,49 @@
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1256,
+      "offset": 1310,
       "length": 15,
-      "value": "\"No GIFs found\""
+      "value": "\"no_gifs_found\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1312,
+      "offset": 1421,
       "length": 19,
-      "value": "\"No stickers found\""
+      "value": "\"no_stickers_found\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1370,
+      "offset": 1533,
       "length": 15,
-      "value": "\"No text found\""
+      "value": "\"no_text_found\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1425,
+      "offset": 1642,
       "length": 16,
-      "value": "\"No clips found\""
+      "value": "\"no_clips_found\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1661,
+      "offset": 1879,
       "length": 15,
       "value": "\"NoResultsCell\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "StringLiteral",
-      "offset": 1797,
+      "offset": 2069,
       "length": 15,
-      "value": "\"No GIFs Found\""
+      "value": "\"no_gifs_found\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHHeaderModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1952,
+      "offset": 2225,
       "length": 5,
       "value": "false"
     },
@@ -62962,6 +63117,20 @@
       "offset": 1357,
       "length": 5,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Localization\/GPHLocalizationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 413,
+      "length": 34,
+      "value": "\"com.gphlocalizationmanager.queue\""
+    },
+    {
+      "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/GiphyUISDK\/Localization\/GPHLocalizationManager.swift",
+      "kind": "StringLiteral",
+      "offset": 979,
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/chrismaier\/Documents\/GitHub\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
