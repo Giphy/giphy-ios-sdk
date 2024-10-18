@@ -11,7 +11,8 @@
 		02138C5A299C1250006D0EB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02138C59299C1250006D0EB0 /* ContentView.swift */; };
 		02138C5C299C1251006D0EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02138C5B299C1251006D0EB0 /* Assets.xcassets */; };
 		02138C5F299C1251006D0EB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02138C5E299C1251006D0EB0 /* Preview Assets.xcassets */; };
-		02138C67299C138C006D0EB0 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 02138C66299C138C006D0EB0 /* GiphyUISDK */; };
+		FAFDFE212CC29F3A0026398A /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDFE202CC29F390026398A /* GridView.swift */; };
+		FAFDFE242CC2A0F40026398A /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = FAFDFE232CC2A0F40026398A /* GiphyUISDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		02138C59299C1250006D0EB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		02138C5B299C1251006D0EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02138C5E299C1251006D0EB0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAFDFE202CC29F390026398A /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02138C67299C138C006D0EB0 /* GiphyUISDK in Frameworks */,
+				FAFDFE242CC2A0F40026398A /* GiphyUISDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +55,7 @@
 		02138C56299C1250006D0EB0 /* SwiftUI-Example */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDFE202CC29F390026398A /* GridView.swift */,
 				02138C57299C1250006D0EB0 /* SwiftUI_ExampleApp.swift */,
 				02138C59299C1250006D0EB0 /* ContentView.swift */,
 				02138C5B299C1251006D0EB0 /* Assets.xcassets */,
@@ -86,7 +89,7 @@
 			);
 			name = "SwiftUI-Example";
 			packageProductDependencies = (
-				02138C66299C138C006D0EB0 /* GiphyUISDK */,
+				FAFDFE232CC2A0F40026398A /* GiphyUISDK */,
 			);
 			productName = "SwiftUI-Example";
 			productReference = 02138C54299C1250006D0EB0 /* SwiftUI-Example.app */;
@@ -100,7 +103,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					02138C53299C1250006D0EB0 = {
 						CreatedOnToolsVersion = 14.2;
@@ -117,7 +120,7 @@
 			);
 			mainGroup = 02138C4B299C1250006D0EB0;
 			packageReferences = (
-				02138C65299C138C006D0EB0 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */,
+				FAFDFE222CC2A0F40026398A /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */,
 			);
 			productRefGroup = 02138C55299C1250006D0EB0 /* Products */;
 			projectDirPath = "";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02138C5A299C1250006D0EB0 /* ContentView.swift in Sources */,
+				FAFDFE212CC29F3A0026398A /* GridView.swift in Sources */,
 				02138C58299C1250006D0EB0 /* SwiftUI_ExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +193,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -249,6 +254,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -349,20 +355,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		02138C65299C138C006D0EB0 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */ = {
+		FAFDFE222CC2A0F40026398A /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Giphy/giphy-ios-sdk";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 2.2.13;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		02138C66299C138C006D0EB0 /* GiphyUISDK */ = {
+		FAFDFE232CC2A0F40026398A /* GiphyUISDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 02138C65299C138C006D0EB0 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */;
+			package = FAFDFE222CC2A0F40026398A /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */;
 			productName = GiphyUISDK;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -8,48 +8,51 @@
 import SwiftUI
 import GiphyUISDK
 
-struct GiphyPicker: UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<GiphyPicker>) -> GiphyViewController {
-         
-        Giphy.configure(apiKey:"")
-        let giphy = GiphyViewController()
-        GiphyViewController.trayHeightMultiplier = 1.0
-        giphy.swiftUIEnabled = true
-        giphy.shouldLocalizeSearch = true
-        giphy.dimBackground = true
-        giphy.modalPresentationStyle = .currentContext 
-        return giphy
-    }
-    
-    func updateUIViewController(_ uiViewController: GiphyViewController, context: UIViewControllerRepresentableContext<GiphyPicker>) {
-    }
-}
-
-struct SheetView: View {
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        Button("Press to dismiss") {
-            presentationMode.wrappedValue.dismiss()
-        }
-        .font(.title)
-        .padding()
-        .background(Color.black)
-    }
-}
-
 struct ContentView: View {
+
     @State private var showingDialog = false
-    
+    @State private var showGridView = false
+
     var body: some View {
-        Button("Show Giphy Dialog") {
-            showingDialog.toggle()
+        NavigationStack {
+            VStack(spacing: 20) {
+                Button("Open Grid View") {
+                    showGridView.toggle()
+                }
+
+                Button("Show Giphy Dialog") {
+                    showingDialog.toggle()
+                }
+            }
+            .navigationDestination(isPresented: $showGridView) {
+                GridView()
+            }
+            .sheet(isPresented: $showingDialog, content: {
+
+                GiphyView()
+                    .onSearch { term in
+                        print("onSearch called")
+                    }
+                    .onCreate { term in
+                        print("onCreate called")
+                    }
+                    .onSelectMedia { media, contentType in
+                        print("onSelectMedia called")
+                    }
+                    .onDismiss {
+                        print("onDismiss called")
+                    }
+                    .onTapSuggestion { suggestion in
+                        print("onTapSuggestion called")
+                    }
+                    .onError { error in
+                        print("onError called")
+                    }
+                    .presentationDetents([.medium, .large])
+                    .presentationDragIndicator(.hidden)
+                    .ignoresSafeArea(edges: .bottom)
+            })
         }
-        .padding()
-        .sheet(isPresented: $showingDialog, content: {
-            GiphyPicker()
-        })
-        
     }
 }
 
