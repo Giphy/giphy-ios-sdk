@@ -9,7 +9,7 @@ import SwiftUI
 import GiphyUISDK
 
 @main
-struct Example_SwiftUIApp: App {
+struct SwiftUI_ExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
