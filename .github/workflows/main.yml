@@ -18,7 +18,7 @@ jobs:
         id: create
         uses: atlassian/gajira-create@v3
         with:
-          project: ${{ secrets.JIRA_BASE_URL }}
+          project: ${{ secrets.JIRA_PROJECT_ID }}
           issuetype: Task
           summary: "GH Issue: ${{ github.event.issue.title }}"
           description: |
