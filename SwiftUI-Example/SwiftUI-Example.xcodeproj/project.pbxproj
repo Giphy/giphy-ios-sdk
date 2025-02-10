@@ -360,7 +360,7 @@
 			repositoryURL = "https://github.com/Giphy/giphy-ios-sdk";
 			requirement = {
 				kind = exactVersion;
-				version = 2.2.13;
+				version = 2.2.14;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
