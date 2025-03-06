@@ -35,12 +35,15 @@
 **Clips (GIFs with Sound!) + Animated Text Creation**
 - [Clips](https://github.com/Giphy/giphy-ios-sdk/blob/main/clips.md) 
 - [Animated Text Creation](https://github.com/Giphy/giphy-ios-sdk/blob/main/animate.md) 
+
+**dSym**
+- [dSym](https://github.com/Giphy/giphy-ios-sdk/blob/main/dsym.md)
  
 
 ### Requirements 
 - iOS 13.0 or later   
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
-- Xcode 12 and later  
+- Xcode 16 and later  
 
 ### Github Example Repo 
 - Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` and set your API key [here](https://github.com/Giphy/giphy-ios-sdk-ui-example/blob/master/Swift/Example/ViewController.swift#L113) before building the example app. 
