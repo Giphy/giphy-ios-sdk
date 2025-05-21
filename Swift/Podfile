@@ -2,6 +2,6 @@ use_frameworks!
 
 target "Example" do 
 
-pod 'Giphy', '2.2.15'
+pod 'Giphy', '2.2.16'
 
 end
