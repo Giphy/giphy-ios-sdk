@@ -2660,13 +2660,14 @@
             "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia(py)id",
             "mangledName": "$s10GiphyUISDK8GPHMediaC2idSSvp",
             "moduleName": "GiphyUISDK",
+            "objc_name": "id",
             "declAttributes": [
               "HasInitialValue",
+              "ObjC",
               "HasStorage",
               "SetterAccess",
               "AccessControl",
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "hasStorage": true,
             "accessors": [
@@ -2687,6 +2688,7 @@
                 "mangledName": "$s10GiphyUISDK8GPHMediaC2idSSvg",
                 "moduleName": "GiphyUISDK",
                 "implicit": true,
+                "objc_name": "id",
                 "declAttributes": [
                   "ObjC"
                 ],
@@ -4365,13 +4367,14 @@
             "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia(py)analyticsResponsePayload",
             "mangledName": "$s10GiphyUISDK8GPHMediaC24analyticsResponsePayloadSSSgvp",
             "moduleName": "GiphyUISDK",
+            "objc_name": "analyticsResponsePayload",
             "declAttributes": [
               "HasInitialValue",
+              "ObjC",
               "HasStorage",
               "SetterAccess",
               "AccessControl",
-              "RawDocComment",
-              "ObjC"
+              "RawDocComment"
             ],
             "hasStorage": true,
             "accessors": [
@@ -4400,6 +4403,7 @@
                 "mangledName": "$s10GiphyUISDK8GPHMediaC24analyticsResponsePayloadSSSgvg",
                 "moduleName": "GiphyUISDK",
                 "implicit": true,
+                "objc_name": "analyticsResponsePayload",
                 "declAttributes": [
                   "ObjC"
                 ],
@@ -6012,6 +6016,88 @@
           },
           {
             "kind": "Var",
+            "name": "injectedPixels",
+            "printedName": "injectedPixels",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(py)injectedPixels",
+            "mangledName": "$s10GiphyUISDK8GPHMediaC14injectedPixelsSaySSGSgvp",
+            "moduleName": "GiphyUISDK",
+            "objc_name": "injectedPixels",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)injectedPixels",
+                "mangledName": "$s10GiphyUISDK8GPHMediaC14injectedPixelsSaySSGSgvg",
+                "moduleName": "GiphyUISDK",
+                "objc_name": "injectedPixels",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "isEmoji",
             "printedName": "isEmoji",
             "children": [
@@ -6088,115 +6174,6 @@
           },
           {
             "kind": "Var",
-            "name": "pingbacksEventType",
-            "printedName": "pingbacksEventType",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "GiphyUISDK.GPHEventType?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GPHEventType",
-                    "printedName": "GiphyUISDK.GPHEventType",
-                    "usr": "c:@M@GiphyUISDK@E@GPHEventType"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvp",
-            "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvp",
-            "moduleName": "GiphyUISDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "GiphyUISDK.GPHEventType?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "GPHEventType",
-                        "printedName": "GiphyUISDK.GPHEventType",
-                        "usr": "c:@M@GiphyUISDK@E@GPHEventType"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvg",
-                "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvg",
-                "moduleName": "GiphyUISDK",
-                "isFromExtension": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "GiphyUISDK.GPHEventType?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "GPHEventType",
-                        "printedName": "GiphyUISDK.GPHEventType",
-                        "usr": "c:@M@GiphyUISDK@E@GPHEventType"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvs",
-                "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvs",
-                "moduleName": "GiphyUISDK",
-                "isFromExtension": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvM",
-                "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeAA08GPHEventF0OSgvM",
-                "moduleName": "GiphyUISDK",
-                "implicit": true,
-                "isFromExtension": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "pingbacksAttributes",
             "printedName": "pingbacksAttributes",
             "children": [
@@ -6233,10 +6210,11 @@
             "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(py)pingbacksAttributes",
             "mangledName": "$s10GiphyUISDK8GPHMediaC19pingbacksAttributesSDyS2SGSgvp",
             "moduleName": "GiphyUISDK",
+            "objc_name": "pingbacksAttributes",
             "declAttributes": [
               "Dynamic",
-              "AccessControl",
-              "ObjC"
+              "ObjC",
+              "AccessControl"
             ],
             "isFromExtension": true,
             "accessors": [
@@ -6278,6 +6256,7 @@
                 "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)pingbacksAttributes",
                 "mangledName": "$s10GiphyUISDK8GPHMediaC19pingbacksAttributesSDyS2SGSgvg",
                 "moduleName": "GiphyUISDK",
+                "objc_name": "pingbacksAttributes",
                 "declAttributes": [
                   "Dynamic",
                   "ObjC"
@@ -6328,6 +6307,7 @@
                 "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)setPingbacksAttributes:",
                 "mangledName": "$s10GiphyUISDK8GPHMediaC19pingbacksAttributesSDyS2SGSgvs",
                 "moduleName": "GiphyUISDK",
+                "objc_name": "setPingbacksAttributes:",
                 "declAttributes": [
                   "Dynamic",
                   "ObjC"
@@ -6361,10 +6341,11 @@
             "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(py)responseId",
             "mangledName": "$s10GiphyUISDK8GPHMediaC10responseIdSSSgvp",
             "moduleName": "GiphyUISDK",
+            "objc_name": "responseId",
             "declAttributes": [
               "Dynamic",
-              "AccessControl",
-              "ObjC"
+              "ObjC",
+              "AccessControl"
             ],
             "isFromExtension": true,
             "accessors": [
@@ -6392,6 +6373,7 @@
                 "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)responseId",
                 "mangledName": "$s10GiphyUISDK8GPHMediaC10responseIdSSSgvg",
                 "moduleName": "GiphyUISDK",
+                "objc_name": "responseId",
                 "declAttributes": [
                   "Dynamic",
                   "ObjC"
@@ -6434,6 +6416,190 @@
                 ],
                 "isFromExtension": true,
                 "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pingbacksEventType",
+            "printedName": "pingbacksEventType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(py)pingbacksEventType",
+            "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "objc_name": "pingbacksEventType",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)pingbacksEventType",
+                "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "objc_name": "pingbacksEventType",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)setPingbacksEventType:",
+                "mangledName": "$s10GiphyUISDK8GPHMediaC18pingbacksEventTypeSSSgvs",
+                "moduleName": "GiphyUISDK",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bottleDataTags",
+            "printedName": "bottleDataTags",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(py)bottleDataTags",
+            "mangledName": "$s10GiphyUISDK8GPHMediaC14bottleDataTagsSaySSGSgvp",
+            "moduleName": "GiphyUISDK",
+            "objc_name": "bottleDataTags",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@GiphyUISDK@objc(cs)GPHMedia(im)bottleDataTags",
+                "mangledName": "$s10GiphyUISDK8GPHMediaC14bottleDataTagsSaySSGSgvg",
+                "moduleName": "GiphyUISDK",
+                "objc_name": "bottleDataTags",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
               }
             ]
           }
@@ -6553,6 +6719,13 @@
             ],
             "usr": "s:10GiphyUISDK11GPHMappableP",
             "mangledName": "$s10GiphyUISDK11GPHMappableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TrackingMetaMedia",
+            "printedName": "TrackingMetaMedia",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP"
           }
         ]
       },
@@ -14555,6 +14728,593 @@
         "moduleName": "GiphyUISDK",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TrackingMetaMedia",
+        "printedName": "TrackingMetaMedia",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)id",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP2idSSvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)id",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP2idSSvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "responseId",
+            "printedName": "responseId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)responseId",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP10responseIdSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)responseId",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP10responseIdSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pingbacksEventType",
+            "printedName": "pingbacksEventType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)pingbacksEventType",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP18pingbacksEventTypeSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)pingbacksEventType",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP18pingbacksEventTypeSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pingbacksAttributes",
+            "printedName": "pingbacksAttributes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)pingbacksAttributes",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP19pingbacksAttributesSDyS2SGSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)pingbacksAttributes",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP19pingbacksAttributesSDyS2SGSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)setPingbacksAttributes:",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP19pingbacksAttributesSDyS2SGSgvs",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "analyticsResponsePayload",
+            "printedName": "analyticsResponsePayload",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)analyticsResponsePayload",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP24analyticsResponsePayloadSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)analyticsResponsePayload",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP24analyticsResponsePayloadSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "bottleDataTags",
+            "printedName": "bottleDataTags",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)bottleDataTags",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP14bottleDataTagsSaySSGSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)bottleDataTags",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP14bottleDataTagsSaySSGSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "injectedPixels",
+            "printedName": "injectedPixels",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(py)injectedPixels",
+            "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP14injectedPixelsSaySSGSgvp",
+            "moduleName": "GiphyUISDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia(im)injectedPixels",
+                "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP14injectedPixelsSaySSGSgvg",
+                "moduleName": "GiphyUISDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.TrackingMetaMedia>",
+                "sugared_genericSig": "<Self where Self : GiphyUISDK.TrackingMetaMedia>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia",
+        "mangledName": "$s10GiphyUISDK17TrackingMetaMediaP",
+        "moduleName": "GiphyUISDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -25983,19 +26743,19 @@
           },
           {
             "kind": "Function",
-            "name": "mediaForIndexPath",
-            "printedName": "mediaForIndexPath(_:)",
+            "name": "trackingMediaForIndexPath",
+            "printedName": "trackingMediaForIndexPath(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "GiphyUISDK.GPHMedia?",
+                "printedName": "(any GiphyUISDK.TrackingMetaMedia)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "GPHMedia",
-                    "printedName": "GiphyUISDK.GPHMedia",
-                    "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia"
+                    "name": "TrackingMetaMedia",
+                    "printedName": "any GiphyUISDK.TrackingMetaMedia",
+                    "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia"
                   }
                 ],
                 "usr": "s:Sq"
@@ -26008,10 +26768,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@GiphyUISDK@objc(cs)GiphyGridController(im)mediaForIndexPath:",
-            "mangledName": "$s10GiphyUISDK0A14GridControllerC17mediaForIndexPathyAA8GPHMediaCSg10Foundation0gH0VF",
+            "usr": "c:@CM@GiphyUISDK@objc(cs)GiphyGridController(im)trackingMediaForIndexPath:",
+            "mangledName": "$s10GiphyUISDK0A14GridControllerC25trackingMediaForIndexPathyAA012TrackingMetaF0_pSg10Foundation0hI0VF",
             "moduleName": "GiphyUISDK",
-            "objc_name": "mediaForIndexPath:",
+            "objc_name": "trackingMediaForIndexPath:",
             "declAttributes": [
               "Dynamic",
               "ObjC",
@@ -41754,19 +42514,19 @@
         "children": [
           {
             "kind": "Function",
-            "name": "mediaForIndexPath",
-            "printedName": "mediaForIndexPath(_:)",
+            "name": "trackingMediaForIndexPath",
+            "printedName": "trackingMediaForIndexPath(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "GiphyUISDK.GPHMedia?",
+                "printedName": "(any GiphyUISDK.TrackingMetaMedia)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "GPHMedia",
-                    "printedName": "GiphyUISDK.GPHMedia",
-                    "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia"
+                    "name": "TrackingMetaMedia",
+                    "printedName": "any GiphyUISDK.TrackingMetaMedia",
+                    "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia"
                   }
                 ],
                 "usr": "s:Sq"
@@ -41779,8 +42539,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@GiphyUISDK@objc(pl)GPHTrackingDelegate(im)mediaForIndexPath:",
-            "mangledName": "$s10GiphyUISDK19GPHTrackingDelegateP17mediaForIndexPathyAA8GPHMediaCSg10Foundation0gH0VF",
+            "usr": "c:@M@GiphyUISDK@objc(pl)GPHTrackingDelegate(im)trackingMediaForIndexPath:",
+            "mangledName": "$s10GiphyUISDK19GPHTrackingDelegateP25trackingMediaForIndexPathyAA012TrackingMetaF0_pSg10Foundation0hI0VF",
             "moduleName": "GiphyUISDK",
             "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.GPHTrackingDelegate>",
             "sugared_genericSig": "<Self where Self : GiphyUISDK.GPHTrackingDelegate>",
@@ -41834,14 +42594,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "GPHMedia",
-                "printedName": "GiphyUISDK.GPHMedia",
-                "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia"
+                "name": "TrackingMetaMedia",
+                "printedName": "any GiphyUISDK.TrackingMetaMedia",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@GiphyUISDK@objc(pl)GPHTrackingDelegate(im)impressionOccurredWithMedia:",
-            "mangledName": "$s10GiphyUISDK19GPHTrackingDelegateP18impressionOccurred5mediayAA8GPHMediaC_tF",
+            "mangledName": "$s10GiphyUISDK19GPHTrackingDelegateP18impressionOccurred5mediayAA17TrackingMetaMedia_p_tF",
             "moduleName": "GiphyUISDK",
             "genericSig": "<τ_0_0 where τ_0_0 : GiphyUISDK.GPHTrackingDelegate>",
             "sugared_genericSig": "<Self where Self : GiphyUISDK.GPHTrackingDelegate>",
@@ -42381,9 +43141,9 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "GPHMedia",
-                "printedName": "GiphyUISDK.GPHMedia",
-                "usr": "c:@M@GiphyUISDK@objc(cs)GPHMedia"
+                "name": "TrackingMetaMedia",
+                "printedName": "any GiphyUISDK.TrackingMetaMedia",
+                "usr": "c:@M@GiphyUISDK@objc(pl)TrackingMetaMedia"
               },
               {
                 "kind": "TypeNominal",
@@ -42401,7 +43161,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@GiphyUISDK@objc(cs)GPHTrackingManager(cm)trackWithMedia:userID:actionType:",
-            "mangledName": "$s10GiphyUISDK18GPHTrackingManagerC5track5media6userID10actionTypeSbAA8GPHMediaC_SSAA09GPHActionJ0OtFZ",
+            "mangledName": "$s10GiphyUISDK18GPHTrackingManagerC5track5media6userID10actionTypeSbAA17TrackingMetaMedia_p_SSAA09GPHActionJ0OtFZ",
             "moduleName": "GiphyUISDK",
             "static": true,
             "objc_name": "trackWithMedia:userID:actionType:",
@@ -63337,6 +64097,195 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "URLRequest",
+        "printedName": "URLRequest",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "firePixel",
+            "printedName": "firePixel(_:session:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URLSession",
+                "printedName": "Foundation.URLSession",
+                "hasDefaultArg": true,
+                "usr": "c:objc(cs)NSURLSession"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(((any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "((any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "(any Swift.Error)?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "any Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10Foundation10URLRequestV10GiphyUISDKE9firePixel_7session10completionySi_So12NSURLSessionCys5Error_pSgcSgtF",
+            "mangledName": "$s10Foundation10URLRequestV10GiphyUISDKE9firePixel_7session10completionySi_So12NSURLSessionCys5Error_pSgcSgtF",
+            "moduleName": "GiphyUISDK",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10Foundation10URLRequestV",
+        "mangledName": "$s10Foundation10URLRequestV",
+        "moduleName": "Foundation",
+        "intro_Macosx": "10.10",
+        "intro_iOS": "8.0",
+        "intro_tvOS": "9.0",
+        "intro_watchOS": "2.0",
+        "declAttributes": [
+          "Available",
+          "Available",
+          "Available",
+          "Available"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "ReferenceConvertible",
+            "printedName": "ReferenceConvertible",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ReferenceType",
+                "printedName": "ReferenceType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSURLRequest",
+                    "printedName": "Foundation.NSURLRequest",
+                    "usr": "c:objc(cs)NSURLRequest"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:10Foundation20ReferenceConvertibleP",
+            "mangledName": "$s10Foundation20ReferenceConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ObjectiveCBridgeable",
+            "printedName": "_ObjectiveCBridgeable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "_ObjectiveCType",
+                "printedName": "_ObjectiveCType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSURLRequest",
+                    "printedName": "Foundation.NSURLRequest",
+                    "usr": "c:objc(cs)NSURLRequest"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s21_ObjectiveCBridgeableP",
+            "mangledName": "$ss21_ObjectiveCBridgeableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "Name",
         "printedName": "Name",
         "children": [
@@ -64532,28 +65481,28 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHMedia.swift",
       "kind": "StringLiteral",
-      "offset": 11253,
+      "offset": 11274,
       "length": 64,
       "value": "\"GPHMedia(\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHMedia.swift",
       "kind": "StringLiteral",
-      "offset": 11284,
+      "offset": 11305,
       "length": 1,
       "value": "\") for \""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHMedia.swift",
       "kind": "StringLiteral",
-      "offset": 11300,
+      "offset": 11321,
       "length": 3,
       "value": "\" --> \""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHMedia.swift",
       "kind": "StringLiteral",
-      "offset": 11316,
+      "offset": 11337,
       "length": 1,
       "value": "\"\""
     },
@@ -67698,54 +68647,54 @@
       "kind": "StringLiteral",
       "offset": 223,
       "length": 7,
-      "value": "\"2.4.3\""
+      "value": "\"2.4.7\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "BooleanLiteral",
-      "offset": 264,
+      "offset": 260,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "StringLiteral",
-      "offset": 404,
+      "offset": 400,
       "length": 9,
       "value": "\"CoreSDK\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "StringLiteral",
-      "offset": 602,
+      "offset": 598,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "StringLiteral",
-      "offset": 628,
+      "offset": 624,
       "length": 4,
       "value": "\"\n\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "StringLiteral",
-      "offset": 827,
+      "offset": 823,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "BooleanLiteral",
-      "offset": 1074,
+      "offset": 1070,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
       "kind": "StringLiteral",
-      "offset": 1134,
+      "offset": 1130,
       "length": 9,
       "value": "\"CoreSDK\""
     },
@@ -68109,42 +69058,42 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 7970,
+      "offset": 7972,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 8017,
+      "offset": 8019,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 8063,
+      "offset": 8065,
       "length": 5,
       "value": "\"PUT\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 8109,
+      "offset": 8111,
       "length": 7,
       "value": "\"PATCH\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 8163,
+      "offset": 8165,
       "length": 8,
       "value": "\"DELETE\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHCoreRequest.swift",
       "kind": "StringLiteral",
-      "offset": 8214,
+      "offset": 8216,
       "length": 8,
       "value": "\"UPLOAD\""
     },
@@ -68627,14 +69576,14 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyTracking.swift",
       "kind": "StringLiteral",
-      "offset": 806,
+      "offset": 558,
       "length": 5,
       "value": "\"n\/a\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyTracking.swift",
       "kind": "StringLiteral",
-      "offset": 4389,
+      "offset": 4156,
       "length": 2,
       "value": "\"\""
     },
