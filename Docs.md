@@ -291,7 +291,7 @@ On the receiving end, obtain a `GPHMedia` from the `id` like so:
 ```swift
 GiphyCore.shared.gifByID(id) { (response, error) in
     if let media = response?.data {
-        DispatchQueue.main.sync { [weak self] in 
+        DispatchQueue.main.async { [weak self] in 
             self?.mediaView.media = media
         }
     }
