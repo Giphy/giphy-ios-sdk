@@ -6,6 +6,835 @@
     "children": [
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GPHGender",
+        "printedName": "GPHGender",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "male",
+            "printedName": "male",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHGender.Type) -> GiphyUISDK.GPHGender",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHGender.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHGender@GPHGenderMale",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO4maleyA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "female",
+            "printedName": "female",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHGender.Type) -> GiphyUISDK.GPHGender",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHGender.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHGender@GPHGenderFemale",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO6femaleyA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "other",
+            "printedName": "other",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHGender.Type) -> GiphyUISDK.GPHGender",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHGender.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHGender@GPHGenderOther",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO5otheryA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "rawString",
+            "printedName": "rawString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK9GPHGenderO9rawStringSSvp",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO9rawStringSSvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK9GPHGenderO9rawStringSSvg",
+                "mangledName": "$s10GiphyUISDK9GPHGenderO9rawStringSSvg",
+                "moduleName": "GiphyUISDK",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10GiphyUISDK9GPHGenderO8rawValueACSgSi_tcfc",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO8rawValueACSgSi_tcfc",
+            "moduleName": "GiphyUISDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK9GPHGenderO8rawValueSivp",
+            "mangledName": "$s10GiphyUISDK9GPHGenderO8rawValueSivp",
+            "moduleName": "GiphyUISDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK9GPHGenderO8rawValueSivg",
+                "mangledName": "$s10GiphyUISDK9GPHGenderO8rawValueSivg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@GiphyUISDK@E@GPHGender",
+        "mangledName": "$s10GiphyUISDK9GPHGenderO",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GPHAgeGroup",
+        "printedName": "GPHAgeGroup",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "age18_24",
+            "printedName": "age18_24",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge18_24",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8age18_24yA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "age25_34",
+            "printedName": "age25_34",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge25_34",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8age25_34yA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "age35_44",
+            "printedName": "age35_44",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge35_44",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8age35_44yA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "age45_54",
+            "printedName": "age45_54",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge45_54",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8age45_54yA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "age55_64",
+            "printedName": "age55_64",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge55_64",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8age55_64yA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "age65_plus",
+            "printedName": "age65_plus",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GiphyUISDK.GPHAgeGroup.Type) -> GiphyUISDK.GPHAgeGroup",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "GiphyUISDK.GPHAgeGroup.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup@GPHAgeGroupAge65_plus",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO10age65_plusyA2CmF",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "rawString",
+            "printedName": "rawString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK11GPHAgeGroupO9rawStringSSvp",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO9rawStringSSvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK11GPHAgeGroupO9rawStringSSvg",
+                "mangledName": "$s10GiphyUISDK11GPHAgeGroupO9rawStringSSvg",
+                "moduleName": "GiphyUISDK",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10GiphyUISDK11GPHAgeGroupO8rawValueACSgSi_tcfc",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8rawValueACSgSi_tcfc",
+            "moduleName": "GiphyUISDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK11GPHAgeGroupO8rawValueSivp",
+            "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8rawValueSivp",
+            "moduleName": "GiphyUISDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK11GPHAgeGroupO8rawValueSivg",
+                "mangledName": "$s10GiphyUISDK11GPHAgeGroupO8rawValueSivg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup",
+        "mangledName": "$s10GiphyUISDK11GPHAgeGroupO",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GPHDateOfBirthFormatter",
+        "printedName": "GPHDateOfBirthFormatter",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "isoString",
+            "printedName": "isoString(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GiphyUISDK23GPHDateOfBirthFormatterC9isoString4fromSS10Foundation4DateV_tFZ",
+            "mangledName": "$s10GiphyUISDK23GPHDateOfBirthFormatterC9isoString4fromSS10Foundation4DateV_tFZ",
+            "moduleName": "GiphyUISDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isoString",
+            "printedName": "isoString(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DateComponents",
+                "printedName": "Foundation.DateComponents",
+                "usr": "s:10Foundation14DateComponentsV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10GiphyUISDK23GPHDateOfBirthFormatterC9isoString4fromSS10Foundation14DateComponentsV_tFZ",
+            "mangledName": "$s10GiphyUISDK23GPHDateOfBirthFormatterC9isoString4fromSS10Foundation14DateComponentsV_tFZ",
+            "moduleName": "GiphyUISDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:10GiphyUISDK23GPHDateOfBirthFormatterC",
+        "mangledName": "$s10GiphyUISDK23GPHDateOfBirthFormatterC",
+        "moduleName": "GiphyUISDK",
+        "declAttributes": [
+          "AccessControl",
+          "Final"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -7326,6 +8155,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -7980,6 +8816,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -12652,6 +13495,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -14717,6 +15567,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -17382,6 +18239,349 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "gender",
+            "printedName": "gender",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvp",
+            "mangledName": "$s10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHGender?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvg",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHGender?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvs",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvM",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC6genderAA9GPHGenderOSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ageGroup",
+            "printedName": "ageGroup",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvp",
+            "mangledName": "$s10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHAgeGroup?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvg",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHAgeGroup?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvs",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvM",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC8ageGroupAA06GPHAgeF0OSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dobISOString",
+            "printedName": "dobISOString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(py)dobISOString",
+            "mangledName": "$s10GiphyUISDK0A14ViewControllerC12dobISOStringSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(im)dobISOString",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC12dobISOStringSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(im)setDobISOString:",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC12dobISOStringSSSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC12dobISOStringSSSgvM",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC12dobISOStringSSSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "viewDidLoad",
             "printedName": "viewDidLoad()",
@@ -17805,6 +19005,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -19458,9 +20665,189 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "gender",
+            "printedName": "gender",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK0A17ViewConfigurationV6genderAA9GPHGenderOSgvp",
+            "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV6genderAA9GPHGenderOSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHGender?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A17ViewConfigurationV6genderAA9GPHGenderOSgvg",
+                "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV6genderAA9GPHGenderOSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ageGroup",
+            "printedName": "ageGroup",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK0A17ViewConfigurationV8ageGroupAA06GPHAgeF0OSgvp",
+            "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV8ageGroupAA06GPHAgeF0OSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHAgeGroup?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A17ViewConfigurationV8ageGroupAA06GPHAgeF0OSgvg",
+                "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV8ageGroupAA06GPHAgeF0OSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dobISOString",
+            "printedName": "dobISOString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK0A17ViewConfigurationV12dobISOStringSSSgvp",
+            "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV12dobISOStringSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A17ViewConfigurationV12dobISOStringSSSgvg",
+                "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV12dobISOStringSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(theme:mediaTypeConfig:placeholderText:disableClipsWarning:enableDynamicText:rating:renditionType:clipsPreviewRenditionType:fileExtension:)",
+            "printedName": "init(theme:mediaTypeConfig:placeholderText:disableClipsWarning:enableDynamicText:rating:renditionType:clipsPreviewRenditionType:fileExtension:gender:ageGroup:dobISOString:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -19586,11 +20973,56 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10GiphyUISDK0A17ViewConfigurationV5theme15mediaTypeConfig15placeholderText19disableClipsWarning013enableDynamicJ06rating09renditionG0021clipsPreviewRenditionG013fileExtensionAcA08GPHThemeG0OSg_SayAA010GPHContentG0OGSgSSSgS2bAA09GPHRatingG0OAA012GPHRenditionG0OSgAyA07GPHFileV0OSgtcfc",
-            "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV5theme15mediaTypeConfig15placeholderText19disableClipsWarning013enableDynamicJ06rating09renditionG0021clipsPreviewRenditionG013fileExtensionAcA08GPHThemeG0OSg_SayAA010GPHContentG0OGSgSSSgS2bAA09GPHRatingG0OAA012GPHRenditionG0OSgAyA07GPHFileV0OSgtcfc",
+            "usr": "s:10GiphyUISDK0A17ViewConfigurationV5theme15mediaTypeConfig15placeholderText19disableClipsWarning013enableDynamicJ06rating09renditionG0021clipsPreviewRenditionG013fileExtension6gender8ageGroup12dobISOStringAcA08GPHThemeG0OSg_SayAA010GPHContentG0OGSgSSSgS2bAA09GPHRatingG0OAA012GPHRenditionG0OSgA0_AA07GPHFileV0OSgAA9GPHGenderOSgAA06GPHAgeY0OSgAWtcfc",
+            "mangledName": "$s10GiphyUISDK0A17ViewConfigurationV5theme15mediaTypeConfig15placeholderText19disableClipsWarning013enableDynamicJ06rating09renditionG0021clipsPreviewRenditionG013fileExtension6gender8ageGroup12dobISOStringAcA08GPHThemeG0OSg_SayAA010GPHContentG0OGSgSSSgS2bAA09GPHRatingG0OAA012GPHRenditionG0OSgA0_AA07GPHFileV0OSgAA9GPHGenderOSgAA06GPHAgeY0OSgAWtcfc",
             "moduleName": "GiphyUISDK",
             "declAttributes": [
               "AccessControl"
@@ -20243,6 +21675,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -22703,6 +24142,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -27062,6 +28508,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "GPHWaterfallLayoutDelegate",
             "printedName": "GPHWaterfallLayoutDelegate",
             "usr": "c:@M@GiphyUISDK@objc(pl)GPHWaterfallLayoutDelegate",
@@ -27914,6 +29367,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -29837,6 +31297,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "GPHSearchBarDelegate",
             "printedName": "GPHSearchBarDelegate",
             "usr": "s:10GiphyUISDK20GPHSearchBarDelegateP",
@@ -30683,6 +32150,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -30857,6 +32331,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -37925,6 +39406,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -38904,6 +40392,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -40458,6 +41953,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -49318,6 +50820,343 @@
         "children": [
           {
             "kind": "Var",
+            "name": "gender",
+            "printedName": "gender",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvp",
+            "mangledName": "$s10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHGender?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvg",
+                "mangledName": "$s10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHGender?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHGender",
+                        "printedName": "GiphyUISDK.GPHGender",
+                        "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvs",
+                "mangledName": "$s10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvM",
+                "mangledName": "$s10GiphyUISDK10GPHContentC6genderAA9GPHGenderOSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ageGroup",
+            "printedName": "ageGroup",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvp",
+            "mangledName": "$s10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHAgeGroup?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvg",
+                "mangledName": "$s10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "GiphyUISDK.GPHAgeGroup?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GPHAgeGroup",
+                        "printedName": "GiphyUISDK.GPHAgeGroup",
+                        "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvs",
+                "mangledName": "$s10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvM",
+                "mangledName": "$s10GiphyUISDK10GPHContentC8ageGroupAA06GPHAgeE0OSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "dobISOString",
+            "printedName": "dobISOString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(cs)GPHContent(py)dobISOString",
+            "mangledName": "$s10GiphyUISDK10GPHContentC12dobISOStringSSSgvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GPHContent(im)dobISOString",
+                "mangledName": "$s10GiphyUISDK10GPHContentC12dobISOStringSSSgvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GPHContent(im)setDobISOString:",
+                "mangledName": "$s10GiphyUISDK10GPHContentC12dobISOStringSSSgvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK10GPHContentC12dobISOStringSSSgvM",
+                "mangledName": "$s10GiphyUISDK10GPHContentC12dobISOStringSSSgvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "contentCopy",
             "printedName": "contentCopy",
             "children": [
@@ -49668,7 +51507,7 @@
           {
             "kind": "Function",
             "name": "search",
-            "printedName": "search(withQuery:mediaType:language:includeDynamicResults:)",
+            "printedName": "search(withQuery:mediaType:language:includeDynamicResults:gender:ageGroup:dobISOString:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49700,16 +51539,60 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@GiphyUISDK@objc(cs)GPHContent(cm)searchWithQuery:mediaType:language:includeDynamicResults:",
-            "mangledName": "$s10GiphyUISDK10GPHContentC6search9withQuery9mediaType8language21includeDynamicResultsACSS_AA08GPHMediaH0OAA011GPHLanguageH0OSbtFZ",
+            "usr": "s:10GiphyUISDK10GPHContentC6search9withQuery9mediaType8language21includeDynamicResults6gender8ageGroup12dobISOStringACSS_AA08GPHMediaH0OAA011GPHLanguageH0OSbAA9GPHGenderOSgAA06GPHAgeO0OSgSSSgtFZ",
+            "mangledName": "$s10GiphyUISDK10GPHContentC6search9withQuery9mediaType8language21includeDynamicResults6gender8ageGroup12dobISOStringACSS_AA08GPHMediaH0OAA011GPHLanguageH0OSbAA9GPHGenderOSgAA06GPHAgeO0OSgSSSgtFZ",
             "moduleName": "GiphyUISDK",
             "static": true,
             "declAttributes": [
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -49745,7 +51628,7 @@
           {
             "kind": "Function",
             "name": "trending",
-            "printedName": "trending(mediaType:)",
+            "printedName": "trending(mediaType:gender:ageGroup:dobISOString:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49758,16 +51641,60 @@
                 "name": "GPHMediaType",
                 "printedName": "GiphyUISDK.GPHMediaType",
                 "usr": "c:@M@GiphyUISDK@E@GPHMediaType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHGender?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHGender",
+                    "printedName": "GiphyUISDK.GPHGender",
+                    "usr": "c:@M@GiphyUISDK@E@GPHGender"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "GiphyUISDK.GPHAgeGroup?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GPHAgeGroup",
+                    "printedName": "GiphyUISDK.GPHAgeGroup",
+                    "usr": "c:@M@GiphyUISDK@E@GPHAgeGroup"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@GiphyUISDK@objc(cs)GPHContent(cm)trendingWithMediaType:",
-            "mangledName": "$s10GiphyUISDK10GPHContentC8trending9mediaTypeAcA08GPHMediaF0O_tFZ",
+            "usr": "s:10GiphyUISDK10GPHContentC8trending9mediaType6gender8ageGroup12dobISOStringAcA08GPHMediaF0O_AA9GPHGenderOSgAA06GPHAgeI0OSgSSSgtFZ",
+            "mangledName": "$s10GiphyUISDK10GPHContentC8trending9mediaType6gender8ageGroup12dobISOStringAcA08GPHMediaF0O_AA9GPHGenderOSgAA06GPHAgeI0OSgSSSgtFZ",
             "moduleName": "GiphyUISDK",
             "static": true,
             "declAttributes": [
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -54043,6 +55970,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -54443,6 +56377,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -58625,6 +60566,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -58747,6 +60695,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -59167,6 +61122,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -60158,6 +62120,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -64090,6 +66059,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "_ExpressibleByColorLiteral",
             "printedName": "_ExpressibleByColorLiteral",
             "usr": "s:s26_ExpressibleByColorLiteralP",
@@ -64226,6 +66202,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -64447,6 +66430,13 @@
             "printedName": "_HasCustomAnyHashableRepresentation",
             "usr": "s:s35_HasCustomAnyHashableRepresentationP",
             "mangledName": "$ss35_HasCustomAnyHashableRepresentationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -64914,6 +66904,90 @@
     "json_format_version": 8
   },
   "ConstValues": [
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 164,
+      "length": 6,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 180,
+      "length": 5,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 427,
+      "length": 8,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 445,
+      "length": 8,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 463,
+      "length": 8,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 481,
+      "length": 8,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 499,
+      "length": 10,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "StringLiteral",
+      "offset": 939,
+      "length": 23,
+      "value": "\"^\\d{4}-\\d{2}-\\d{2}$\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1129,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "StringLiteral",
+      "offset": 1357,
+      "length": 13,
+      "value": "\"en_US_POSIX\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1426,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHDemographicAttributes.swift",
+      "kind": "StringLiteral",
+      "offset": 1460,
+      "length": 12,
+      "value": "\"yyyy-MM-dd\""
+    },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHTheme.swift",
       "kind": "IntegerLiteral",
@@ -66660,21 +68734,21 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7249,
+      "offset": 7659,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/SwiftUI\/View\/GiphyViewConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 614,
+      "offset": 723,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/SwiftUI\/View\/GiphyViewConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 655,
+      "offset": 764,
       "length": 4,
       "value": "true"
     },
@@ -67198,29 +69272,36 @@
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1648,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 1644,
+      "length": 8,
+      "value": "\"SEARCH\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
+      "kind": "StringLiteral",
+      "offset": 1694,
+      "length": 15,
+      "value": "\"SEARCH_BUTTON\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 1813,
+      "offset": 1869,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "StringLiteral",
-      "offset": 1895,
+      "offset": 1951,
       "length": 6,
       "value": "\"BACK\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHSearchBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 2183,
+      "offset": 2239,
       "length": 5,
       "value": "false"
     },
@@ -67906,56 +69987,56 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "StringLiteral",
-      "offset": 11426,
+      "offset": 11537,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "IntegerLiteral",
-      "offset": 12500,
+      "offset": 13262,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12598,
+      "offset": 13360,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 22507,
+      "offset": 23269,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 25214,
+      "offset": 25976,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 25292,
+      "offset": 26054,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 25371,
+      "offset": 26133,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphySearchController.swift",
       "kind": "BooleanLiteral",
-      "offset": 25439,
+      "offset": 26201,
       "length": 5,
       "value": "false"
     },
@@ -68650,7 +70731,7 @@
       "kind": "StringLiteral",
       "offset": 223,
       "length": 7,
-      "value": "\"2.4.7\""
+      "value": "\"2.5.0\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyCore.swift",
@@ -68781,140 +70862,140 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 2494,
+      "offset": 3149,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 2545,
+      "offset": 3200,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 2753,
+      "offset": 3598,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 4520,
+      "offset": 5624,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 4573,
+      "offset": 5677,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 4716,
+      "offset": 6016,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 6080,
+      "offset": 7638,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 7516,
+      "offset": 9074,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 9457,
+      "offset": 11015,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 9514,
+      "offset": 11072,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 9591,
+      "offset": 11149,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 10859,
+      "offset": 12417,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 10916,
+      "offset": 12474,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 10993,
+      "offset": 12551,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 12138,
+      "offset": 13696,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 13193,
+      "offset": 14751,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 13997,
+      "offset": 15555,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 14063,
+      "offset": 15621,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 14149,
+      "offset": 15707,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GPHClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 15323,
+      "offset": 16881,
       "length": 2,
       "value": "60"
     },
@@ -69586,7 +71667,7 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/giphy-ios-sdk-core\/Sources\/GiphyTracking.swift",
       "kind": "StringLiteral",
-      "offset": 4156,
+      "offset": 4580,
       "length": 2,
       "value": "\"\""
     },
@@ -70468,14 +72549,14 @@
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHContent.swift",
       "kind": "StringLiteral",
-      "offset": 6696,
+      "offset": 7901,
       "length": 20,
       "value": "\"Iblv3w6yvj9DTMwCsJ\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/Utils\/GPHContent.swift",
       "kind": "BooleanLiteral",
-      "offset": 7417,
+      "offset": 8709,
       "length": 5,
       "value": "false"
     },
@@ -73344,99 +75425,113 @@
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
+      "kind": "StringLiteral",
+      "offset": 3686,
+      "length": 6,
+      "value": "\"mode\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
+      "kind": "StringLiteral",
+      "offset": 3697,
+      "length": 9,
+      "value": "\"TESTING\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 3777,
+      "offset": 3963,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "StringLiteral",
-      "offset": 3928,
+      "offset": 4114,
       "length": 9,
       "value": "\"STICKER\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 4112,
+      "offset": 4298,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "StringLiteral",
-      "offset": 4260,
+      "offset": 4446,
       "length": 7,
       "value": "\"CLIPS\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 4441,
+      "offset": 4627,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "StringLiteral",
-      "offset": 4550,
+      "offset": 4736,
       "length": 6,
       "value": "\"TEXT\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 4582,
+      "offset": 4768,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 4797,
+      "offset": 4983,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "StringLiteral",
-      "offset": 4907,
+      "offset": 5093,
       "length": 7,
       "value": "\"EMOJI\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 4940,
+      "offset": 5126,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 5157,
+      "offset": 5343,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "StringLiteral",
-      "offset": 5269,
+      "offset": 5455,
       "length": 9,
       "value": "\"RECENTS\""
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 5304,
+      "offset": 5490,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View\/GPHTabBar.swift",
       "kind": "BooleanLiteral",
-      "offset": 7182,
+      "offset": 7368,
       "length": 4,
       "value": "true"
     },
