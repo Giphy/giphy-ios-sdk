@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GiphyUISDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AVFoundation
 import AVKit
 import CommonCrypto
@@ -14,13 +14,53 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+@objc public enum GPHGender : Swift.Int {
+  case male
+  case female
+  case other
+  public var rawString: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum GPHAgeGroup : Swift.Int {
+  case age18_24
+  case age25_34
+  case age35_44
+  case age45_54
+  case age55_64
+  case age65_plus
+  public var rawString: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class GPHDateOfBirthFormatter {
+  public static func isoString(from date: Foundation.Date) -> Swift.String
+  public static func isoString(from dateComponents: Foundation.DateComponents) -> Swift.String
+  @objc deinit
+}
 @objc public enum GPHThemeType : Swift.Int {
   case dark
   case light
   case lightBlur
   case darkBlur
   case automatic
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -44,9 +84,11 @@ import _SwiftConcurrencyShims
   @objc open var emojiDrawerSeparatorColor: UIKit.UIColor {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc open var searchButtonIcon: UIKit.UIImage? {
     @objc get
   }
+  #endif
   @objc open var searchBackButtonColor: UIKit.UIColor {
     @objc get
   }
@@ -59,9 +101,11 @@ import _SwiftConcurrencyShims
   @objc open var searchBarBackgroundColor: UIKit.UIColor {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc open var searchTextFont: UIKit.UIFont? {
     @objc get
   }
+  #endif
   @objc open var searchBarPadding: CoreFoundation.CGFloat {
     @objc get
   }
@@ -80,9 +124,11 @@ import _SwiftConcurrencyShims
   @objc open var tabBarSwitchSelectedColor: UIKit.UIColor {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc open var tabBarSwitchDefaultColor: UIKit.UIColor? {
     @objc get
   }
+  #endif
   @objc open var tabBarBackgroundAlpha: CoreFoundation.CGFloat {
     @objc get
   }
@@ -135,18 +181,28 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerAnimatedTransitioning {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func transitionDuration(using transitionContext: (any UIKit.UIViewControllerContextTransitioning)?) -> Foundation.TimeInterval
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func animateTransition(using transitionContext: any UIKit.UIViewControllerContextTransitioning)
 }
 extension GiphyUISDK.GPHWrapperViewController : UIKit.UIViewControllerTransitioningDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> (any UIKit.UIViewControllerAnimatedTransitioning)?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> (any UIKit.UIViewControllerAnimatedTransitioning)?
+  #endif
 }
 extension GiphyUISDK.GPHVideoPlayerView : GiphyUISDK.GPHVideoPlayerStateListener {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func playerDidFail(_ description: Swift.String?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func muteDidChange(isMuted: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func mediaDidChange(media: GiphyUISDK.GPHMedia?)
+  #endif
 }
 @objcMembers public class GPHNetworkReachability {
   @objc public init()
@@ -157,14 +213,18 @@ extension GiphyUISDK.GPHVideoPlayerView : GiphyUISDK.GPHVideoPlayerStateListener
   case mp4
   case gif
   case webp
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 extension GiphyUISDK.GPHMedia {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func url(rendition: GiphyUISDK.GPHRenditionType, fileType: GiphyUISDK.GPHFileExtension) -> Swift.String?
+  #endif
   @objc dynamic public var aspectRatio: CoreFoundation.CGFloat {
     @objc get
   }
@@ -218,27 +278,37 @@ extension GiphyUISDK.GPHMedia {
   @objc public var user: GiphyUISDK.GPHUser? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var images: GiphyUISDK.GPHImages? {
     @objc get
   }
+  #endif
   @objc public var tags: [Swift.String]? {
     get
   }
   @objc public var featuredTags: [Swift.String]? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var importDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var createDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var updateDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var trendingDate: Foundation.Date? {
     @objc get
   }
+  #endif
   @objc @GiphyUISDK.CodableBool public var isDynamic: Swift.Bool {
     @objc get
   }
@@ -248,9 +318,11 @@ extension GiphyUISDK.GPHMedia {
   public var analytics: GiphyUISDK.AnyCodable? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var video: GiphyUISDK.GPHVideo? {
     @objc get
   }
+  #endif
   @objc public var analyticsResponsePayload: Swift.String? {
     get
   }
@@ -293,13 +365,19 @@ extension GiphyUISDK.GPHMedia {
   @objc public var callToAction: GiphyUISDK.CallToAction? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ id: Swift.String, type: GiphyUISDK.GPHMediaType, url: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -314,7 +392,9 @@ extension GiphyUISDK.GPHMedia {
   }
 }
 extension GiphyUISDK.GPHMedia : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMedia
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHMedia
 }
 @objc public class PingbackSubmissionQueue : ObjectiveC.NSObject {
@@ -335,7 +415,9 @@ public protocol GPHAttributionDelegate : AnyObject {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GiphyAttributionViewController : UIKit.UIViewController {
@@ -345,8 +427,12 @@ public protocol GPHAttributionDelegate : AnyObject {
   @_Concurrency.MainActor @preconcurrency public var renditionType: GiphyUISDK.GPHRenditionType
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class PingbackDeduplicator {
@@ -357,22 +443,38 @@ public protocol GPHAttributionDelegate : AnyObject {
 }
 public protocol GPHMappable {
   associatedtype GPHMappableObject
+  #if compiler(>=5.3) && $NonescapableTypes
   static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> Self.GPHMappableObject
+  #endif
 }
 extension GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseDate(_ date: Swift.String?) -> Foundation.Date?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseDate(_ date: Swift.String?, format: Swift.String) -> Foundation.Date?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseURL(_ url: Swift.String?) -> Foundation.URL?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseRating(_ rating: Swift.String?) -> GiphyUISDK.GPHRatingType
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseInt(_ number: Swift.String?) -> Swift.Int?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func parseString(_ number: Swift.Int?) -> Swift.String?
+  #endif
 }
 extension UIKit.UIColor {
   convenience public init(hex: Swift.UInt)
   public var rgba: (r: CoreFoundation.CGFloat, g: CoreFoundation.CGFloat, b: CoreFoundation.CGFloat, a: CoreFoundation.CGFloat) {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public func toHexString() -> Swift.String?
+  #endif
   public class var giphyBlack: UIKit.UIColor {
     get
   }
@@ -441,9 +543,11 @@ extension UIKit.UIColor {
   @objc public var username: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableIntToStr public var userId: Swift.String? {
     @objc get
   }
+  #endif
   @objc public var name: Swift.String? {
     get
   }
@@ -516,22 +620,32 @@ extension UIKit.UIColor {
   @objc @GiphyUISDK.CodableBool public var suppressChrome: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var loginDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @GiphyUISDK.CodableDate public var joinDate: Foundation.Date? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ username: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
@@ -543,7 +657,9 @@ extension GiphyUISDK.GPHUser {
   }
 }
 extension GiphyUISDK.GPHUser : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHUser
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHUser
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHBottleTransferData : ObjectiveC.NSObject, Swift.Codable {
@@ -576,9 +692,13 @@ extension GiphyUISDK.GPHUser : GiphyUISDK.GPHMappable {
   }
   @objc public var userDictionary: [Swift.String : Any]?
   @objc convenience public init(_ name: Swift.String, nameEncoded: Swift.String, encodedPath: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc required convenience public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @objc public func encode(with aCoder: Foundation.NSCoder)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -594,22 +714,32 @@ extension GiphyUISDK.GPHCategory {
   }
 }
 extension GiphyUISDK.GPHCategory : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHCategory
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHCategory
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GPHTextField : UIKit.UITextField {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var next: UIKit.UIResponder? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func textRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func editingRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension Foundation.URLRequest {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func firePixel(_ retriesRemaining: Swift.Int, session: Foundation.URLSession = URLSession.shared, completion: ((_ error: (any Swift.Error)?) -> ())?)
+  #endif
 }
 extension GiphyUISDK.GPHMedia {
   @objc dynamic public var isVideo: Swift.Bool {
@@ -618,15 +748,21 @@ extension GiphyUISDK.GPHMedia {
   @objc dynamic public var videoDetailURL: Swift.String {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var videoDuration: Swift.Float? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var smallVideoAssetURL: Swift.String? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var clipsDetailVideoAssetURL: Swift.String? {
     @objc get
   }
+  #endif
   @objc dynamic public func availableMp4Url() -> Swift.String
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHVideoAsset : GiphyUISDK.GPHFilterable, Swift.Codable {
@@ -643,7 +779,9 @@ extension GiphyUISDK.GPHMedia {
     @objc get
   }
   @objc convenience public init(_ mediaId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -689,23 +827,29 @@ extension GiphyUISDK.GPHSearchSuggestionType : Swift.Equatable {
   public static func == (lhs: GiphyUISDK.GPHSearchSuggestionType, rhs: GiphyUISDK.GPHSearchSuggestionType) -> Swift.Bool
 }
 extension GiphyUISDK.GPHMedia {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var injectedPixels: [Swift.String]? {
     @objc get
   }
+  #endif
 }
 extension GiphyUISDK.GPHMedia {
   @objc dynamic public var isEmoji: Swift.Bool {
     @objc get
     @objc set(newValue)
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var pingbacksAttributes: GiphyUISDK.Attributes? {
     @objc get
     @objc set(newValue)
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var responseId: Swift.String? {
     @objc get
     @objc set(newValue)
   }
+  #endif
 }
 public typealias GPHFilterBlock = (_ obj: GiphyUISDK.GPHFilterable) -> Swift.Bool
 @_inheritsConvenienceInitializers @objc open class GPHFilterable : ObjectiveC.NSObject {
@@ -722,27 +866,47 @@ extension GiphyUISDK.GiphyViewController {
   @_Concurrency.MainActor @preconcurrency convenience public init(media: GiphyUISDK.GPHMedia)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
   @objc deinit
 }
 extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var pingbacksEventType: Swift.String? {
     @objc get
     @objc set(newValue)
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public var bottleDataTags: [Swift.String]? {
     @objc get
   }
+  #endif
 }
 @objc public protocol TrackingMetaMedia {
   @objc var id: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var responseId: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var pingbacksEventType: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var pingbacksAttributes: [Swift.String : Swift.String]? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var analyticsResponsePayload: Swift.String? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var bottleDataTags: [Swift.String]? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc var injectedPixels: [Swift.String]? { get }
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor @preconcurrency public class GiphyViewController : GiphyUISDK.GPHWrapperViewController {
   @objc @_Concurrency.MainActor @preconcurrency public var swiftUIEnabled: Swift.Bool {
@@ -814,12 +978,28 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
     @objc get
     @objc set
   }
+  @_Concurrency.MainActor @preconcurrency public var gender: GiphyUISDK.GPHGender? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public var ageGroup: GiphyUISDK.GPHAgeGroup? {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency public var dobISOString: Swift.String? {
+    @objc get
+    @objc set
+  }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public var prefersStatusBarHidden: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class CallToAction : ObjectiveC.NSObject, Swift.Codable {
@@ -836,7 +1016,9 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
 }
 @available(iOS 13, *)
 @_Concurrency.MainActor @preconcurrency public struct GiphyView : SwiftUI.UIViewControllerRepresentable {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(configuration: GiphyUISDK.GiphyViewConfiguration? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: GiphyUISDK.GiphyView.Context) -> GiphyUISDK.GiphyViewController
   @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: GiphyUISDK.GiphyViewController, context: GiphyUISDK.GiphyView.Context)
   @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> GiphyUISDK.GiphyView.Coordinator
@@ -844,7 +1026,9 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
     @objc public func didSearch(for term: Swift.String)
     @objc public func didCreate(for term: Swift.String)
     @objc public func didSelectMedia(giphyViewController: GiphyUISDK.GiphyViewController, media: GiphyUISDK.GPHMedia, contentType: GiphyUISDK.GPHContentType)
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func didDismiss(controller: GiphyUISDK.GiphyViewController?)
+    #endif
     @objc public func didTapSuggestion(_ suggestion: GiphyUISDK.GPHSuggestion)
     @objc public func errorDidOccur(_ error: any Swift.Error)
     @objc deinit
@@ -856,12 +1040,24 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
 }
 @available(iOS 13, *)
 extension GiphyUISDK.GiphyView {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onSearch(perform action: ((Swift.String) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onCreate(perform action: ((Swift.String) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onSelectMedia(perform action: ((GiphyUISDK.GPHMedia, GiphyUISDK.GPHContentType?) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onDismiss(perform action: (() -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onTapSuggestion(perform action: ((GiphyUISDK.GPHSuggestion) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onError(perform action: ((any Swift.Error) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyView
+  #endif
 }
 public struct GiphyViewConfiguration {
   public let theme: GiphyUISDK.GPHThemeType?
@@ -873,7 +1069,12 @@ public struct GiphyViewConfiguration {
   public let renditionType: GiphyUISDK.GPHRenditionType
   public let clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType
   public let fileExtension: GiphyUISDK.GPHFileExtension
-  public init(theme: GiphyUISDK.GPHThemeType? = nil, mediaTypeConfig: [GiphyUISDK.GPHContentType]? = nil, placeholderText: Swift.String? = nil, disableClipsWarning: Swift.Bool = false, enableDynamicText: Swift.Bool = true, rating: GiphyUISDK.GPHRatingType = .ratedPG13, renditionType: GiphyUISDK.GPHRenditionType? = nil, clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType? = nil, fileExtension: GiphyUISDK.GPHFileExtension? = nil)
+  public let gender: GiphyUISDK.GPHGender?
+  public let ageGroup: GiphyUISDK.GPHAgeGroup?
+  public let dobISOString: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(theme: GiphyUISDK.GPHThemeType? = nil, mediaTypeConfig: [GiphyUISDK.GPHContentType]? = nil, placeholderText: Swift.String? = nil, disableClipsWarning: Swift.Bool = false, enableDynamicText: Swift.Bool = true, rating: GiphyUISDK.GPHRatingType = .ratedPG13, renditionType: GiphyUISDK.GPHRenditionType? = nil, clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType? = nil, fileExtension: GiphyUISDK.GPHFileExtension? = nil, gender: GiphyUISDK.GPHGender? = nil, ageGroup: GiphyUISDK.GPHAgeGroup? = nil, dobISOString: Swift.String? = nil)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency public class GPHVideoPlayerView : UIKit.UIView {
   @objc @_Concurrency.MainActor @preconcurrency public var media: GiphyUISDK.GPHMedia? {
@@ -921,7 +1122,9 @@ public typealias GPHCompletionHandler = (_ response: Foundation.URLResponse?, _ 
   @objc deinit
 }
 public class GPHPingbackUser : Swift.Codable {
+  #if compiler(>=5.3) && $NonescapableTypes
   required public init(userId: Swift.String, loggedInUserId: Swift.String?)
+  #endif
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -936,7 +1139,9 @@ public protocol GPHSearchBarDelegate : AnyObject {
   @_Concurrency.MainActor @preconcurrency public func endEditing()
   @_Concurrency.MainActor @preconcurrency public func setText(_ text: Swift.String)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension GiphyUISDK.GPHSearchBar : UIKit.UITextFieldDelegate {
@@ -979,13 +1184,19 @@ extension GiphyUISDK.GPHSearchBar : UIKit.UITextFieldDelegate {
   @objc @GiphyUISDK.CodableStrToInt public var mp4Size: Swift.Int {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ mediaId: Swift.String, rendition: GiphyUISDK.GPHRenditionType)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -1001,13 +1212,19 @@ extension GiphyUISDK.GPHImage {
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GPHWrapperViewController : UIKit.UIViewController {
   @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @objc deinit
 }
 @objc public protocol GPHGridDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func contentDidUpdate(resultCount: Swift.Int, error: (any Swift.Error)?)
+  #endif
   @objc func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
   @objc func didSelectMoreByYou(query: Swift.String)
   @objc func didScroll(offset: CoreFoundation.CGFloat)
@@ -1062,8 +1279,12 @@ public struct EmojiSettings {
   @_Concurrency.MainActor @preconcurrency @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDataSource {
@@ -1078,11 +1299,15 @@ extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHWaterfallLayoutDelegate
 }
 extension GiphyUISDK.GiphyGridController : UIKit.UICollectionViewDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(iOS 13.0, *)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, contextMenuConfigurationForItemAt indexPath: Foundation.IndexPath, point: CoreFoundation.CGPoint) -> UIKit.UIContextMenuConfiguration?
+  #endif
 }
 extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHTrackingDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func trackingMediaForIndexPath(_ item: Foundation.IndexPath) -> (any GiphyUISDK.TrackingMetaMedia)?
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHBottleData : ObjectiveC.NSObject, Swift.Codable {
@@ -1111,7 +1336,9 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   public var errorCode: Swift.Int {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(statusCode: Swift.Int, description: Swift.String? = nil)
+  #endif
   public static var errorDomain: Swift.String
   public var errorUserInfo: [Swift.String : Any] {
     get
@@ -1127,7 +1354,9 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
   @objc optional func didCreate(for term: Swift.String)
   @objc optional func didSelectMedia(giphyViewController: GiphyUISDK.GiphyViewController, media: GiphyUISDK.GPHMedia)
   @objc optional func didSelectMedia(giphyViewController: GiphyUISDK.GiphyViewController, media: GiphyUISDK.GPHMedia, contentType: GiphyUISDK.GPHContentType)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func didDismiss(controller: GiphyUISDK.GiphyViewController?)
+  #endif
   @objc optional func didTapSuggestion(_ suggestion: GiphyUISDK.GPHSuggestion)
   @objc optional func errorDidOccur(_ error: any Swift.Error)
   @objc optional func syntheticErrorDidOccur()
@@ -1153,8 +1382,12 @@ public struct GPHPingbackHTTPError : Foundation.CustomNSError {
     get
     set
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHTabBarDelegate {
@@ -1165,13 +1398,17 @@ extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHAttributionDelegate {
 }
 extension GiphyUISDK.GiphySearchController {
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func didTapUsername(_ username: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency dynamic public func didLongPressCell(_ cell: GiphyUISDK.GPHMediaCell?)
+  #endif
 }
 extension GiphyUISDK.GiphySearchController : GiphyUISDK.GPHGridDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func errorDidOccur(_ error: any Swift.Error)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func syntheticErrorDidOccur()
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didSelectMoreByYou(query: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: (any Swift.Error)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didScroll(offset: CoreFoundation.CGFloat)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
 }
@@ -1186,7 +1423,9 @@ public struct GiphyGridConfiguration {
   public let renditionType: GiphyUISDK.GPHRenditionType
   public let clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType
   public let enableDynamicResultsInTextSearch: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(theme: GiphyUISDK.GPHThemeType? = nil, emojiSettings: GiphyUISDK.EmojiSettings = EmojiSettings(), direction: UIKit.UICollectionView.ScrollDirection = .vertical, rating: GiphyUISDK.GPHRatingType = .ratedPG13, fixedSizeCells: Swift.Bool = false, numberOfTracks: Swift.Int? = nil, imageFileExtensionForDynamicAssets: GiphyUISDK.GPHFileExtension = .gif, renditionType: GiphyUISDK.GPHRenditionType? = nil, clipsPreviewRenditionType: GiphyUISDK.GPHRenditionType? = nil, enableDynamicResultsInTextSearch: Swift.Bool = false)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class GPHTextLoadingView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
@@ -1256,7 +1495,9 @@ extension GiphyUISDK.AnyCodable : Swift.Encodable {
 public typealias Attributes = [Swift.String : Swift.String]
 public class GPHAnalyticsEvent : Swift.Codable {
   public var eventType: GiphyUISDK.GPHEventType?
+  #if compiler(>=5.3) && $NonescapableTypes
   required public init(analyticsResponsePayload: Swift.String, eventType: GiphyUISDK.GPHEventType?, actionType: GiphyUISDK.GPHActionType, gifId: Swift.String, tid: Swift.String? = nil, ts: Swift.Int64 = Int64(1000.0 * Double(Date().timeIntervalSince1970)), attributes: GiphyUISDK.Attributes? = nil, userId: Swift.String, loggedInUserId: Swift.String?, randomId: Swift.String?)
+  #endif
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -1268,7 +1509,9 @@ public class GPHAnalyticsEvent : Swift.Codable {
   @objc public var pagination: GiphyUISDK.GPHPagination? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta, data: [GiphyUISDK.GPHCategory]?, pagination: GiphyUISDK.GPHPagination?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1278,7 +1521,9 @@ extension GiphyUISDK.GPHListCategoryResponse {
   }
 }
 extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListCategoryResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHListCategoryResponse
 }
 @objc public enum GPHVideoPlayerState : Swift.Int {
@@ -1288,7 +1533,9 @@ extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
   case paused
   case repeated
   case idle
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1296,9 +1543,13 @@ extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
 }
 @objc public protocol GPHVideoPlayerStateListener {
   @objc optional func playerStateDidChange(_ state: GiphyUISDK.GPHVideoPlayerState)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc optional func playerDidFail(_ description: Swift.String?)
+  #endif
   @objc optional func muteDidChange(isMuted: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc optional func mediaDidChange(media: GiphyUISDK.GPHMedia?)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers public class CaptionState : ObjectiveC.NSObject {
   public static var enabled: Swift.Bool {
@@ -1315,7 +1566,9 @@ extension GiphyUISDK.GPHListCategoryResponse : GiphyUISDK.GPHMappable {
 extension GiphyUISDK.GPHVideoPlayer {
   @objc dynamic public func add(listener: any GiphyUISDK.GPHVideoPlayerStateListener)
   @objc dynamic public func remove(listener: any GiphyUISDK.GPHVideoPlayerStateListener)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func prepareMedia(media: GiphyUISDK.GPHMedia, view: GiphyUISDK.GPHVideoPlayerView?)
+  #endif
   @objc dynamic public func loadMedia(media: GiphyUISDK.GPHMedia, autoPlay: Swift.Bool = true, muteOnPlay: Swift.Bool = false, view: GiphyUISDK.GPHVideoPlayerView, repeatable: Swift.Bool = true)
   @objc dynamic public func pause()
   @objc dynamic public func resume()
@@ -1346,7 +1599,9 @@ extension GiphyUISDK.GPHVideoPlayer {
   @objc public var pagination: GiphyUISDK.GPHPagination? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta, data: [GiphyUISDK.GPHChannel]?, pagination: GiphyUISDK.GPHPagination?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1356,7 +1611,9 @@ extension GiphyUISDK.GPHListChannelResponse {
   }
 }
 extension GiphyUISDK.GPHListChannelResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListChannelResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHListChannelResponse
 }
 @_hasMissingDesignatedInitializers @objc public class GPHPingbacksAbstractClient : ObjectiveC.NSObject {
@@ -1373,29 +1630,47 @@ public typealias GPHJSONCompletionHandler = (_ data: GiphyUISDK.GPHJSONObject?, 
   }
   @objc public var customHeaders: [Swift.String : Swift.String]?
   @objc public init(apiKey: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func gifByID(_ id: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func gifsByIDs(_ ids: [Swift.String], context: Swift.String? = nil, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func emoji(offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func defaultEmojis(offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func emojiVariationsByID(_ id: Swift.String, context: Swift.String? = nil, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func trendingSearches(timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListTermSuggestionResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func channelsSearch(_ query: Swift.String, offset: Swift.Int = 0, limit: Swift.Int = 25, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListChannelResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @objc public func animate(_ query: Swift.String, timeoutInterval: Foundation.TimeInterval = 60, completionHandler: @escaping (_ response: GiphyUISDK.GPHListMediaResponse?, _ error: (any Swift.Error)?) -> Swift.Void) -> Foundation.Operation
+  #endif
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHListTermSuggestionResponse : GiphyUISDK.GPHResponse {
   @objc public var data: [Swift.String]? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta?, data: [Swift.String]?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1405,7 +1680,9 @@ extension GiphyUISDK.GPHListTermSuggestionResponse {
   }
 }
 extension GiphyUISDK.GPHListTermSuggestionResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListTermSuggestionResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHListTermSuggestionResponse
 }
 public enum GradientDirection {
@@ -1423,7 +1700,9 @@ public enum GradientDirection {
     @objc get
   }
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 @objc public enum GPHStickerColumnCount : Swift.Int {
@@ -1433,7 +1712,9 @@ public enum GradientDirection {
   case two
   case three
   case four
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1447,7 +1728,9 @@ public enum GradientDirection {
   public static var defaultSetting: GiphyUISDK.GPHGifButtonColor {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1471,7 +1754,9 @@ public enum GPHCoreRequestType : Swift.String {
   case patch
   case delete
   case upload
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1480,7 +1765,9 @@ public enum GPHCoreRequestType : Swift.String {
 public enum GPHRequestRouter {
   case request(Swift.String, Swift.String, GiphyUISDK.GPHCoreRequestType, [Foundation.URLQueryItem]?, [Swift.String : Swift.String]?)
   public func encodedURLQueryItem(_ queryItem: Foundation.URLQueryItem) -> Foundation.URLQueryItem
+  #if compiler(>=5.3) && $NonescapableTypes
   public func asURLRequest(_ apiKey: Swift.String, httpBody: Foundation.Data? = nil, contentType: Swift.String? = nil) -> Foundation.URLRequest
+  #endif
 }
 @objc public protocol GPHMediaViewDelegate {
   @objc func didPressMoreByUser(_ user: Swift.String)
@@ -1492,18 +1779,26 @@ public enum GPHRequestRouter {
   }
   @objc @_Concurrency.MainActor @preconcurrency public var showAttribution: Swift.Bool
   @objc @_Concurrency.MainActor @preconcurrency public var theme: GiphyUISDK.GPHTheme?
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @_Concurrency.MainActor @preconcurrency public var media: GiphyUISDK.GPHMedia? {
     @objc get
     @objc set
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
   @objc @_Concurrency.MainActor @preconcurrency public func loadAsset(at url: Swift.String, queueOriginalRendition: Swift.Bool = false)
   @objc @_Concurrency.MainActor @preconcurrency public func cancelLoading()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(image: UIKit.UIImage?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @available(iOS 3.0, *)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  #endif
   @objc deinit
 }
 extension GiphyUISDK.GPHMediaView {
@@ -1513,7 +1808,9 @@ extension GiphyUISDK.GPHMediaView {
   @objc public var data: GiphyUISDK.GPHChannel? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta, data: GiphyUISDK.GPHChannel?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1523,7 +1820,9 @@ extension GiphyUISDK.GPHChannelResponse {
   }
 }
 extension GiphyUISDK.GPHChannelResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHChannelResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHChannelResponse
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHVideoAssets : GiphyUISDK.GPHFilterable, Swift.Codable {
@@ -1548,12 +1847,16 @@ extension GiphyUISDK.GPHChannelResponse : GiphyUISDK.GPHMappable {
   @objc public var highRes: GiphyUISDK.GPHVideoAsset? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ mediaId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -1568,7 +1871,9 @@ extension GiphyUISDK.GPHVideoAssets {
   }
 }
 extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHVideoAssets
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHVideoAssets
 }
 @objc @_inheritsConvenienceInitializers public class GPHRecents : ObjectiveC.NSObject {
@@ -1595,7 +1900,9 @@ extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
   @objc deinit
 }
 @objc public protocol GPHTrackingDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc func trackingMediaForIndexPath(_ item: Foundation.IndexPath) -> (any GiphyUISDK.TrackingMetaMedia)?
+  #endif
   @objc func mediaIsLoadedAtIndexPath(_ item: Foundation.IndexPath) -> Swift.Bool
   @objc optional func impressionOccurred(media: any GiphyUISDK.TrackingMetaMedia)
 }
@@ -1604,7 +1911,9 @@ extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
   public static var versionString: Swift.String
   public var userID: Swift.String?
   weak public var delegate: (any GiphyUISDK.GPHTrackingDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(collectionView: UIKit.UICollectionView?)
+  #endif
   @objc public func updateTracking()
   @discardableResult
   @objc public class func track(media: any GiphyUISDK.TrackingMetaMedia, userID: Swift.String = "", actionType: GiphyUISDK.GPHActionType) -> Swift.Bool
@@ -1613,12 +1922,16 @@ extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
 }
 @available(iOS 13, *)
 @_Concurrency.MainActor @preconcurrency public struct GiphyGridView : SwiftUI.UIViewControllerRepresentable {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(content: SwiftUICore.Binding<GiphyUISDK.GPHContent>, gridConfiguration: GiphyUISDK.GiphyGridConfiguration? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public func makeUIViewController(context: GiphyUISDK.GiphyGridView.Context) -> GiphyUISDK.GiphyGridController
   @_Concurrency.MainActor @preconcurrency public func updateUIViewController(_ uiViewController: GiphyUISDK.GiphyGridController, context: GiphyUISDK.GiphyGridView.Context)
   @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> GiphyUISDK.GiphyGridView.Coordinator
   @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, GiphyUISDK.GPHGridDelegate {
+    #if compiler(>=5.3) && $NonescapableTypes
     @objc public func contentDidUpdate(resultCount: Swift.Int, error: (any Swift.Error)?)
+    #endif
     @objc public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
     @objc public func didSelectMoreByYou(query: Swift.String)
     @objc public func didScroll(offset: CoreFoundation.CGFloat)
@@ -1632,11 +1945,21 @@ extension GiphyUISDK.GPHVideoAssets : GiphyUISDK.GPHMappable {
 }
 @available(iOS 13, *)
 extension GiphyUISDK.GiphyGridView {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onContentUpdate(perform action: ((Swift.Int, (any Swift.Error)?) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyGridView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onSelectMedia(perform action: ((GiphyUISDK.GPHMedia) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyGridView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onSelectMoreByYou(perform action: ((Swift.String) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyGridView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onScroll(perform action: ((CoreFoundation.CGFloat) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyGridView
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func onError(perform action: ((any Swift.Error) -> Swift.Void)? = nil) -> GiphyUISDK.GiphyGridView
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHVideo : GiphyUISDK.GPHFilterable, Swift.Codable {
   @objc public var mediaId: Swift.String {
@@ -1651,12 +1974,16 @@ extension GiphyUISDK.GiphyGridView {
   public var duration: Swift.Float? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ mediaId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -1729,12 +2056,16 @@ extension GiphyUISDK.GPHVideo {
   @objc public var ancestors: Swift.Array<GiphyUISDK.GPHChannel> {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc public init(_ id: Swift.Int)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -1748,24 +2079,32 @@ extension GiphyUISDK.GPHChannel {
   }
 }
 extension GiphyUISDK.GPHChannel : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHChannel
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHChannel
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHCache : ObjectiveC.NSObject {
   @objc public static let shared: GiphyUISDK.GPHCache
   @objc public var cache: Foundation.URLCache
   @objc public func clear()
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @discardableResult
   public func downloadAssetData(_ urlString: Swift.String, completion: ((Foundation.Data?, (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionDataTask?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc @discardableResult
   public func downloadAsset(_ urlString: Swift.String, key: Swift.String? = nil, completion: ((GiphyUISDK.GiphyYYImage?, (any Swift.Error)?) -> Swift.Void)?) -> Foundation.URLSessionDataTask?
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
 @objc public enum GPHEventType : Swift.Int, Swift.RawRepresentable, Swift.Codable, Swift.CustomStringConvertible {
   public typealias RawValue = Swift.String
   case recentlyPicked
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHEventType.RawValue)
+  #endif
   public var rawValue: GiphyUISDK.GPHEventType.RawValue {
     get
   }
@@ -1782,7 +2121,9 @@ extension GiphyUISDK.GPHChannel : GiphyUISDK.GPHMappable {
   case favorite
   case start
   case longpress
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHActionType.RawValue)
+  #endif
   public var rawValue: GiphyUISDK.GPHActionType.RawValue {
     get
   }
@@ -1797,7 +2138,9 @@ extension GiphyUISDK.GPHChannel : GiphyUISDK.GPHMappable {
   @objc public var pagination: GiphyUISDK.GPHPagination? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta, data: [GiphyUISDK.GPHMedia]?, pagination: GiphyUISDK.GPHPagination?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1807,14 +2150,18 @@ extension GiphyUISDK.GPHListMediaResponse {
   }
 }
 extension GiphyUISDK.GPHListMediaResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHListMediaResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHListMediaResponse
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHMediaResponse : GiphyUISDK.GPHResponse {
   @objc public var data: GiphyUISDK.GPHMedia? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init(_ meta: GiphyUISDK.GPHMeta, data: GiphyUISDK.GPHMedia?)
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1824,7 +2171,9 @@ extension GiphyUISDK.GPHMediaResponse {
   }
 }
 extension GiphyUISDK.GPHMediaResponse : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMediaResponse
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHMediaResponse
 }
 extension Foundation.NSNotification.Name {
@@ -1837,13 +2186,18 @@ public enum GPHRequestType : Swift.Int {
   case recents
   case animate
   case variations
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHContent : ObjectiveC.NSObject {
+  public var gender: GiphyUISDK.GPHGender?
+  public var ageGroup: GiphyUISDK.GPHAgeGroup?
+  @objc public var dobISOString: Swift.String?
   @objc public var contentCopy: GiphyUISDK.GPHContent {
     @objc get
   }
@@ -1866,10 +2220,16 @@ public enum GPHRequestType : Swift.Int {
   @objc public class var recents: GiphyUISDK.GPHContent {
     @objc get
   }
-  @objc public class func search(withQuery queryString: Swift.String, mediaType: GiphyUISDK.GPHMediaType, language: GiphyUISDK.GPHLanguageType, includeDynamicResults: Swift.Bool = false) -> GiphyUISDK.GPHContent
+  #if compiler(>=5.3) && $NonescapableTypes
+  public class func search(withQuery queryString: Swift.String, mediaType: GiphyUISDK.GPHMediaType, language: GiphyUISDK.GPHLanguageType, includeDynamicResults: Swift.Bool = false, gender: GiphyUISDK.GPHGender? = nil, ageGroup: GiphyUISDK.GPHAgeGroup? = nil, dobISOString: Swift.String? = nil) -> GiphyUISDK.GPHContent
+  #endif
   @objc public class func animate(_ input: Swift.String) -> GiphyUISDK.GPHContent
-  @objc public class func trending(mediaType: GiphyUISDK.GPHMediaType) -> GiphyUISDK.GPHContent
+  #if compiler(>=5.3) && $NonescapableTypes
+  public class func trending(mediaType: GiphyUISDK.GPHMediaType, gender: GiphyUISDK.GPHGender? = nil, ageGroup: GiphyUISDK.GPHAgeGroup? = nil, dobISOString: Swift.String? = nil) -> GiphyUISDK.GPHContent
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1883,7 +2243,9 @@ public enum GPHRequestType : Swift.Int {
   public static var defaultSetting: [GiphyUISDK.GPHContentType] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1892,11 +2254,15 @@ public enum GPHRequestType : Swift.Int {
 @objc open class GPHAbstractClient : ObjectiveC.NSObject {
   @objc open var _apiKey: Swift.String?
   @objc open var useReachability: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(_ apiKey: Swift.String?)
+  #endif
   public func updateUserAgent(agent: Swift.String)
   @discardableResult
   @objc public func httpRequest(with config: GiphyUISDK.GPHRequestConfig, completionHandler: @escaping GiphyUISDK.GPHJSONCompletionHandler) -> Foundation.Operation
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func parseJSONResponse<T>(_ config: GiphyUISDK.GPHRequestConfig, completionHandler: @escaping (_ response: T?, _ error: (any Swift.Error)?) -> Swift.Void) -> GiphyUISDK.GPHJSONCompletionHandler where T : GiphyUISDK.GPHResponse, T : GiphyUISDK.GPHMappable
+  #endif
   public func isNetworkReachable() -> Swift.Bool
   @objc deinit
 }
@@ -1907,67 +2273,109 @@ public enum GPHRequestType : Swift.Int {
   @objc public var original: GiphyUISDK.GPHImage? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var originalStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var preview: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var looping: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedHeight: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedHeightStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedHeightDownsampled: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedHeightSmall: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedHeightSmallStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedWidth: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedWidthStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedWidthDownsampled: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedWidthSmall: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var fixedWidthSmallStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var downsized: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var downsizedSmall: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var downsizedMedium: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var downsizedLarge: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var downsizedStill: GiphyUISDK.GPHImage? {
     @objc get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc public init(_ mediaId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc convenience public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -1976,7 +2384,9 @@ public enum GPHRequestType : Swift.Int {
   required public init(from decoder: any Swift.Decoder) throws
 }
 extension GiphyUISDK.GPHImages {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc dynamic public func rendition(_ rendition: GiphyUISDK.GPHRenditionType = .original) -> GiphyUISDK.GPHImage?
+  #endif
 }
 extension GiphyUISDK.GPHImages {
   @objc override dynamic public var description: Swift.String {
@@ -1992,7 +2402,9 @@ extension GiphyUISDK.GPHImages {
 }
 extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHGridDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didScroll(offset: CoreFoundation.CGFloat)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func contentDidUpdate(resultCount: Swift.Int, error: (any Swift.Error)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didSelectMedia(media: GiphyUISDK.GPHMedia, cell: UIKit.UICollectionViewCell)
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func didSelectMoreByYou(query: Swift.String)
 }
@@ -2005,7 +2417,9 @@ extension GiphyUISDK.GiphyGridController : GiphyUISDK.GPHGridDelegate {
   public enum LogLevel : Swift.Int {
     case disabled
     case enabled
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -2058,7 +2472,9 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   public var errorCode: Swift.Int {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(statusCode: Swift.Int, description: Swift.String? = nil)
+  #endif
   public static var errorDomain: Swift.String
   public var errorUserInfo: GiphyUISDK.GPHJSONObject {
     get
@@ -2076,7 +2492,9 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   public var endpointPathComponent: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHMediaType.RawValue)
+  #endif
 }
 @objc public enum GPHRenditionType : Swift.Int, Swift.RawRepresentable {
   case original
@@ -2102,7 +2520,9 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   public var rawValue: GiphyUISDK.GPHRenditionType.RawValue {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHRenditionType.RawValue)
+  #endif
 }
 @objc public enum GPHLanguageType : Swift.Int, Swift.RawRepresentable {
   case english
@@ -2141,7 +2561,9 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   public var rawValue: GiphyUISDK.GPHLanguageType.RawValue {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHLanguageType.RawValue)
+  #endif
 }
 @objc public enum GPHRatingType : Swift.Int, Swift.RawRepresentable {
   case ratedY
@@ -2155,11 +2577,15 @@ public struct GPHHTTPError : Foundation.CustomNSError {
   public var rawValue: GiphyUISDK.GPHRatingType.RawValue {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: GiphyUISDK.GPHRatingType.RawValue)
+  #endif
 }
 @objc public enum GPHPingbackRequestType : Swift.Int {
   case pingback
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2168,7 +2594,9 @@ public struct GPHHTTPError : Foundation.CustomNSError {
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHAsyncOperation : Foundation.Operation {
   public enum State : Swift.String {
     case ready, executing, finished
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
+    #endif
     public typealias RawValue = Swift.String
     public var rawValue: Swift.String {
       get
@@ -2201,17 +2629,25 @@ extension GiphyUISDK.GPHAsyncOperation {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class EmojiDrawerBackground : UIKit.UIView {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func setup(emojisWidth: Swift.Double? = nil, emojisHeight: Swift.Double, anchorTranslationX: Swift.Double, anchorWidth: Swift.Double, anchorHeight: Swift.Double, cornerRadius: Swift.Double, marginTop: Swift.Double = 0, marginHorizontal: Swift.Double = 0, gradientColorTop: UIKit.UIColor = UIColor(hex: 0xFFFFFF), gradientColorBottom: UIKit.UIColor = UIColor(hex: 0xD8D8D8))
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic open class var layerClass: Swift.AnyClass {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
   @objc deinit
 }
 extension GiphyUISDK.GPHVideoPlayer {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHPagination : ObjectiveC.NSObject {
   @objc public var totalCount: Swift.Int {
@@ -2239,7 +2675,9 @@ extension GiphyUISDK.GPHPagination {
   }
 }
 extension GiphyUISDK.GPHPagination : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHPagination
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHPagination
 }
 public protocol GPHTabBarDelegate : AnyObject {
@@ -2259,8 +2697,12 @@ public protocol GPHTabBarDelegate : AnyObject {
   @objc func scrollDirection() -> UIKit.UICollectionView.ScrollDirection
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class GPHWaterfallLayoutAttributes : UIKit.UICollectionViewLayoutAttributes {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
   @objc deinit
 }
@@ -2277,11 +2719,15 @@ public protocol GPHTabBarDelegate : AnyObject {
   public var rank: Swift.Int? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -2297,8 +2743,12 @@ extension GiphyUISDK.GPHChannelTag {
 }
 @objc @_inheritsConvenienceInitializers public class GiphyPingbacks : ObjectiveC.NSObject {
   @objc public class func configure(apiKey: Swift.String, verificationMode: Swift.Bool = false)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public class func addAdditionalHeaders(parameters: [Swift.String : Swift.String]?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public class func log(userId: Swift.String, loggedInUserId: Swift.String? = nil, analyticsResponsePayload: Swift.String? = nil, mediaId: Swift.String, tid: Swift.String? = nil, eventType: GiphyUISDK.GPHEventType? = nil, actionType: GiphyUISDK.GPHActionType, sessionId: Swift.String? = nil, attributes: GiphyUISDK.Attributes? = nil)
+  #endif
   @objc public class func flush()
   @objc public class func enableDebugLogging(_ enable: Swift.Bool)
   @objc public static var pingbacksId: Swift.String?
@@ -2327,19 +2777,25 @@ extension GiphyUISDK.GPHMeta {
   }
 }
 extension GiphyUISDK.GPHMeta : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHMeta
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHMeta
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class GPHTermSuggestion : GiphyUISDK.GPHFilterable, Swift.Codable {
   @objc public var term: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public var userDictionary: [Swift.String : Any]? {
     @objc get
     @objc set
   }
+  #endif
   @objc convenience public init(_ term: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  #endif
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
@@ -2354,9 +2810,17 @@ extension GiphyUISDK.GPHTermSuggestion {
   }
 }
 extension GiphyUISDK.GPHTermSuggestion : GiphyUISDK.GPHMappable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func mapData(_ data: GiphyUISDK.GPHJSONObject, options: [Swift.String : Any?]) throws -> GiphyUISDK.GPHTermSuggestion
+  #endif
   public typealias GPHMappableObject = GiphyUISDK.GPHTermSuggestion
 }
+extension GiphyUISDK.GPHGender : Swift.Equatable {}
+extension GiphyUISDK.GPHGender : Swift.Hashable {}
+extension GiphyUISDK.GPHGender : Swift.RawRepresentable {}
+extension GiphyUISDK.GPHAgeGroup : Swift.Equatable {}
+extension GiphyUISDK.GPHAgeGroup : Swift.Hashable {}
+extension GiphyUISDK.GPHAgeGroup : Swift.RawRepresentable {}
 extension GiphyUISDK.GPHThemeType : Swift.Equatable {}
 extension GiphyUISDK.GPHThemeType : Swift.Hashable {}
 extension GiphyUISDK.GPHThemeType : Swift.RawRepresentable {}

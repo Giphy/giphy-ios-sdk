@@ -1,5 +1,5 @@
 PODS:
-  - Giphy (2.2.16):
+  - Giphy (2.3.0):
     - libwebp
   - libwebp (1.5.0):
     - libwebp/demux (= 1.5.0)
@@ -15,7 +15,7 @@ PODS:
     - libwebp/sharpyuv
 
 DEPENDENCIES:
-  - Giphy (= 2.2.16)
+  - Giphy (= 2.3.0)
 
 SPEC REPOS:
   trunk:
@@ -23,9 +23,9 @@ SPEC REPOS:
     - libwebp
 
 SPEC CHECKSUMS:
-  Giphy: 55914215541027873875757f350530e6d8986fba
+  Giphy: 980856ee41d0a96def9cf9dcf341fce36d5fa5af
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
 
-PODFILE CHECKSUM: a86d5850ba9178121ec420611c2896132970eb67
+PODFILE CHECKSUM: 07f45d1218bd52679fc1e9ee2c5e09be71a1d2c6
 
 COCOAPODS: 1.16.2
