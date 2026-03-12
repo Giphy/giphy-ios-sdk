@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name GiphyUISDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AVFoundation
 import AVKit
 import CommonCrypto
@@ -926,6 +926,10 @@ extension GiphyUISDK.GPHMedia : GiphyUISDK.TrackingMetaMedia {
   @objc @_Concurrency.MainActor @preconcurrency public static var confirmationScreenChooseButtonText: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public static var noResultsText: Swift.String?
   @objc @_Concurrency.MainActor @preconcurrency public var enableDynamicText: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor @preconcurrency public var disableEmojiVariations: Swift.Bool {
     @objc get
     @objc set
   }
