@@ -17018,6 +17018,101 @@
           },
           {
             "kind": "Var",
+            "name": "disableEmojiVariations",
+            "printedName": "disableEmojiVariations",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(py)disableEmojiVariations",
+            "mangledName": "$s10GiphyUISDK0A14ViewControllerC22disableEmojiVariationsSbvp",
+            "moduleName": "GiphyUISDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "Preconcurrency",
+              "Custom",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(im)disableEmojiVariations",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC22disableEmojiVariationsSbvg",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@GiphyUISDK@objc(cs)GiphyViewController(im)setDisableEmojiVariations:",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC22disableEmojiVariationsSbvs",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10GiphyUISDK0A14ViewControllerC22disableEmojiVariationsSbvM",
+                "mangledName": "$s10GiphyUISDK0A14ViewControllerC22disableEmojiVariationsSbvM",
+                "moduleName": "GiphyUISDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "selectedContentType",
             "printedName": "selectedContentType",
             "children": [
@@ -68669,69 +68764,76 @@
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 2184,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3187,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3468,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4349,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 4386,
-      "length": 53,
-      "value": "\"mediaTypeConfig must have at least one content type\""
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4492,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 4565,
-      "length": 45,
-      "value": "\"mediaTypeConfig cannot only contain recents\""
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 4800,
-      "length": 403,
-      "value": "\"||| GIPHY SDK WARNING: You've included the Clips content type in your GIPHY integration. Clips (GIFs with Sound!) is a brand new content type we're offering in the GIPHY SDK. This feature may not be ready for production releases. See the clips.md file in the giphy-ios-sdk repo to learn more. Disable this warning by setting the `disableClipsWarning` property of the `GiphyViewController` to false |||\""
-    },
-    {
-      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5770,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7659,
+      "offset": 2388,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3391,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3672,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4553,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4590,
+      "length": 53,
+      "value": "\"mediaTypeConfig must have at least one content type\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4696,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4769,
+      "length": 45,
+      "value": "\"mediaTypeConfig cannot only contain recents\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5004,
+      "length": 403,
+      "value": "\"||| GIPHY SDK WARNING: You've included the Clips content type in your GIPHY integration. Clips (GIFs with Sound!) is a brand new content type we're offering in the GIPHY SDK. This feature may not be ready for production releases. See the clips.md file in the giphy-ios-sdk repo to learn more. Disable this warning by setting the `disableClipsWarning` property of the `GiphyViewController` to false |||\""
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5974,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/alex\/work\/proxet\/giphy\/ios\/giphy-ios-sdk-ui\/GiphyUISDK\/View Controller\/GiphyViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7863,
       "length": 5,
       "value": "false"
     },
