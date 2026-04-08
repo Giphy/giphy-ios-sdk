@@ -10,9 +10,7 @@ let package = Package(
             name: "GiphyUISDK",
             targets: ["GiphyUISDKWrapper"]),
     ],
-    dependencies: [
-        .package(name: "libwebp", url: "https://github.com/SDWebImage/libwebp-Xcode", from: "1.1.0")
-    ],
+    dependencies: [],
     targets: [
         .binaryTarget(
             name: "GiphyUISDK",
@@ -20,7 +18,7 @@ let package = Package(
         .target(
             name: "GiphyUISDKWrapper",
             dependencies: [
-                .target(name: "GiphyUISDK"), "libwebp"
+                .target(name: "GiphyUISDK")
             ],
             path: "./Sources"
         ),
