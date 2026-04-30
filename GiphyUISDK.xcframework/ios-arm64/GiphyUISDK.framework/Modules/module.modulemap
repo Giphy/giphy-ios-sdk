@@ -7,5 +7,4 @@ framework module GiphyUISDK {
 
 module GiphyUISDK.Swift {
   header "GiphyUISDK-Swift.h"
-  requires objc
 }
