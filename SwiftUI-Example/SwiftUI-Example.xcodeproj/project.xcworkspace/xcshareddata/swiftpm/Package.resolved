@@ -2,15 +2,6 @@
   "originHash" : "3cb4a6a5312e26752380b004b4788a95dd1b851023c228f581eb321f17f82b14",
   "pins" : [
     {
-      "identity" : "giphy-ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Giphy/giphy-ios-sdk",
-      "state" : {
-        "revision" : "ed91784fe854a8204a9f994282d87f9c18df5fac",
-        "version" : "2.3.1"
-      }
-    },
-    {
       "identity" : "libwebp-xcode",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/libwebp-Xcode",
