@@ -1,5 +1,14 @@
+platform :ios, '15.0'
 use_frameworks!
 target "ExampleObjectiveC" do 
-pod 'Giphy', :podspec => 'https://s3.amazonaws.com/sdk.mobile.giphy.com/SDK/2.2.1/Giphy.podspec'
+pod 'Giphy', '2.4.0'
 
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |configuration|
+      configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
 end

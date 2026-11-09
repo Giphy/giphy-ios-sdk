@@ -39,3 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+// Apps built with the iOS 27 SDK must use the scene life cycle. Info.plist's scene manifest names this
+// delegate and Main.storyboard, so UIKit creates the window and loads the storyboard itself.
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+}

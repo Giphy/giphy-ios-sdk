@@ -41,9 +41,9 @@
  
 
 ### Requirements 
-- iOS 13.0 or later   
+- iOS 15.0 or later   
 - A Giphy API key from the [Giphy Developer Portal](https://developers.giphy.com/dashboard/?create=true). 
-- Xcode 16 and later  
+- Xcode 26.4 or later (it includes the Swift 6.3 compiler, needed since version 2.4.0). Your app's code can still use Swift 5 language mode or Objective-C.  
 
 ### Github Example Repo 
 - Run the example app to see the GIPHY SDK in action with all of its configurations. Run `pod install` and set your API key [here](https://github.com/Giphy/giphy-ios-sdk-ui-example/blob/master/Swift/Example/ViewController.swift#L113) before building the example app. 
@@ -55,16 +55,35 @@
 Add the GiphyUISDK to your Podfile like so: 
 
 ```swift  
+platform :ios, '15.0'
+
 target "YourAppTarget" do 
 pod 'Giphy' 
 end
 ```
 **Note**: for pure Objective-C projects, add an empty swift file to your project and choose `Create the Bridging Header` when prompted by Xcode. This allows static libraries to be linked.
 
+**Starting with version 2.4.0**, the SDK requires iOS 15.0 or later. Set your Podfile's platform, and your app target's deployment target, to iOS 15.0 or later.
+
+The SDK depends on the `libwebp` pod, which still declares iOS 9.0. Xcode 27 rejects that with "The iOS Simulator deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 9.0, but the range of supported deployment target versions is 15.0 to 27.0.x". Raise the deployment target of all pods in your Podfile:
+
+```ruby
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
+end
+```
+If your Podfile already has a `post_install` block, add the `IPHONEOS_DEPLOYMENT_TARGET` line to it instead. React Native apps don't need this: `react_native_post_install` already raises every pod to React Native's minimum.
+
 ### Swift Package Manager  
 
 Add a new Swift Package to your app linking this repo (`https://github.com/Giphy/giphy-ios-sdk`).
 Swift Package Manager is supported for versions 2.1.3 and later.
+
+**Starting with version 2.4.0**, the package requires iOS 15.0 or later. Set your app target's iOS deployment target (Minimum Deployments in Xcode) to 15.0 or later. Otherwise Xcode reports that the `GiphyUISDK` product requires a minimum iOS version of 15.0.
 
 ### Carthage 
 
